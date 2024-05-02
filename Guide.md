@@ -4,9 +4,19 @@
 
 ### 0. Besoins (Johnny Hélène)
 
-### 1. Ce qui est déjà fait dans l’administration (cas d’usages et ya des infras et des modeles et des datasets open data ?) (Johnny Hélène Thibault)
+	Vision high level de l'intérêt des LLMs
+
+### 1. Ce qui est déjà fait dans l’administration (Johnny Hélène Thibault)
+
+	cas d’usage
+ 	des infras
+  	des modeles
+   	des datasets/open data ?
 
 ### 2. Besoin d’Acculturation (Supports!) (Johnny Hélène CamilleB)
+
+	Comment embarquer les métiers/personnels moins techniques
+ 	Points d'attention à partager sur l'utilisation de tels outils
 
 ### 3. Impacts (Katia Bruno Hélène)
 
