@@ -2,23 +2,23 @@
 
 ## PARTIE I. Accompagnement au changement
 
-### 0. Besoins (Johnny Hélène)
+### 1. Besoins (Johnny Hélène)
 
 	Vision high level de l'intérêt des LLMs
 
-### 1. Ce qui est déjà fait dans l’administration (Johnny Hélène Thibault)
+### 2. Ce qui est déjà fait dans l’administration (Johnny Hélène Thibault)
 
 	cas d’usage
  	des infras
   	des modeles
    	des datasets/open data ?
 
-### 2. Besoin d’Acculturation (Supports!) (Johnny Hélène CamilleB)
+### 3. Besoin d’Acculturation (Supports!) (Johnny Hélène CamilleB)
 
 	Comment embarquer les métiers/personnels moins techniques
  	Points d'attention à partager sur l'utilisation de tels outils
 
-### 3. Impacts (Katia Bruno Hélène)
+### 4. Impacts (Katia Bruno Hélène)
 
 	a. Environnementaux (poids de l’entraînement, poids de l’utilisation)
  
@@ -29,7 +29,7 @@
 
 ## PARTIE II. Développements autour des LLMs (pour les data scientists)
 
-### 0. Revue technique de l’état de l’art LLM (Malo Jérôme)
+### 1. Revue technique de l’état de l’art LLM (Malo Jérôme)
 
 	a. Architectures principales LLM
  
@@ -39,13 +39,13 @@
  
 	d. Quoi faire quand ? (arbre de décision)
 
-### 1. RAG (Hugo Malo Jérôme Daphné)
+### 2. RAG (Hugo Malo Jérôme Daphné)
 
 	a. pipelines,
  
 	b. presentations de modules avec RETEX, CODE!)
 
-### 2. Évaluations (Zhanna Daphné)
+### 3. Évaluations (Zhanna Daphné)
 
 	a. Métriques (biais, hallucinations, ...)
  
