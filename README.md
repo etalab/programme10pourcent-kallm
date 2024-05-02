@@ -44,13 +44,14 @@ Il est aujourd'hui difficile de savoir quel LLM est adapté pour son besoin spé
 | Membre | Administration |
 | ------ | -------------- |
 |Conrad THIOUNN| Dares - Ministère du Travail                |
-|  Johnny PLATON      |                | Santé publique France
+|  Johnny PLATON      | Santé publique France               |
 |    Thibault DUROUCHOUX    |                |
-|    Katia JODOGNE-DEL LITTO    |                |
+|    Katia JODOGNE-DEL LITTO    | IGF - Ministère de l'Economie et des Finances       |
 |   Faheem BEG     |                |
 | Camille ANDRÉ| |
 | Camille BRIER | DTNum - DGFiP |
 | Daphné PERTSEKOS | ANFSI - Ministère de l'intérieur|
+| Zhanna SANTYBAYEVA | DGOS - Ministère du travail, de la santé et des solidarités|
 
  ## Épilogue
 

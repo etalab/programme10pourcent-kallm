@@ -1,0 +1,59 @@
+# PARTIE III. Deploiements
+
+## 2. Socle avancé (Camille Jérôme Conrad)
+
+Optimisation, Monitoring, UX/UI (CODE!)
+
+### A. Outils pour surveiller les performances des GPU
+
+Une fois l'infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l'impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéallement, l'on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.
+
+Selon les technologies de GPUs utilisées, il existe différents outils qui se conncectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :
+
+* **nvidia-smi**
+* **AMD Vantage**
+* **GPU-Z**
+
+Voici un exemple de résultat de statistiques extraites d'une infrastructure GPUs :
+
+![Resultat de la commande nvidia-smi](../images/nvidia-smi.png "Resultat de la commande nvidia-smi")
+
+Il existe également d'autres moyens d'accéder à des GPUs que l'acquisition individuelle pour les administrations (voir Partie III.4).
+
+### B. Des interfaces déjà disponibles pour vos modèles LLMs
+
+Plusieurs initiatives permettent de déployer rapidement des interfaces de chat avec des modèles LLMs, voire des applications de RAG avec back et front. On peut remarquer :
+
+- la WebUI du module FastChat
+- l'application CARADOC, mise en open source par l'équipe DataScience de la DTNUM de la DGFiP, publication prévue pour fin juin 2024.
+
+Aperçu de l'application CARADOC pendant ses développements :
+
+![Interface de l'application RAG Caradoc](../images/chat.png "Interface de l'application RAG Caradoc")
+
+Aperçu d'un interface possible avec FastChat :
+
+![Interface de l'application Chat avec FastChat](../images/chat2.png "Interface de l'application Chat avec FastChat")
+
+Exemple de code pour lancer l'interface Gradio de FastChat dans un Docker :
+
+```bash
+version: "3.9"
+services:
+  fastchat-gradio-server: 
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      FASTCHAT_CONTROLLER_URL: http://0.0.0.0:21001
+      no_proxy: localhost,127.0.0.1,0.0.0.0
+    image: fastchat:latest
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./FastChat:/FastChat 
+    entrypoint: ["python3.9", "-m", "fastchat.serve.gradio_web_server_dtnum", "--controller-url", "http://0.0.0.0:21001", "--host", "0.0.0.0", "--port", "8001", "--model-list-mode", "reload"]
+```
+
+Avec toujours l'image Docker qui contient FastChat.

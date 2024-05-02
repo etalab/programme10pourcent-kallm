@@ -1,42 +1,84 @@
 # Guide du LLM
 
-## Identifier clairement le besoin (Johnny / Hélène)
+## PARTIE I. Accompagnement au changement
 
-* besoin
+### 1. Besoins (Johnny Hélène)
 
-* données (collecter)
+	Vision high level de l'intérêt des LLMs
 
-## Environnement institutionnel et informatique (Katia / Bruno)
+### 2. Ce qui est déjà fait dans l’administration (Johnny Hélène Thibault)
 
-* juridique de chaque admin
+	cas d’usage
+ 	des infras
+  	des modeles
+   	des datasets/open data ?
 
-* infra (sspcloud et autres clouds)
+### 3. Besoin d’Acculturation (Supports!) (Johnny Hélène CamilleB)
 
-## Benchmark LLM (Zhanna / Malo)
+	Comment embarquer les métiers/personnels moins techniques
+ 	Points d'attention à partager sur l'utilisation de tels outils
 
-* typologie LLM / choix non exhaustif de LLM testé ici
+### 4. Impacts et limites (Katia Bruno Hélène)
 
-### Evaluation avant finetuning (Daphné)
-
-* libraire d'eval ?
-* librarie d'annotation (label studio / autres)
-
-### Finetuning (ev.) et évaluation post-finetuning (Conrad )
-
-* Trainer (TRL)
-* qlora
-
-## Benchmark RAG (Johnny / )
-
-* Librairie utilisée (RAG : Langchain/LLamaindex)
-
-* Techniques autour des LLM (RAG,parser)
+	a. Environnementaux (poids de l’entraînement, poids de l’utilisation)
+ 
+	b. Légaux (RGPD, chartes de l’IA, IA Act, ...)
+ 
+	c. Sécurité (Renvoyer vers le guide de l’ANSSI)
 
 
-## Production (Camille Brier / Conrad / Jérôme)
+## PARTIE II. Développements autour des LLMs (pour les data scientists)
 
-* docker (image) et déploiement de l'image sur un cluster (Sspcloud ou autre) / pc local
+### 1. Revue technique de l’état de l’art LLM (Malo Jérôme)
 
-* vllm en api (back)
+	a. Architectures principales LLM
+ 
+	b. Méthodes de fine-tuning  (Conrad)
+ 
+	c. Prompt engineer (lien vers prompt guide)
+ 
+	d. Quoi faire quand ? (arbre de décision)
 
-* streamlit/dash et autres lib (front)
+### 2. RAG (Hugo Malo Jérôme Daphné Katia)
+
+	a. pipelines,
+
+ 	b. Benchmark des différentes bases vectorielles (Katia)
+ 
+	c. presentations de modules avec RETEX, CODE!)
+
+### 3. Évaluations (Zhanna Daphné)
+
+	a. Métriques (biais, hallucinations, ...)
+ 
+	b. Datasets
+ 
+	c. Librairies/Frameworks (CODE!)
+ 
+	d. Méthodologie (arbre de décision pour le décideur)
+
+### PARTIE III. Deploiements
+
+### 1. Socle minimal pour un LLM (Camille Jérôme Conrad)
+
+	a. vLLM + docker ? (CODE!)
+
+### 2. Socle avancé (Camille Jérôme Conrad)
+
+	Optimisation, Monitoring, UX/UI (CODE!)
+
+### 3. Socle pour production (Camille Jérôme Conrad)
+
+	Orchestrateur (CODE!)
+ 
+	Nvidia etc.
+
+### 4. Infras dispos pour l’administration (Thibault Katia)
+
+	SSP Cloud (Onyxia)
+ 
+	Cloud PI
+ 
+	Clouds privés (SECNUMCLOUD, Sens?)
+ 
+	(NuboNyxia à terme)
