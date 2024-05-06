@@ -51,6 +51,7 @@ Il est aujourd'hui difficile de savoir quel LLM est adapté pour son besoin spé
 | Camille ANDRÉ| |
 | Camille BRIER | DTNum - DGFiP |
 | Daphné PERTSEKOS | ANFSI - Ministère de l'intérieur|
+| Zhanna SANTYBAYEVA | DGOS - Ministère du travail, de la santé et des solidarités|
 
  ## Épilogue
 
