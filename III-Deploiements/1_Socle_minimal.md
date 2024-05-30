@@ -108,7 +108,7 @@ La documentation complète est disponible sur le repo du module : https://github
 Nous allons tout de même parcourir les grandes étapes pour pouvoir lancer son installation et ensuite l'utiliser.
 
 ##### RESTful API Server
-Il faut lancer le controller.
+Tout repose sur la complémentarité de trois services : le controller, les modèles et l'API. Il faut commencer par lancer le controller.
 
 ```bash
 python3 -m fastchat.serve.controller
