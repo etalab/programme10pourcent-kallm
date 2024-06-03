@@ -26,4 +26,29 @@ Plusieurs initiatives permettent de déployer rapidement des interfaces de chat 
 - la WebUI du module FastChat
 - l'application CARADOC, mise en open source par l'équipe DataScience de la DTNUM de la DGFiP, publication prévue pour fin juin 2024.
 
+Aperçu de l'application CARADOC pendant ses développements :
+
 ![Interface de l'application RAG Caradoc](chat.png "Interface de l'application RAG Caradoc")
+
+Exemple de code pour lancer l'interface Gradio de FastChat dans un Docker :
+
+```
+version: "3.9"
+services:
+  fastchat-gradio-server: 
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      FASTCHAT_CONTROLLER_URL: http://0.0.0.0:21001
+      no_proxy: localhost,127.0.0.1,0.0.0.0
+    image: fastchat:latest
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./FastChat:/FastChat 
+    entrypoint: ["python3.9", "-m", "fastchat.serve.gradio_web_server_dtnum", "--controller-url", "http://0.0.0.0:21001", "--host", "0.0.0.0", "--port", "8001", "--model-list-mode", "reload"]
+```
+
+Avec toujours l'image Docker qui contient FastChat.
