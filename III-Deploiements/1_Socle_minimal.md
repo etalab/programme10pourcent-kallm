@@ -38,21 +38,21 @@ Quels outils sont les mieux adaptés à nos besoins ? Comment choisir ? Voici un
 
 **Moteurs**
 
-TensorRT-LLM est une bibliothèque open-source qui optimise les performances d'inférence des grands modèles de langage (LLM) en utilisant les GPU NVIDIA Tensor Core. Elle utilise le parallélisme tensoriel, propose une API Python simple et comprend des versions optimisées de LLM populaires. Elle prend en charge le batching en vol et vise à simplifier la construction et l'expérimentation de nouveaux LLM. Cependant, les utilisateurs doivent spécifier la longueur d'entrée/sortie maximale et la taille de lot avant de construire le moteur, et la gestion de la mémoire du cache KV n'est pas open source.
+- TensorRT-LLM est une bibliothèque open-source qui optimise les performances d'inférence des grands modèles de langage (LLM) en utilisant les GPU NVIDIA Tensor Core. Elle utilise le parallélisme tensoriel, propose une API Python simple et comprend des versions optimisées de LLM populaires. Elle prend en charge le batching en vol et vise à simplifier la construction et l'expérimentation de nouveaux LLM. Cependant, les utilisateurs doivent spécifier la longueur d'entrée/sortie maximale et la taille de lot avant de construire le moteur, et la gestion de la mémoire du cache KV n'est pas open source.
 
-vLLM est une bibliothèque à hautes performances pour l'inférence et le service LLM, axée sur le débit de service et l'efficacité mémoire grâce à son mécanisme PagedAttention. Il prend en charge le batching continu, le parallélisme GPU et la sortie en streaming, ainsi que la compatibilité OpenAI. Cependant, la mémoire peut devenir un goulot d'étranglement avec des taux de demande élevés et de grandes tailles de lot.
+- vLLM est une bibliothèque à hautes performances pour l'inférence et le service LLM, axée sur le débit de service et l'efficacité mémoire grâce à son mécanisme PagedAttention. Il prend en charge le batching continu, le parallélisme GPU et la sortie en streaming, ainsi que la compatibilité OpenAI. Cependant, la mémoire peut devenir un goulot d'étranglement avec des taux de demande élevés et de grandes tailles de lot.
 
 **Serveurs**
 
-RayLLM avec RayServe est construit sur un framework de calcul distribué qui simplifie le développement et le déploiement de modèles d'IA à grande échelle. Il prend en charge les points de terminaison multi-modèles, les fonctionnalités serveur et les optimisations via les intégrations avec vLLM et TGI.
+- RayLLM avec RayServe est construit sur un framework de calcul distribué qui simplifie le développement et le déploiement de modèles d'IA à grande échelle. Il prend en charge les points de terminaison multi-modèles, les fonctionnalités serveur et les optimisations via les intégrations avec vLLM et TGI.
 
-Triton avec TensorRT-LLM fournit un logiciel d'inférence de serveur pour le déploiement et l'exécution efficaces de LLM avec des techniques telles que le batching en vol et le cache KV paginé.
+- Triton avec TensorRT-LLM fournit un logiciel d'inférence de serveur pour le déploiement et l'exécution efficaces de LLM avec des techniques telles que le batching en vol et le cache KV paginé.
 
 **Moteurs et serveurs**
 
-Génération de texte Inférence (TGI) est un serveur Rust, Python et gRPC utilisé chez HuggingFace pour HuggingChat, l'API d'inférence et le point de terminaison d'inférence. Il prend en charge le batching continu, le parallélisme tensoriel, la quantification, les mécanismes d'attention, le recuit simulé des logits et des LLM spécifiques. Cependant, la licence d'utilisation a été modifiée et n'est pas gratuite pour une utilisation commerciale.
+- Génération de texte Inférence (TGI) est un serveur Rust, Python et gRPC utilisé chez HuggingFace pour HuggingChat, l'API d'inférence et le point de terminaison d'inférence. Il prend en charge le batching continu, le parallélisme tensoriel, la quantification, les mécanismes d'attention, le recuit simulé des logits et des LLM spécifiques. Cependant, la licence d'utilisation a été modifiée et n'est pas gratuite pour une utilisation commerciale.
 
-Enfin, Fastchat est une solution auto-hébergée pour héberger des modèles d'IA génératifs et qui propose la gestion des modèles, des API OpenAI-compatibles et une web interface simple.
+- Enfin, Fastchat est une solution auto-hébergée pour héberger des modèles d'IA génératifs et qui propose la gestion des modèles, des API OpenAI-compatibles et une web interface simple.
 
 > Nous allons développer FastChat dans la partie suivante car c'est un outil qui a été testé et qui semble fournir beaucoup des éléments nécessaires pour une utilisation de première intention.
 
