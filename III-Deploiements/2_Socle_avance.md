@@ -30,6 +30,10 @@ Aperçu de l'application CARADOC pendant ses développements :
 
 ![Interface de l'application RAG Caradoc](chat.png "Interface de l'application RAG Caradoc")
 
+Aperçu d'un interface possible avec FastChat :
+
+![Interface de l'application Chat avec FastChat](chat2.png "Interface de l'application Chat avec FastChat")
+
 Exemple de code pour lancer l'interface Gradio de FastChat dans un Docker :
 
 ```
