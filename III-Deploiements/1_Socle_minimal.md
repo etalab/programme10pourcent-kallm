@@ -1,24 +1,22 @@
-# Guide du LLM
+# PARTIE III. Deploiements
 
-## PARTIE III. Deploiements
-
-### 1. Socle minimal pour un LLM (Camille Jérôme Conrad)
+## 1. Socle minimal pour un LLM (Camille Jérôme Conrad)
 
 Pour déployer un grand modèle de langage (LLM) dans une infrastructure, il est essentiel de comprendre comment requêter le modèle, les quelques couches techniques immédiates qui l'entourent et les solutions disponibles pour un déploiement efficace.
 
-#### A. Ce dont vous avez besoin pour mettre à disposition un LLM
+### A. Ce dont vous avez besoin pour mettre à disposition un LLM
 
 Lorsqu'il s'agit de mettre en service des applications basées sur des LLM, il y a 2 composants principaux : le moteur et le serveur. Le moteur gère tout ce qui concerne les modèles et le regroupement des demandes, tandis que le serveur gère l'acheminement des demandes des utilisateurs.
 
-##### Moteurs
+#### Moteurs
 
 Les moteurs sont ce qui exécute les modèles et tout ce que nous avons couvert jusqu'à présent sur le processus de génération avec différents types d'optimisations. À leur cœur, ce sont des bibliothèques Python. Ils gèrent le regroupement des demandes qui proviennent des utilisateurs vers notre chatbot et génèrent la réponse à ces demandes.
 
-##### Serveurs
+#### Serveurs
 
 Les serveurs sont responsables de l'orchestration des requêtes HTTP/gRPC entrantes des utilisateurs. Dans les applications du monde réel, nous aurons de nombreux utilisateurs qui posent des questions à notre chatbot à différents moments de la journée. Les serveurs mettent ces demandes en file d'attente et les transfèrent vers le moteur pour la génération de la réponse. Les serveurs apportent également les métriques telles que le débit et la latence, qui sont importantes à suivre pour le service de modèle.
 
-##### Résumé
+#### Résumé
 
 Moteurs
 * Optimisation de la mémoire
@@ -32,7 +30,7 @@ Serveurs
 * Mise en service de plusieurs modèles
 * Prise en charge de plusieurs moteurs
 
-#### B. Exemples d'outils de mise à disposition de LLM
+### B. Exemples d'outils de mise à disposition de LLM
 
 Quels outils sont les mieux adaptés à nos besoins ? Comment choisir ? Voici un survol rapide de grands noms du milieu pour références.
 
@@ -58,9 +56,9 @@ Enfin, Fastchat est une solution auto-hébergée pour héberger des modèles d'I
 
 > Nous allons développer FastChat dans la partie suivante car c'est un outil qui a été testé et qui semble fournir beaucoup des éléments nécessaires pour une utilisation de première intention.
 
-#### C. Le choix d'une solution technique : le cas d'une administration
+### C. Le choix d'une solution technique : le cas d'une administration
 
-##### Premier cas : Les traitements par batch
+#### Premier cas : Les traitements par batch
 
 Pour certains cas d'usage, l'enjeu est de traiter de nombreuses données avec le même mode opératoire en un coup de manière ponctuelle. C'est ce qu'on appellera le traitement par batch. Cela consiste à charger un modèle, le requêter sur un tableau de prompt et obtenir la sortie pour pouvoir l'exporter. On peut le faire avec vLLM par exemple avec un morceau de code de ce type :
 
@@ -91,7 +89,7 @@ json.dump(resume, open("Sortie.json", "w"))
 
 Mais cette méthodologie a des limites, car cela nécessite de bloquer des gpus, ce qui entraîne des problématiques de gestion et de partage.
 
-##### Deuxième cas : Beaucoup d'utilisateurs et/ou d'applications différents
+#### Deuxième cas : Beaucoup d'utilisateurs et/ou d'applications différents
 
 Que ce soit une équipe de plusieurs data-scientists, ou un ensemble d'application, si les besoins sont importants, les GPUs ont tout intérêt à être partagés. Il ne sera donc pas possible que chaque script python charge son modèle en mémoire et bloque des GPUs. Il est également plus rassurant de séparer l'infrastructure GPU des utilisateurs pour que chacun travaille dans son environnement, afin d'éviter les casses accidentelles.
 
@@ -99,7 +97,7 @@ La solution qui consiste à mettre à disposition des APIs vient répondre à ce
 
 > Dans ce guide, FastChat est présenté comme exemple pour la simplicité mais d'autres solutions existent, avec chacunes leurs avantages et inconvénients.
 
-#### D. FastChat
+### D. FastChat
 
 FastChat propose des API OpenAI-compatibles pour ses modèles pris en charge, de sorte que vous puissiez utiliser FastChat comme une alternative locale aux API OpenAI. Cela permet d'utiliser la bibliothèque openai-python et les commandes cURL, ce qui facilite le travail des datascientists.
 
@@ -107,7 +105,7 @@ La documentation complète est disponible sur le repo du module : https://github
 
 Nous allons tout de même parcourir les grandes étapes pour pouvoir lancer son installation et ensuite l'utiliser.
 
-##### RESTful API Server
+#### RESTful API Server
 Tout repose sur la complémentarité de trois services : le controller, les modèles et l'API. Il faut commencer par lancer le controller.
 
 ```bash
@@ -127,7 +125,7 @@ python3 -m fastchat.serve.openai_api_server --host localhost --port 8000
 ```
 
 
-##### Utilisation avec l'OpenAI Official SDK
+#### Utilisation avec l'OpenAI Official SDK
 Le but de `openai_api_server.py` est d'implémenter un serveur d'API entièrement compatible avec OpenAI, de sorte que les modèles puissent être utilisés directement avec la bibliothèque openai-python.
 
 Tout d'abord, installez le package Python OpenAI >= 1.0 :
@@ -159,7 +157,7 @@ completion = openai.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-##### Utilisation avec cURL
+#### Utilisation avec cURL
 cURL est un autre bon outil pour observer la sortie de l'API.
 
 List Models:
