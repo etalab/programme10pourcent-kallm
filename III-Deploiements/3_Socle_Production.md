@@ -20,22 +20,7 @@ Pour le dernier point, il est commun d'acheter les GPUs par plusieurs, déjà gr
 
 Des GPUs reconnus peuvent être les T5, A100, V100 et leur prix d'achat est de l'ordre de milliers d'euros, mais il faut bien prendre en compte également les coûts cachés. En effet, l'intégration dans un SI pré-existant peut nécessiter des travaux. Durant leur cycle de vie, ils ont besoin de maintenance. Et enfin, tout au long de leur utilisation, ils ont besoin d'être administrés, ce qui peut représenter des Equivalents Temps Plein (ETP), dont le coût n'est pas à négliger.
 
-### B. Outils pour surveiller les performances des GPU
-
-Une fois l'infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l'impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéallement, l'on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.
-
-Selon les technologies de GPUs utilisées, il existe différents outils qui se conncectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :
-* **nvidia-smi**
-* **AMD Vantage**
-* **GPU-Z**
-
-Voici un exemple de résultat de statistiques extraites d'une infrastructure GPUs :
-
-![Resultat de la commande nvidia-smi](nvidia-smi.png "Resultat de la commande nvidia-smi")
-
-Il existe également d'autres moyens d'accéder à des GPUs que l'acquisition individuelle pour les administrations (voir Partie III.4).
-
-### C. Orchestration avec des GPUs
+### B. Orchestration avec des GPUs
 
 Il est judicieux d'utiliser un orchestrateur pour déployer des Language Models (LLMs) dans une organisation pour plusieurs raisons :
 
@@ -51,7 +36,7 @@ En résumé, un orchestrateur offre une gestion centralisée, une évolutivité,
 * **Docker Swarm**
 * **Apache Mesos**
 
-### D. Exemple de déploiement
+### C. Exemple de déploiement
 
 Nous allons développer dans cette partie un exemple de déploiement d'une structure LLM avec Kubernetes. On utilise la même structure de microservices que dans la partie précedente avec FastChat mais cela peut être adapté à tout choix d'organisation et d'architecture.
 
