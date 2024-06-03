@@ -277,7 +277,7 @@ services:
       - "8000:8000"
     volumes:
       - ./FastChat:/FastChat 
-    entrypoint: ["python3.9", "-m", "fastchat.serve.openai_api_server", "--host", "0.0.0.0", "--port", "8000", "--api-keys", "dtnumds,dtnum-s56f1esfd,srp-sd5fze21d,dgfip-si2023", "--controller-address", "http://0.0.0.0:21001"]
+    entrypoint: ["python3.9", "-m", "fastchat.serve.openai_api_server", "--host", "0.0.0.0", "--port", "8000", "--api-keys", "key1,key2,key3", "--controller-address", "http://0.0.0.0:21001"]
 ```
 
 Et le fichier de déploiement d'un modèle pourrait ressembler à ceci :
@@ -332,7 +332,7 @@ import requests
 import json
 # to get proper authentication, make sure to use a valid key that's listed in
 # the --api-keys flag. if no flag value is provided, the `api_key` will be ignored.
-openai.api_key = "srp-sd5fze21d" # 1rentrez l'api key
+openai.api_key = "key1" # 1rentrez l'api key
 openai.api_base = "http://10.156.254.10:8000/v1" # mettre l'url du serveur
 #eventuellement régler des problèmes de proxy
 %env no_proxy=10.156.254.10,0.0.0.0
