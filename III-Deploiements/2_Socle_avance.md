@@ -9,13 +9,14 @@ Optimisation, Monitoring, UX/UI (CODE!)
 Une fois l'infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l'impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéallement, l'on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.
 
 Selon les technologies de GPUs utilisées, il existe différents outils qui se conncectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :
+
 * **nvidia-smi**
 * **AMD Vantage**
 * **GPU-Z**
 
 Voici un exemple de résultat de statistiques extraites d'une infrastructure GPUs :
 
-![Resultat de la commande nvidia-smi](nvidia-smi.png "Resultat de la commande nvidia-smi")
+![Resultat de la commande nvidia-smi](../images/nvidia-smi.png "Resultat de la commande nvidia-smi")
 
 Il existe également d'autres moyens d'accéder à des GPUs que l'acquisition individuelle pour les administrations (voir Partie III.4).
 
@@ -28,15 +29,15 @@ Plusieurs initiatives permettent de déployer rapidement des interfaces de chat 
 
 Aperçu de l'application CARADOC pendant ses développements :
 
-![Interface de l'application RAG Caradoc](chat.png "Interface de l'application RAG Caradoc")
+![Interface de l'application RAG Caradoc](../images/chat.png "Interface de l'application RAG Caradoc")
 
 Aperçu d'un interface possible avec FastChat :
 
-![Interface de l'application Chat avec FastChat](chat2.png "Interface de l'application Chat avec FastChat")
+![Interface de l'application Chat avec FastChat](../images/chat2.png "Interface de l'application Chat avec FastChat")
 
 Exemple de code pour lancer l'interface Gradio de FastChat dans un Docker :
 
-```
+```bash
 version: "3.9"
 services:
   fastchat-gradio-server: 

@@ -8,7 +8,7 @@ Pour certains modèles de langage, les processeurs habituels appelés CPU (Centr
 
 ### A. GPU pour les LLM
 
-La sélection des GPU (Graphics Processing Units) pour une installation dans une structure dépend de mutliples facteurs. En voici quelques uns :
+La sélection des GPU (Graphics Processing Units) pour une installation dans une structure dépend de multiples facteurs. En voici quelques uns :
 
 1. **Puissance de calcul** : La puissance de traitement des GPU est mesurée en flops (floating-point operations per second). Un GPU plus puissant permettra d'exécuter des tâches plus rapidement et de gérer des charges de travail plus élevées.
 2. **Mémoire vive** : La mémoire vive (VRAM) des GPU est essentielle pour les applications nécessitant une grande quantité de mémoire, comme les simulations scientifiques ou les applications de traitement d'image. Assurez-vous de choisir des GPU avec suffisamment de mémoire vive pour répondre aux besoins de vos applications.
@@ -32,6 +32,7 @@ Il est judicieux d'utiliser un orchestrateur pour déployer des Language Models 
 6. Réduction des coûts : en automatisant les déploiements et en les mettant à l'échelle de manière efficace, un orchestrateur peut aider à réduire les coûts associés aux déploiements de LLMs.
 
 En résumé, un orchestrateur offre une gestion centralisée, une évolutivité, une sécurité renforcée, une gestion des versions, une intégration avec d'autres outils et une réduction des coûts pour les déploiements de LLMs dans une organisation. Des solutions techniques peuvent être :
+
 * **Kubernetes**
 * **Docker Swarm**
 * **Apache Mesos**
@@ -42,14 +43,14 @@ Nous allons développer dans cette partie un exemple de déploiement d'une struc
 
 Voici un schéma résumant l'organisation proposée ici, avec le controller, l'api openai-like et deux modèles LLMs :
 
-![Schéma de structure des services pour Kubernetes](kube.png "Schéma de structure des services pour Kubernetes")
+![Schéma de structure des services pour Kubernetes](../images/kube.png "Schéma de structure des services pour Kubernetes")
 
 La méthodologie générale de l'utilisation de Kubernetes est la suivante :
 
 1. Préparer les images Docker qui seront utilisées pour les déploiements
 2. Créez les fichiers de configuration YAML pour votre application
 3. Déployez les avec :
-```
+```bash
 kubectl apply -f FILENAMES.yaml
 ```
 4. Surveiller le lancement des différents services et leur bonne interconnexion
@@ -58,20 +59,23 @@ Avec cela, vous avez une application plus robuste, mais cela necessite une certa
 
 1. Tout d'abord les services obligatoires comme le gestionnaire de l'API et le controlleur. On fait en même temps le deployment du pod et le service permettant d'y accéder. Ils se basent sur une image Docker légère et sans requirements spécifiques.
 
-On remarquera que les deux deployments semblent assez similaires et que la principale différence réside dans les noms donnés aux objets et à la commande lancée dans le conteneur lancé :
+On remarquera que les deux deploiments semblent assez similaires et que la principale différence réside dans les noms donnés aux objets et à la commande lancée dans le conteneur lancé :
 
-```
+```bash
 ["python3.9", "-m", "fastchat.serve.controller", "--host", "0.0.0.0", "--port", "21001"]
 ```
+
 ou
-```
+
+```bash
 ["python3.9", "-m", "fastchat.serve.openai_api_server", "--host", "0.0.0.0", "--port", "8000", "--api-keys", "dtnumds,dtnum-s56f1esfd,srp-sd5fze21d,dgfip-si2023", "--controller-address", "http://svc-controller"]
 ```
+
 Ces commandes sont celles de FastChat mais peuvent être remplacées par votre propre solution de déploiement de modèle.
 
-
 Pour le controlleur :
-```
+
+```bash
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -104,10 +108,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-controller2. Déployez les avec :
-```
-kubectl apply -f FILENAMES.yaml
-```
+  name: svc-controller2
 spec:
   type: NodePort
   ports:
@@ -117,8 +118,10 @@ spec:
   selector:
     app: fastchat-controller
 ```
+
 Et pour l'api :
-```
+
+```bash
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -165,21 +168,25 @@ spec:
 2. Créez les fichiers de configuration pour un modèle LLM, avec également le pod et le service correspondant. Cette fois-ci, l'image est plus lourde car elle contient le modèle et les modules nécessaires à son fonctionnement.
 
 On remarquera notamment :
-```
+
+```bash
 image: fastchat-mixtral:v0.3.1
 ```
-```
+
+```bash
 resources:
           limits:
             nvidia.com/gpu: 2
 
 ```
+
 Et la commande qui lance le modèle (ici Fastchat mais pourrait être n'importe quel module):
-```
+
+```bash
 command: ["python3", "-m", "fastchat.serve.vllm_worker", "--model-path", "/data/models/vllm/Mixtral-8x7B-Instruct-v0.1", "--worker-address", "http://svc-llm-mixtral", "--host", "0.0.0.0", "--port", "2100", "--controller", "http://svc-controller", "--trust-remote-code", "--model-names", "mixtral-instruct", "--num-gpus", "2"]
 ```
 
-```
+```bash
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -228,10 +235,9 @@ spec:
     app: llm-mixtral
 ```
 
-
 Enfin, tous ces composants se basent sur des images docker qui continennent tout le code de mise à disposition des modèles ou des APIs. Des exemples d'images utiles pour les différents services sus-mentionnés sont décrites dans ce Dockerfile :
 
-```
+```bash
 #################### BASE OPENAI IMAGE ####################
 FROM python:3.9-buster as llm-api-light
 
@@ -286,4 +292,3 @@ COPY ./models/Upstage--Llama-2-70b-instruct-v2 /data/models/vllm/Upstage--Llama-
 FROM base AS llm-mixtral
 COPY ./models/Mixtral-8x7B-Instruct-v0.1 /data/models/vllm/Mixtral-8x7B-Instruct-v0.1
 ```
-

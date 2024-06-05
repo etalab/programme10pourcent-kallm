@@ -10,7 +10,7 @@ Lorsqu'il s'agit de mettre en service des applications basées sur des LLM, il y
 
 #### Moteurs
 
-Les moteurs sont ce qui exécute les modèles et tout ce que nous avons couvert jusqu'à présent sur le processus de génération avec différents types d'optimisations. À leur cœur, ce sont des bibliothèques Python. Ils gèrent le regroupement des demandes qui proviennent des utilisateurs vers notre chatbot et génèrent la réponse à ces demandes.
+Les moteurs sont les composants exécutant les modèles et tout ce que nous avons couvert jusqu'à présent sur le processus de génération avec différents types d'optimisations. À leur cœur, ce sont des bibliothèques Python. Ils gèrent le regroupement des demandes qui proviennent des utilisateurs vers notre chatbot et génèrent la réponse à ces demandes.
 
 #### Serveurs
 
@@ -19,6 +19,7 @@ Les serveurs sont responsables de l'orchestration des requêtes HTTP/gRPC entran
 #### Résumé
 
 Moteurs
+
 * Optimisation de la mémoire
 * Optimisation spécifique au modèle
 * Prise en charge du regroupement
@@ -93,7 +94,7 @@ Mais cette méthodologie a des limites, car cela nécessite de bloquer des gpus,
 
 Que ce soit une équipe de plusieurs data-scientists, ou un ensemble d'application, si les besoins sont importants, les GPUs ont tout intérêt à être partagés. Il ne sera donc pas possible que chaque script python charge son modèle en mémoire et bloque des GPUs. Il est également plus rassurant de séparer l'infrastructure GPU des utilisateurs pour que chacun travaille dans son environnement, afin d'éviter les casses accidentelles.
 
-La solution qui consiste à mettre à disposition des APIs vient répondre à ces problématiques. Les modèles sont cachés derrière les API, les datascientist et les applications peuvent venir les requêter et n'ont pas besoin de s'occuper de l'infrastructure.
+La solution qui consiste à mettre à disposition des APIs vient répondre à ces problématiques. Les modèles sont cachés derrière les API, les datascientist et les applications peuvent venir les requêter et n'ont pas besoin de s'occuper de l'infrastructure. Ainsi, plutôt que chaque datascientist déploie un même modèle avec réservation de GPU, l'architecture en API permet la mise en commun du déploiement au même besoin.
 
 > Dans ce guide, FastChat est présenté comme exemple pour la simplicité mais d'autres solutions existent, avec chacunes leurs avantages et inconvénients.
 
@@ -106,6 +107,7 @@ La documentation complète est disponible sur le repo du module : https://github
 Nous allons tout de même parcourir les grandes étapes pour pouvoir lancer son installation et ensuite l'utiliser.
 
 #### RESTful API Server
+
 Tout repose sur la complémentarité de trois services : le controller, les modèles et l'API. Il faut commencer par lancer le controller.
 
 ```bash
@@ -124,16 +126,18 @@ Et enfin, l'API.
 python3 -m fastchat.serve.openai_api_server --host localhost --port 8000
 ```
 
-
 #### Utilisation avec l'OpenAI Official SDK
+
 Le but de `openai_api_server.py` est d'implémenter un serveur d'API entièrement compatible avec OpenAI, de sorte que les modèles puissent être utilisés directement avec la bibliothèque openai-python.
 
 Tout d'abord, installez le package Python OpenAI >= 1.0 :
+
 ```bash
 pip install --upgrade openai
 ```
 
 Ensuite, interagissez avec le modèle Vicuna :
+
 ```python
 import openai
 
@@ -158,14 +162,17 @@ print(completion.choices[0].message.content)
 ```
 
 #### Utilisation avec cURL
+
 cURL est un autre bon outil pour observer la sortie de l'API.
 
 List Models:
+
 ```bash
 curl http://localhost:8000/v1/models
 ```
 
 Chat Completions:
+
 ```bash
 curl http://localhost:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -176,6 +183,7 @@ curl http://localhost:8000/v1/chat/completions \
 ```
 
 Text Completions:
+
 ```bash
 curl http://localhost:8000/v1/completions \
   -H "Content-Type: application/json" \
@@ -188,6 +196,7 @@ curl http://localhost:8000/v1/completions \
 ```
 
 Embeddings:
+
 ```bash
 curl http://localhost:8000/v1/embeddings \
   -H "Content-Type: application/json" \
@@ -212,6 +221,7 @@ python3 -m fastchat.serve.vllm_worker --model-path lmsys/vicuna-7b-v1.5
 Pour permettre le lancement et l'arrêt de modèles, et pour éviter qu'une erreur dans un des modèles ne déregle l'ensemble du système, une bonne pratique est souvent de conteneuriser les différentes parties. Cela necessite la préparation de quelques fichiers et quelques tests, mais ensuite, cela assure la reproductibilité de votre infrastructure. Une fois que les images sont préparées, on peut les arrêter, les relancer et les reproduire autant de fois que nécessaire.
 
 Une façon d'implémenter vos services avec FastChat est de faire :
+
 * Un conteneur pour le controller
 * Un conteneur pour l'API OpenAI like
 * Un conteneur par modèle
@@ -243,7 +253,7 @@ RUN pip3 install pynvml==11.5.0
 # nvidia/cuda:12.2.0-runtime-ubuntu20.04 docker pull nvidia/cuda:12.2.0-devel-ubuntu20.04
 ```
 
-Ensuite, il faut lancer les docker avec la bonne commande pour que chaque docker remplisse bien sa fonction. Cela se gère avec des docker_compose.yml
+Ensuite, il faut lancer les conteneurs docker avec la bonne commande pour que chaque docker remplisse bien sa fonction. Cela se gère avec des docker_compose.yml
 
 Le fichier de déploiement des deux conteneurs obligatoires ressemblera à cela :
 
@@ -324,7 +334,7 @@ docker compose -f $compose_mixtral up -d
 
 A ce stade, vous avez déjà une installation utilisable par plusieurs personnes (à condition que l'url soit accessible). Voici des exemples de code de cellules notebooks.
 
-```bash
+```python
 import openai
 import requests
 import json
@@ -336,13 +346,13 @@ openai.api_base = "http://10.156.254.10:8000/v1" # mettre l'url du serveur
 %env no_proxy=10.156.254.10,0.0.0.0
 ```
 
-```bash
+```python
 models = openai.Model.list()
 for d in models["data"]:
     print(d["id"])
 ```
 
-```bash
+```python
 # Instruct mode
 prompt = """Bonjour toi. Donne moi un pays qui commence par F.
 """
