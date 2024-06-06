@@ -46,7 +46,7 @@ Il est aujourd'hui difficile de savoir quel LLM est adapté pour son besoin spé
 |Conrad THIOUNN| Dares - Ministère du Travail                |
 |  Johnny PLATON      | Santé publique France               |
 |    Thibault DUROUCHOUX    |                |
-|    Katia JODOGNE-DEL LITTO    |                |
+|    Katia JODOGNE-DEL LITTO    | IGF - Ministère de l'Economie et des Finances       |
 |   Faheem BEG     |                |
 | Camille ANDRÉ| |
 | Camille BRIER | DTNum - DGFiP |
