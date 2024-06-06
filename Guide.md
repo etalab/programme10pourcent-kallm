@@ -18,7 +18,7 @@
 	Comment embarquer les métiers/personnels moins techniques
  	Points d'attention à partager sur l'utilisation de tels outils
 
-### 4. Impacts (Katia Bruno Hélène)
+### 4. Impacts et limites (Katia Bruno Hélène)
 
 	a. Environnementaux (poids de l’entraînement, poids de l’utilisation)
  
