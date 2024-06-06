@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Guide d’installation des LLM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../II-Developpements/1_Revue_Technique_LLM.html">II-Developpements</a></li><li class="breadcrumb-item"><a href="../II-Developpements/3_Evaluations.html">Evaluations</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Guide d’installation des LLM</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">I-Accompagnement</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../I-Accompagnement/1_Besoins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Besoins</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../I-Accompagnement/2_Deja_Fait_Admin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exemples dans l’administration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../I-Accompagnement/3_Acculturation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acculturation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../I-Accompagnement/4_Impacts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Impacts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">II-Developpements</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../II-Developpements/1_Revue_Technique_LLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revue technique des LLM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../II-Developpements/2_RAG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retrieval Augmented Generation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../II-Developpements/3_Evaluations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Evaluations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">III-Deploiements</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../III-Deploiements/1_Socle_minimal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Socle minimal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Socle avancé</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../III-Deploiements/3_Socle_Production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Socle Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../III-Deploiements/4_Infras_administrations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infrastructures dans l’administration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#guide-du-llm" id="toc-guide-du-llm" class="nav-link active" data-scroll-target="#guide-du-llm">Guide du LLM</a>
+  <ul class="collapse">
+  <li><a href="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists" id="toc-partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="nav-link" data-scroll-target="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists">PARTIE II. Développements autour des LLMs (pour les data scientists)</a>
+  <ul class="collapse">
+  <li><a href="#évaluations-zhanna-daphné" id="toc-évaluations-zhanna-daphné" class="nav-link" data-scroll-target="#évaluations-zhanna-daphné">3. Évaluations (Zhanna Daphné)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="guide-du-llm" class="level1">
+<h1>Guide du LLM</h1>
+<section id="partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="level2">
+<h2 class="anchored" data-anchor-id="partie-ii.-développements-autour-des-llms-pour-les-data-scientists">PARTIE II. Développements autour des LLMs (pour les data scientists)</h2>
+<section id="évaluations-zhanna-daphné" class="level3">
+<h3 class="anchored" data-anchor-id="évaluations-zhanna-daphné">3. Évaluations (Zhanna Daphné)</h3>
+<section id="objectif" class="level4">
+<h4 class="anchored" data-anchor-id="objectif">3.1 Objectif</h4>
+<p>Tous les LLM visent le même objectif : maîtriser le langage naturel et par là même, égaler l’humain dans des tâches telles que le résumé, la traduction, la reconnaissance des entités nommées, etc.</p>
+<p>Cependant, tous les LLM souffrent des mêmes défauts, de façon plus ou moins prononcée:</p>
+<pre><code>* Très grande sensibilité du modèle au prompt utilisé 
+* Les affirmations produites par les LLM ne sont pas toujours factuellement correctes (on parle d'hallucinations)
+* Les LLM peuvent avoir des comportements inattendus et dangereux suite à l'usage de prompts malveillants, de données 
+d'entraînement biaisées, au recours à des agents trop permissifs, etc.</code></pre>
+<p>On souhaite donc se doter d’un cadre de comparaison qui permette d’affirmer que tel LLM est plus performant ou plus fiable que tel autre. On devra recourir à différentes métriques pour <strong>mesurer differents aspects</strong> du problème (fiabilité, sécurité, absence de biais…)</p>
+<p>Si de nombreux bancs d’essai existent aujourd’hui, permettant de distinguer certains LLM, <strong>il ne faut pas oublier que de bonnes performances dans un banc d’essai ne sont pas suffisantes, et qu’il est primordial de mettre en place un système d’évaluation quasi temps réél du LLM une fois en production.</strong></p>
+</section>
+<section id="quelques-concepts-à-connaître" class="level4">
+<h4 class="anchored" data-anchor-id="quelques-concepts-à-connaître">3.2 Quelques concepts à connaître</h4>
+<p><strong>a) Scenario</strong></p>
+<p>Un scénario est un ensemble de conditions dans lesquelles la performance du LLM est évaluée. Il s’agit par exemple de</p>
+<ul>
+<li>Réponse aux questions</li>
+<li>Raisonnement</li>
+<li>Traduction</li>
+<li>Génération de texte</li>
+<li>…</li>
+</ul>
+<p><strong>b) Tâche</strong></p>
+<p>Une tâche constitue une forme plus granulaire d’un scénario. Elle conditionne plus spécifiquement sur quelle base le LLM est évalué. Une tâche peut être une composition de plusieurs sous-tâches.</p>
+<ul>
+<li><strong>Combinaisons de sous-tâches de difficulté variée</strong></li>
+</ul>
+<p>Par exemple, l’arithmétique peut être considérée comme une tâche constituée des sous-tâches arithmétique niveau 1er degré, arithmétique niveau collège, arithmétique niveau lycée, etc.</p>
+<ul>
+<li><strong>Combinaison de sous-tâche de domaines variés</strong></li>
+</ul>
+<p>La tâche de type QCM peut être vue comme la combinaison de QCM histoire, QCM anglais, QCM logique, etc.</p>
+<p><strong>c) Métrique</strong></p>
+<p>Une métrique est une mesure qualitative utilisée pour évaluer la performance d’un modèle de langage dans certaines tâches/scénarios. Une métrique peut être :</p>
+<ul>
+<li>une fonction statistique/mathématique déterministe simple (par exemple, précision ou rappel)</li>
+<li>un score produit par un réseau neuronal ou un modèle de Machine Learning (ex. : score BERT)</li>
+<li>un score généré à l’aide d’un LLM (ex. : G-Eval)</li>
+</ul>
+<p>Notons que dans le dernier cas, évaluer un LLM à l’aide d’un LLM peut donner l’impression du serpent qui se mord la queue. Cependant, ce type de ‘dépendances circulaires’ existe couramment et est bien acceptée dans d’autres dommaines. Lors d’un entretien d’embauche par exemple, l’intellect humain évalue le potentiel d’un autre être humain.</p>
+<p><strong>d) Benchmarks</strong></p>
+<p>Les benchmarks sont des collections standardisées de tests utilisées pour évaluer les LLM sur une tâche ou un scénario donné. On trouvera pas exemple :</p>
+<ul>
+<li><strong>SQuAD</strong> pour le scénario de réponse aux questions de l’utilisateur à partir d’extraction de parties d’un corpus (En anglais)</li>
+<li><strong>PIAF</strong> semblable à SQuAD mais en français</li>
+<li><strong>IMDB</strong> pour l’analyse des sentiments</li>
+<li>…</li>
+</ul>
+<p>A titre d’exemple, l’image ci-dessous présente le corpus PIAF. Il est composé de paragraphes issus d’articles de Wikipedia, et d’une liste de questions portant sur ces paragraphes.</p>
+<p><img src="../images/piaf_example.png" class="img-fluid"></p>
+</section>
+<section id="llm-model-evaluation-vs.-llm-system-evaluation" class="level4">
+<h4 class="anchored" data-anchor-id="llm-model-evaluation-vs.-llm-system-evaluation">3.3 LLM Model Evaluation vs.&nbsp;LLM System Evaluation</h4>
+<p>L’expression <em>évaluation de LLM</em> peut recouvrir différentes pratiques et différents objectifs. On doit ainsi distinguer l’<strong>évaluations de modèles LLM</strong> de l’<strong>évaluations de systèmes LLM</strong>. Les évaluations de modèles LLM s’intéressent aux performances globales. Les entreprises/centres de recherche qui lance leurs LLM ont besoin de quantifier leur efficacité sur un ensemble de tâches différentes.</p>
+<p>Il existe de nombreux benchmarks qui permettent d’illustrer les performances des modèles sur des aspects précis, comme HellaSwag (qui évalue la capacité d’un LLM à compléter une phrase et faire preuve de bon sens), TruthfulQA (qui mesure la véracité des réponses du modèle) et MMLU (qui mesure la capacité de compréhension et de résolution de problèmes ).</p>
+<p><img src="../images/llm_model_eval.webp" class="img-fluid"></p>
+<p><em>(Source https://towardsdatascience.com/llm-evals-setup-and-the-metrics-that-matter-2cc27e8e35f3)</em></p>
+<p>L’évaluation de <strong>systèmes LLM</strong> couvre l’évaluation de tous les composants de la chaîne, pour un modèle donné. En effet, un modèle de LLM est rarement utilisé seul. A minima, il faut lui fournir un prompt, et celui-ci aura un fort impact sur le résultat du modèle. On pourra s’intéresser par exemple à l’effet du prompt sur la politesse de la réponse, le style, le niveau de détail, etc. Un modèle peut également recevoir un contexte (ensemble de documents, tableaux, images…) et son influence doit également être mesurée. On pourrait par exemple s’apercevoir que le modèle produit des résumés de qualité quand on lui fournit des documents littéraires, mais pas des documents techniques.</p>
+<p><img src="../images/llm_system_eval.webp" class="img-fluid"></p>
+<p><em>(Source https://towardsdatascience.com/llm-evals-setup-and-the-metrics-that-matter-2cc27e8e35f3)</em></p>
+<p><strong>En pratique, l’évaluation des modèles sur des benchmarks est réalisée par les grands fournisseurs de LLM (OpenAI, Facebook, Google, etc) ou par la communauté universitaire. Ce sont les évaluations de systèmes LLM qui intéresseront la majorité des équipes souhaitant déployer un LLM dans leur administration.</strong></p>
+</section>
+<section id="détails-des-métriques-utilisées" class="level4">
+<h4 class="anchored" data-anchor-id="détails-des-métriques-utilisées">3.4 Détails des métriques utilisées</h4>
+<p>Il n’existe pas de réponse simple à la question de savoir quelles métriques utiliser pour évaluer son système LLM. Cela dépendra du type de tâche, de la population cible, de la nature des données, des ressources materielles disponibles, etc Traditionnellement, dans le domaine de l’apprentissage machine, on évalue un modèle en se dotant d’un ensemble annoté d’entrées/sorties attendues, et on compare ensuite la distance entre la sortie obtenue et la sortie attendue. Dans le cas de la classification, on peut par exemple mesurer le taux de bonnes réponses.</p>
+<p>La difficulté de l’évaluation en IA générative réside dans le fait que nous ne disposons généralement pas de valeur de référence à laquelle comparer la sortie du modèle. Même dans les cas où l’on disposerait d’un exemple de bonne réponse, les données de sortie étant non structurées (texte en language naturel), il est difficile de comparer la distance entre deux objets.</p>
+<p>On reprend ici l’idée de classer les métriques en fonction de leur approche du problème, c’est à dire comment elles évaluent la pertinence de la réponse obtenue. Certaines techniques supposent que l’on dispose d’une réponse de référence, et la question est alors de savoir comment elles évaluent la distance entre la réponse obtenue et une réponse de référence. D’autres techniques plus récentes ne font pas cette hypothèse, et cherchent à évaluer la qualité de la réponse dans l’absolu. <img src="../images/metrics_cartographie.webp" class="img-fluid"></p>
+<p>On ne détaillera pas toutes les métriques dans le cadre de ce guide, il existe pléthore de documentation disponible sur le sujet. L’objectif ici est plutôt de fournir une grille d’analyse.</p>
+<p>Dans les métriques classiques, on trouve des métriques générales de classification qui sont couramment utilisées en apprentissage machine et ne sont pas propres aux données textuelles (Accuracy, Precision, Recall, F1…). Parmi les classiques, il existe également des métriques spécifiques au texte, qui reposent sur le principe du recouvrement maximal entre les phrases prédites et les phrases de référence. Le recouvrement peut être calculé au niveau des mots, ou au niveau des lettres. Ces méthodes ont été critiquées par leur faible corrélation avec le jugement humain, ce qui est n’est pas étonnant dans la mesure où elles ne s’intéressent qu’a la forme de surface des mots.</p>
+<p>Les métriques basées sur le Deep Learning permettent de palier ce problème. Quand vient l’heure de choisir une métrique, on distingue en premier lieu les métriques qui ont besoin d’une valeur de référence et les autres. Détenir une valeur de référence peut représenter une grosse contrainte, et n’est pas toujours pertinent. Si on demande au LLM d’écrire un poème sur la mer par exemple, il serait vain de chercher à le comparer à un autre poème. Toujours est-il que si l’on dispose de valeurs de références, on peut recourir à des métriques basés sur les embeddings ou des métriques basées sur des modèles fine-tunés. Les métriques qui calculent la distance entre embeddings sont parmi les moins fines, mais leur faible complexité peut les rendre intéressantes.</p>
+<pre><code>a. Métriques (biais, hallucinations, ...)
+
+b. Datasets
+
+c. Librairies/Frameworks (CODE!)
+
+d. Méthodologie (arbre de décision pour le décideur)</code></pre>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/etalab\.github\.io\/programme10pourcent-kallm\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Ce site a été créé avec <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
