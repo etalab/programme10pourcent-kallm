@@ -454,25 +454,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Les conteneurs pourront tous avoir la même image de base où l’on a installé les packages necessaires, comme vllm et notamment FastChat, que l’on a téléchargé et copié dans notre arbre local :</p>
 <p>Dockerfile :</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> nvidia/cuda:12.2.0-devel-ubuntu20.04</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> https_proxy=http://proxy.infra.dgfip:3128</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> http_proxy=http://proxy.infra.dgfip:3128</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> python3.9 python3.9-distutils curl</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> curl https://bootstrap.pypa.io/get-pip.py <span class="at">-o</span> get-pip.py</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> python3.9 get-pip.py</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Copiez le répertoire FastChat dans le conteneur Docker</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> ./FastChat_k /FastChat</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># COPY ./models/Mixtral-8x7B-Instruct-v0.1 /data/models/vllm/Mixtral-8x7B-Instruct-v0.1</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Allez dans le répertoire FastChat et installez à partir de ce répertoire</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /FastChat</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install <span class="at">-e</span> <span class="st">".[model_worker]"</span> pydantic==1.10.13</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install plotly==5.18.0</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install accelerate==0.25.0</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install vllm==0.4.1</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install minio==7.2.2</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install pynvml==11.5.0</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># nvidia/cuda:12.2.0-runtime-ubuntu20.04 docker pull nvidia/cuda:12.2.0-devel-ubuntu20.04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> python3.9 python3.9-distutils curl</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> curl https://bootstrap.pypa.io/get-pip.py <span class="at">-o</span> get-pip.py</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> python3.9 get-pip.py</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Copiez le répertoire FastChat dans le conteneur Docker</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> ./FastChat_k /FastChat</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># COPY ./models/Mixtral-8x7B-Instruct-v0.1 /data/models/vllm/Mixtral-8x7B-Instruct-v0.1</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Allez dans le répertoire FastChat et installez à partir de ce répertoire</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /FastChat</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install <span class="at">-e</span> <span class="st">".[model_worker]"</span> pydantic==1.10.13</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install plotly==5.18.0</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install accelerate==0.25.0</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install vllm==0.4.1</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install minio==7.2.2</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install pynvml==11.5.0</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># nvidia/cuda:12.2.0-runtime-ubuntu20.04 docker pull nvidia/cuda:12.2.0-devel-ubuntu20.04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ensuite, il faut lancer les conteneurs docker avec la bonne commande pour que chaque docker remplisse bien sa fonction. Cela se gère avec des docker_compose.yml</p>
 <p>Le fichier de déploiement des deux conteneurs obligatoires ressemblera à cela :</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">version:</span> <span class="st">"3.9"</span></span>
