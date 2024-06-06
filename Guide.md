@@ -39,11 +39,13 @@
  
 	d. Quoi faire quand ? (arbre de décision)
 
-### 2. RAG (Hugo Malo Jérôme Daphné)
+### 2. RAG (Hugo Malo Jérôme Daphné Katia)
 
 	a. pipelines,
+
+ 	b. Benchmark des différentes bases vectorielles (Katia)
  
-	b. presentations de modules avec RETEX, CODE!)
+	c. presentations de modules avec RETEX, CODE!)
 
 ### 3. Évaluations (Zhanna Daphné)
 
