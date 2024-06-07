@@ -1,30 +1,36 @@
-# Guide du LLM
+---
+title: "Guide du LLM"
+author: "équipe KALLM"
+date: "2024-06-07"
+format: html
+---
 
 ## PARTIE II. Développements autour des LLMs (pour les data scientists)
 
 ### 1. Revue technique de l’état de l’art LLM (Malo Jérôme)
 
-	a. Architectures principales LLM
+####	a. Architectures principales LLM
  
-	b. Méthodes de fine-tuning  (Conrad)
+####	b. Méthodes de fine-tuning  (Conrad)
 
-	Les LLM sont des réseaux de neurones de taille importante et font l'objet d'entraînement avec des ressources colossales (*e.g*: quelques dizaines de milliers de GPUs dernier modèle pendant 3 mois pour `GPT-4`). L'entraînement permet d'apprendre un jeu de données particulier, en réglant l'ensemble des poids du modèles (*e.g*: `Mixtral 8x22B` est une architecture à 141 milliards de poids; 175 milliards pour `GPT-3`). Les LLM sont entraînés à répondre à plusieurs tâches génériques et ne sont pas forcément pertinent pour des cas d'utilisation particulier.
+Les LLM sont des réseaux de neurones de taille importante et font l'objet d'entraînement avec des ressources colossales (*e.g*: quelques dizaines de milliers de GPUs dernier modèle pendant 3 mois pour `GPT-4`). L'entraînement permet d'apprendre un jeu de données particulier, en réglant l'ensemble des poids du modèles (*e.g*: `Mixtral 8x22B` est une architecture à 141 milliards de poids; 175 milliards pour `GPT-3`). Les LLM sont entraînés à répondre à plusieurs tâches génériques et ne sont pas forcément pertinent pour des cas d'utilisation particulier.
 
-	Pour répondre à ce besoin, plusieurs méthodes relevant du principe de fine-tuning sont possibles. Le fine-tuning consiste à reprendre un modèle déjà entraîné et à l'adapter sur un jeu de données particulier sur une ou plusieurs tâches spécifiques. En général, il s'agit de modifier une partie ou l'ensemble des poids pour que le modèle soit plus précis pour les tâches voulues. Le fine-tuning garde en grande partie les bénéfices de l'entraînement initial, *i.e* les connaissances antérieurs déjà apprises. Repartir d'un modèle déjà entraîné pourra réduire le temps d'entraînement requis pour le fine-tuning, en fonction de la similarité entre la nouvelle tâche souhaitée et son jeu de données et les entraînements précédents.
- 
-	Pour des petits modèles de langages, il est possible de ré-entraîner en modifiant l'ensemble des poids. Pour des modèles plus grands, modifier l'ensemble des poids peut s'avérer couteux en temps et en GPUs. Plusieurs approches permettent de ré-entraîner à moindre coût :
-	* réentrainer seulement un sous-ensemble de poids
-	* modifier la tête de modélisation de la langue (`lm_head`) pour certains modèles, soit en réentrainant depuis les poids entraînés, soit en réinitialisant ces poids.
-	* garder l'intégralité du modèle et rajouter des poids à entraîner puis utiliser l'approximation de bas rang avec `LORA` (`Low-Rank Adaptation`) pour l'entraînement et l'inférence.
-	* utiliser des versions quantisées, i.e. des modèles où les poids ont été tronqués à une précision inférieure (possibilité de combiner avec la technique précédente, sous le nom de qLORA).
+Pour répondre à ce besoin, plusieurs méthodes relevant du principe de fine-tuning sont possibles. Le fine-tuning consiste à reprendre un modèle déjà entraîné et à l'adapter sur un jeu de données particulier sur une ou plusieurs tâches spécifiques. En général, il s'agit de modifier une partie ou l'ensemble des poids pour que le modèle soit plus précis pour les tâches voulues. Le fine-tuning garde en grande partie les bénéfices de l'entraînement initial, *i.e* les connaissances antérieures déjà apprises. Repartir d'un modèle déjà entraîné pourra réduire le temps d'entraînement requis pour le fine-tuning, en fonction de la similarité entre la nouvelle tâche souhaitée et son jeu de données et les entraînements précédents.
 
-	Entraînement avec qLORA en pratique :
+Pour des petits modèles de langages, il est possible de ré-entraîner en modifiant l'ensemble des poids. Pour des modèles plus grands, modifier l'ensemble des poids peut s'avérer couteux en temps et en GPUs. Plusieurs approches permettent de ré-entraîner à moindre coût :
 
-	En plus de la librairie `transformers` et `datasets`, les librairies `peft`, `bitsandbytes` et `trl` permettent de simplifier l'entraînement avec qLORA
+* réentrainer seulement un sous-ensemble de poids
+* modifier la tête de modélisation de la langue (`lm_head`) pour certains modèles, soit en réentrainant depuis les poids entraînés, soit en réinitialisant ces poids.
+* garder l'intégralité du modèle et rajouter des poids à entraîner puis utiliser l'approximation de bas rang avec `LORA` (`Low-Rank Adaptation`) pour l'entraînement et l'inférence.
+* utiliser des versions quantisées, i.e. des modèles où les poids ont été tronqués à une précision inférieure (possibilité de combiner avec la technique précédente, sous le nom de qLORA).
 
-	(inspiré du [notebook suivant](https://www.kaggle.com/code/kingabzpro/mistral-7b-instruct-4bit-qlora-fine-tuning) )
+Entraînement avec qLORA en pratique :
 
-	```python
+En plus de la librairie `transformers` et `datasets`, les librairies `peft`, `bitsandbytes` et `trl` permettent de simplifier l'entraînement avec qLORA
+
+(inspiré du [notebook suivant](https://www.kaggle.com/code/kingabzpro/mistral-7b-instruct-4bit-qlora-fine-tuning) )
+
+```python
 %%capture
 %pip install -U bitsandbytes
 %pip install -U transformers
@@ -119,9 +125,9 @@ trainer.train()
 
 trainer.model.save_pretrained(new_model)
 
-	```
+```
 
 
-	c. Prompt engineer (lien vers prompt guide)
+####	c. Prompt engineer (lien vers prompt guide)
  
-	d. Quoi faire quand ? (arbre de décision)
+####	d. Quoi faire quand ? (arbre de décision)
