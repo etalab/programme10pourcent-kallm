@@ -1,9 +1,477 @@
-# Guide du LLM
+# PARTIE II. Développements autour des LLMs (pour les data scientists)
 
-## PARTIE II. Développements autour des LLMs (pour les data scientists)
+# 2. RAG (Hugo Malo Jérôme Daphné Katia)
 
-### 2. RAG (Hugo Malo Jérôme Daphné)
+## a. pipelines
 
-	a. pipelines,
+## b. Benchmark des différentes bases vectorielles (Katia)
+
+### Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
+
+Toutes les solutions testées sont open-source ou disposant d'une licence permissive, qui donne la possibilité d'héberger localement les données.
+
+<table>
+<tr>
+<th>
+
+</th>
+<th>Weaviate</th>
+<th>Milvus</th>
+<th>Qdrant</th>
+<th>ElasticSearch</th>
+<th>FAISS</th>
+</tr>
+<tr>
+<td>
+
+**Open source**
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>Partiellement</td>
+<td>
+
+:white_check_mark:
+</td>
+</tr>
+<tr>
+<td>
+
+**Dev-friendly**
+</td>
+<td>
+
+\+++
+</td>
+<td>
+
+\+
+</td>
+<td>
+
+\+++
+</td>
+<td>
+
+\++
+</td>
+<td>
+
+\+++
+</td>
+</tr>
+<tr>
+<td>
+
+**Déploiement**
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark: mais difficile à mettre en place, constellation de micro-services
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:x: mais possibilité de construire une image Docker custom par exemple
+</td>
+</tr>
+<tr>
+<td>
+
+**Spécifique à la recherche vectorielle**
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:x:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+</tr>
+<tr>
+<td>
+
+**Qualité de la documentation**
+</td>
+<td>
+
+\+++ [\[-\]](https://weaviate.io/developers/weaviate)
+</td>
+<td>
+
+\++ [\[-\]](https://milvus.io/docs)
+</td>
+<td>
+
+\+++ [\[-\]](https://qdrant.tech/documentation/)
+</td>
+<td>
+
+\++ [\[-\]](https://www.elastic.co/guide/index.html)
+</td>
+<td>
+
+\+ [\[-\]](https://faiss.ai/index.html)
+</td>
+</tr>
+<tr>
+<td>
+
+**Dernière mise à jour**
+</td>
+<td>mai 2024</td>
+<td>mai 2024</td>
+<td>mai 2024</td>
+<td>mai 2024</td>
+<td>mars 2024</td>
+</tr>
+<tr>
+<td>
+
+**Latence (ms)\*\***
+</td>
+<td>438.18</td>
+<td>322.63</td>
+<td>
+
+**118.25**
+</td>
+<td>338.53</td>
+<td>
+
+\-
+</td>
+</tr>
+<tr>
+<td>
+
+**Requêtes/seconde**
+
+**(RPS)\*\***
+</td>
+<td>217.98</td>
+<td>281.52</td>
+<td>
+
+**710.23**
+</td>
+<td>275.11</td>
+<td>
+
+\-
+</td>
+</tr>
+<tr>
+<td>
+
+**P99 latence (ms)\*\***
+</td>
+<td>1723.62</td>
+<td>436.87</td>
+<td>
+
+**144.78**
+</td>
+<td>589.61</td>
+<td>
+
+\-
+</td>
+</tr>
+<tr>
+<td>
+
+**Temps d'upload (minutes)\*\***
+</td>
+<td>71.61</td>
+<td>
+
+**1.41**
+</td>
+<td>2.074</td>
+<td>14.33</td>
+<td>
+
+\-
+</td>
+</tr>
+<tr>
+<td>
+
+**Temps d'upload +**
+
+**indexation (minutes)\*\***
+</td>
+<td>71.61</td>
+<td>
+
+**9.53**
+</td>
+<td>17.49</td>
+<td>
+
+122.79
+
+:x:
+</td>
+<td>
+
+\-
+</td>
+</tr>
+<tr>
+<td>
+
+**Place en mémoire**
+</td>
+<td>
+
+`num_vectors * vector_dimension * 4 bytes * 2` [\[-\]](https://weaviate.io/developers/weaviate/concepts/resources#an-example-calculation)
+</td>
+<td>
+
+Conséquente d'après les avis d'utilisateurs, pas de formules approximative [\[-\]](https://milvus.io/tools/sizing/)
+</td>
+<td>
+
+`num_vectors * vector_dimension * 4 bytes * 1.5` [\[-\]](https://qdrant.tech/documentation/cloud/capacity-sizing/)
+</td>
+<td>
+
+`num_vectors * 4 * (vector_dimension + 12)` [\[-\]](https://www.elastic.co/guide/en/elasticsearch/reference/current/tune-knn-search.html)
+</td>
+<td>?</td>
+</tr>
+<tr>
+<td>
+
+**Type d'index**
+</td>
+<td>HNSW</td>
+<td>FLAT, IVF_FLAT, IVF_SQ8, IVF_PQ, HNSW, BIN_FLAT, BIN_IVF_FLAT, DiskANN, GPU_IVF_FLAT, GPU_IVF_PQ, and CAGRA</td>
+<td>HNSW</td>
+<td>HNSW</td>
+<td>FLAT, IVS_FLAT, IVF_SQ8, IVF_PQ, HNSW, BIN_FLAT and BIN_IVF_FLAT</td>
+</tr>
+<tr>
+<td>
+
+**Recherche hybride**
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:white_check_mark:
+</td>
+<td>
+
+:x:
+</td>
+</tr>
+<tr>
+<td>
+
+**Ajout d'éléments à la volée, scalabilité**
+</td>
+<td>Partitionnement statique</td>
+<td>
+
+Segmentation
+
+dynamique
+</td>
+<td>Partitionnement statique</td>
+<td>Partitionnement statique</td>
+<td>
+
+:x: (index
+
+immutable -\> vector library)
+</td>
+</tr>
+<tr>
+<td>
+
+**Accès contrôlé par rôles**
+</td>
+<td>
+
+:x: sur le backlog, mais n'avance beaucoup [\[-\]](https://github.com/weaviate/weaviate/issues/2784)
+</td>
+<td>
+
+:white_check_mark: [\[-\]](https://milvus.io/docs/users_and_roles.md)
+</td>
+<td>
+
+:white_check_mark: [\[-\]](https://qdrant.tech/documentation/guides/security/)
+</td>
+<td>
+
+:white_check_mark: [\[-\]](https://www.elastic.co/guide/en/app-search/current/security-and-users.html)
+</td>
+<td>
+
+:x:
+</td>
+</tr>
+<tr>
+<td>
+
+**Partions et étanchéité des bases de données**
+
+**(_multi-tenancy_)**
+</td>
+<td>
+
+:x: pas très clair, mais il semble que ce ne soit pas encore possible [\[-\]](https://forum.weaviate.io/t/understanding-on-multi-tenancy/2067/2)
+</td>
+<td>
+
+:white_check_mark: Plusieurs systèmes de partitions, très flexible [\[-\]](https://milvus.io/docs/multi_tenancy.md)
+</td>
+<td>
+
+:white_check_mark: Plusieurs systèmes de partitions, assez flexible [\[-\]](https://qdrant.tech/documentation/guides/multiple-partitions/)
+</td>
+<td>
+
+:white_check_mark: Possible mais pas très intuitif [\[-\]](https://www.elastic.co/guide/en/elasticsearch/reference/current/document-level-security.html)
+</td>
+<td>
+
+:x:
+</td>
+</tr>
+<tr>
+<td>
+
+**Autres avantages**
+</td>
+<td>
+
+</td>
+<td>
+
+* Très dynamique car chaque action a son propre node, facile à scaler
+* Plusieurs niveaux de partitions
+</td>
+<td>
+
+</td>
+<td>
+
+* Stockage d'autres types de données, par exemple l'historique de conversations
+* Très commun comme solution de stockage, donc plus d'utilisateurs déjà familiers de l'outil
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Autres inconvénients**
+</td>
+<td>
+
+</td>
+<td>
+
+* Taille en mémoire (difficile à quantifier par rapport aux autres, mais plus importante selon les benchmarks)
+</td>
+<td>
+
+* Pas de stockage S3
+</td>
+<td>
+
+</td>
+<td>
+
+* Bibliothèque de vecteurs, pas vraiment adaptée à un usage persistant
+</td>
+</tr>
+</table>
+
+\*\* [Qdrant benchmark](https://qdrant.tech/benchmarks/) (janvier 2024), dataset = gist-960-euclidean (1M de vecteurs en dimension 960), précision à 0.95
+
+
+Les solutions présentées recouvrent en fait plusieurs cas d'usage :
+
+* Les **bibliothèques vectorielles** (_vector library_) de type FAISS sont adaptées à de la rechercher sémantique à la volée, avec constitution de la base et recherche immédiate. Ici il s'agira d'un cas d'usage où l'utilisateur apporte son propre document avec un téléchargement en temps réel, et pose des questions dessus ou demande une synthèse.
+* Les **bases de données vectorielles** (_vector database_) sont des dispositifs plus lourds et généralement un peu plus lents, mais avec un stockage permanent et beaucoup plus de flexibilité dans la recherche. Ils sont plus adaptés à un cas d'usage où la base de connaissance est constituée en amont et doit être mise à jour de temps en temps.
+
+Pour une mise en production rapide et efficace **Qdrant** semble être la meilleure solution, combiné à une base de données plus traditionnelle comme ElasticSearch pour l'historique des conversations. Pour avoir une approche tout-en-en, et plus de flexibilité dans la gestion des collections, c'est **ElasticSearch** qui se détache des autres, malgré des temps d'indexation assez conséquents.
+
+> Aparté sur les intégrations Langchain : à manipuler avec précaution, les fonctions ne sont pas toujours explicites (par exemple la méthode `from_documents` supprime et recrée en général une collection). De plus certaines fonctionnalités comme l'utilisation de partitions ne sont pas toujours accessibles via Langchain. Il peut être utile de recréer des wrapper qui utilisent en partie Langchain et en partie les fonctions natives de la base de données.
+
+#### Annexes
+
+##### Définitions
+
+**Dev-friendly** -\> Note qualitative après installation de chaque solution (sauf FAISS) dans une image Docker, et utilisation avec Python (avec et sans l'intégration Langchain)
+
+**Déploiement** -\> Existence d'un écosystème de déploiement
+
+**Qualité de la documentation** -\> Note qualitative après installation de chaque solution (sauf FAISS) dans une image Docker, et utilisation avec Python (avec et sans l'intégration Langchain)
+
+**Ajout d'éléments à la volée, scalabilité** -\> Comment l'indexation se fait si la base de données est modifiée. Avec le partitionnement statique (_static sharding_), si la capacité du serveur est augmentée toutes les données doivent être de nouveau partitionnées, ce qui peut être long.
+
+**Recherche hybride** -\> Possibilité d'effectuer des recherches dans les métadonnées, avec des nombres ou des chaînes de caractères
+
+**Accès contrôlé par rôles (_RBAC_)**-\> Autorisations prédéfinies pour chaque utilisateur, avec un accès différencié aux documents
+
+##### Ressources
+
+https://weaviate.io/blog/vector-library-vs-vector-database
+
+[ANN Benchmark](https://ann-benchmarks.com/index.html) (avril 2023)
+
  
-	b. presentations de modules avec RETEX, CODE!)
+### c. presentations de modules avec RETEX, CODE!)
