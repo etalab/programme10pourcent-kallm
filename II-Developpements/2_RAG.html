@@ -217,11 +217,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#guide-du-llm" id="toc-guide-du-llm" class="nav-link active" data-scroll-target="#guide-du-llm">Guide du LLM</a>
+  <li><a href="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists" id="toc-partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="nav-link active" data-scroll-target="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists">PARTIE II. Développements autour des LLMs (pour les data scientists)</a></li>
+  <li><a href="#rag-hugo-malo-jérôme-daphné-katia" id="toc-rag-hugo-malo-jérôme-daphné-katia" class="nav-link" data-scroll-target="#rag-hugo-malo-jérôme-daphné-katia">2. RAG (Hugo Malo Jérôme Daphné Katia)</a>
   <ul class="collapse">
-  <li><a href="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists" id="toc-partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="nav-link" data-scroll-target="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists">PARTIE II. Développements autour des LLMs (pour les data scientists)</a>
+  <li><a href="#a.-pipelines" id="toc-a.-pipelines" class="nav-link" data-scroll-target="#a.-pipelines">a. pipelines</a></li>
+  <li><a href="#b.-benchmark-des-différentes-bases-vectorielles-katia" id="toc-b.-benchmark-des-différentes-bases-vectorielles-katia" class="nav-link" data-scroll-target="#b.-benchmark-des-différentes-bases-vectorielles-katia">b. Benchmark des différentes bases vectorielles (Katia)</a>
   <ul class="collapse">
-  <li><a href="#rag-hugo-malo-jérôme-daphné" id="toc-rag-hugo-malo-jérôme-daphné" class="nav-link" data-scroll-target="#rag-hugo-malo-jérôme-daphné">2. RAG (Hugo Malo Jérôme Daphné)</a></li>
+  <li><a href="#comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative" id="toc-comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative" class="nav-link" data-scroll-target="#comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative">Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative</a></li>
+  <li><a href="#c.-presentations-de-modules-avec-retex-code" id="toc-c.-presentations-de-modules-avec-retex-code" class="nav-link" data-scroll-target="#c.-presentations-de-modules-avec-retex-code">c.&nbsp;presentations de modules avec RETEX, CODE!)</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -233,15 +236,463 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="guide-du-llm" class="level1">
-<h1>Guide du LLM</h1>
-<section id="partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="level2">
-<h2 class="anchored" data-anchor-id="partie-ii.-développements-autour-des-llms-pour-les-data-scientists">PARTIE II. Développements autour des LLMs (pour les data scientists)</h2>
-<section id="rag-hugo-malo-jérôme-daphné" class="level3">
-<h3 class="anchored" data-anchor-id="rag-hugo-malo-jérôme-daphné">2. RAG (Hugo Malo Jérôme Daphné)</h3>
-<pre><code>a. pipelines,
-
-b. presentations de modules avec RETEX, CODE!)</code></pre>
+<section id="partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="level1">
+<h1>PARTIE II. Développements autour des LLMs (pour les data scientists)</h1>
+</section>
+<section id="rag-hugo-malo-jérôme-daphné-katia" class="level1">
+<h1>2. RAG (Hugo Malo Jérôme Daphné Katia)</h1>
+<section id="a.-pipelines" class="level2">
+<h2 class="anchored" data-anchor-id="a.-pipelines">a. pipelines</h2>
+</section>
+<section id="b.-benchmark-des-différentes-bases-vectorielles-katia" class="level2">
+<h2 class="anchored" data-anchor-id="b.-benchmark-des-différentes-bases-vectorielles-katia">b. Benchmark des différentes bases vectorielles (Katia)</h2>
+<section id="comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative" class="level3">
+<h3 class="anchored" data-anchor-id="comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative">Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative</h3>
+<p>Toutes les solutions testées sont open-source ou disposant d’une licence permissive, qui donne la possibilité d’héberger localement les données.</p>
+<table>
+<tbody><tr>
+<th>
+</th>
+<th>
+Weaviate
+</th>
+<th>
+Milvus
+</th>
+<th>
+Qdrant
+</th>
+<th>
+ElasticSearch
+</th>
+<th>
+FAISS
+</th>
+</tr>
+<tr>
+<td>
+<strong>Open source</strong>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+Partiellement
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Dev-friendly</strong>
+</td>
+<td>
++++
+</td>
+<td>
++
+</td>
+<td>
++++
+</td>
+<td>
+++
+</td>
+<td>
++++
+</td>
+</tr>
+<tr>
+<td>
+<strong>Déploiement</strong>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> mais difficile à mettre en place, constellation de micro-services
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span> mais possibilité de construire une image Docker custom par exemple
+</td>
+</tr>
+<tr>
+<td>
+<strong>Spécifique à la recherche vectorielle</strong>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Qualité de la documentation</strong>
+</td>
+<td>
++++ <a href="https://weaviate.io/developers/weaviate">[-]</a>
+</td>
+<td>
+++ <a href="https://milvus.io/docs">[-]</a>
+</td>
+<td>
++++ <a href="https://qdrant.tech/documentation/">[-]</a>
+</td>
+<td>
+++ <a href="https://www.elastic.co/guide/index.html">[-]</a>
+</td>
+<td>
++ <a href="https://faiss.ai/index.html">[-]</a>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Dernière mise à jour</strong>
+</td>
+<td>
+mai 2024
+</td>
+<td>
+mai 2024
+</td>
+<td>
+mai 2024
+</td>
+<td>
+mai 2024
+</td>
+<td>
+mars 2024
+</td>
+</tr>
+<tr>
+<td>
+<strong>Latence (ms)**</strong>
+</td>
+<td>
+438.18
+</td>
+<td>
+322.63
+</td>
+<td>
+<strong>118.25</strong>
+</td>
+<td>
+338.53
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>Requêtes/seconde</strong></p>
+<strong>(RPS)**</strong>
+</td>
+<td>
+217.98
+</td>
+<td>
+281.52
+</td>
+<td>
+<strong>710.23</strong>
+</td>
+<td>
+275.11
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td>
+<strong>P99 latence (ms)**</strong>
+</td>
+<td>
+1723.62
+</td>
+<td>
+436.87
+</td>
+<td>
+<strong>144.78</strong>
+</td>
+<td>
+589.61
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td>
+<strong>Temps d’upload (minutes)**</strong>
+</td>
+<td>
+71.61
+</td>
+<td>
+<strong>1.41</strong>
+</td>
+<td>
+2.074
+</td>
+<td>
+14.33
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>Temps d’upload +</strong></p>
+<strong>indexation (minutes)**</strong>
+</td>
+<td>
+71.61
+</td>
+<td>
+<strong>9.53</strong>
+</td>
+<td>
+17.49
+</td>
+<td>
+<p>122.79</p>
+<span class="emoji" data-emoji="x">❌</span>
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td>
+<strong>Place en mémoire</strong>
+</td>
+<td>
+<code>num_vectors * vector_dimension * 4 bytes * 2</code> <a href="https://weaviate.io/developers/weaviate/concepts/resources#an-example-calculation">[-]</a>
+</td>
+<td>
+Conséquente d’après les avis d’utilisateurs, pas de formules approximative <a href="https://milvus.io/tools/sizing/">[-]</a>
+</td>
+<td>
+<code>num_vectors * vector_dimension * 4 bytes * 1.5</code> <a href="https://qdrant.tech/documentation/cloud/capacity-sizing/">[-]</a>
+</td>
+<td>
+<code>num_vectors * 4 * (vector_dimension + 12)</code> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/tune-knn-search.html">[-]</a>
+</td>
+<td>
+?
+</td>
+</tr>
+<tr>
+<td>
+<strong>Type d’index</strong>
+</td>
+<td>
+HNSW
+</td>
+<td>
+FLAT, IVF_FLAT, IVF_SQ8, IVF_PQ, HNSW, BIN_FLAT, BIN_IVF_FLAT, DiskANN, GPU_IVF_FLAT, GPU_IVF_PQ, and CAGRA
+</td>
+<td>
+HNSW
+</td>
+<td>
+HNSW
+</td>
+<td>
+FLAT, IVS_FLAT, IVF_SQ8, IVF_PQ, HNSW, BIN_FLAT and BIN_IVF_FLAT
+</td>
+</tr>
+<tr>
+<td>
+<strong>Recherche hybride</strong>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Ajout d’éléments à la volée, scalabilité</strong>
+</td>
+<td>
+Partitionnement statique
+</td>
+<td>
+<p>Segmentation</p>
+dynamique
+</td>
+<td>
+Partitionnement statique
+</td>
+<td>
+Partitionnement statique
+</td>
+<td>
+<p><span class="emoji" data-emoji="x">❌</span> (index</p>
+immutable -&gt; vector library)
+</td>
+</tr>
+<tr>
+<td>
+<strong>Accès contrôlé par rôles</strong>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span> sur le backlog, mais n’avance beaucoup <a href="https://github.com/weaviate/weaviate/issues/2784">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> <a href="https://milvus.io/docs/users_and_roles.md">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> <a href="https://qdrant.tech/documentation/guides/security/">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> <a href="https://www.elastic.co/guide/en/app-search/current/security-and-users.html">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>Partions et étanchéité des bases de données</strong></p>
+<strong>(<em>multi-tenancy</em>)</strong>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span> pas très clair, mais il semble que ce ne soit pas encore possible <a href="https://forum.weaviate.io/t/understanding-on-multi-tenancy/2067/2">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> Plusieurs systèmes de partitions, très flexible <a href="https://milvus.io/docs/multi_tenancy.md">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> Plusieurs systèmes de partitions, assez flexible <a href="https://qdrant.tech/documentation/guides/multiple-partitions/">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="white_check_mark">✅</span> Possible mais pas très intuitif <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/document-level-security.html">[-]</a>
+</td>
+<td>
+<span class="emoji" data-emoji="x">❌</span>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Autres avantages</strong>
+</td>
+<td>
+</td>
+<td>
+<ul>
+<li>Très dynamique car chaque action a son propre node, facile à scaler</li>
+<li>Plusieurs niveaux de partitions</li>
+</ul>
+</td>
+<td>
+</td>
+<td>
+<ul>
+<li>Stockage d’autres types de données, par exemple l’historique de conversations</li>
+<li>Très commun comme solution de stockage, donc plus d’utilisateurs déjà familiers de l’outil</li>
+</ul>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<strong>Autres inconvénients</strong>
+</td>
+<td>
+</td>
+<td>
+<ul>
+<li>Taille en mémoire (difficile à quantifier par rapport aux autres, mais plus importante selon les benchmarks)</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Pas de stockage S3</li>
+</ul>
+</td>
+<td>
+</td>
+<td>
+<ul>
+<li>Bibliothèque de vecteurs, pas vraiment adaptée à un usage persistant</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p>** <a href="https://qdrant.tech/benchmarks/">Qdrant benchmark</a> (janvier 2024), dataset = gist-960-euclidean (1M de vecteurs en dimension 960), précision à 0.95</p>
+<p>Les solutions présentées recouvrent en fait plusieurs cas d’usage :</p>
+<ul>
+<li>Les <strong>bibliothèques vectorielles</strong> (<em>vector library</em>) de type FAISS sont adaptées à de la rechercher sémantique à la volée, avec constitution de la base et recherche immédiate. Ici il s’agira d’un cas d’usage où l’utilisateur apporte son propre document avec un téléchargement en temps réel, et pose des questions dessus ou demande une synthèse.</li>
+<li>Les <strong>bases de données vectorielles</strong> (<em>vector database</em>) sont des dispositifs plus lourds et généralement un peu plus lents, mais avec un stockage permanent et beaucoup plus de flexibilité dans la recherche. Ils sont plus adaptés à un cas d’usage où la base de connaissance est constituée en amont et doit être mise à jour de temps en temps.</li>
+</ul>
+<p>Pour une mise en production rapide et efficace <strong>Qdrant</strong> semble être la meilleure solution, combiné à une base de données plus traditionnelle comme ElasticSearch pour l’historique des conversations. Pour avoir une approche tout-en-en, et plus de flexibilité dans la gestion des collections, c’est <strong>ElasticSearch</strong> qui se détache des autres, malgré des temps d’indexation assez conséquents.</p>
+<blockquote class="blockquote">
+<p>Aparté sur les intégrations Langchain : à manipuler avec précaution, les fonctions ne sont pas toujours explicites (par exemple la méthode <code>from_documents</code> supprime et recrée en général une collection). De plus certaines fonctionnalités comme l’utilisation de partitions ne sont pas toujours accessibles via Langchain. Il peut être utile de recréer des wrapper qui utilisent en partie Langchain et en partie les fonctions natives de la base de données.</p>
+</blockquote>
+<section id="annexes" class="level4">
+<h4 class="anchored" data-anchor-id="annexes">Annexes</h4>
+<section id="définitions" class="level5">
+<h5 class="anchored" data-anchor-id="définitions">Définitions</h5>
+<p><strong>Dev-friendly</strong> -&gt; Note qualitative après installation de chaque solution (sauf FAISS) dans une image Docker, et utilisation avec Python (avec et sans l’intégration Langchain)</p>
+<p><strong>Déploiement</strong> -&gt; Existence d’un écosystème de déploiement</p>
+<p><strong>Qualité de la documentation</strong> -&gt; Note qualitative après installation de chaque solution (sauf FAISS) dans une image Docker, et utilisation avec Python (avec et sans l’intégration Langchain)</p>
+<p><strong>Ajout d’éléments à la volée, scalabilité</strong> -&gt; Comment l’indexation se fait si la base de données est modifiée. Avec le partitionnement statique (<em>static sharding</em>), si la capacité du serveur est augmentée toutes les données doivent être de nouveau partitionnées, ce qui peut être long.</p>
+<p><strong>Recherche hybride</strong> -&gt; Possibilité d’effectuer des recherches dans les métadonnées, avec des nombres ou des chaînes de caractères</p>
+<p><strong>Accès contrôlé par rôles (<em>RBAC</em>)</strong>-&gt; Autorisations prédéfinies pour chaque utilisateur, avec un accès différencié aux documents</p>
+</section>
+<section id="ressources" class="level5">
+<h5 class="anchored" data-anchor-id="ressources">Ressources</h5>
+<p>https://weaviate.io/blog/vector-library-vs-vector-database</p>
+<p><a href="https://ann-benchmarks.com/index.html">ANN Benchmark</a> (avril 2023)</p>
+</section>
+</section>
+</section>
+<section id="c.-presentations-de-modules-avec-retex-code" class="level3">
+<h3 class="anchored" data-anchor-id="c.-presentations-de-modules-avec-retex-code">c.&nbsp;presentations de modules avec RETEX, CODE!)</h3>
 
 
 </section>
