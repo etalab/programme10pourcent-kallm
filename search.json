@@ -2,9 +2,20 @@
   {
     "objectID": "III-Deploiements/4_Infras_administrations.html",
     "href": "III-Deploiements/4_Infras_administrations.html",
-    "title": "Guide du LLM",
+    "title": "PARTIE III. Deploiements",
     "section": "",
-    "text": "Guide du LLM\n\nPARTIE III. Deploiements\n\n\n4. Infras dispos pour l’administration (Thibault Katia)\nSSP Cloud (Onyxia)\n\nCloud PI\n\nClouds privés (SECNUMCLOUD, Sens?)\n\n(NuboNyxia à terme)\n\n\n5. Déploiement d’un LLM sur SSP Cloud\nSur le DataLab SSP Cloud, il est possible de déployer des LLM à des fins d’expérimentation. Plusieurs cas sont possibles :\nA. Utiliser des librairies d’API de LLM (vLLM, etc.) B. Déployer des containers Docker avec Kube et Helm\n\nA. Déploiement par API\n\nVous pouvez lancer un service VSCode avec une GPU et installer une API de LLM\n\n\n\nB. Déploiement par image Docker\n\nCréer une image Docker et la mettre à disposition (Dockerhub) : exemple applicatif avec Streamlit\nDéployer avec Kube et Helm en utilisant un service VSCode avec les droits d’admin pour Kube\n\nExemple avec Kube :\nkubectl create deployment mon-deploiement --image=mon-image-docker\nkubectl proxy",
+    "text": "Dans beaucoup de cas l’infrastructure est un des principaux freins à la mise en production d’un cas d’usage d’IA générative. L’acquisition d’un cluster GPUs n’est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs solutions sont disponibles (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.\nCette approche est d’ailleurs en phase avec la directive “cloud au centre” qui encourage l’utilisation d’infrastructure externalisée pour les projets informatiques de l’administration.\nDans ce cadre, la principale variable a prendre en compte est les contraintes de sécurité de l’application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux. Un guide a été publié par l’Anssi sur le sujet en avril 2024 : RECOMMANDATIONS DE SÉCURITÉ POUR UN SYSTÈME D’IA GÉNÉRATIVE\n3 principales solutions sont possibles : -  -  - \n\n\nBien que l’état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée\n\nSSP Cloud\n\nA ce jour, le SSP Cloud via sa plateforme ONYXIA, est la principale plateforme publique mettant à disposition des GPUs à ces utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production.\ncf \n\nCloud PI\n\nCloud PI est le cloud du ministère de l’intérieur",
+    "crumbs": [
+      "III-Deploiements",
+      "Infrastructures dans l'administration"
+    ]
+  },
+  {
+    "objectID": "III-Deploiements/4_Infras_administrations.html#infras-dispos-pour-ladministration-thibault-katia",
+    "href": "III-Deploiements/4_Infras_administrations.html#infras-dispos-pour-ladministration-thibault-katia",
+    "title": "PARTIE III. Deploiements",
+    "section": "",
+    "text": "Dans beaucoup de cas l’infrastructure est un des principaux freins à la mise en production d’un cas d’usage d’IA générative. L’acquisition d’un cluster GPUs n’est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs solutions sont disponibles (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.\nCette approche est d’ailleurs en phase avec la directive “cloud au centre” qui encourage l’utilisation d’infrastructure externalisée pour les projets informatiques de l’administration.\nDans ce cadre, la principale variable a prendre en compte est les contraintes de sécurité de l’application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux. Un guide a été publié par l’Anssi sur le sujet en avril 2024 : RECOMMANDATIONS DE SÉCURITÉ POUR UN SYSTÈME D’IA GÉNÉRATIVE\n3 principales solutions sont possibles : -  -  - \n\n\nBien que l’état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée\n\nSSP Cloud\n\nA ce jour, le SSP Cloud via sa plateforme ONYXIA, est la principale plateforme publique mettant à disposition des GPUs à ces utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production.\ncf \n\nCloud PI\n\nCloud PI est le cloud du ministère de l’intérieur",
     "crumbs": [
       "III-Deploiements",
       "Infrastructures dans l'administration"
@@ -168,7 +179,7 @@
     "href": "I-Accompagnement/2_Deja_Fait_Admin.html",
     "title": "Guide du LLM",
     "section": "",
-    "text": "cas d’usage\n\nDans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.\ndes infras des modeles des datasets/open data ?",
+    "text": "Dans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.\nAlbert France Services\nAlbert Tchap ?\nLLamandement\n\n\n\n\nAlbert github Albert hugging face\n\n\n\n\n\n\ndes modeles des datasets/open data ?",
     "crumbs": [
       "I-Accompagnement",
       "Exemples dans l'administration"
@@ -179,7 +190,7 @@
     "href": "I-Accompagnement/2_Deja_Fait_Admin.html#partie-i.-accompagnement-au-changement",
     "title": "Guide du LLM",
     "section": "",
-    "text": "cas d’usage\n\nDans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.\ndes infras des modeles des datasets/open data ?",
+    "text": "Dans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.\nAlbert France Services\nAlbert Tchap ?\nLLamandement\n\n\n\n\nAlbert github Albert hugging face\n\n\n\n\n\n\ndes modeles des datasets/open data ?",
     "crumbs": [
       "I-Accompagnement",
       "Exemples dans l'administration"

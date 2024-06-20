@@ -251,10 +251,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#guide-du-llm" id="toc-guide-du-llm" class="nav-link active" data-scroll-target="#guide-du-llm">Guide du LLM</a>
+  <li><a href="#partie-iii.-deploiements" id="toc-partie-iii.-deploiements" class="nav-link active" data-scroll-target="#partie-iii.-deploiements">PARTIE III. Deploiements</a>
   <ul class="collapse">
-  <li><a href="#partie-iii.-deploiements" id="toc-partie-iii.-deploiements" class="nav-link" data-scroll-target="#partie-iii.-deploiements">PARTIE III. Deploiements</a></li>
-  <li><a href="#infras-dispos-pour-ladministration-thibault-katia" id="toc-infras-dispos-pour-ladministration-thibault-katia" class="nav-link" data-scroll-target="#infras-dispos-pour-ladministration-thibault-katia">4. Infras dispos pour l’administration (Thibault Katia)</a></li>
+  <li><a href="#infras-dispos-pour-ladministration-thibault-katia" id="toc-infras-dispos-pour-ladministration-thibault-katia" class="nav-link" data-scroll-target="#infras-dispos-pour-ladministration-thibault-katia">4. Infras dispos pour l’administration (Thibault Katia)</a>
+  <ul class="collapse">
+  <li><a href="#a.-cloud-public" id="toc-a.-cloud-public" class="nav-link" data-scroll-target="#a.-cloud-public">A. Cloud Public</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#todo-obtenir-des-infos-sur-la-disponibilté-éventuelle-de-gpu-dans-pi" id="toc-todo-obtenir-des-infos-sur-la-disponibilté-éventuelle-de-gpu-dans-pi" class="nav-link" data-scroll-target="#todo-obtenir-des-infos-sur-la-disponibilté-éventuelle-de-gpu-dans-pi">TODO Obtenir des infos sur la disponibilté éventuelle de GPU dans PI ?</a></li>
+  <li><a href="#todo-roadmap-du-bercyhub-sur-ce-sujet" id="toc-todo-roadmap-du-bercyhub-sur-ce-sujet" class="nav-link" data-scroll-target="#todo-roadmap-du-bercyhub-sur-ce-sujet">TODO Roadmap du Bercyhub sur ce sujet ?</a>
+  <ul class="collapse">
+  <li><a href="#b.-cloud-externe" id="toc-b.-cloud-externe" class="nav-link" data-scroll-target="#b.-cloud-externe">B. Cloud externe</a></li>
+  <li><a href="#c.-api-inférence" id="toc-c.-api-inférence" class="nav-link" data-scroll-target="#c.-api-inférence">C. API inférence</a></li>
   <li><a href="#déploiement-dun-llm-sur-ssp-cloud" id="toc-déploiement-dun-llm-sur-ssp-cloud" class="nav-link" data-scroll-target="#déploiement-dun-llm-sur-ssp-cloud">5. Déploiement d’un LLM sur SSP Cloud</a></li>
   </ul></li>
   </ul>
@@ -266,20 +274,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="guide-du-llm" class="level1">
-<h1>Guide du LLM</h1>
-<section id="partie-iii.-deploiements" class="level3">
-<h3 class="anchored" data-anchor-id="partie-iii.-deploiements">PARTIE III. Deploiements</h3>
+<section id="partie-iii.-deploiements" class="level1">
+<h1>PARTIE III. Deploiements</h1>
+<section id="infras-dispos-pour-ladministration-thibault-katia" class="level2">
+<h2 class="anchored" data-anchor-id="infras-dispos-pour-ladministration-thibault-katia">4. Infras dispos pour l’administration (Thibault Katia)</h2>
+<p>Dans beaucoup de cas l’infrastructure est un des principaux freins à la mise en production d’un cas d’usage d’IA générative. L’acquisition d’un cluster GPUs n’est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs solutions sont disponibles (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.</p>
+<p>Cette approche est d’ailleurs en phase avec la directive <a href="https://www.legifrance.gouv.fr/download/pdf/circ?id=45446">“cloud au centre”</a> qui encourage l’utilisation d’infrastructure externalisée pour les projets informatiques de l’administration.</p>
+<p>Dans ce cadre, la principale variable a prendre en compte est les contraintes de sécurité de l’application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux. Un guide a été publié par l’Anssi sur le sujet en avril 2024 : <a href="https://cyber.gouv.fr/sites/default/files/document/Recommandations_de_s%C3%A9curit%C3%A9_pour_un_syst%C3%A8me_d_IA_g%C3%A9n%C3%A9rative.pdf">RECOMMANDATIONS DE SÉCURITÉ POUR UN SYSTÈME D’IA GÉNÉRATIVE</a></p>
+<p>3 principales solutions sont possibles : - <img src="#cloud-public.png" class="img-fluid" alt="Cloud Public"> - <img src="#cloud-externe.png" class="img-fluid" alt="Cloud externe"> - <img src="#api-inference.png" class="img-fluid" alt="API inférence"></p>
+<section id="a.-cloud-public" class="level3">
+<h3 class="anchored" data-anchor-id="a.-cloud-public">A. Cloud Public</h3>
+<p>Bien que l’état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée</p>
+<ol type="1">
+<li><a href="https://datalab.sspcloud.fr/?lang=fr">SSP Cloud</a></li>
+</ol>
+<p>A ce jour, le SSP Cloud via sa plateforme ONYXIA, est la principale plateforme publique mettant à disposition des GPUs à ces utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production.</p>
+<p>cf <img src="#Déploiement%20d'un%20LLM%20sur%20SSP%20Cloud.png" class="img-fluid" alt="Déploiement d’un LLM sur SSP Cloud"></p>
+<ol start="2" type="1">
+<li>Cloud PI</li>
+</ol>
+<p>Cloud PI est le cloud du ministère de l’intérieur</p>
 </section>
-<section id="infras-dispos-pour-ladministration-thibault-katia" class="level3">
-<h3 class="anchored" data-anchor-id="infras-dispos-pour-ladministration-thibault-katia">4. Infras dispos pour l’administration (Thibault Katia)</h3>
-<pre><code>SSP Cloud (Onyxia)
-
-Cloud PI
-
-Clouds privés (SECNUMCLOUD, Sens?)
-
-(NuboNyxia à terme)</code></pre>
+</section>
+</section>
+<section id="todo-obtenir-des-infos-sur-la-disponibilté-éventuelle-de-gpu-dans-pi" class="level1">
+<h1>TODO Obtenir des infos sur la disponibilté éventuelle de GPU dans PI ?</h1>
+<ol start="3" type="1">
+<li>Nubo</li>
+</ol>
+<p>Via Nubonyxia</p>
+</section>
+<section id="todo-roadmap-du-bercyhub-sur-ce-sujet" class="level1">
+<h1>TODO Roadmap du Bercyhub sur ce sujet ?</h1>
+<section id="b.-cloud-externe" class="level3">
+<h3 class="anchored" data-anchor-id="b.-cloud-externe">B. Cloud externe</h3>
+<p>La qualificiation <a href="https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud">SecNumCloud</a> a été mis en place par l’ANSSI pour assurer des normes de sécurité aux utilisateurs de produits cloud. A ce jour, peu d’entreprises ont acquis cette qualification</p>
+<ol type="1">
+<li><a href="https://fr.outscale.com/">Dassault - Outscale</a> <strong>IAAS</strong></li>
+<li><a href="https://www.s3ns.io/">Thales - Sens</a> (Implémentation de GCP sur une infrastructure sécurisée) <strong>PAAS</strong></li>
+<li><a href="https://www.cloud-temple.com/">Cloud Temple</a> <strong>IAAS ?</strong></li>
+<li>…</li>
+</ol>
+</section>
+<section id="c.-api-inférence" class="level3">
+<h3 class="anchored" data-anchor-id="c.-api-inférence">C. API inférence</h3>
+<ol type="1">
+<li><p>Public : Albert API</p></li>
+<li><p>Externe non sécurisée :</p></li>
+</ol>
+<ul>
+<li><a href="https://mistral.ai/fr/">Mistral API</a></li>
+<li><a href="https://huggingface.co/inference-endpoints/dedicated">Hugging face - inference endpoint</a></li>
+<li><a href="https://wow.groq.com/why-groq/">Groq</a></li>
+</ul>
 </section>
 <section id="déploiement-dun-llm-sur-ssp-cloud" class="level3">
 <h3 class="anchored" data-anchor-id="déploiement-dun-llm-sur-ssp-cloud">5. Déploiement d’un LLM sur SSP Cloud</h3>
@@ -298,8 +345,8 @@ Clouds privés (SECNUMCLOUD, Sens?)
 <li>Déployer avec Kube et Helm en utilisant un service VSCode avec les droits d’admin pour Kube</li>
 </ul>
 <p>Exemple avec Kube :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kubectl</span> create deployment mon-deploiement <span class="at">--image</span><span class="op">=</span>mon-image-docker</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kubectl</span> proxy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kubectl</span> create deployment mon-deploiement <span class="at">--image</span><span class="op">=</span>mon-image-docker</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kubectl</span> proxy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
