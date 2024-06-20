@@ -11,9 +11,9 @@ Dans ce cadre, la principale variable a prendre en compte est les contraintes de
 POUR UN SYSTÈME D'IA GÉNÉRATIVE](https://cyber.gouv.fr/sites/default/files/document/Recommandations_de_s%C3%A9curit%C3%A9_pour_un_syst%C3%A8me_d_IA_g%C3%A9n%C3%A9rative.pdf)
 
 3 principales solutions sont possibles : 
-- ![Cloud Public](#cloud-public)
-- ![Cloud externe](#cloud-externe)
-- ![API inférence](#api-inference)
+- [Cloud Public](#cloud-public)
+- [Cloud externe](#cloud-externe)
+- [API inférence](#api-inference)
 
 
 ### A. Cloud Public
@@ -24,19 +24,19 @@ Bien que l'état dispose de plusieurs offres cloud internes, la mise à disposit
 
 A ce jour, le SSP Cloud via sa plateforme ONYXIA, est la principale plateforme publique mettant à disposition des GPUs à ces utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production.
 
-cf ![Déploiement d'un LLM sur SSP Cloud](#Déploiement d'un LLM sur SSP Cloud)
+cf [Déploiement d'un LLM sur SSP Cloud](#Déploiement d'un LLM sur SSP Cloud)
 
 2. Cloud PI
 
 Cloud PI est le cloud du ministère de l'intérieur 
 
-# TODO Obtenir des infos sur la disponibilté éventuelle de GPU dans PI ? 
+> TODO Obtenir des infos sur la disponibilté éventuelle de GPU dans PI ? 
 
 3. Nubo
 
 Via Nubonyxia 
 
-# TODO Roadmap du Bercyhub sur ce sujet ? 
+> TODO Roadmap du Bercyhub sur ce sujet ? 
 
 ### B. Cloud externe
 
