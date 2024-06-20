@@ -24,7 +24,7 @@ Bien que l'état dispose de plusieurs offres cloud internes, la mise à disposit
 
 A ce jour, le SSP Cloud via sa plateforme ONYXIA, est la principale plateforme publique mettant à disposition des GPUs à ces utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production.
 
-# TODO Enrichir ce paragraphe avec des RETEX sur l'utilisation de container avec GPU 
+cf ![Déploiement d'un LLM sur SSP Cloud](#Déploiement d'un LLM sur SSP Cloud)
 
 2. Cloud PI
 
@@ -57,4 +57,31 @@ La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fourn
 - [Hugging face - inference endpoint](https://huggingface.co/inference-endpoints/dedicated)
 - [Groq](https://wow.groq.com/why-groq/)
 
-Permet de simplifier 
+### 5. Déploiement d'un LLM sur SSP Cloud
+
+Sur le DataLab SSP Cloud, il est possible de déployer des LLM à des fins d'expérimentation. Plusieurs cas sont possibles :
+
+A. Utiliser des librairies d'API de LLM (vLLM, etc.)
+B. Déployer des containers Docker avec Kube et Helm
+
+#### A. Déploiement par API
+
+* Vous pouvez lancer un service VSCode avec une GPU et installer une API de LLM
+
+#### B. Déploiement par image Docker
+
+* Créer une image Docker et la mettre à disposition (Dockerhub) : exemple applicatif avec Streamlit
+* Déployer avec Kube et Helm en utilisant un service VSCode avec les droits d'admin pour Kube
+
+
+Exemple avec Kube :
+
+```bash
+kubectl create deployment mon-deploiement --image=mon-image-docker
+```
+
+
+```bash
+kubectl proxy
+```
+

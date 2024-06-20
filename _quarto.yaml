@@ -52,3 +52,5 @@ format:
     code-copy: true
     code-overflow: wrap
     toc: true
+
+from: markdown+emoji
