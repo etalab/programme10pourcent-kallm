@@ -4,10 +4,23 @@
 
 ### 2. Ce qui est déjà fait ou expérimenté dans l’administration (Johnny Hélène Thibault)
 
-	cas d’usage
+### A. Cas d’usage
 * Dans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.
-  
-  des infras
+
+* [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) 
+
+* Albert Tchap ? 
+
+* [LLamandement](https://gitlab.adullact.net/dgfip/projets-ia/llamandement)
+
+### B. Modèles 
+
+[Albert github](https://github.com/etalab-ia/albert) 
+[Albert github](https://github.com/etalab-ia/albert) 
+
+### C. Datasets 
+
+### D. Infrastructure 
   des modeles
   des datasets/open data ?
 	
