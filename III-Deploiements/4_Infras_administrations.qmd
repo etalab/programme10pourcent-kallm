@@ -11,3 +11,33 @@
 	Clouds privés (SECNUMCLOUD, Sens?)
  
 	(NuboNyxia à terme)
+
+
+### 5. Déploiement d'un LLM sur SSP Cloud
+
+Sur le DataLab SSP Cloud, il est possible de déployer des LLM à des fins d'expérimentation. Plusieurs cas sont possibles :
+
+A. Utiliser des librairies d'API de LLM (vLLM, etc.)
+B. Déployer des containers Docker avec Kube et Helm
+
+#### A. Déploiement par API
+
+* Vous pouvez lancer un service VSCode avec une GPU et installer une API de LLM
+
+#### B. Déploiement par image Docker
+
+* Créer une image Docker et la mettre à disposition (Dockerhub) : exemple applicatif avec Streamlit
+* Déployer avec Kube et Helm en utilisant un service VSCode avec les droits d'admin pour Kube
+
+
+Exemple avec Kube :
+
+```bash
+kubectl create deployment mon-deploiement --image=mon-image-docker
+```
+
+
+```bash
+kubectl proxy
+```
+
