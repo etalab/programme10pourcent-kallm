@@ -55,6 +55,7 @@ Il est aujourd'hui difficile de savoir quel LLM est adapté pour son besoin spé
 | Jérôme LAPORTE | ANFSI - Ministère de l'intérieur|
 | Hélène CHARASSON-JASSON | Banque de France |
 | Malo ADLER | ANFSI - Ministère de l'intérieur |
+| Bruno LENZI |	Ecolab - Ministère de la Transiton Écologique et de la Cohésion des Territoires |
 
 ## Épilogue
 
