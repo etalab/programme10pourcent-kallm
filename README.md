@@ -3,7 +3,7 @@
 
 
 Ce projet fait partie de la [troisième saison du Programme 10%](https://10pct.datascience.etalab.studio/les-actualites/saison-3-programme-10/), co-porté par la DINUM en association étroite avec l'Insee.
-Vous pouvez consulter le guide [ici](https://etalab.github.io/programme10pourcent-kallm/https://etalab.github.io/programme10pourcent-kallm/).
+Vous pouvez consulter le guide [ici](https://etalab.github.io/programme10pourcent-kallm/).
 
 
 ## Préambule
