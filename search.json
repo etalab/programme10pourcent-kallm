@@ -157,42 +157,70 @@
     "href": "index.html",
     "title": "Projet KALLM : Kit avancé LLM",
     "section": "",
-    "text": "Ce projet fait partie de la troisième saison du Programme 10%, co-porté par la DINUM en association étroite avec l’Insee.\n\n\nMistral, GPT4, Claude, ALBERT, CroissantLLM… Vous ne vous y retrouvez plus parmi tous ces modèles larges de language (LLM)? Ce guide permet de se poser les bonnes questions et de pouvoir répondre à un besoin d’analyse textuelle avec une solution adaptée. Ce guide est là pour vous aider du début jusqu’à la fin, de la conception du modèle après problématisation à la mise en production.\nObjectif : Comprendre son besoin et y répondre avec une solution LLM adaptée\n\n\n\nLes LLM sont des modèles de langage de grande taille, apparus vers 2018, ayant révolutionné le domaine du traitement automatique du langage naturel. Les LLMS se caractérisent par une architecture de type “transformers” permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l’analyse de sentiment.\nPlus de 3000 LLM ont été entraînés et publiés sur des plateformes de partage de modèle comme HuggingFace, dont plus d’une cinquaine s’affronte régulièrement entre eux pour se démarquer sur différentes tâches dans une arène dédiée.\nIl est aujourd’hui difficile de savoir quel LLM est adapté pour son besoin spécifique et quelle infrastructure est nécessaire pour utiliser les différents LLM. Ce guide tente donc d’expliciter les raisonnements, les questions à se poser et des pistes de réponse quant aux choix et à la mise en oeuvre des LLM.\n\n\n\n\nl’infrastructure minimale pour faire tourner un LLM\nbenchmarking des “principaux” LLM\nexemple d’utilisation dans un cas simple (cas d’utilisation dit “fil rouge”) sous forme de tutoriel\nfinetuner un modèle LLM\nquantizer un modèle LLM\nEvaluer un LLM\nmettre en production un modèle LLM\nune bibliographie consise et non exhaustive\nd’autres exemples plus complexes de cas d’utilisation dans l’administration\nune approximation du coût environnemental et financier des différents LLM\n\n\n\n\n\nles fondements théoriques de l’optimisation\ncas spécifique d’une administration\ncomment débiaiser un LLM\n\n\n\n\n\n\n\n\n\n\n\nMembre\nAdministration\n\n\n\n\nConrad THIOUNN\nDares - Ministère du Travail\n\n\nJohnny PLATON\nSanté publique France\n\n\nThibault DUROUCHOUX\n\n\n\nKatia JODOGNE-DEL LITTO\nIGF - Ministère de l’Economie et des Finances\n\n\nFaheem BEG\n\n\n\nCamille ANDRÉ\n\n\n\nCamille BRIER\nDTNum - DGFiP\n\n\nDaphné PERTSEKOS\nANFSI - Ministère de l’intérieur\n\n\nZhanna SANTYBAYEVA\nDGOS - Ministère du travail, de la santé et des solidarités\n\n\n\n## Épilogue\nUne remarque ? Une question ? Vous pouvez nous contacter sur le salon Tchap du Programme 10% ou …"
+    "text": "Ce projet fait partie de la troisième saison du Programme 10%, co-porté par la DINUM en association étroite avec l’Insee.\n\n\nMistral, GPT4, Claude, ALBERT, CroissantLLM… Vous ne vous y retrouvez plus parmi tous ces modèles larges de language (LLM)? Ce guide permet de se poser les bonnes questions et de pouvoir répondre à un besoin d’analyse textuelle avec une solution adaptée. Ce guide est là pour vous aider du début jusqu’à la fin, de la conception du modèle après problématisation à la mise en production.\nObjectif : Comprendre son besoin et y répondre avec une solution LLM adaptée\n\n\n\nLes LLM sont des modèles de langage de grande taille, apparus vers 2018, ayant révolutionné le domaine du traitement automatique du langage naturel. Les LLMS se caractérisent par une architecture de type “transformers” permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l’analyse de sentiment.\nPlus de 3000 LLM ont été entraînés et publiés sur des plateformes de partage de modèle comme HuggingFace, dont plus d’une cinquaine s’affronte régulièrement entre eux pour se démarquer sur différentes tâches dans une arène dédiée.\nIl est aujourd’hui difficile de savoir quel LLM est adapté pour son besoin spécifique et quelle infrastructure est nécessaire pour utiliser les différents LLM. Ce guide tente donc d’expliciter les raisonnements, les questions à se poser et des pistes de réponse quant aux choix et à la mise en oeuvre des LLM.\n\n\n\n\nl’infrastructure minimale pour faire tourner un LLM\nbenchmarking des “principaux” LLM\nexemple d’utilisation dans un cas simple (cas d’utilisation dit “fil rouge”) sous forme de tutoriel\nfinetuner un modèle LLM\nquantizer un modèle LLM\nEvaluer un LLM\nmettre en production un modèle LLM\nune bibliographie consise et non exhaustive\nd’autres exemples plus complexes de cas d’utilisation dans l’administration\nune approximation du coût environnemental et financier des différents LLM\n\n\n\n\n\nles fondements théoriques de l’optimisation\ncas spécifique d’une administration\ncomment débiaiser un LLM\n\n\n\n\n\n\n\n\n\n\n\nMembre\nAdministration\n\n\n\n\nConrad THIOUNN\nDares - Ministère du Travail\n\n\nJohnny PLATON\nSanté publique France\n\n\nThibault DUROUCHOUX\n\n\n\nKatia JODOGNE-DEL LITTO\nIGF - Ministère de l’Economie et des Finances\n\n\nFaheem BEG\n\n\n\nCamille ANDRÉ\n\n\n\nCamille BRIER\nDTNum - DGFiP\n\n\nDaphné PERTSEKOS\nANFSI - Ministère de l’intérieur\n\n\nZhanna SANTYBAYEVA\nDGOS - Ministère du travail, de la santé et des solidarités\n\n\n\n\n\n\nUne remarque ? Une question ? Vous pouvez nous contacter sur le salon Tchap du Programme 10% ou …",
+    "crumbs": [
+      "Accueil"
+    ]
   },
   {
     "objectID": "index.html#préambule",
     "href": "index.html#préambule",
     "title": "Projet KALLM : Kit avancé LLM",
     "section": "",
-    "text": "Mistral, GPT4, Claude, ALBERT, CroissantLLM… Vous ne vous y retrouvez plus parmi tous ces modèles larges de language (LLM)? Ce guide permet de se poser les bonnes questions et de pouvoir répondre à un besoin d’analyse textuelle avec une solution adaptée. Ce guide est là pour vous aider du début jusqu’à la fin, de la conception du modèle après problématisation à la mise en production.\nObjectif : Comprendre son besoin et y répondre avec une solution LLM adaptée"
+    "text": "Mistral, GPT4, Claude, ALBERT, CroissantLLM… Vous ne vous y retrouvez plus parmi tous ces modèles larges de language (LLM)? Ce guide permet de se poser les bonnes questions et de pouvoir répondre à un besoin d’analyse textuelle avec une solution adaptée. Ce guide est là pour vous aider du début jusqu’à la fin, de la conception du modèle après problématisation à la mise en production.\nObjectif : Comprendre son besoin et y répondre avec une solution LLM adaptée",
+    "crumbs": [
+      "Accueil"
+    ]
   },
   {
     "objectID": "index.html#etats-des-lieux-des-llm",
     "href": "index.html#etats-des-lieux-des-llm",
     "title": "Projet KALLM : Kit avancé LLM",
     "section": "",
-    "text": "Les LLM sont des modèles de langage de grande taille, apparus vers 2018, ayant révolutionné le domaine du traitement automatique du langage naturel. Les LLMS se caractérisent par une architecture de type “transformers” permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l’analyse de sentiment.\nPlus de 3000 LLM ont été entraînés et publiés sur des plateformes de partage de modèle comme HuggingFace, dont plus d’une cinquaine s’affronte régulièrement entre eux pour se démarquer sur différentes tâches dans une arène dédiée.\nIl est aujourd’hui difficile de savoir quel LLM est adapté pour son besoin spécifique et quelle infrastructure est nécessaire pour utiliser les différents LLM. Ce guide tente donc d’expliciter les raisonnements, les questions à se poser et des pistes de réponse quant aux choix et à la mise en oeuvre des LLM."
+    "text": "Les LLM sont des modèles de langage de grande taille, apparus vers 2018, ayant révolutionné le domaine du traitement automatique du langage naturel. Les LLMS se caractérisent par une architecture de type “transformers” permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l’analyse de sentiment.\nPlus de 3000 LLM ont été entraînés et publiés sur des plateformes de partage de modèle comme HuggingFace, dont plus d’une cinquaine s’affronte régulièrement entre eux pour se démarquer sur différentes tâches dans une arène dédiée.\nIl est aujourd’hui difficile de savoir quel LLM est adapté pour son besoin spécifique et quelle infrastructure est nécessaire pour utiliser les différents LLM. Ce guide tente donc d’expliciter les raisonnements, les questions à se poser et des pistes de réponse quant aux choix et à la mise en oeuvre des LLM.",
+    "crumbs": [
+      "Accueil"
+    ]
   },
   {
     "objectID": "index.html#ce-que-couvre-ce-guide",
     "href": "index.html#ce-que-couvre-ce-guide",
     "title": "Projet KALLM : Kit avancé LLM",
     "section": "",
-    "text": "l’infrastructure minimale pour faire tourner un LLM\nbenchmarking des “principaux” LLM\nexemple d’utilisation dans un cas simple (cas d’utilisation dit “fil rouge”) sous forme de tutoriel\nfinetuner un modèle LLM\nquantizer un modèle LLM\nEvaluer un LLM\nmettre en production un modèle LLM\nune bibliographie consise et non exhaustive\nd’autres exemples plus complexes de cas d’utilisation dans l’administration\nune approximation du coût environnemental et financier des différents LLM"
+    "text": "l’infrastructure minimale pour faire tourner un LLM\nbenchmarking des “principaux” LLM\nexemple d’utilisation dans un cas simple (cas d’utilisation dit “fil rouge”) sous forme de tutoriel\nfinetuner un modèle LLM\nquantizer un modèle LLM\nEvaluer un LLM\nmettre en production un modèle LLM\nune bibliographie consise et non exhaustive\nd’autres exemples plus complexes de cas d’utilisation dans l’administration\nune approximation du coût environnemental et financier des différents LLM",
+    "crumbs": [
+      "Accueil"
+    ]
   },
   {
     "objectID": "index.html#ce-que-ne-couvre-pas-encore-ce-guide",
     "href": "index.html#ce-que-ne-couvre-pas-encore-ce-guide",
     "title": "Projet KALLM : Kit avancé LLM",
     "section": "",
-    "text": "les fondements théoriques de l’optimisation\ncas spécifique d’une administration\ncomment débiaiser un LLM"
+    "text": "les fondements théoriques de l’optimisation\ncas spécifique d’une administration\ncomment débiaiser un LLM",
+    "crumbs": [
+      "Accueil"
+    ]
   },
   {
     "objectID": "index.html#membres",
     "href": "index.html#membres",
     "title": "Projet KALLM : Kit avancé LLM",
     "section": "",
-    "text": "Membre\nAdministration\n\n\n\n\nConrad THIOUNN\nDares - Ministère du Travail\n\n\nJohnny PLATON\nSanté publique France\n\n\nThibault DUROUCHOUX\n\n\n\nKatia JODOGNE-DEL LITTO\nIGF - Ministère de l’Economie et des Finances\n\n\nFaheem BEG\n\n\n\nCamille ANDRÉ\n\n\n\nCamille BRIER\nDTNum - DGFiP\n\n\nDaphné PERTSEKOS\nANFSI - Ministère de l’intérieur\n\n\nZhanna SANTYBAYEVA\nDGOS - Ministère du travail, de la santé et des solidarités\n\n\n\n## Épilogue\nUne remarque ? Une question ? Vous pouvez nous contacter sur le salon Tchap du Programme 10% ou …"
+    "text": "Membre\nAdministration\n\n\n\n\nConrad THIOUNN\nDares - Ministère du Travail\n\n\nJohnny PLATON\nSanté publique France\n\n\nThibault DUROUCHOUX\n\n\n\nKatia JODOGNE-DEL LITTO\nIGF - Ministère de l’Economie et des Finances\n\n\nFaheem BEG\n\n\n\nCamille ANDRÉ\n\n\n\nCamille BRIER\nDTNum - DGFiP\n\n\nDaphné PERTSEKOS\nANFSI - Ministère de l’intérieur\n\n\nZhanna SANTYBAYEVA\nDGOS - Ministère du travail, de la santé et des solidarités",
+    "crumbs": [
+      "Accueil"
+    ]
+  },
+  {
+    "objectID": "index.html#épilogue",
+    "href": "index.html#épilogue",
+    "title": "Projet KALLM : Kit avancé LLM",
+    "section": "",
+    "text": "Une remarque ? Une question ? Vous pouvez nous contacter sur le salon Tchap du Programme 10% ou …",
+    "crumbs": [
+      "Accueil"
+    ]
   },
   {
     "objectID": "I-Accompagnement/1_Besoins.html",
