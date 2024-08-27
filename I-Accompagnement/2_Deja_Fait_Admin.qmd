@@ -3,7 +3,7 @@
 ## PARTIE I. Accompagnement au changement
 
 ### 2. Ce qui est déjà fait ou expérimenté dans l’administration (Johnny Hélène Thibault)
-
+mettre l'origine des projets
 ### A. Cas d’usage
 * Dans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.
 * Les LLMs peuvent être utilisés pour labelliser les textes d’un corpus (articles de presse, par exemple) traitant d’un sujet (ex : décision de politique monétaire), selon certaines catégories (ex : « décision attendue », « décision surprenante », « ne sait pas »). 
