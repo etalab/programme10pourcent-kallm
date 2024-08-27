@@ -59,7 +59,7 @@ Plusieurs blocs (6 dans l’implémentation originale) forment ensuite l’encod
 
 Les LLMs basés sur des architectures Transformers appartiennent à l’une des 3 catégories suivantes : 
 
-- **Modèle « encoder-only »** : Ils sont basés uniquement sur la partie décodeur des Transformers. Leur pré-entraînement est souvent basé sur la reconstruction de phrases : à chaque étape, le modèle a accès à une phrase entière, sauf certains mots qui ont été masqués, et apprend à retrouver ces mots masqués. Ces modèles sont adaptés pour des tâches de classification, de reconnaissance d’entités nommées (NER), de réponses aux questions, etc. Ils ont aujourd’hui perdu en popularité, mais leurs représentants les plus connus (BERT, RoBERTa, DistilBERT, CamemBERT, etc.) sont encore très utilisés, et restent un choix intéressant selon la tâche, grâce à leur compréhension fine du langage et à leur petite taille.
+- **Modèle « encoder-only »** : Ils sont basés uniquement sur la partie encodeur des Transformers. Leur pré-entraînement est souvent basé sur la reconstruction de phrases : à chaque étape, le modèle a accès à une phrase entière, sauf certains mots qui ont été masqués, et apprend à retrouver ces mots masqués. Ces modèles sont adaptés pour des tâches de classification, de reconnaissance d’entités nommées (NER), de réponses aux questions, etc. Ils ont aujourd’hui perdu en popularité, mais leurs représentants les plus connus (BERT, RoBERTa, DistilBERT, CamemBERT, etc.) sont encore très utilisés, et restent un choix intéressant selon la tâche, grâce à leur compréhension fine du langage et à leur petite taille.
 
 - **Modèle « decoder-only »** : Ils sont basés uniquement sur la partie décodeur des Transformers. Ces modèles sont aujourd’hui la norme, et l’immense majorité des LLMs actuels utilisent cette architecture. Leur pré-entraînement est basé sur la prédiction du prochain token : à chaque étape, le modèle a accès au début d’une phrase, et apprend à prédire le token suivant. Pour cette raison, ces modèles sont également qualifiés d’« autorégressifs ». Les modèles GPT (2, 3, 4), Llama (2, 3), Mistral, Gemini, etc. sont tous des decoder-only.
 
@@ -93,7 +93,8 @@ Pour répondre à ce besoin, plusieurs méthodes relevant du principe de fine-tu
 
 Pour des petits modèles de langages, il est possible de ré-entraîner en modifiant l'ensemble des poids. Pour des modèles plus grands, modifier l'ensemble des poids peut s'avérer couteux en temps et en GPUs. Plusieurs approches permettent de ré-entraîner à moindre coût :
 
-* réentrainer seulement un sous-ensemble de poids
+Expliquer un peu plus le réentrainement sur un sous ensemble. 
+* réentrainer seulement un sous-ensemble de poids 
 * modifier la tête de modélisation de la langue (`lm_head`) pour certains modèles, soit en réentrainant depuis les poids entraînés, soit en réinitialisant ces poids.
 * garder l'intégralité du modèle et rajouter des poids à entraîner puis utiliser l'approximation de bas rang avec `LORA` (`Low-Rank Adaptation`) pour l'entraînement et l'inférence.
 * utiliser des versions quantisées, i.e. des modèles où les poids ont été tronqués à une précision inférieure (possibilité de combiner avec la technique précédente, sous le nom de qLORA).
@@ -103,7 +104,7 @@ Entraînement avec qLORA en pratique :
 En plus de la librairie `transformers` et `datasets`, les librairies `peft`, `bitsandbytes` et `trl` permettent de simplifier l'entraînement avec qLORA
 
 (inspiré du [notebook suivant](https://www.kaggle.com/code/kingabzpro/mistral-7b-instruct-4bit-qlora-fine-tuning) )
-
+Mettre un lien vers les cookbook de huggingface
 ```python
 %%capture
 %pip install -U bitsandbytes
