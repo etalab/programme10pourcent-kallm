@@ -1,7 +1,7 @@
 # Guide du LLM
 
 ## PARTIE I. Accompagnement au changement
-
+Regarder si le GIEC a émis des recommandataions ? 
 ### 4. Impacts (Katia Bruno Hélène)
 
 	a. Environnementaux (poids de l’entraînement, poids de l’utilisation)
@@ -17,6 +17,8 @@ Le coût environnementale lié aux infrastructures de calcul est mis à disposit
 [1] https://arxiv.org/pdf/2104.10350.pdf
 
 [2] [Data For Good - Livre Blanc de l'IA Générative](https://issuu.com/dataforgood/docs/dataforgood_livreblanc_iagenerative_v1.0?fr=sZGE0MjYyNjE5MTU)
+
+https://www.ecologie.gouv.fr/presse/publication-du-referentiel-general-lia-frugale-sattaquer-limpact-environnemental-lia
 
 
  
