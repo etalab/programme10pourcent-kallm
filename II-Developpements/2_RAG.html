@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.52">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -226,8 +226,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists" id="toc-partie-ii.-développements-autour-des-llms-pour-les-data-scientists" class="nav-link active" data-scroll-target="#partie-ii.-développements-autour-des-llms-pour-les-data-scientists">PARTIE II. Développements autour des LLMs (pour les data scientists)</a></li>
   <li><a href="#rag-hugo-malo-jérôme-daphné-katia" id="toc-rag-hugo-malo-jérôme-daphné-katia" class="nav-link" data-scroll-target="#rag-hugo-malo-jérôme-daphné-katia">2. RAG (Hugo Malo Jérôme Daphné Katia)</a>
   <ul class="collapse">
-  <li><a href="#a.-pipelines" id="toc-a.-pipelines" class="nav-link" data-scroll-target="#a.-pipelines">a. pipelines</a></li>
-  <li><a href="#b.-benchmark-des-différentes-bases-vectorielles-katia" id="toc-b.-benchmark-des-différentes-bases-vectorielles-katia" class="nav-link" data-scroll-target="#b.-benchmark-des-différentes-bases-vectorielles-katia">b. Benchmark des différentes bases vectorielles (Katia)</a>
+  <li><a href="#a.-principe-de-fonctionnement-général" id="toc-a.-principe-de-fonctionnement-général" class="nav-link" data-scroll-target="#a.-principe-de-fonctionnement-général">a. Principe de fonctionnement général</a></li>
+  <li><a href="#b.-recherche-dinformation" id="toc-b.-recherche-dinformation" class="nav-link" data-scroll-target="#b.-recherche-dinformation">b. Recherche d’information</a></li>
+  <li><a href="#c.-génération" id="toc-c.-génération" class="nav-link" data-scroll-target="#c.-génération">c.&nbsp;Génération</a></li>
+  <li><a href="#d.-benchmark-des-différentes-bases-vectorielles-katia" id="toc-d.-benchmark-des-différentes-bases-vectorielles-katia" class="nav-link" data-scroll-target="#d.-benchmark-des-différentes-bases-vectorielles-katia">d.&nbsp;Benchmark des différentes bases vectorielles (Katia)</a>
   <ul class="collapse">
   <li><a href="#comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative" id="toc-comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative" class="nav-link" data-scroll-target="#comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative">Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative</a></li>
   <li><a href="#c.-presentations-de-modules-avec-retex-code" id="toc-c.-presentations-de-modules-avec-retex-code" class="nav-link" data-scroll-target="#c.-presentations-de-modules-avec-retex-code">c.&nbsp;presentations de modules avec RETEX, CODE!)</a></li>
@@ -247,11 +249,24 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="rag-hugo-malo-jérôme-daphné-katia" class="level1">
 <h1>2. RAG (Hugo Malo Jérôme Daphné Katia)</h1>
-<section id="a.-pipelines" class="level2">
-<h2 class="anchored" data-anchor-id="a.-pipelines">a. pipelines</h2>
+<p>Le Retrieval Augmented Generation (RAG) est une technique courante utilisée pour améliorer les performances d’un LLM et de pallier ces déficiences. En effet les LLMs sont très performants pour de la génération de textes mais ils peuvent commettre des hallucinations, c’est-à-dire des affirmations qui semblent plausibles mais qui n’ont aucun fondement. Leur connaissance est aussi limitée par les données qui ont été utilisées pour l’entrainement, par exemple, un llm n’a pas accès aux informations contenues dans une base de connaissance privée car ces données ne sont pas contenues dans le corpus d’entrainement du llm.</p>
+<p>Pour remédier à ces limitations le RAG propose de permettre à un LLM de s’appuyer sur une base de connaissance, généralement sous la forme de document contenant du texte pour répondre de manière pertinente à des questions, en utilisant de manière adéquate les informations contenues dans la base de connaissance.</p>
+<p>Le LLM sera ainsi en mesure de répondre à des questions portant sur des points précis et sur des données sur lequel il n’a jamais été entrainé. En exploitant la base de connaissance il aura aussi moins tendance à inventer de fausses informations et donc à halluciner.</p>
+<section id="a.-principe-de-fonctionnement-général" class="level2">
+<h2 class="anchored" data-anchor-id="a.-principe-de-fonctionnement-général">a. Principe de fonctionnement général</h2>
+<p>Un système de RAG va combiner la capacité de génération de textes d’un LLM avec de la recherche d’information dans une base de connaissance interne. Le RAG se compose principalement de deux parties, une première partie de retrieval dont le rôle est d’analyser une question de l’utilisateur et de trouver des éléments qui sont pertinents pour répondre à la question dans la base, et une seconde partie de génération qui contient le LLM et qui va incorporer le contexte récupérés par la partie de retrieval dans un prompt pour permettre au LLM de générer une réponse basée sur des éléments pertinents.</p>
 </section>
-<section id="b.-benchmark-des-différentes-bases-vectorielles-katia" class="level2">
-<h2 class="anchored" data-anchor-id="b.-benchmark-des-différentes-bases-vectorielles-katia">b. Benchmark des différentes bases vectorielles (Katia)</h2>
+<section id="b.-recherche-dinformation" class="level2">
+<h2 class="anchored" data-anchor-id="b.-recherche-dinformation">b. Recherche d’information</h2>
+<p>La partie de retrieval qui s’occupe de la recherche d’informations pertinentes dans la base joue un rôle essentiel pour le bon fonctionnement du RAG. En effet si des informations non pertinentes sont retournées au LLM il devient très difficile pour lui de formuler une réponse adéquate.</p>
+<p>Il existe de nombreux algorithmes permettant d’effectuer cette recherche d’information, cependant l’une des approches les plus populaires se base sur l’utilisation de vecteurs denses. Dans cette méthode on utilise un encodeur pour transformer le texte en vecteurs de grandes dimensions que l’on stocke dans une base de données vectorielle. Cet encodeur a été entrainé a projeter des textes sémantiquement proches sur des vecteurs similaires. Lorsqu’une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension. On peut alors comparer ce vecteur à l’ensemble des vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les morceaux de texte à envoyer au LLM pour la génération.</p>
+</section>
+<section id="c.-génération" class="level2">
+<h2 class="anchored" data-anchor-id="c.-génération">c.&nbsp;Génération</h2>
+<p>La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt que le LLM utilise pour produire des réponses contextuellement appropriées et précises. Plus le LLM est performant et correctement aligné sur les préférences humaines plus il est capable de prendre une quantité importante de document en contexte et ainsi de mieux répondre à la question.</p>
+</section>
+<section id="d.-benchmark-des-différentes-bases-vectorielles-katia" class="level2">
+<h2 class="anchored" data-anchor-id="d.-benchmark-des-différentes-bases-vectorielles-katia">d.&nbsp;Benchmark des différentes bases vectorielles (Katia)</h2>
 <section id="comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative" class="level3">
 <h3 class="anchored" data-anchor-id="comparatif-détaillé-des-solutions-de-stockages-de-données-pour-la-recherche-vectorielle-approximative">Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative</h3>
 <p>Toutes les solutions testées sont open-source ou disposant d’une licence permissive, qui donne la possibilité d’héberger localement les données.</p>
