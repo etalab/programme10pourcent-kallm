@@ -4,6 +4,7 @@
 
 Partie à fusionner avec ce qui existe déjà dans l'administration ?
 Partir des capacités des LLM pour ensuite les décliner en cas d'usage.
+Parler de l'accès aux données (pour du RAG, FT...)
 ### 1. Besoins (Johnny Hélène)
 
 	Vision high level de l'intérêt des LLMs
