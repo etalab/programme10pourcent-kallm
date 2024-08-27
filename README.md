@@ -15,7 +15,7 @@ Mistral, GPT4, Claude, ALBERT, CroissantLLM... Vous ne vous y retrouvez plus par
 ## Etats des lieux des LLM
 
 Les LLM sont des modèles de langage de grande taille, apparus vers 2018, ayant révolutionné le domaine du traitement automatique du langage naturel. 
-Les LLMS se caractérisent par une architecture de type "transformers" permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l'analyse de sentiment.
+Les LLMS se caractérisent généralement par une architecture de type "transformers" permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l'analyse de sentiment.
 
 Plus de 3000 LLM ont été entraînés et publiés sur des plateformes de partage de modèle comme [HuggingFace](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard), dont plus d'une cinquaine s'affronte régulièrement entre eux pour se démarquer sur différentes tâches dans une [arène dédiée](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard).
 
