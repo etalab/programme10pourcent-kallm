@@ -7,7 +7,7 @@ Partir des capacités des LLM pour ensuite les décliner en cas d'usage.
 Parler de l'accès aux données (pour du RAG, FT...)
 Parler de la nécessité d'avoir du GPU par rapport aux ambitions
 Il faut avoir les moyens de ces ambitions 
-Il faut avoir un cadre juridique cohérent avec ses besoins
+Il faut avoir un cadre juridique cohérent avec ses besoinset vérifier cela avant de commencer le projet.
 
 ### 1. Besoins (Johnny Hélène)
 
