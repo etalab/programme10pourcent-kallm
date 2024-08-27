@@ -2,6 +2,7 @@
 
 ## PARTIE I. Accompagnement au changement
 
+Partie à fusionner avec ce qui existe déjà dans l'administration ?
 ### 1. Besoins (Johnny Hélène)
 
 	Vision high level de l'intérêt des LLMs
@@ -15,7 +16,7 @@ L'objectif de ce chapitre est d'accompagner la réflexion autour de l'identifica
  * cas d'usage autour de la classification et de la recherche de contenu
  * cas d'usage autour des interactions conversationnelles
 
-
+Partie à mettre dans une section dédiée ? Expliciter les motivations pour utiliser un SLM plutôt qu'un LLM / les questions à se poser avant d'utiliser un LLM
 ### Description cas d'usage
 
  1. Utilisation des SLM pour la recherche thématique simple en français (en cours, Zhanna)<br>
@@ -48,6 +49,7 @@ headers = {"Authorization": f"Bearer {hf_token}"}
 
 #### Classifier des accords d'entreprise
 
+Donner des informations sur les données : nombre de catégories, catégories hierarchiques ou pas, taille de la base...
  Les accords d'entreprise sont publiés sur [LégiFrance](https://www.legifrance.gouv.fr/liste/acco).
  Ces accords peuvent concerner plusieurs thématiques (télétravail, compte épargne temps, droit à la deconnexion).
  Ces thématiques sont déclarés par les entreprises et sont éventuellement corrigées par la Direction Générale du Travail.
