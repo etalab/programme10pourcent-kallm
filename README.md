@@ -55,6 +55,7 @@ Il est aujourd'hui difficile de savoir quel LLM est adapté pour son besoin spé
 | Daphné PERTSEKOS | ANFSI - Ministère de l'intérieur|
 | Zhanna SANTYBAYEVA | DGOS - Ministère du travail, de la santé et des solidarités|
 | Bruno LENZI | Ecolab - Ministère de la Transiton Écologique et de la Cohésion des Territoires | 
+| Hélène CHARASSON-JASSON | Banque de France |
 
  ## Épilogue
 
