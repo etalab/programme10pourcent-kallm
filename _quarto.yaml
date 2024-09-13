@@ -47,7 +47,7 @@ website:
             text: "Infrastructures dans l'administration"
       - section: "IV-Exemples"
         contents:
-          - href: III-Exemples/2_Classification_accords_entreprise.qmd
+          - href: IV-Exemples/2_Classification_accords_entreprise.qmd
             text: "Exemple des textes des accords d'entreprise"
         
 format:
