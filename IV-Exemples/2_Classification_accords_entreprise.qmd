@@ -2,10 +2,9 @@
 
 ## Les accords d'entreprise
 
-::: {.callout-note}
 Les accords d'entreprise sont des textes négociés entre représentant du personnel et direction, traitant d'une ou plusieurs thématiques. La majeure partie des textes sont publiées sur [Légifrance](https://www.legifrance.gouv.fr/search/acco?tab_selection=acco&searchField=ALL&query=%2A&searchType=ALL&typePagination=DEFAULT&sortValue=PERTINENCE&pageSize=25&page=1#acco) et sont de longueurs variables, d'une page à plusieurs dizaines de pages.
 Les parties prenantes déposent le texte sur la plateforme numérique [TéléAccords](https://accords-depot.travail.gouv.fr/accueil) auprès de la Direction Générale du Travail en renseignant les thématiques traités dans les textes, parmi une cinquaine de thématique à sélectionner. Ces thématiques déclarées sont ensuite vérifiées et corrigées par l'administration.
-:::
+
 
 ## Notre projet
 
@@ -36,6 +35,7 @@ Pour des raisons pratiques, nous travaillerons avec une [photographie du stock a
 
 Ces données comportent le numéro de dossier de l'accord, identifiant unique, puis le texte et les thématiques déclarées, et enfin suivies des thématiques une à une :
 ```{python}
+#| echo: false
 import pandas as pd
 from IPython.display import display
 
@@ -65,22 +65,19 @@ Nous reproduisons ici pas à pas la solution. Le notebook complet se trouve [ici
 Pour déployer un LLM en local avec Ollama, il faut au préalable installer Ollama, télécharger et lancer le modèle 
 
 En Linux/Unix :
-```{bash}
-#| eval: false
+```{sh}
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
 Une fois installé, il faut lancer le serveur Ollama
 
-```{bash}
-#| eval: false
+```{sh}
 ollama serve&
 ```
 
 Puis lancer le modèle choisi, ici llama3.1
 
-```{bash}
-#| eval: false
+```{sh}
 ollama run llama3.1
 ```
 
