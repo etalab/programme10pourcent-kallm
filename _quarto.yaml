@@ -45,6 +45,10 @@ website:
             text: "Socle Production"
           - href: III-Deploiements/4_Infras_administrations.qmd
             text: "Infrastructures dans l'administration"
+      - section: "IV-Exemples"
+        contents:
+          - href: III-Exemples/2_Classification_accords_entreprise.qmd
+            text: "Exemple des textes des accords d'entreprise"
         
 format:
   html:
