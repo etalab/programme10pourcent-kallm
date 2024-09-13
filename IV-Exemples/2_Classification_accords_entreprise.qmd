@@ -1,0 +1,34 @@
+# Classification des thématiques des accords d'entreprise
+
+## Les accords d'entreprise
+
+::: {.callout-note}
+Les accords d'entreprise sont des textes négociés entre représentant du personnel et direction, traitant d'une ou plusieurs thématiques. La majeure partie des textes sont publiées sur [Légifrance](https://www.legifrance.gouv.fr/search/acco?tab_selection=acco&searchField=ALL&query=%2A&searchType=ALL&typePagination=DEFAULT&sortValue=PERTINENCE&pageSize=25&page=1#acco) et sont de longueurs variables, d'une page à plusieurs dizaines de pages.
+Les parties prenantes déposent le texte sur la plateforme numérique [TéléAccords](https://accords-depot.travail.gouv.fr/accueil) auprès de la Direction Générale du Travail en renseignant les thématiques traités dans les textes, parmi une cinquaine de thématique à sélectionner. Ces thématiques déclarées sont ensuite vérifiées et corrigées par l'administration.
+:::
+
+## Notre projet
+
+L'administration souhaite automatiser et fiabiliser ce processus, pour simplifier la démarche d'enregistrement des textes et alléger la charge administrative. Une particularité notable des textes des accords d'entreprises est la longueur variable du texte, allant d'un texte succinct à un document long. Ces documents sont rédigés par les entreprises selon leur propre charte graphique et rédactionnelle.
+
+Plusieurs expérimentations et projets dans l'administration sont confrontés à des problématiques similaires (classification, analyse de sentiments, recherche d'informations parmi une base documentaire), mais aucun ne propose une solution publique sur des documents longs.
+
+En termes d'intégration, la solution devra pouvoir être prise en main par les équipes métiers de l'administration, avec une formation à l'outil proposé.
+
+En termes d'impact, la solution devra répondre au besoin de manière légale et sécurisée, tout en ayant un impact environnemental limité
+
+
+## Notre solution
+
+Pour répondre au besoin, une solution propose ici les différentes étapes :
+
+1. Récupérer les données
+2. Choisir et réutiliser un modèle (avec RAG)
+3. Evaluer les performances du modèles
+4. Mettre en production
+
+### Récupération des données
+
+Les données sont disponibles sur [Légifrance](https://www.legifrance.gouv.fr/search/acco?tab_selection=acco&searchField=ALL&query=%2A&searchType=ALL&typePagination=DEFAULT&sortValue=PERTINENCE&pageSize=25&page=1#acco). Le stock des textes est également publié par le [FTP de la DILA](https://echanges.dila.gouv.fr/OPENDATA/ACCO/) et les thématiques déclarées sont à la fois dans les métadonnées XML publié conjointement avec les textes, ou retrouvables sur Légifrance.
+
+Pour des raisons pratiques, nous travaillerons avec une [photographie du stock au 1er semestre 2024](https://minio.lab.sspcloud.fr/cthiounn2/Accords/10p_accords_publics_et_thematiques_240815.parquet) et sur un [échantillon des 1000 textes d'accords](https://minio.lab.sspcloud.fr/cthiounn2/Accords/10p_accords_publics_et_thematiques_240815_sample_of_1000.parquet), convertis au format parquet.

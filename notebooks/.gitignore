@@ -1,0 +1,4 @@
+results/
+chroma_db/
+*.parquet
+.ipynb_checkpoints
