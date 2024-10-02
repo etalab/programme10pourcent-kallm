@@ -88,7 +88,7 @@ Cette dernière commande vous propose un prompt et vous pouvez intéragir avec l
 Veuillez installer les librairies suivantes
 
 ```
-pandas=2.2.2
+pandas==2.2.2
 pyarrow==17.0.0
 ollama==0.3.3
 sentence_transformers==3.1.0
