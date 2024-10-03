@@ -45,6 +45,8 @@ website:
             text: "Socle Production"
           - href: III-Deploiements/4_Infras_administrations.qmd
             text: "Infrastructures dans l'administration"
+      - text: "Bibliographie"
+        href: Bibliographie.qmd
         
 format:
   html:
