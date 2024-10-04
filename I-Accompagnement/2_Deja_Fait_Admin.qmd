@@ -1,46 +1,5 @@
-# Guide du LLM
 
-## PARTIE I. Accompagnement au changement
-
-### 2. Ce qui est déjà fait ou expérimenté dans l’administration (Johnny Hélène Thibault)
-
-### A. Cas d’usage
-Des LLM peuvent être utilisés pour :
-
--	**Labelliser les textes d’un corpus traitant d’un sujet, selon certaines catégories**. 
-Par exemple, des LLMS peuvent être utilisés pour labellisés des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ».
-
-Institution		Nom du Projet			Contact
-		
-
--	**Identifier les thématiques traitées dans un corpus**.
-Par exemple, des LLMs peuvent être utilisés pour identifier les thématiques développées dans le champ Commentaire d’une enquête.
-
-Institution		Nom du Projet			Contact
-		
-
--	**Faire une analyse de sentiment d’un corpus traitant d’une thématique**.
-Par exemple, des LLMs peuvent être utilisés pour faire une analyse de sentiment (ex : positif, négatif ou neutre) d’une thématique émergeant d’un champ « Commentaire » d’une enquête et traitant d’une perception du climat des affaires.
-
-Institution		Nom du Projet			Contact
-		
-
--	**Interroger une base de documents en pdf (retrieval augmented generation)**. 
-Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines existant dans la base. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés. 
-
-Institution		Nom du Projet			Contact
-		
--	**Requêter sur des bases de données codées en SQL : à une interrogation exprimée en langage naturel sur une base en SQL, un code en SQL servant à la requête est renvoyé**.
-Par exemple, à l’interrogation « trouve-moi la date de naissance de l’individu I », un code SQL est renvoyé permettant d’effectuer la requête
-
-Institution		Nom du Projet			Contact
-		
-
--	**Chatcoder : sur la base d’une version de code fournie, une discussion en langage naturel est lancée afin soit de corriger une erreur, soit de développer une nouvelle fonction, etc…**
-	
-Institution		Nom du Projet			Contact
-		
-
+### (à intéger dans les exemples de cas d'usage du fichier cas_usage.qmd)
 
 * [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) 
 
