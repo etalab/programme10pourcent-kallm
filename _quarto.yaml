@@ -49,6 +49,9 @@ website:
         contents:
           - href: IV-Exemples/2_Classification_accords_entreprise.qmd
             text: "Exemple des textes des accords d'entreprise"
+      - text: "Bibliographie"
+        href: Bibliographie.qmd
+
         
 format:
   html:

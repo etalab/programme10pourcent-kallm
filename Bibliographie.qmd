@@ -1,0 +1,43 @@
+# Bibliographie
+
+## I - Accompagnement
+
+### Généralité
+
+[Qu'est ce que l'IA ?](https://www.technologyreview.com/2024/07/10/1094475/what-is-artificial-intelligence-ai-definitive-guide/) 
+
+### Guides pour la prise en compte de l'impact de l'IA
+[ARCEP & ADEME de 2023](https://www.arcep.fr/uploads/tx_gspublication/note-synthese-au-gouvernement-prospective-2030-2050_mars2023.pdf)
+
+[AFNOR IA frugale](https://normalisation.afnor.org/nos-solutions/afnor-spec/intelligence-artificielle-frugale/)
+
+[Guide de recommandation de sécurité de l'ANSSI](https://cyber.gouv.fr/publications/recommandations-de-securite-pour-un-systeme-dia-generative)
+
+[AI Act](https://artificialintelligenceact.eu/fr/high-level-summary/)
+
+## II - Développement
+
+### Plateforme de partage de modèles
+
+[HuggingFace](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
+
+### Articles de recherche centraux
+
+**Transformers**
+
+[Papier original **'Attention Is All You Need'**](https://arxiv.org/abs/1706.03762)
+
+[Explication illustrée et très détaillée](http://jalammar.github.io/illustrated-transformer/)
+
+**Fine-tuning**
+
+[LoRA](https://arxiv.org/abs/2106.09685)
+[QLoRA](https://arxiv.org/abs/2305.14314) 
+[DoRA](https://arxiv.org/abs/2402.09353) 
+
+[DPO](https://arxiv.org/abs/2305.18290) 
+[KTO](https://arxiv.org/abs/2402.01306) 
+
+**Bonnes pratiques du prompt engineering**
+
+[Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4](https://arxiv.org/abs/2312.16171)
