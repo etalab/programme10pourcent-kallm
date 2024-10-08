@@ -303,59 +303,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>PARTIE III. Deploiements</h1>
 <section id="infras-dispos-pour-ladministration-thibault-katia" class="level2">
 <h2 class="anchored" data-anchor-id="infras-dispos-pour-ladministration-thibault-katia">4. Infras dispos pour l’administration (Thibault Katia)</h2>
-<p>Dans beaucoup de cas l’infrastructure est un des principaux freins à la mise en production d’un cas d’usage d’IA générative. L’acquisition d’un cluster GPUs n’est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs solutions sont disponibles (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.</p>
+<p>Dans beaucoup de cas l’accès à des GPUs est un des principaux freins à l’expérimentaion et la mise en production d’un cas d’usage d’IA générative. L’acquisition d’un cluster GPUs n’est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs alternatives sont envisageables (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.</p>
 <p>Cette approche est d’ailleurs en phase avec la directive <a href="https://www.legifrance.gouv.fr/download/pdf/circ?id=45446">“cloud au centre”</a> qui encourage l’utilisation d’infrastructure externalisée pour les projets informatiques de l’administration.</p>
-<p>Dans ce cadre, la principale variable a prendre en compte est les contraintes de sécurité de l’application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux. Un guide a été publié par l’Anssi sur le sujet en avril 2024 : <a href="https://cyber.gouv.fr/sites/default/files/document/Recommandations_de_s%C3%A9curit%C3%A9_pour_un_syst%C3%A8me_d_IA_g%C3%A9n%C3%A9rative.pdf">RECOMMANDATIONS DE SÉCURITÉ POUR UN SYSTÈME D’IA GÉNÉRATIVE</a></p>
-<p>3 principales solutions sont possibles : - <a href="#cloud-public">Cloud Public</a> - <a href="#cloud-externe">Cloud externe</a> - <a href="#api-inference">API inférence</a></p>
+<p>Dans ce cadre, la principale variable a prendre en compte sont les contraintes de sécurité de l’application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux. Un exemple d’architecture d’application d’IA générative est donné dans le <a href="https://cyber.gouv.fr/sites/default/files/document/Recommandations_de_s%C3%A9curit%C3%A9_pour_un_syst%C3%A8me_d_IA_g%C3%A9n%C3%A9rative.pdf">rapport de l’ANSSI sur l’IA générative</a> :</p>
+<p><img src="../images/anssi_architecture_iagen.png" class="img-fluid"></p>
+<p>Tout ou parti de ces éléments peuvent être externalisé en fonction de la maturité de l’administration, du besoin utilisateur et des contraintes de sécurité.</p>
+<p>3 principales solutions d’externalisation sont possibles :</p>
+<ul>
+<li><a href="#cloud-public">Cloud Public</a></li>
+<li><a href="#cloud-externe">Cloud externe</a></li>
+<li><a href="#api-inference">API inférence</a></li>
+</ul>
 <section id="a.-cloud-public" class="level3">
 <h3 class="anchored" data-anchor-id="a.-cloud-public">A. Cloud Public</h3>
 <p>Bien que l’état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée</p>
 <ol type="1">
-<li><a href="https://datalab.sspcloud.fr/?lang=fr">SSP Cloud</a></li>
+<li><p><a href="https://datalab.sspcloud.fr/?lang=fr"><strong>SSP Cloud</strong></a> : A ce jour, le SSP Cloud via sa plateforme ONYXIA (hébergée et dévelopée par l’INSEE), est la principale plateforme publique mettant à disposition des GPUs à ses utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production. cf <a href="#Déploiement%20d'un%20LLM%20sur%20SSP%20Cloud">Déploiement d’un LLM sur SSP Cloud</a></p></li>
+<li><p><a href="https://pi.interieur.rie.gouv.fr/description-de-loffre-cloud/"><strong>Cloud pi</strong></a> : Cloud PI est le cloud du ministère de l’intérieur, il ne semble pas proposer à date de provisionnement de GPUs. Il fournit cependant une offre IAAS et PAAS pour l’hébergement d’applications.</p></li>
+<li><p><a href="https://portailnubo.dgfip.finances.rie.gouv.fr/"><strong>Nubo</strong></a> : Nubo est le service cloud du ministère de l’économie et des finances, qui propose un service IAAS. Via sa solution Nubonyxia (implémentation d’Onyxia sur les infrastructures Nubo), il</p></li>
 </ol>
-<p>A ce jour, le SSP Cloud via sa plateforme ONYXIA, est la principale plateforme publique mettant à disposition des GPUs à ces utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production.</p>
-<p>cf <a href="#Déploiement%20d'un%20LLM%20sur%20SSP%20Cloud">Déploiement d’un LLM sur SSP Cloud</a></p>
-<ol start="2" type="1">
-<li>Cloud PI</li>
-</ol>
-<p>Cloud PI est le cloud du ministère de l’intérieur</p>
 <blockquote class="blockquote">
-<p>TODO Obtenir des infos sur la disponibilté éventuelle de GPU dans PI ?</p>
-</blockquote>
-<ol start="3" type="1">
-<li>Nubo</li>
-</ol>
-<p>Via Nubonyxia</p>
-<blockquote class="blockquote">
-<p>TODO Roadmap du Bercyhub sur ce sujet ?</p>
+<p>Pour définition de ce que recouvre les offres de service PAAS et IAAS, se référer à ce <a href="https://www.redhat.com/fr/topics/cloud-computing/iaas-vs-paas-vs-saas">lien</a></p>
 </blockquote>
 </section>
 <section id="b.-cloud-externe" class="level3">
 <h3 class="anchored" data-anchor-id="b.-cloud-externe">B. Cloud externe</h3>
-<p>La qualificiation <a href="https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud">SecNumCloud</a> a été mis en place par l’ANSSI pour assurer des normes de sécurité aux utilisateurs de produits cloud. A ce jour, peu d’entreprises ont acquis cette qualification</p>
+<p>La qualificiation <a href="https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud">SecNumCloud</a> a été mis en place par l’ANSSI pour assurer des normes de sécurité aux utilisateurs de produits cloud. A ce jour, peu d’entreprises ont acquis cette qualification. Voici quelques exemples de fournisseurs :</p>
 <ol type="1">
-<li><a href="https://fr.outscale.com/">Dassault - Outscale</a> <strong>IAAS</strong></li>
+<li><a href="https://fr.outscale.com/">Dassault - Outscale</a> <strong>IAAS</strong> avec accès GPU</li>
 <li><a href="https://www.s3ns.io/">Thales - Sens</a> (Implémentation de GCP sur une infrastructure sécurisée) <strong>PAAS</strong></li>
-<li><a href="https://www.cloud-temple.com/">Cloud Temple</a> <strong>IAAS ?</strong></li>
-<li>…</li>
+<li><a href="https://www.cloud-temple.com/">Cloud Temple</a> <strong>IAAS </strong></li>
 </ol>
+<blockquote class="blockquote">
+<p>Plus d’informations sur ce type de services sont disponibles <a href="https://www.numerique.gouv.fr/services/cloud/cloud-commercial/">ici</a>.</p>
+</blockquote>
 </section>
 <section id="c.-api-inférence" class="level3">
 <h3 class="anchored" data-anchor-id="c.-api-inférence">C. API inférence</h3>
 <ol type="1">
-<li><p>Public : Albert API</p></li>
-<li><p>Externe non sécurisée :</p></li>
-</ol>
+<li><strong>API Albert</strong> : Offre fourni à quelques partenaires de la DINUM, avec des capacités d’hébergement limitées. &gt; (ajouter contact ou moyen d’accès)</li>
+<li><strong>Externe non sécurisée</strong> : Ces solutions sont envisageables où les besoins en performance sont importants et les contraintes de sécurité sont faibles. Voici quelques exemples de solutions :
 <ul>
 <li><a href="https://mistral.ai/fr/">Mistral API</a></li>
 <li><a href="https://huggingface.co/inference-endpoints/dedicated">Hugging face - inference endpoint</a></li>
 <li><a href="https://wow.groq.com/why-groq/">Groq</a></li>
-</ul>
+</ul></li>
+</ol>
+<blockquote class="blockquote">
+<p>Dans certains cas, il peut être aussi intéressant de mettre en place une architecture hybride Cloud + API d’inférence. Ce qui permet de bénéficier de l’agilité de développement des solutions Cloud, tout en limitant les coûts relatifs à l’approvisionnement de GPUs.</p>
+</blockquote>
 </section>
 <section id="déploiement-dun-llm-sur-ssp-cloud" class="level3">
 <h3 class="anchored" data-anchor-id="déploiement-dun-llm-sur-ssp-cloud">5. Déploiement d’un LLM sur SSP Cloud</h3>
 <p>Sur le DataLab SSP Cloud, il est possible de déployer des LLM à des fins d’expérimentation. Plusieurs cas sont possibles :</p>
-<p>A. Utiliser des librairies d’API de LLM (vLLM, Ollama, etc.) B. Déployer des containers Docker avec Kube et Helm</p>
+<p>A. Utiliser des librairies d’API de LLM (vLLM, etc.) B. Déployer des containers Docker avec Kube et Helm</p>
 <section id="a.-déploiement-par-api" class="level4">
 <h4 class="anchored" data-anchor-id="a.-déploiement-par-api">A. Déploiement par API</h4>
 <ul>
