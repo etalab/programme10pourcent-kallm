@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Guide d’installation des LLM</title>
+<title>parse_llama31_results – Guide d'installation des LLM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,7 +114,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Accueil</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Guide d'installation des LLM
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Guide d’installation des LLM</a> 
+      <a href="../../">Guide d’installation des LLM</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -110,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
@@ -125,25 +161,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/1_Besoins.html" class="sidebar-item-text sidebar-link">
+  <a href="../../I-Accompagnement/1_Besoins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Besoins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/2_Deja_Fait_Admin.html" class="sidebar-item-text sidebar-link">
+  <a href="../../I-Accompagnement/2_Deja_Fait_Admin.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exemples dans l’administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/3_Acculturation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../I-Accompagnement/3_Acculturation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acculturation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/4_Impacts.html" class="sidebar-item-text sidebar-link">
+  <a href="../../I-Accompagnement/4_Impacts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Impacts</span></a>
   </div>
 </li>
@@ -160,19 +196,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/1_Revue_Technique_LLM.html" class="sidebar-item-text sidebar-link">
+  <a href="../../II-Developpements/1_Revue_Technique_LLM.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Revue technique des LLM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/2_RAG.html" class="sidebar-item-text sidebar-link">
+  <a href="../../II-Developpements/2_RAG.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Retrieval Augmented Generation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/3_Evaluations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../II-Developpements/3_Evaluations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluations</span></a>
   </div>
 </li>
@@ -189,25 +225,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/1_Socle_minimal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../III-Deploiements/1_Socle_minimal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Socle minimal</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Socle avancé</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/3_Socle_Production.html" class="sidebar-item-text sidebar-link">
+  <a href="../../III-Deploiements/3_Socle_Production.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Socle Production</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/4_Infras_administrations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../III-Deploiements/4_Infras_administrations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Infrastructures dans l’administration</span></a>
   </div>
 </li>
@@ -224,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./IV-Exemples/2_Classification_accords_entreprise.html" class="sidebar-item-text sidebar-link">
+  <a href="../../IV-Exemples/2_Classification_accords_entreprise.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exemple des textes des accords d’entreprise</span></a>
   </div>
 </li>
@@ -235,22 +271,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#projet-kallm-kit-avancé-llm" id="toc-projet-kallm-kit-avancé-llm" class="nav-link active" data-scroll-target="#projet-kallm-kit-avancé-llm">Projet KALLM : Kit avancé LLM</a>
-  <ul class="collapse">
-  <li><a href="#préambule" id="toc-préambule" class="nav-link" data-scroll-target="#préambule">Préambule</a></li>
-  <li><a href="#etats-des-lieux-des-llm" id="toc-etats-des-lieux-des-llm" class="nav-link" data-scroll-target="#etats-des-lieux-des-llm">Etats des lieux des LLM</a></li>
-  <li><a href="#ce-que-couvre-ce-guide" id="toc-ce-que-couvre-ce-guide" class="nav-link" data-scroll-target="#ce-que-couvre-ce-guide">Ce que couvre ce guide</a></li>
-  <li><a href="#ce-que-ne-couvre-pas-encore-ce-guide" id="toc-ce-que-ne-couvre-pas-encore-ce-guide" class="nav-link" data-scroll-target="#ce-que-ne-couvre-pas-encore-ce-guide">Ce que ne couvre pas (encore) ce guide</a></li>
-  <li><a href="#membres" id="toc-membres" class="nav-link" data-scroll-target="#membres">Membres</a></li>
-  <li><a href="#épilogue" id="toc-épilogue" class="nav-link" data-scroll-target="#épilogue">Épilogue</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -258,119 +280,114 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="projet-kallm-kit-avancé-llm" class="level1">
-<h1>Projet KALLM : Kit avancé LLM</h1>
-<p>Ce projet fait partie de la <a href="https://10pct.datascience.etalab.studio/les-actualites/saison-3-programme-10/">troisième saison du Programme 10%</a>, co-porté par la DINUM en association étroite avec l’Insee.</p>
-<section id="préambule" class="level2">
-<h2 class="anchored" data-anchor-id="préambule">Préambule</h2>
-<p>Mistral, GPT4, Claude, ALBERT, CroissantLLM… Vous ne vous y retrouvez plus parmi tous ces modèles larges de language (LLM)? Ce guide permet de se poser les bonnes questions et de pouvoir répondre à un besoin d’analyse textuelle avec une solution adaptée. Ce guide est là pour vous aider du début jusqu’à la fin, de la conception du modèle après problématisation à la mise en production.</p>
-<p><strong>Objectif : Comprendre son besoin et y répondre avec une solution LLM adaptée</strong></p>
-</section>
-<section id="etats-des-lieux-des-llm" class="level2">
-<h2 class="anchored" data-anchor-id="etats-des-lieux-des-llm">Etats des lieux des LLM</h2>
-<p>Les LLM sont des modèles de langage de grande taille, apparus vers 2018, ayant révolutionné le domaine du traitement automatique du langage naturel. Les LLMS se caractérisent par une architecture de type “transformers” permettant un traitement parallèle et contextuel du langage, un entraînement sur de très vastes corpus de données textuelles, allant de millions à des milliards de paramètres, et des capacités impressionnantes pour accomplir une grande variété de tâches linguistiques comme la génération de texte, la traduction, l’analyse de sentiment.</p>
-<p>Plus de 3000 LLM ont été entraînés et publiés sur des plateformes de partage de modèle comme <a href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">HuggingFace</a>, dont plus d’une cinquaine s’affronte régulièrement entre eux pour se démarquer sur différentes tâches dans une <a href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">arène dédiée</a>.</p>
-<p>Il est aujourd’hui difficile de savoir quel LLM est adapté pour son besoin spécifique et quelle infrastructure est nécessaire pour utiliser les différents LLM. Ce guide tente donc d’expliciter les raisonnements, les questions à se poser et des pistes de réponse quant aux choix et à la mise en oeuvre des LLM.</p>
-</section>
-<section id="ce-que-couvre-ce-guide" class="level2">
-<h2 class="anchored" data-anchor-id="ce-que-couvre-ce-guide">Ce que couvre ce guide</h2>
-<ul>
-<li>l’infrastructure minimale pour faire tourner un LLM</li>
-<li>benchmarking des “principaux” LLM</li>
-<li>exemple d’utilisation dans un cas simple (cas d’utilisation dit “fil rouge”) sous forme de tutoriel</li>
-<li>finetuner un modèle LLM</li>
-<li>quantizer un modèle LLM</li>
-<li>Evaluer un LLM</li>
-<li>mettre en production un modèle LLM</li>
-<li>une bibliographie consise et non exhaustive</li>
-<li>d’autres exemples plus complexes de cas d’utilisation dans l’administration</li>
-<li>une approximation du coût environnemental et financier des différents LLM</li>
-</ul>
-</section>
-<section id="ce-que-ne-couvre-pas-encore-ce-guide" class="level2">
-<h2 class="anchored" data-anchor-id="ce-que-ne-couvre-pas-encore-ce-guide">Ce que ne couvre pas (encore) ce guide</h2>
-<ul>
-<li>les fondements théoriques de l’optimisation</li>
-<li>cas spécifique d’une administration</li>
-<li>comment débiaiser un LLM</li>
-</ul>
-</section>
-<section id="membres" class="level2">
-<h2 class="anchored" data-anchor-id="membres">Membres</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 30%">
-<col style="width: 70%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Membre</th>
-<th>Administration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Conrad THIOUNN</td>
-<td>Dares - Ministère du Travail</td>
-</tr>
-<tr class="even">
-<td>Johnny PLATON</td>
-<td>Santé publique France</td>
-</tr>
-<tr class="odd">
-<td>Thibault DUROUCHOUX</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Katia JODOGNE-DEL LITTO</td>
-<td>IGF - Ministère de l’Economie et des Finances</td>
-</tr>
-<tr class="odd">
-<td>Faheem BEG</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Camille ANDRÉ</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Camille BRIER</td>
-<td>DTNum - DGFiP</td>
-</tr>
-<tr class="even">
-<td>Daphné PERTSEKOS</td>
-<td>ANFSI - Ministère de l’intérieur</td>
-</tr>
-<tr class="odd">
-<td>Zhanna SANTYBAYEVA</td>
-<td>DGOS - Ministère du travail, de la santé et des solidarités</td>
-</tr>
-<tr class="even">
-<td>Jérôme LAPORTE</td>
-<td>ANFSI - Ministère de l’intérieur</td>
-</tr>
-<tr class="odd">
-<td>Hélène CHARASSON-JASSON</td>
-<td>Banque de France</td>
-</tr>
-<tr class="even">
-<td>Malo ADLER</td>
-<td>ANFSI - Ministère de l’intérieur</td>
-</tr>
-<tr class="odd">
-<td>Bruno LENZI</td>
-<td>Ecolab - Ministère de la Transiton Écologique et de la Cohésion des Territoires</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="épilogue" class="level2">
-<h2 class="anchored" data-anchor-id="épilogue">Épilogue</h2>
-<p>Une remarque ? Une question ? Vous pouvez nous contacter sur le salon <a href="!hMSAqEDoNuxyPzFiLH:agent.dinum.tchap.gouv.fr">Tchap du Programme 10%</a> ou …</p>
+<div id="5bad2e2e-d057-4037-9881-f1b12ceedfb6" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="589323cf-5e6a-4a67-bde9-9a36fc030573" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>THEMATIQUES<span class="op">=</span>{</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"accord_methode_penibilite"</span>:<span class="st">"Accords de méthode (pénibilité)"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">"accord_methode_pse"</span>:<span class="st">"Accords de méthode (PSE)"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">"amenagement_temps_travail"</span>:<span class="st">"Aménagement du temps de travail (modulation, annualisation, cycles)"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">"autres"</span>:<span class="st">"Autre, précisez"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">"autres_condition_travail"</span>:<span class="st">"Autres dispositions de conditions de travail (CHSCT, médecine du travail, politique générale de prévention)"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">"autres_dispositions_duree"</span>:<span class="st">"Autres dispositions durée et aménagement du temps de travail "</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">"autres_dispositions_egalite"</span>:<span class="st">"Autres dispositions Egalité professionnelle"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">"autres_dispositions_emploi"</span>:<span class="st">"Autres dispositions emploi"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">"calendrier_negociation"</span>:<span class="st">"Calendrier des négociations"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">"classifications"</span>:<span class="st">"Classifications"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">"commision_paritaire"</span>:<span class="st">"Commissions paritaires"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">"cet"</span>:<span class="st">"Compte épargne temps"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">"couverture_complementaire"</span>:<span class="st">"Couverture complémentaire santé - maladie"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">"don_jour"</span>:<span class="st">"Dispositifs don de jour et jour de solidarité"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">"distribution_actions_gratuites"</span>:<span class="st">"Distribution d'actions gratuites"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">"droit_deconnexion"</span>:<span class="st">"Droit à la déconnexion et outils numériques"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">"droit_syndical"</span>:<span class="st">"Droit syndical, IRP, expression des salariés"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">"duree_collective_temps_travail"</span>:<span class="st">"Durée collective du temps de travail"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">"egalite_salariale"</span>:<span class="st">"Egalité salariale F/H"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">"election_pro"</span>:<span class="st">"Elections professionnelles, prorogations de mandat et vote électronique"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">"evolution_prime"</span>:<span class="st">"Evolution des primes"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">"evolution_salariale"</span>:<span class="st">"Evolution des salaires (augmentation, gel, diminution)"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">"fin_conflit"</span>:<span class="st">"Fin de conflit"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">"conges"</span>:<span class="st">"Fixation des congés (jours fériés, ponts, RTT)"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">"forfait"</span>:<span class="st">"Forfaits (en heures, en jours)"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">"formation_pro"</span>:<span class="st">"Formation professionnelle"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">"gpec"</span>:<span class="st">"GPEC"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">"heures_supp"</span>:<span class="st">"Heures supplémentaires (contingent, majoration)"</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">"indemnites"</span>:<span class="st">"Indemnités (dont kilométrique)"</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">"interessement"</span>:<span class="st">"Intéressement"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">"mesure_age"</span>:<span class="st">"Mesures d'âge (seniors, contrat de génération...)"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">"mobilite"</span>:<span class="st">"Mobilité (géographique, professionnelle - promotions)"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">"diversite"</span>:<span class="st">"Non discrimination - Diversité"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">"participation"</span>:<span class="st">"Participation"</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="st">"pee_peg"</span>:<span class="st">"PEE ou PEG"</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="st">"pei"</span>:<span class="st">"PEI"</span>,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">"penibilite"</span>:<span class="st">"Pénibilité du travail (1% pénibilité, prévention, compensation/réparation)"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="st">"perco_percoi"</span>:<span class="st">"PERCO et PERCOI"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="st">"performance_collecte"</span>:<span class="st">"Performance collective (accord de compétitivité)"</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="st">"prevoyance_collective"</span>:<span class="st">"Prévoyance collective, autre que santé maladie"</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="st">"prime_partage_profit"</span>:<span class="st">"Prime de partage des profits"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="st">"qvt"</span>:<span class="st">"QVT, conciliation vie personnelle/vie professionnelle"</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="st">"reprise_des_donnees"</span>:<span class="st">"Reprise des données"</span>,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="st">"retraite_complementaire"</span>:<span class="st">"Retraite complémentaire - supplémentaire"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="st">"rupture_conventionnelle_collective"</span>:<span class="st">"Rupture conventionnelle collective"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="st">"stress_rps"</span>:<span class="st">"Stress, risques psycho-sociaux"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="st">"supplement_participation"</span>:<span class="st">"Supplément de participation"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="st">"supplement_interessement"</span>:<span class="st">"Supplément d'intéressement"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="st">"systeme_prime"</span>:<span class="st">"Système de prime (autre qu'évolution)"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="st">"système_de_remuneration"</span>:<span class="st">"Système de rémunération (autres qu'évolution)"</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="st">"teletravail"</span>:<span class="st">"Télétravail"</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="st">"travail_temps_partiel"</span>:<span class="st">"Travail à temps partiel"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="st">"travail_nuit"</span>:<span class="st">"Travail de nuit"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="st">"travail_dimanche"</span>:<span class="st">"Travail du dimanche"</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="st">"travailleurs_handicapes"</span>:<span class="st">"Travailleurs handicapés"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9ec067f2-906d-42ab-839f-c4732b3b4e15" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>list_of_df<span class="op">=</span>[]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> glob(<span class="st">"results/*"</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span>,<span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        lines<span class="op">=</span>f.readlines()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    lines<span class="op">=</span>[line <span class="cf">for</span> line <span class="kw">in</span> lines <span class="cf">if</span> <span class="st">":"</span> <span class="kw">in</span> line <span class="kw">and</span> line.split(<span class="st">" : "</span>)[<span class="dv">0</span>] <span class="kw">in</span> <span class="bu">set</span>(THEMATIQUES.keys())]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> lines:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        cle, valeur <span class="op">=</span> line.split(<span class="st">" : "</span>)[<span class="dv">0</span>], line.split(<span class="st">" : "</span>)[<span class="dv">1</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        d[cle]<span class="op">=</span><span class="dv">1</span> <span class="cf">if</span> valeur.lower().startswith(<span class="st">"oui"</span>) <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    list_of_df.append(pd.DataFrame(d,index<span class="op">=</span>[<span class="bu">file</span>.split(<span class="st">"/"</span>)[<span class="dv">1</span>].split(<span class="st">"."</span>)[<span class="dv">0</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fcdee511-3374-4dde-a115-dc7d8945f703" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_results<span class="op">=</span>pd.concat(list_of_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="0c15ecfc-a27e-45cc-901c-c329706de9cd" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_sample<span class="op">=</span>pd.read_parquet(<span class="st">"./10p_accords_publics_et_thematiques_240815_sample_of_1000.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="bd6be6b8-39b0-41b3-8c82-0aea398d61db" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_score, recall_score, f1_score, classification_report</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k,v) <span class="kw">in</span> THEMATIQUES.items():</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    df<span class="op">=</span>pd.DataFrame(df_sample[k].astype(<span class="bu">int</span>)).merge(df_results[k],how<span class="op">=</span><span class="st">"inner"</span>,left_index<span class="op">=</span><span class="va">True</span>,right_index<span class="op">=</span><span class="va">True</span>,suffixes<span class="op">=</span>[<span class="st">"_expected"</span>,<span class="st">"_predicted"</span>])</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    y_true, y_pred<span class="op">=</span>df[<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">_expected"</span>], df[<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">_predicted"</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    cm <span class="op">=</span> confusion_matrix(y_true, y_pred)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(k)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(cm)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">=</span> accuracy_score(y_true, y_pred)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    precision <span class="op">=</span> precision_score(y_true, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    recall <span class="op">=</span> recall_score(y_true, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    f1 <span class="op">=</span> f1_score(y_true, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    report <span class="op">=</span> classification_report(y_true, y_pred)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Precision (macro): </span><span class="sc">{</span>precision<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Recall (macro): </span><span class="sc">{</span>recall<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'F1 Score (macro): </span><span class="sc">{</span>f1<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"-"</span><span class="op">*</span><span class="dv">10</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Classification Report:'</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(report)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
