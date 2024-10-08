@@ -6,25 +6,28 @@
 
 ### A. Cas d’usage
 * Dans une enquête incluant un champ « Commentaire », celui-ci peut être analysé par des LLMs afin d’identifier les thématiques saillantes exprimées dans ce champ. Ensuite, pour chacune de ces thématiques, les LLMs peuvent être utilisés pour dégager le sentiment prédominant (ex : positif, négatif, neutre) associé à chacune d’entre elles. In fine, grâce aux LLMs, le champ « Commentaire » peut ainsi être divisé en un nombre N de thématiques, et, pour chacune de ces thématiques, un contenu peut être généré afin de faire ressortir le sentiment majoritaire des répondants à l’enquête.
-* Les LLMs peuvent être utilisés pour labelliser les textes d’un corpus (articles de presse, par exemple) traitant d’un sujet (ex : décision de politique monétaire), selon certaines catégories (ex : « décision attendue », « décision surprenante », « ne sait pas »). 
-* Interroger une base de documents en pdf (retrieval augmented generation). Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés. 
+* Les LLMs peuvent être utilisés pour labelliser les textes d’un corpus (articles de presse, par exemple) traitant d’un sujet (ex : décision de politique monétaire), selon certaines catégories (ex : « décision attendue », « décision surprenante », « ne sait pas »).
+* Interroger une base de documents en pdf (retrieval augmented generation). Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés.
 * Requêter sur des bases en SQL : à une interrogation exprimée en langage naturel sur une base en SQL (exemple : « trouve-moi  le ratio R »), un code en SQL servant à la requête est renvoyé.
 * Chatcoder : sur la base d’une version de code fournie, une discussion en langage naturel est lancée afin soit de corriger une erreur, soit de développer une nouvelle fonction, etc…
 
-* [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) 
+1) [Albert - Dinum] : Projet mené par le LabIA de la DINUM
 
-* Albert Tchap ? 
+    - [Albert github](https://github.com/etalab-ia/albert) : Outils de déploiements des modèles Albert
+    - [Modèles Albert](Ajouter adresse Hugging Face)
+    - [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) : Projet à destination de
+    [France Service](https://www.france-services.gouv.fr/) et visant à appuyer ses conseillers dans la réalisation de leurs missions. Ce projet se base principalement
 
-* [LLamandement](https://gitlab.adullact.net/dgfip/projets-ia/llamandement)
+2) [LLamandement](https://gitlab.adullact.net/dgfip/projets-ia/llamandement) - LLM finetuné permettant d'accélerer le traitement d'amendements et projets de loi (notamment via la synthétisation des textes).
 
-### B. Modèles 
+### B. Modèles
 
-[Albert github](https://github.com/etalab-ia/albert) 
-[Albert hugging face]() 
+[Albert github](https://github.com/etalab-ia/albert)
+[Albert hugging face]()
 
-### C. Datasets 
+### C. Datasets
 
-### D. Infrastructure 
+### D. Infrastructure
   des modeles
   des datasets/open data ?
-	
+
