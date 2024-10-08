@@ -61,7 +61,7 @@ La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fourn
 
 Sur le DataLab SSP Cloud, il est possible de déployer des LLM à des fins d'expérimentation. Plusieurs cas sont possibles :
 
-A. Utiliser des librairies d'API de LLM (vLLM, etc.)
+A. Utiliser des librairies d'API de LLM (vLLM, Ollama, etc.)
 B. Déployer des containers Docker avec Kube et Helm
 
 #### A. Déploiement par API
