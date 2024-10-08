@@ -14,6 +14,7 @@ Dans ce cadre, la principale variable a prendre en compte sont les contraintes d
 Tout ou parti de ces éléments peuvent être externalisé en fonction de la maturité de l'administration, du besoin utilisateur et des contraintes de sécurité.
 
 3 principales solutions d'externalisation sont possibles :
+
 - [Cloud Public](#cloud-public)
 - [Cloud externe](#cloud-externe)
 - [API inférence](#api-inference)

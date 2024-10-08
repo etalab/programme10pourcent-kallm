@@ -82,6 +82,7 @@ Le principal inconvénient architectural des Transformers est leur complexité q
 **Jamba** est une nouvelle architecture hybride, à mi-chemin entre le Transformer et Mamba. Cela semble permettre un niveau de performance élevé, une gestion des contextes très longs, un temps d'inférence nettement plus court, et des exigences mémoires bien moindres.
 
 Liens des papiers originaux :
+
 - [Mamba](https://arxiv.org/abs/2312.00752)
 - [Jamba](https://arxiv.org/abs/2403.19887)
 
