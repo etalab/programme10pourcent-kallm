@@ -20,6 +20,9 @@
 
 2) [LLamandement](https://gitlab.adullact.net/dgfip/projets-ia/llamandement) - LLM finetuné permettant d'accélerer le traitement d'amendements et projets de loi (notamment via la synthétisation des textes).
 
+
+> Pour plus de projets IA (au sens large) dans l'administration se référer au lien : https://grist.numerique.gouv.fr/o/beta-gouv-ia/9wTgwEbwqmwW/Ressources/p/1
+
 ### B. Modèles
 
 [Albert github](https://github.com/etalab-ia/albert)
