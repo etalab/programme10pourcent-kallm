@@ -269,9 +269,21 @@ ul.task-list li input[type="checkbox"] {
 <p>Le coût environnementale lié aux infrastructures de calcul est mis à disposition par le groupe EcoInfo du CNRS à travers l’outil <a href="https://ecoinfo.cnrs.fr/ecodiag-calcul/">EcoDiag</a>. Des estimations plus précises pour la fabrication de GPUs seront disponibles prochainement.</p>
 <p>[1] https://arxiv.org/pdf/2104.10350.pdf</p>
 <p>[2] <a href="https://issuu.com/dataforgood/docs/dataforgood_livreblanc_iagenerative_v1.0?fr=sZGE0MjYyNjE5MTU">Data For Good - Livre Blanc de l’IA Générative</a></p>
-<pre><code>b. Légaux (RGPD, chartes de l’IA, IA Act, ...)
-
-c. Sécurité (Renvoyer vers le guide de l’ANSSI)</code></pre>
+<pre><code>b. Légaux (RGPD, chartes de l’IA, IA Act, ...)</code></pre>
+<p>La sécurité des données personnelles et des modèles est un enjeu considérable, que ce soit du point de vue personnel ou à l’échelle de l’administration. Par exemple, quand les modèles ne sont pas auto-hébergés, les entreprises qui les fournissent ont accès aux conversations tenus avec les chatbots. De plus ces données sont réutilisées pour l’entraînement et peuvent ressortir lors de conversations avec d’autres utilisateurs.</p>
+<p>La CNIL propose une série de recommandations concenrant le développement de système d’IA impliquant un traitement des données personnelles, notamment en insistant sur la définition des finalités du traitement et sur prise en compte de la <a href="https://www.cnil.fr/fr/les-bases-legales/liceite-essentiel-sur-les-bases-legales">base légale du RGPD</a> qui autorise à traiter des données personnelles. Dans le cas d’une administration publique, cette base légale pourra être par exemple selon les cas l’obligation légale, la mission d’intérêt public ou l’intérêt légitime.</p>
+<p>Au niveau européen, le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=OJ:L_202401689">règlement (UE) 2024/1689 du Parlement européen et du Conseil du 13 juin 2024 établissant des règles harmonisées concernant l’intelligence artificielle</a> ou “AI Act” est le premier acte législatif européen sur l’IA. Il établit notamment des règles harmonisées concernant la mise sur le marché, mise en service et utilisation de systèmes d’IA dans l’UE, avec l’interdiction de certaines pratiques, comme la notation sociale, l’évaluation des risques de commettre des infractions ou la création de bases de données de reconnaissance faciale non ciblées. Une gradation est déterminée selon le niveau de risque, avec des systèmes d’IA à faible ou moyen risque, des systèmes à haut risque, associés à des exigences spécifiques, par exemple lorsqu’ils traitent des données personnelles, et des pratiques interdites.</p>
+<p>Pour aller plus loin : - <a href="https://www.cnil.fr/fr/ia-la-cnil-publie-ses-premieres-recommandations-sur-le-developpement-des-systemes-dintelligence">Guide de la CNIL</a> - <a href="https://artificialintelligenceact.eu/fr/high-level-summary/">Résumé haut niveau de l’AI Act</a></p>
+<pre><code>c. Sécurité (Renvoyer vers le guide de l’ANSSI)</code></pre>
+<p>En plus de la sécurisation commune aux applications produites par l’administration, certains sujets sont spécifiques aux modèles d’IA. L’ANSSI a écrit à ce sujet un guide de recommandations de sécurité pour sensibiliser aux risques et promouvoir les bonnes pratiques lors de la création et de la mise en production d’applications comportant des modèles d’IA générative.</p>
+<p>Trois catégories d’attaque spécifiques au système d’IA générative sont identifiées :</p>
+<ul>
+<li>les attaques par manipulation, au moyen de requêtes malveillantes;</li>
+<li>les attaques par infection, en contaminant les données lors de la phase d’entraînement (“model poisoning”);</li>
+<li>les attaques par exfiltration, qui visent à obtenir des informations sur le modèle en production, comme les données d’entraînement ou les paramètres.</li>
+</ul>
+<p>Les recommandations produites concernent à la fois les phases d’entraînement, de déploiement et de mise en production.</p>
+<p>Pour aller plus loin : <a href="https://cyber.gouv.fr/publications/recommandations-de-securite-pour-un-systeme-dia-generative">Guide de l’ANSSI</a></p>
 
 
 </section>
