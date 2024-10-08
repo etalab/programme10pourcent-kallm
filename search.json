@@ -210,6 +210,36 @@
     ]
   },
   {
+    "objectID": "Bibliographie.html",
+    "href": "Bibliographie.html",
+    "title": "Bibliographie",
+    "section": "",
+    "text": "Qu’est ce que l’IA ?\n\n\n\nARCEP & ADEME de 2023\nAFNOR IA frugale\nGuide de recommandation de sécurité de l’ANSSI\nAI Act\n\n\n\n\n\n\nHuggingFace\n\n\n\nTransformers\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\nFine-tuning\nLoRA QLoRA DoRA\nDPO KTO\nBonnes pratiques du prompt engineering\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4",
+    "crumbs": [
+      "Bibliographie"
+    ]
+  },
+  {
+    "objectID": "Bibliographie.html#i---accompagnement",
+    "href": "Bibliographie.html#i---accompagnement",
+    "title": "Bibliographie",
+    "section": "",
+    "text": "Qu’est ce que l’IA ?\n\n\n\nARCEP & ADEME de 2023\nAFNOR IA frugale\nGuide de recommandation de sécurité de l’ANSSI\nAI Act",
+    "crumbs": [
+      "Bibliographie"
+    ]
+  },
+  {
+    "objectID": "Bibliographie.html#ii---développement",
+    "href": "Bibliographie.html#ii---développement",
+    "title": "Bibliographie",
+    "section": "",
+    "text": "HuggingFace\n\n\n\nTransformers\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\nFine-tuning\nLoRA QLoRA DoRA\nDPO KTO\nBonnes pratiques du prompt engineering\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4",
+    "crumbs": [
+      "Bibliographie"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Projet KALLM : Kit avancé LLM",
