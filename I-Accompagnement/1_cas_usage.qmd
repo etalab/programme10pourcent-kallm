@@ -72,6 +72,7 @@ api_url = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{mo
 headers = {"Authorization": f"Bearer {hf_token}"}
 ```
 
+# (à intéger dans les exemples de cas d'usage du fichier cas_usage.qmd et dans la partie IV-Exemples)
 
  2. Classifier des accords d'entreprise
 

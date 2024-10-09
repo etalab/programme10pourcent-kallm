@@ -1,5 +1,5 @@
 
-### (à intéger dans les exemples de cas d'usage du fichier cas_usage.qmd)
+### (à intéger dans la partie IV-Exemples)
 
 * [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) 
 
