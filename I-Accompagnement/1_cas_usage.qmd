@@ -11,10 +11,11 @@ Au sein des administrations, les cas d'usage de LLM ci-dessous sont en cours d'e
 Des LLM peuvent être utilisés pour :
 
 -	**Labelliser / classifier les textes d’un corpus traitant d’un sujet, selon certaines catégories**. 
-Par exemple, des LLMS peuvent être utilisés pour labellisés des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ».
+Par exemple, des LLMS peuvent être utilisés pour labelliser des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ». Ils peuvent également classer des documents de recherche clinique selon différentes thématiques et disciplines, tout en permettant une recherche sémantique avancée. 
 
-Institution		Nom du Projet			Contact
-		
+| Institution	|	Nom du Projet	|	Contact |
+| -------- | ------- |------- |
+|Ministère en charge de la santé| SIRANo | dgos-sirano@sante.gouv.fr |		
 
 -	**Identifier les thématiques traitées dans un corpus**.
 Par exemple, des LLMs peuvent être utilisés pour identifier les thématiques développées dans le champ Commentaire d’une enquête.
