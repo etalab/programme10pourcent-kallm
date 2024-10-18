@@ -13,37 +13,52 @@ Des LLM peuvent être utilisés pour :
 -	**Labelliser / classifier les textes d’un corpus traitant d’un sujet, selon certaines catégories**. 
 Par exemple, des LLMS peuvent être utilisés pour labelliser des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ». Ils peuvent également classer des documents de recherche clinique selon différentes thématiques et disciplines, tout en permettant une recherche sémantique avancée. 
 
-| Institution	|	Nom du Projet	|	Contact |
-| -------- | ------- |------- |
-|Ministère en charge de la santé| SIRANo | dgos-sirano@sante.gouv.fr |		
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|Ministère en charge de la santé| SIRANo | dgos-sirano@sante.gouv.fr | Expérimentation  |
+|Banque de France |Étude de l’impact des surprises monétaires sur les taux de change|jean-charles.bricongne@banque-france.fr| Recherche|
+|Banque de France  |Anticipation d’inflation |jean-charles.bricongne@banque-france.fr <br>olivier.debandt@banque-france.fr <br> Thomas.RENAULT.external@banque-france.fr |Recherche  |
+
+
+Par exemple, des LLMS peuvent être utilisés pour labellisés des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ».
 
 -	**Identifier les thématiques traitées dans un corpus**.
 Par exemple, des LLMs peuvent être utilisés pour identifier les thématiques développées dans le champ Commentaire d’une enquête.
 
-Institution		Nom du Projet			Contact
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|Banque de France | Enquête sur les Tendances régionales | Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
 		
 
 -	**Faire une analyse de sentiment d’un corpus traitant d’une thématique**.
 Par exemple, des LLMs peuvent être utilisés pour faire une analyse de sentiment (ex : positif, négatif ou neutre) d’une thématique émergeant d’un champ « Commentaire » d’une enquête et traitant d’une perception du climat des affaires.
 
-Institution		Nom du Projet			Contact
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|Banque de France | Enquête sur les Tendances régionales | Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
 		
 
--	**Interroger une base de documents en pdf (retrieval augmented generation)**. 
-Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines existant dans la base. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés. 
+-	**Interroger une base de documents textuels (pdf, code, etc…) (retrieval augmented generation)**. 
+Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines existant dans la base. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés.
 
-Institution		Nom du Projet			Contact
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|Banque de France | Chatbdf | Nicolas.THOMAZO@banque-france.fr <br> Guillaume.LOMBARDO@banque-france.fr <br> Alix.DECREMOUX@banque-france.fr  | Passage en production prévu en décembre 2025  |
 		
 -	**Requêter sur des bases de données codées en SQL : à une interrogation exprimée en langage naturel sur une base en SQL, un code en SQL servant à la requête est renvoyé**.
 Par exemple, à l’interrogation « trouve-moi la date de naissance de l’individu I », un code SQL est renvoyé permettant d’effectuer la requête
 
-Institution		Nom du Projet			Contact
-		
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|Banque de France | Text2SQL | Guillaume.LOMBARDO@banque-france.fr | Passage en production par la BCE en décembre 2024 |
 
--	**Chatcoder : sur la base d’une version de code fournie, une discussion en langage naturel est lancée afin soit de corriger une erreur, soit de développer une nouvelle fonction, etc…**
-	
-Institution		Nom du Projet			Contact
 
+-   **Extraire des données à partir de documents textuels**
+Par exemple, à partir de documents réglementaires extraire 15 informations-clés et stocker celles-ci dans une base de données
+
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|Banque de France | Veridic | Guillaume.LOMBARDO@banque-france.fr | Passage en production prévu fin 2025 |
 
 ### (Intégrer les cas d'usage ci-dessous au sein des catégories pré-citées ou en ajouter en faisant ressortir leur spécificité)
 
