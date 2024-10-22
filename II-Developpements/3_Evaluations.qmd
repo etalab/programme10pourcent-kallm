@@ -162,7 +162,7 @@ python evaluate-v1.0.py --data-file <chemin_vers_dev-v1.0.json> --pred-file <che
 ```
 pip install jiant
 ```
-Puis affinez le modèle RoBERTa sur les données MRPC 
+Ici, un exemple d'affinage du modèle RoBERTa sur les données MRPC : 
 ```
 from jiant.proj.simple import runscript as run
 import jiant.scripts.download_data.runscript as downloader
@@ -230,4 +230,8 @@ Une bibliothèque qui se concentre sur l'interprétabilité des modèles, permet
 Autres sources : 
 ---
 
-	d. Méthodologie (arbre de décision pour le décideur)
+#### 3.7 Méthodologie
+
+Un arbre de décision pour l'évaluation des LLM peut vous aider à guider votre processus d'évaluation en fonction de critères et d'objectifs spécifiques de votre modèle et son évaluation. Voici un exemple de tel arbre de décision qui pourrait vous aider en cas de doute.
+v1
+![](../images/dev_eval_arbre_decision-v1.png)
