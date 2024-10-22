@@ -286,7 +286,7 @@
     "href": "Bibliographie.html#ii---développement",
     "title": "Bibliographie",
     "section": "II - Développement",
-    "text": "II - Développement\n\nPlateforme de partage de modèles\n\nHuggingFace\n\n\n\nArticles de recherche centraux\nTransformers\n\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\n\nFine-tuning\n\nLoRA\nQLoRA\nDoRA\nDPO\nKTO\n\nBonnes pratiques du prompt engineering\n\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4\nGraph of Thoughts\n\n\n\nLibrairies et ressources\nPipelines et orchestration LLM - LangChain - LlamaIndex - Haystack\nRAG - [Graph RAG]https://microsoft.github.io/graphrag/\nEvaluation - SelfCheckGPT",
+    "text": "II - Développement\n\nPlateforme de partage de modèles\n\nHuggingFace\n\n\n\nArticles de recherche centraux\nTransformers\n\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\n\nFine-tuning\n\nLoRA\nQLoRA\nDoRA\nDPO\nKTO\n\nBonnes pratiques du prompt engineering\n\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4\nGraph of Thoughts\n\n\n\nLibrairies et ressources\nLLM platform - Ollama\nPipelines et orchestration LLM - LangChain - LlamaIndex - Haystack\nRAG - Graph RAG\nEvaluation - SelfCheckGPT",
     "crumbs": [
       "Bibliographie"
     ]
