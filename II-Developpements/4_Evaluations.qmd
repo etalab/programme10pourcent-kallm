@@ -71,7 +71,7 @@ Lors d'un entretien d'embauche par exemple, l'intellect humain évalue le potent
 **d) Benchmarks**
 
 Les benchmarks sont des collections standardisées  de tests utilisées pour évaluer les LLM sur une tâche ou un scénario 
-donné. On trouvera pas exemple :
+donné. On trouvera par exemple :
 
 * **SQuAD** pour le scénario de réponse aux questions de l'utilisateur à partir d'extraction de parties d'un corpus (En anglais)
 * **PIAF** semblable à SQuAD mais en français
@@ -152,10 +152,89 @@ dispose de valeurs de références, on peut recourir à des métriques basés su
 des modèles fine-tunés. Les métriques qui calculent la distance entre embeddings sont parmi les moins fines, mais leur 
 faible complexité peut les rendre intéressantes.
 
-	a. Métriques (biais, hallucinations, ...)
+#### 3.5 Datasets
+Les performances des modèles peuvent être évaluées qu'en comparaison avec les connaissances existantes. Pour ce faire, il est nécessaire de disposer d'ensembles de données de référence dont les résultats sont connus et vérifiés. Au cours des dernières années, de tels ensembles de données ont été collectés pour un certain nombre d'applications.
+Pour évaluer les LLM, il existe des "benchmark datasets" qui peuvent être utilisés pour entraîner et pour tester des modèles.
+* **CoQA** (Conversational Question Answering) est un set de données avec plus de 127 000 questions-réponses dans 7 domaines sont 5 sont publiques. [https://stanfordnlp.github.io/coqa/](https://stanfordnlp.github.io/coqa/)
+Pour évaluer votre modèle, il suffit de lancer ce script
+```
+python evaluate-v1.0.py --data-file <chemin_vers_dev-v1.0.json> --pred-file <chemin_vers_predictions>
+```
+* **GLUE** (General Language Understanding Evaluation) [https://gluebenchmark.com/](https://gluebenchmark.com/) et **SuperGLUE** [https://super.gluebenchmark.com/](https://super.gluebenchmark.com/) sont des collections des tâches pour évaluer la compréhension du langage naturel.
+`jiant` est un PyTorch toolkit qui permet faire cette évaluation. Installez avec `pip` : 
+```
+pip install jiant
+```
+Ici, un exemple d'affinage du modèle RoBERTa sur les données MRPC : 
+```
+from jiant.proj.simple import runscript as run
+import jiant.scripts.download_data.runscript as downloader
+
+EXP_DIR = "/path/to/exp"
+
+# Télécharger les données
+downloader.download_data(["mrpc"], f"{EXP_DIR}/tasks")
+
+# Configurer les arguments pour l'API simple
+args = run.RunConfiguration(
+   run_name="simple",
+   exp_dir=EXP_DIR,
+   data_dir=f"{EXP_DIR}/tasks",
+   hf_pretrained_model_name_or_path="roberta-base",
+   tasks="mrpc",
+   train_batch_size=16,
+   num_train_epochs=3
+)
+
+# Lancer
+run.run_simple(args)
+```
+
+* **SQuAD** (Stanford Question Answering Dataset) est un set de données pour évaluer la compréhension de la lecture. Il est constitué des questions basées sur un ensemble d'articles de Wikipédia avec 100000 questions avec des réponses, et 50000 questions qui ne peuvent pas être répondues. Les modèles doivent 
+Pour évaluer votre modèle, il suffit de lancer ce script
+```
+python evaluate-v2.0.py <chemin_vers_dev-v2.0> <chemin_vers_predictions>
+```
+Plus d'informations sur Git : [https://github.com/nyu-mll/jiant](https://github.com/nyu-mll/jiant)
+
+[https://github.com/leobeeson/llm_benchmarks](https://github.com/leobeeson/llm_benchmarks).
  
-	b. Datasets
- 
-	c. Librairies/Frameworks (CODE!)
- 
-	d. Méthodologie (arbre de décision pour le décideur)
+
+#### 3.6 Librairies et Frameworks
+A ce jour, il existe des nombreux outils et librairies pour effectuer l'évaluation des modèles LLM. Chaque de ces librairies et frameworks est taillée pour une utilisation de modèle concrète avec des exemples pour vous aider à démarrer l'évaluation de votre modèle.
+
+**Hugging Face Transformers** fournissent des API et des outils pour évaluer des modèles pré-entraînés sur différentes tâches en utilisant des métriques telles que la précision, le score F1 ou encore le score BLEU. Ils prennent en charge aussi l'intégration les données de la bibliothèque Hugging Face Datasets.
+[https://huggingface.co/docs/transformers/index](https://huggingface.co/docs/transformers/index)
+
+**Scikit-learn**, c'est un projet Open source avec des librairies principalement axées sur l'apprentissage automatique traditionnel. Elle comprend de nombreux outils de métriques et utilitaires qui peuvent être utilisés pour évaluer les modèles de langage.
+[https://scikit-learn.org/stable/](https://scikit-learn.org/stable/)
+
+**EvalML** est une bibliothèque spécifique pour l'évaluation des modèles d'apprentissage automatique, y compris les LLM. Elle fournit des métriques, des visualisations et des outils de sélection de modèles.
+[https://evalml.alteryx.com/en/stable/](https://evalml.alteryx.com/en/stable/)
+
+**NLTK et SpaCy** - ces deux bibliothèques offrent des fonctionnalités pour le traitement du langage naturel et incluent des métriques pour évaluer des tâches telles que la tokenisation, l'analyse syntaxique et l'analyse des sentiments.
+[https://www.nltk.org/](https://www.nltk.org/)
+[https://spacy.io/](https://spacy.io/)
+
+**AllenNLP** est une bibliothèque conçue pour construire et évaluer des modèles de NLP. Elle fournit des outils pour faciliter la mise en œuvre de mesures d'évaluation et de visualisation personnalisées.
+[https://docs.allennlp.org/models/main/](https://docs.allennlp.org/models/main/)
+
+**Transformers-Interpret**
+Une bibliothèque qui se concentre sur l'interprétabilité des modèles, permettant de mieux comprendre les prédictions et les performances des modèles.
+[https://pypi.org/project/transformers-interpret/0.3.0/](https://pypi.org/project/transformers-interpret/0.3.0/)
+
+**LangChain** est principalement destinée à la construction d'applications avec des LLM. Elle comprend des outils d'évaluation pour évaluer la performance des modèles de langage dans le contexte.
+[https://www.langchain.com/](https://www.langchain.com/)
+
+**OpenAI Evals** est une boîte à outils d'évaluation de l'OpenAI qui fournit les outils et lignes directrices pour évaluer la performance et la sécurité de leurs modèles.
+[https://github.com/openai/evals](https://github.com/openai/evals)
+
+
+Autres sources : 
+---
+
+#### 3.7 Méthodologie
+
+Un arbre de décision pour l'évaluation des LLM peut vous aider à guider votre processus d'évaluation en fonction de critères et d'objectifs spécifiques de votre modèle et son évaluation. Voici un exemple de tel arbre de décision qui pourrait vous aider en cas de doute.
+v1
+![](../images/dev_eval_arbre_decision-v1.png)

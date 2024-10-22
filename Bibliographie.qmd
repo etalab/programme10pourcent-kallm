@@ -1,4 +1,6 @@
-# Bibliographie
+---
+title: Bibliographie
+---
 
 ## I - Accompagnement
 
@@ -29,6 +31,8 @@
 
 - [Papier original **'Attention Is All You Need'**](https://arxiv.org/abs/1706.03762)
 - [Explication illustrée et très détaillée](http://jalammar.github.io/illustrated-transformer/)
+- [Les différents types de modèles](https://medium.com/artificial-corner/discovering-llm-structures-decoder-only-encoder-only-or-decoder-encoder-5036b0e9e88)
+- [Les Mixture of Experts](https://huggingface.co/blog/moe)
 
 **Fine-tuning**
 
@@ -36,6 +40,7 @@
 - [QLoRA](https://arxiv.org/abs/2305.14314)
 - [DoRA](https://arxiv.org/abs/2402.09353)
 
+- [Introduction au RLHF](https://huggingface.co/blog/rlhf)
 - [DPO](https://arxiv.org/abs/2305.18290)
 - [KTO](https://arxiv.org/abs/2402.01306)
 
@@ -47,7 +52,8 @@
 ### Librairies et ressources
 
 
-
+**LLM platform**
+- [Ollama](https://ollama.com/)
 
 **Pipelines et orchestration LLM**
 - [LangChain](https://www.langchain.com/)
@@ -55,7 +61,7 @@
 - [Haystack](https://haystack.deepset.ai/)
 
 **RAG**
-- [Graph RAG]https://microsoft.github.io/graphrag/
+- [Graph RAG](https://microsoft.github.io/graphrag/)
 
 **Evaluation**
 - [SelfCheckGPT](https://github.com/potsawee/selfcheckgpt)
