@@ -1,5 +1,5 @@
 ---
-title: Déploiement sur site à grande échelle
+title: 4. Déploiement sur site à grande échelle
 ---
 
 Les LLM sont des modèles de langage puissants qui nécessitent des ressources informatiques importantes pour fonctionner efficacement. Pour mettre en production une application utilisant des LLM, il est essentiel de choisir le bon matériel et les bons outils pour garantir la disponibilité des applications et des performances optimales.

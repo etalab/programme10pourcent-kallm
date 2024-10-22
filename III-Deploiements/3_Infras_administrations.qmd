@@ -1,5 +1,5 @@
 ---
-title: 4. Infrastructures externalisées pour l'administration
+title: 3. Infrastructures externalisées pour l'administration
 ---
 
 ## A. Pistes d'infrastructure

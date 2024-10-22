@@ -8,7 +8,7 @@ des contraintes du projet. Comme tout projet informatique, la
 complexité du déploiement dépendra :
 - du nombre d'utilisateurs total et concurrent
 - du temps de réponse et de la qualité de service attendu
-- de la complexité de la tâche
+- de la complexité des tâches effectuées
 - ...
 
 Bien que les concepts et outils sont communs à toute mise en production, l'infrastructure et
@@ -27,6 +27,6 @@ d'implémentation de ces outils
 d'outillage avancé
 4. [Infrastructures externalisées pour
 l'administration](./4_Infras_administrations.qmd): Premiers éléments sur la mise
-en place d'une infrastructure externalisée ou semi-externalisée
+en place d'une infrastructure externalisée ou semi-externalisée.
 3. [Déploiement sur site à grande échelle](./3_Socle_Production.qmd): Orchestration et mise en place
 d'une infrastructure sur site à grande échelle
