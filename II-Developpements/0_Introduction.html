@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="équipe KALLM">
+<meta name="dcterms.date" content="2024-06-07">
 
-<title>socle_avance – Guide d'installation des LLM</title>
+<title>PARTIE II. Développements autour des LLMs (pour les data scientists) – Guide d’installation des LLM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../III-Deploiements/1_Socle_minimal.html">III-Déploiements</a></li><li class="breadcrumb-item"><a href="../III-Deploiements/2_Socle_avance.html">Socle avancé</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../II-Developpements/0_Introduction.html">II-Développements</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -185,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../II-Developpements/0_Introduction.html" class="sidebar-item-text sidebar-link">
+            <a href="../II-Developpements/0_Introduction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">II-Développements</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -235,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link active">
+  <a href="../III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Socle avancé</span></a>
   </div>
 </li>
@@ -286,89 +254,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#partie-iii.-deploiements" id="toc-partie-iii.-deploiements" class="nav-link active" data-scroll-target="#partie-iii.-deploiements">PARTIE III. Deploiements</a>
-  <ul class="collapse">
-  <li><a href="#socle-avancé-camille-jérôme-conrad" id="toc-socle-avancé-camille-jérôme-conrad" class="nav-link" data-scroll-target="#socle-avancé-camille-jérôme-conrad">2. Socle avancé (Camille Jérôme Conrad)</a>
-  <ul class="collapse">
-  <li><a href="#a.-outils-pour-surveiller-les-performances-des-gpu" id="toc-a.-outils-pour-surveiller-les-performances-des-gpu" class="nav-link" data-scroll-target="#a.-outils-pour-surveiller-les-performances-des-gpu">A. Outils pour surveiller les performances des GPU</a></li>
-  <li><a href="#b.-des-interfaces-déjà-disponibles-pour-vos-modèles-llms" id="toc-b.-des-interfaces-déjà-disponibles-pour-vos-modèles-llms" class="nav-link" data-scroll-target="#b.-des-interfaces-déjà-disponibles-pour-vos-modèles-llms">B. Des interfaces déjà disponibles pour vos modèles LLMs</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-
-<section id="partie-iii.-deploiements" class="level1">
-<h1>PARTIE III. Deploiements</h1>
-<section id="socle-avancé-camille-jérôme-conrad" class="level2">
-<h2 class="anchored" data-anchor-id="socle-avancé-camille-jérôme-conrad">2. Socle avancé (Camille Jérôme Conrad)</h2>
-<p>Optimisation, Monitoring, UX/UI (CODE!)</p>
-<section id="a.-outils-pour-surveiller-les-performances-des-gpu" class="level3">
-<h3 class="anchored" data-anchor-id="a.-outils-pour-surveiller-les-performances-des-gpu">A. Outils pour surveiller les performances des GPU</h3>
-<p>Une fois l’infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l’impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéallement, l’on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.</p>
-<p>Selon les technologies de GPUs utilisées, il existe différents outils qui se conncectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :</p>
-<ul>
-<li><strong>nvidia-smi</strong></li>
-<li><strong>AMD Vantage</strong></li>
-<li><strong>GPU-Z</strong></li>
-</ul>
-<p>Voici un exemple de résultat de statistiques extraites d’une infrastructure GPUs :</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/nvidia-smi.png" title="Resultat de la commande nvidia-smi" class="img-fluid figure-img"></p>
-<figcaption>Resultat de la commande nvidia-smi</figcaption>
-</figure>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PARTIE II. Développements autour des LLMs (pour les data scientists)</h1>
 </div>
-<p>Il existe également d’autres moyens d’accéder à des GPUs que l’acquisition individuelle pour les administrations (voir Partie III.4).</p>
-</section>
-<section id="b.-des-interfaces-déjà-disponibles-pour-vos-modèles-llms" class="level3">
-<h3 class="anchored" data-anchor-id="b.-des-interfaces-déjà-disponibles-pour-vos-modèles-llms">B. Des interfaces déjà disponibles pour vos modèles LLMs</h3>
-<p>Plusieurs initiatives permettent de déployer rapidement des interfaces de chat avec des modèles LLMs, voire des applications de RAG avec back et front. On peut remarquer :</p>
-<ul>
-<li>la WebUI du module FastChat</li>
-<li>l’application CARADOC, mise en open source par l’équipe DataScience de la DTNUM de la DGFiP, publication prévue pour fin juin 2024.</li>
-</ul>
-<p>Aperçu de l’application CARADOC pendant ses développements :</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/chat.png" title="Interface de l'application RAG Caradoc" class="img-fluid figure-img"></p>
-<figcaption>Interface de l’application RAG Caradoc</figcaption>
-</figure>
-</div>
-<p>Aperçu d’un interface possible avec FastChat :</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/chat2.png" title="Interface de l'application Chat avec FastChat" class="img-fluid figure-img"></p>
-<figcaption>Interface de l’application Chat avec FastChat</figcaption>
-</figure>
-</div>
-<p>Exemple de code pour lancer l’interface Gradio de FastChat dans un Docker :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">version:</span> <span class="st">"3.9"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">services:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">fastchat-gradio-server:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">network_mode:</span> <span class="st">"host"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">build:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="ex">context:</span> .</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="ex">dockerfile:</span> Dockerfile</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">environment:</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">FASTCHAT_CONTROLLER_URL:</span> http://0.0.0.0:21001</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">no_proxy:</span> localhost,127.0.0.1,0.0.0.0</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">image:</span> fastchat:latest</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ports:</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> <span class="st">"8001:8001"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">volumes:</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> ./FastChat:/FastChat </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">entrypoint:</span> [<span class="st">"python3.9"</span>, <span class="st">"-m"</span>, <span class="st">"fastchat.serve.gradio_web_server_dtnum"</span>, <span class="st">"--controller-url"</span>, <span class="st">"http://0.0.0.0:21001"</span>, <span class="st">"--host"</span>, <span class="st">"0.0.0.0"</span>, <span class="st">"--port"</span>, <span class="st">"8001"</span>, <span class="st">"--model-list-mode"</span>, <span class="st">"reload"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Avec toujours l’image Docker qui contient FastChat.</p>
 
 
-</section>
-</section>
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>équipe KALLM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 7, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+
+
 </section>
 
 </main> <!-- /main -->
