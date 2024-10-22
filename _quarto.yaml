@@ -27,15 +27,18 @@ website:
             text: "Acculturation"
           - href: I-Accompagnement/4_Impacts.qmd
             text: "Impacts"
-      - section: "II-Developpements"
+      - section: "II-Développements"
+        href: II-Developpements/0_Introduction.qmd
         contents:
-          - href: II-Developpements/1_Revue_Technique_LLM.qmd
-            text: "Revue technique des LLM"
-          - href: II-Developpements/2_RAG.qmd
-            text: "Retrieval Augmented Generation"
-          - href: II-Developpements/3_Evaluations.qmd
+          - href: II-Developpements/1_Anatomie_LLM.qmd
+            text: "Anatomie et conception d'un modèle de langage"
+          - href: II-Developpements/2_Utilisation_LLM.qmd
+            text: "Techniques d'utilisation d'un LLM"
+          - href: II-Developpements/3_RAG.qmd
+            text: "Focus sur le RAG (Retrieval Augmented Generation)"
+          - href: II-Developpements/4_Evaluations.qmd
             text: "Evaluations"
-      - section: "III-Deploiements"
+      - section: "III-Déploiements"
         contents:
           - href: III-Deploiements/1_Socle_minimal.qmd
             text: "Socle minimal"
@@ -45,6 +48,13 @@ website:
             text: "Socle Production"
           - href: III-Deploiements/4_Infras_administrations.qmd
             text: "Infrastructures dans l'administration"
+      - section: "IV-Exemples"
+        contents:
+          - href: IV-Exemples/2_Classification_accords_entreprise.qmd
+            text: "Exemple des textes des accords d'entreprise"
+      - text: "Bibliographie"
+        href: Bibliographie.qmd
+
         
 format:
   html:
