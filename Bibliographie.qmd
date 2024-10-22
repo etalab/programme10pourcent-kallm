@@ -49,7 +49,8 @@ title: Bibliographie
 ### Librairies et ressources
 
 
-
+**LLM platform**
+- [Ollama](https://ollama.com/)
 
 **Pipelines et orchestration LLM**
 - [LangChain](https://www.langchain.com/)
@@ -57,7 +58,7 @@ title: Bibliographie
 - [Haystack](https://haystack.deepset.ai/)
 
 **RAG**
-- [Graph RAG]https://microsoft.github.io/graphrag/
+- [Graph RAG](https://microsoft.github.io/graphrag/)
 
 **Evaluation**
 - [SelfCheckGPT](https://github.com/potsawee/selfcheckgpt)
