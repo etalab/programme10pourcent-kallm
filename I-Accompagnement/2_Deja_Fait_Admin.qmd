@@ -1,4 +1,11 @@
-### (à intéger dans la partie IV-Exemples)
+---
+title: "PARTIE I. Accompagnement au changement"
+author: "équipe KALLM"
+date: "2024-06-07"
+format: html
+---
+
+## (à intéger dans la partie IV-Exemples)
 
 1) [Albert - Dinum] : Projet mené par le LabIA de la DINUM
 
