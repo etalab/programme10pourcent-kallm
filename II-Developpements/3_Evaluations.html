@@ -309,7 +309,7 @@ d'entraînement biaisées, au recours à des agents trop permissifs, etc.</code>
 </ul>
 <p>Notons que dans le dernier cas, évaluer un LLM à l’aide d’un LLM peut donner l’impression du serpent qui se mord la queue. Cependant, ce type de ‘dépendances circulaires’ existe couramment et est bien acceptée dans d’autres dommaines. Lors d’un entretien d’embauche par exemple, l’intellect humain évalue le potentiel d’un autre être humain.</p>
 <p><strong>d) Benchmarks</strong></p>
-<p>Les benchmarks sont des collections standardisées de tests utilisées pour évaluer les LLM sur une tâche ou un scénario donné. On trouvera pas exemple :</p>
+<p>Les benchmarks sont des collections standardisées de tests utilisées pour évaluer les LLM sur une tâche ou un scénario donné. On trouvera par exemple :</p>
 <ul>
 <li><strong>SQuAD</strong> pour le scénario de réponse aux questions de l’utilisateur à partir d’extraction de parties d’un corpus (En anglais)</li>
 <li><strong>PIAF</strong> semblable à SQuAD mais en français</li>
@@ -338,13 +338,61 @@ d'entraînement biaisées, au recours à des agents trop permissifs, etc.</code>
 <p>On ne détaillera pas toutes les métriques dans le cadre de ce guide, il existe pléthore de documentation disponible sur le sujet. L’objectif ici est plutôt de fournir une grille d’analyse.</p>
 <p>Dans les métriques classiques, on trouve des métriques générales de classification qui sont couramment utilisées en apprentissage machine et ne sont pas propres aux données textuelles (Accuracy, Precision, Recall, F1…). Parmi les classiques, il existe également des métriques spécifiques au texte, qui reposent sur le principe du recouvrement maximal entre les phrases prédites et les phrases de référence. Le recouvrement peut être calculé au niveau des mots, ou au niveau des lettres. Ces méthodes ont été critiquées par leur faible corrélation avec le jugement humain, ce qui est n’est pas étonnant dans la mesure où elles ne s’intéressent qu’a la forme de surface des mots.</p>
 <p>Les métriques basées sur le Deep Learning permettent de palier ce problème. Quand vient l’heure de choisir une métrique, on distingue en premier lieu les métriques qui ont besoin d’une valeur de référence et les autres. Détenir une valeur de référence peut représenter une grosse contrainte, et n’est pas toujours pertinent. Si on demande au LLM d’écrire un poème sur la mer par exemple, il serait vain de chercher à le comparer à un autre poème. Toujours est-il que si l’on dispose de valeurs de références, on peut recourir à des métriques basés sur les embeddings ou des métriques basées sur des modèles fine-tunés. Les métriques qui calculent la distance entre embeddings sont parmi les moins fines, mais leur faible complexité peut les rendre intéressantes.</p>
-<pre><code>a. Métriques (biais, hallucinations, ...)
+</section>
+<section id="datasets" class="level4">
+<h4 class="anchored" data-anchor-id="datasets">3.5 Datasets</h4>
+<p>Les performances des modèles peuvent être évaluées qu’en comparaison avec les connaissances existantes. Pour ce faire, il est nécessaire de disposer d’ensembles de données de référence dont les résultats sont connus et vérifiés. Au cours des dernières années, de tels ensembles de données ont été collectés pour un certain nombre d’applications. Pour évaluer les LLM, il existe des “benchmark datasets” qui peuvent être utilisés pour entraîner et pour tester des modèles. * <strong>CoQA</strong> (Conversational Question Answering) est un set de données avec plus de 127 000 questions-réponses dans 7 domaines sont 5 sont publiques. <a href="https://stanfordnlp.github.io/coqa/">https://stanfordnlp.github.io/coqa/</a> Pour évaluer votre modèle, il suffit de lancer ce script</p>
+<pre><code>python evaluate-v1.0.py --data-file &lt;chemin_vers_dev-v1.0.json&gt; --pred-file &lt;chemin_vers_predictions&gt;</code></pre>
+<ul>
+<li><strong>GLUE</strong> (General Language Understanding Evaluation) <a href="https://gluebenchmark.com/">https://gluebenchmark.com/</a> et <strong>SuperGLUE</strong> <a href="https://super.gluebenchmark.com/">https://super.gluebenchmark.com/</a> sont des collections des tâches pour évaluer la compréhension du langage naturel. <code>jiant</code> est un PyTorch toolkit qui permet faire cette évaluation. Installez avec <code>pip</code> :</li>
+</ul>
+<pre><code>pip install jiant</code></pre>
+<p>Ici, un exemple d’affinage du modèle RoBERTa sur les données MRPC :</p>
+<pre><code>from jiant.proj.simple import runscript as run
+import jiant.scripts.download_data.runscript as downloader
 
-b. Datasets
+EXP_DIR = "/path/to/exp"
 
-c. Librairies/Frameworks (CODE!)
+# Télécharger les données
+downloader.download_data(["mrpc"], f"{EXP_DIR}/tasks")
 
-d. Méthodologie (arbre de décision pour le décideur)</code></pre>
+# Configurer les arguments pour l'API simple
+args = run.RunConfiguration(
+   run_name="simple",
+   exp_dir=EXP_DIR,
+   data_dir=f"{EXP_DIR}/tasks",
+   hf_pretrained_model_name_or_path="roberta-base",
+   tasks="mrpc",
+   train_batch_size=16,
+   num_train_epochs=3
+)
+
+# Lancer
+run.run_simple(args)</code></pre>
+<ul>
+<li><strong>SQuAD</strong> (Stanford Question Answering Dataset) est un set de données pour évaluer la compréhension de la lecture. Il est constitué des questions basées sur un ensemble d’articles de Wikipédia avec 100000 questions avec des réponses, et 50000 questions qui ne peuvent pas être répondues. Les modèles doivent Pour évaluer votre modèle, il suffit de lancer ce script</li>
+</ul>
+<pre><code>python evaluate-v2.0.py &lt;chemin_vers_dev-v2.0&gt; &lt;chemin_vers_predictions&gt;</code></pre>
+<p>Plus d’informations sur Git : <a href="https://github.com/nyu-mll/jiant">https://github.com/nyu-mll/jiant</a></p>
+<p><a href="https://github.com/leobeeson/llm_benchmarks">https://github.com/leobeeson/llm_benchmarks</a>.</p>
+</section>
+<section id="librairies-et-frameworks" class="level4">
+<h4 class="anchored" data-anchor-id="librairies-et-frameworks">3.6 Librairies et Frameworks</h4>
+<p>A ce jour, il existe des nombreux outils et librairies pour effectuer l’évaluation des modèles LLM. Chaque de ces librairies et frameworks est taillée pour une utilisation de modèle concrète avec des exemples pour vous aider à démarrer l’évaluation de votre modèle.</p>
+<p><strong>Hugging Face Transformers</strong> fournissent des API et des outils pour évaluer des modèles pré-entraînés sur différentes tâches en utilisant des métriques telles que la précision, le score F1 ou encore le score BLEU. Ils prennent en charge aussi l’intégration les données de la bibliothèque Hugging Face Datasets. <a href="https://huggingface.co/docs/transformers/index">https://huggingface.co/docs/transformers/index</a></p>
+<p><strong>Scikit-learn</strong>, c’est un projet Open source avec des librairies principalement axées sur l’apprentissage automatique traditionnel. Elle comprend de nombreux outils de métriques et utilitaires qui peuvent être utilisés pour évaluer les modèles de langage. <a href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a></p>
+<p><strong>EvalML</strong> est une bibliothèque spécifique pour l’évaluation des modèles d’apprentissage automatique, y compris les LLM. Elle fournit des métriques, des visualisations et des outils de sélection de modèles. <a href="https://evalml.alteryx.com/en/stable/">https://evalml.alteryx.com/en/stable/</a></p>
+<p><strong>NLTK et SpaCy</strong> - ces deux bibliothèques offrent des fonctionnalités pour le traitement du langage naturel et incluent des métriques pour évaluer des tâches telles que la tokenisation, l’analyse syntaxique et l’analyse des sentiments. <a href="https://www.nltk.org/">https://www.nltk.org/</a> <a href="https://spacy.io/">https://spacy.io/</a></p>
+<p><strong>AllenNLP</strong> est une bibliothèque conçue pour construire et évaluer des modèles de NLP. Elle fournit des outils pour faciliter la mise en œuvre de mesures d’évaluation et de visualisation personnalisées. <a href="https://docs.allennlp.org/models/main/">https://docs.allennlp.org/models/main/</a></p>
+<p><strong>Transformers-Interpret</strong> Une bibliothèque qui se concentre sur l’interprétabilité des modèles, permettant de mieux comprendre les prédictions et les performances des modèles. <a href="https://pypi.org/project/transformers-interpret/0.3.0/">https://pypi.org/project/transformers-interpret/0.3.0/</a></p>
+<p><strong>LangChain</strong> est principalement destinée à la construction d’applications avec des LLM. Elle comprend des outils d’évaluation pour évaluer la performance des modèles de langage dans le contexte. <a href="https://www.langchain.com/">https://www.langchain.com/</a></p>
+<p><strong>OpenAI Evals</strong> est une boîte à outils d’évaluation de l’OpenAI qui fournit les outils et lignes directrices pour évaluer la performance et la sécurité de leurs modèles. <a href="https://github.com/openai/evals">https://github.com/openai/evals</a></p>
+<p>Autres sources :</p>
+<hr>
+</section>
+<section id="méthodologie" class="level4">
+<h4 class="anchored" data-anchor-id="méthodologie">3.7 Méthodologie</h4>
+<p>Un arbre de décision pour l’évaluation des LLM peut vous aider à guider votre processus d’évaluation en fonction de critères et d’objectifs spécifiques de votre modèle et son évaluation. Voici un exemple de tel arbre de décision qui pourrait vous aider en cas de doute. v1 <img src="../images/dev_eval_arbre_decision-v1.png" class="img-fluid"></p>
 
 
 </section>

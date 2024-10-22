@@ -341,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Les données sont disponibles sur <a href="https://www.legifrance.gouv.fr/search/acco?tab_selection=acco&amp;searchField=ALL&amp;query=%2A&amp;searchType=ALL&amp;typePagination=DEFAULT&amp;sortValue=PERTINENCE&amp;pageSize=25&amp;page=1#acco">Légifrance</a>. Le stock des textes est également publié par le <a href="https://echanges.dila.gouv.fr/OPENDATA/ACCO/">FTP de la DILA</a> et les thématiques déclarées sont à la fois dans les métadonnées XML publié conjointement avec les textes, ou retrouvables sur Légifrance.</p>
 <p>Pour des raisons pratiques, nous travaillerons avec une <a href="https://minio.lab.sspcloud.fr/cthiounn2/Accords/10p_accords_publics_et_thematiques_240815.parquet">photographie du stock au 1er semestre 2024</a> et sur un <a href="https://minio.lab.sspcloud.fr/cthiounn2/Accords/10p_accords_publics_et_thematiques_240815_sample_of_1000.parquet">échantillon des 1000 textes d’accords</a>, convertis au format parquet.</p>
 <p>Ces données comportent le numéro de dossier de l’accord, identifiant unique, puis le texte et les thématiques déclarées, et enfin suivies des thématiques une à une :</p>
-<div id="e3009563" class="cell" data-execution_count="1">
+<div id="ae855e6d" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 
@@ -410,7 +410,7 @@ langchain-chroma==0.1.3
 jupyter==1.1.1
 ipykernel==6.29.5</code></pre>
 <p>Nous allons dans cet exemple, extraire 10 textes pour des raisons de rapidité :</p>
-<div id="cc77b114" class="cell" data-execution_count="2">
+<div id="0b49038b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -439,7 +439,7 @@ ipykernel==6.29.5</code></pre>
 <section id="vectoriser-nos-textes-avec-chromadb" class="level4">
 <h4 class="anchored" data-anchor-id="vectoriser-nos-textes-avec-chromadb">Vectoriser nos textes avec ChromaDB</h4>
 <p>Pour vectoriser nos textes, nous utilisons ChromaDB qui s’intègre avec Langchain. Nous allons découper en morceau des 3000 caractères à chaque saut à ligne, ce qui correspond à un paragraphe. Les morceaux de textes, ici paragraphes, sont stockés dans une boutique de vecteur avec le numéro de dossier et le numéro de paragraphe en métadonnées.</p>
-<div id="ac7485c1" class="cell" data-execution_count="3">
+<div id="21dac46a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>text_splitter <span class="op">=</span> CharacterTextSplitter(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    separator<span class="op">=</span><span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    chunk_size<span class="op">=</span><span class="dv">3000</span>,</span>
@@ -466,7 +466,7 @@ ipykernel==6.29.5</code></pre>
 <section id="interroger-un-llm-en-mode-api" class="level4">
 <h4 class="anchored" data-anchor-id="interroger-un-llm-en-mode-api">Interroger un LLM en mode API</h4>
 <p>Pour interroger le LLM, nous construisons une classe qui permet de générer les requêtes et de traiter les réponses :</p>
-<div id="f231d79f" class="cell" data-execution_count="4">
+<div id="1779fea8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>MODEL<span class="op">=</span><span class="st">"llama3.1"</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -487,7 +487,7 @@ ipykernel==6.29.5</code></pre>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    llm <span class="op">=</span> LocalOllamaLLM(api_url<span class="op">=</span><span class="st">"http://127.0.0.1:11434"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous définissons également un prompt de base, améliorable par la suite, et une chaîne LangChain entre le prompt et le LLM :</p>
-<div id="41ea0f67" class="cell" data-execution_count="5">
+<div id="996d7c8f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>system_prompt <span class="op">=</span> (</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">" Répondez à la question posée "</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">" Utilisez le contexte (sélection des meilleurs paragraphes liés à la question) donné pour répondre à la question "</span></span>
@@ -504,7 +504,7 @@ ipykernel==6.29.5</code></pre>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>question_answer_chain <span class="op">=</span> create_stuff_documents_chain(llm, prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous définissons une fonction pour effectuer le RAG, avec à la fois la recherche de similarité par rapport à la question, et la soumission augmentée pour une réponse du LLM :</p>
-<div id="a50dec38" class="cell" data-execution_count="6">
+<div id="a70679f4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_and_invoke_llm(vector_store,index,query,k<span class="op">=</span><span class="dv">5</span>):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> k<span class="op">==</span><span class="dv">0</span>:</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"bug with </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -529,7 +529,7 @@ ipykernel==6.29.5</code></pre>
 <section id="automatiser-la-classification-sur-lensemble-des-thématiques" class="level4">
 <h4 class="anchored" data-anchor-id="automatiser-la-classification-sur-lensemble-des-thématiques">Automatiser la classification sur l’ensemble des thématiques</h4>
 <p>Nous automatisons ici la classification sous forme de classification binaire pour chaque thématique, en posant une question “oui ou non” et en inférant oui si la réponse commence par oui, non sinon.</p>
-<div id="a69eed55" class="cell" data-execution_count="7">
+<div id="7c0dcc29" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>THEMATIQUES<span class="op">=</span>{</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"accord_methode_penibilite"</span>:<span class="st">"Accords de méthode (pénibilité)"</span>,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">"accord_methode_pse"</span>:<span class="st">"Accords de méthode (PSE)"</span>,</span>
@@ -620,7 +620,7 @@ ipykernel==6.29.5</code></pre>
 <section id="evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="evaluation">Evaluation</h3>
 <p>Nous évaluons les performances de cette solution simple, en affichant la matrice de confusion et les différentes métriques, pour chaque thématique :</p>
-<div id="1203c314" class="cell" data-execution_count="8">
+<div id="48f9c3e9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_score, recall_score, f1_score, classification_report</span>
