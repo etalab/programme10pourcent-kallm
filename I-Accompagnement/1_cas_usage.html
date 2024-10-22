@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>besoins – Guide d'installation des LLM</title>
+<title>cas_usage – Guide d'installation des LLM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../I-Accompagnement/1_Besoins.html">I-Accompagnement</a></li><li class="breadcrumb-item"><a href="../I-Accompagnement/1_Besoins.html">Besoins</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Guide d'installation des LLM
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../I-Accompagnement/1_Besoins.html" class="sidebar-item-text sidebar-link active">
+  <a href="../I-Accompagnement/1_Besoins.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Besoins</span></a>
   </div>
 </li>
@@ -290,10 +292,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#partie-i.-accompagnement-au-changement" id="toc-partie-i.-accompagnement-au-changement" class="nav-link" data-scroll-target="#partie-i.-accompagnement-au-changement">PARTIE I. Accompagnement au changement</a>
   <ul class="collapse">
-  <li><a href="#besoins-johnny-hélène" id="toc-besoins-johnny-hélène" class="nav-link" data-scroll-target="#besoins-johnny-hélène">1. Besoins (Johnny Hélène)</a></li>
+  <li><a href="#a.-cas-dusage" id="toc-a.-cas-dusage" class="nav-link" data-scroll-target="#a.-cas-dusage">A. Cas d’usage</a></li>
+  <li><a href="#intégrer-les-cas-dusage-ci-dessous-au-sein-des-catégories-pré-citées-ou-en-ajouter-en-faisant-ressortir-leur-spécificité" id="toc-intégrer-les-cas-dusage-ci-dessous-au-sein-des-catégories-pré-citées-ou-en-ajouter-en-faisant-ressortir-leur-spécificité" class="nav-link" data-scroll-target="#intégrer-les-cas-dusage-ci-dessous-au-sein-des-catégories-pré-citées-ou-en-ajouter-en-faisant-ressortir-leur-spécificité">(Intégrer les cas d’usage ci-dessous au sein des catégories pré-citées ou en ajouter en faisant ressortir leur spécificité)</a></li>
   <li><a href="#description-cas-dusage" id="toc-description-cas-dusage" class="nav-link" data-scroll-target="#description-cas-dusage">Description cas d’usage</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#à-intéger-dans-les-exemples-de-cas-dusage-du-fichier-cas_usage.qmd-et-dans-la-partie-iv-exemples" id="toc-à-intéger-dans-les-exemples-de-cas-dusage-du-fichier-cas_usage.qmd-et-dans-la-partie-iv-exemples" class="nav-link" data-scroll-target="#à-intéger-dans-les-exemples-de-cas-dusage-du-fichier-cas_usage.qmd-et-dans-la-partie-iv-exemples">(à intéger dans les exemples de cas d’usage du fichier cas_usage.qmd et dans la partie IV-Exemples)</a></li>
   </ul>
 </nav>
     </div>
@@ -307,16 +311,189 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Guide du LLM</h1>
 <section id="partie-i.-accompagnement-au-changement" class="level2">
 <h2 class="anchored" data-anchor-id="partie-i.-accompagnement-au-changement">PARTIE I. Accompagnement au changement</h2>
-<section id="besoins-johnny-hélène" class="level3">
-<h3 class="anchored" data-anchor-id="besoins-johnny-hélène">1. Besoins (Johnny Hélène)</h3>
-<pre><code>Vision high level de l'intérêt des LLMs</code></pre>
-<p>Les cas d’usages des LLMs sont variés et avant de se lancer et innover grâce aux LLMs, il est nécessaire de bien identifier le besoin qui amène l’utilisation d’un LLM. Pour quoi faire ? Pour quels usages ? Est-ce pour de la génération de texte ? Pour de la classification ? L’objectif de ce chapitre est d’accompagner la réflexion autour de l’identification du besoin et de la collecte des données, avec les différents types de cas d’usages impliquant des LLMs.</p>
-<p>Les cas d’usages :</p>
+<p>Les cas d’usages des LLMs sont variés et avant de se lancer et innover grâce aux LLMs, il est nécessaire de bien identifier le besoin qui amène l’utilisation d’un LLM. Pour quoi faire ? Pour quels usages ? Est-ce pour de la génération de texte ? Pour de la classification ? ou pour des interactions conversationnelles ? L’objectif de ce chapitre est d’accompagner la réflexion autour de l’identification du besoin et de la collecte des données, avec les différents types de cas d’usages impliquant des LLMs.</p>
+<p>Au sein des administrations, les cas d’usage de LLM ci-dessous sont en cours d’expérimentation, soit en production.</p>
+<section id="a.-cas-dusage" class="level3">
+<h3 class="anchored" data-anchor-id="a.-cas-dusage">A. Cas d’usage</h3>
+<p>Des LLM peuvent être utilisés pour :</p>
 <ul>
-<li>cas d’usages autour de la génération de contenu</li>
-<li>cas d’usage autour de la classification et de la recherche de contenu</li>
-<li>cas d’usage autour des interactions conversationnelles</li>
+<li><strong>Labelliser / classifier les textes d’un corpus traitant d’un sujet, selon certaines catégories</strong>. Par exemple, des LLMS peuvent être utilisés pour labelliser des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ». Ils peuvent également classer des documents de recherche clinique selon différentes thématiques et disciplines, tout en permettant une recherche sémantique avancée.</li>
 </ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Institution</th>
+<th>Nom du Projet</th>
+<th>Contact</th>
+<th>Expérimentation/Production/Recherche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ministère en charge de la santé</td>
+<td>SIRANo</td>
+<td>dgos-sirano@sante.gouv.fr</td>
+<td>Expérimentation</td>
+</tr>
+<tr class="even">
+<td>Banque de France</td>
+<td>Étude de l’impact des surprises monétaires sur les taux de change</td>
+<td>jean-charles.bricongne@banque-france.fr</td>
+<td>Recherche</td>
+</tr>
+<tr class="odd">
+<td>Banque de France</td>
+<td>Anticipation d’inflation</td>
+<td>jean-charles.bricongne@banque-france.fr <br>olivier.debandt@banque-france.fr <br> Thomas.RENAULT.external@banque-france.fr</td>
+<td>Recherche</td>
+</tr>
+</tbody>
+</table>
+<p>Par exemple, des LLMS peuvent être utilisés pour labellisés des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ».</p>
+<ul>
+<li><strong>Identifier les thématiques traitées dans un corpus</strong>. Par exemple, des LLMs peuvent être utilisés pour identifier les thématiques développées dans le champ Commentaire d’une enquête.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Institution</th>
+<th>Nom du Projet</th>
+<th>Contact</th>
+<th>Expérimentation/Production/Recherche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Banque de France</td>
+<td>Enquête sur les Tendances régionales</td>
+<td>Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr</td>
+<td>Expérimentation</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Faire une analyse de sentiment d’un corpus traitant d’une thématique</strong>. Par exemple, des LLMs peuvent être utilisés pour faire une analyse de sentiment (ex : positif, négatif ou neutre) d’une thématique émergeant d’un champ « Commentaire » d’une enquête et traitant d’une perception du climat des affaires.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Institution</th>
+<th>Nom du Projet</th>
+<th>Contact</th>
+<th>Expérimentation/Production/Recherche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Banque de France</td>
+<td>Enquête sur les Tendances régionales</td>
+<td>Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr</td>
+<td>Expérimentation</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Interroger une base de documents textuels (pdf, code, etc…) (retrieval augmented generation)</strong>. Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines existant dans la base. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Institution</th>
+<th>Nom du Projet</th>
+<th>Contact</th>
+<th>Expérimentation/Production/Recherche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Banque de France</td>
+<td>Chatbdf</td>
+<td>Nicolas.THOMAZO@banque-france.fr <br> Guillaume.LOMBARDO@banque-france.fr <br> Alix.DECREMOUX@banque-france.fr</td>
+<td>Passage en production prévu en décembre 2025</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Requêter sur des bases de données codées en SQL : à une interrogation exprimée en langage naturel sur une base en SQL, un code en SQL servant à la requête est renvoyé</strong>. Par exemple, à l’interrogation « trouve-moi la date de naissance de l’individu I », un code SQL est renvoyé permettant d’effectuer la requête</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Institution</th>
+<th>Nom du Projet</th>
+<th>Contact</th>
+<th>Expérimentation/Production/Recherche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Banque de France</td>
+<td>Text2SQL</td>
+<td>Guillaume.LOMBARDO@banque-france.fr</td>
+<td>Passage en production par la BCE en décembre 2024</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Extraire des données à partir de documents textuels</strong> Par exemple, à partir de documents réglementaires extraire 15 informations-clés et stocker celles-ci dans une base de données</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Institution</th>
+<th>Nom du Projet</th>
+<th>Contact</th>
+<th>Expérimentation/Production/Recherche</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Banque de France</td>
+<td>Veridic</td>
+<td>Guillaume.LOMBARDO@banque-france.fr</td>
+<td>Passage en production prévu fin 2025</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="intégrer-les-cas-dusage-ci-dessous-au-sein-des-catégories-pré-citées-ou-en-ajouter-en-faisant-ressortir-leur-spécificité" class="level3">
+<h3 class="anchored" data-anchor-id="intégrer-les-cas-dusage-ci-dessous-au-sein-des-catégories-pré-citées-ou-en-ajouter-en-faisant-ressortir-leur-spécificité">(Intégrer les cas d’usage ci-dessous au sein des catégories pré-citées ou en ajouter en faisant ressortir leur spécificité)</h3>
 </section>
 <section id="description-cas-dusage" class="level3">
 <h3 class="anchored" data-anchor-id="description-cas-dusage">Description cas d’usage</h3>
@@ -325,16 +502,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 C’est vrai dans le cas d’utilisation d’un SLM basé sur un modèle devenu classique, BERT qui donne la naissance à milliers de modèles spécialisés comme <a href="https://arxiv.org/abs/1911.03894">CamemBERT</a> un modèle en français ou encore <a href="https://sbert.net/">sBERT ou sentenceTransformers</a> permettant un entraînement spécialisé pour une recherche sémantique. <br> **ici plus d’information sur les avantages des SLM (données, environement, spécialisation, travail en local, technique) <br> Nous considérons un exemple d’utilisation de CamemBERT-base et un exemple de sBERT :</p></li>
 <li><p><a href="https://huggingface.co/almanach/camembert-bio-base">camembert-bio-base</a> avec ses 111M de paramètres, pour une recherche thématique dans des textes scientifiques biomédicaux. Nous utiliserons les transformers de <a href="https://github.com/huggingface/transformers">HuggingFace</a></p></li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, AutoModelForMaskedLM</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>biotokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(<span class="st">"almanach/camembert-bio-base"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>biomodel <span class="op">=</span> AutoModelForMaskedLM.from_pretrained(<span class="st">"almanach/camembert-bio-base"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, AutoModelForMaskedLM</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>biotokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(<span class="st">"almanach/camembert-bio-base"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>biomodel <span class="op">=</span> AutoModelForMaskedLM.from_pretrained(<span class="st">"almanach/camembert-bio-base"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">all-MiniLM-L6-v2</a></li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>api_url <span class="op">=</span> <span class="ss">f"https://api-inference.huggingface.co/pipeline/feature-extraction/</span><span class="sc">{</span>model_id<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {<span class="st">"Authorization"</span>: <span class="ss">f"Bearer </span><span class="sc">{</span>hf_token<span class="sc">}</span><span class="ss">"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>api_url <span class="op">=</span> <span class="ss">f"https://api-inference.huggingface.co/pipeline/feature-extraction/</span><span class="sc">{</span>model_id<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {<span class="st">"Authorization"</span>: <span class="ss">f"Bearer </span><span class="sc">{</span>hf_token<span class="sc">}</span><span class="ss">"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="à-intéger-dans-les-exemples-de-cas-dusage-du-fichier-cas_usage.qmd-et-dans-la-partie-iv-exemples" class="level1">
+<h1>(à intéger dans les exemples de cas d’usage du fichier cas_usage.qmd et dans la partie IV-Exemples)</h1>
 <ol start="2" type="1">
 <li>Classifier des accords d’entreprise</li>
 </ol>
@@ -343,8 +525,6 @@ C’est vrai dans le cas d’utilisation d’un SLM basé sur un modèle devenu 
 <p>Les accords d’entreprise sont publiés sur <a href="https://www.legifrance.gouv.fr/liste/acco">LégiFrance</a>. Ces accords peuvent concerner plusieurs thématiques (télétravail, compte épargne temps, droit à la deconnexion). Ces thématiques sont déclarés par les entreprises et sont éventuellement corrigées par la Direction Générale du Travail. Le besoin est alors de détecter automatiquement les thématiques à la lecture de l’accord. Un jeu de données est disponible à l’adresse suivante : <a href="https://minio.lab.sspcloud.fr/cthiounn2/Accords/accords_publics_xx_to_2022_themes_et_texte.parquet">accords_publics_xx_to_2022_themes_et_texte.parquet</a></p>
 
 
-</section>
-</section>
 </section>
 </section>
 
