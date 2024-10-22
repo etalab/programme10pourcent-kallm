@@ -68,7 +68,7 @@ Lors d'un entretien d'embauche par exemple, l'intellect humain évalue le potent
 **d) Benchmarks**
 
 Les benchmarks sont des collections standardisées  de tests utilisées pour évaluer les LLM sur une tâche ou un scénario 
-donné. On trouvera pas exemple :
+donné. On trouvera par exemple :
 
 * **SQuAD** pour le scénario de réponse aux questions de l'utilisateur à partir d'extraction de parties d'un corpus (En anglais)
 * **PIAF** semblable à SQuAD mais en français
@@ -149,10 +149,55 @@ dispose de valeurs de références, on peut recourir à des métriques basés su
 des modèles fine-tunés. Les métriques qui calculent la distance entre embeddings sont parmi les moins fines, mais leur 
 faible complexité peut les rendre intéressantes.
 
-	a. Métriques (biais, hallucinations, ...)
+#### 3.5 Datasets
+Les performances des modèles peuvent être évaluées qu'en comparaison avec les connaissances existantes. Pour ce faire, il est nécessaire de disposer d'ensembles de données de référence dont les résultats sont connus et vérifiés. Au cours des dernières années, de tels ensembles de données ont été collectés pour un certain nombre d'applications.
+Pour évaluer les LLM, il existe des "benchmark datasets" qui peuvent être utilisés pour entraîner et pour tester des modèles.
+* **CoQA** (Conversational Question Answering) est un set de données avec plus de 127 000 questions-réponses dans 7 domaines sont 5 sont publiques. [https://stanfordnlp.github.io/coqa/](https://stanfordnlp.github.io/coqa/)
+Pour évaluer votre modèle, il suffit de lancer ce script
+```
+python evaluate-v1.0.py --data-file <chemin_vers_dev-v1.0.json> --pred-file <chemin_vers_predictions>
+```
+* **GLUE** (General Language Understanding Evaluation) [https://gluebenchmark.com/](https://gluebenchmark.com/) et **SuperGLUE** [https://super.gluebenchmark.com/](https://super.gluebenchmark.com/) sont des collections des tâches pour évaluer la compréhension du langage naturel.
+`jiant` est un PyTorch toolkit qui permet faire cette évaluation. Installez avec `pip` : 
+```
+pip install jiant
+```
+Puis affinez le modèle RoBERTa sur les données MRPC 
+```
+from jiant.proj.simple import runscript as run
+import jiant.scripts.download_data.runscript as downloader
+
+EXP_DIR = "/path/to/exp"
+
+# Télécharger les données
+downloader.download_data(["mrpc"], f"{EXP_DIR}/tasks")
+
+# Configurer les arguments pour l'API simple
+args = run.RunConfiguration(
+   run_name="simple",
+   exp_dir=EXP_DIR,
+   data_dir=f"{EXP_DIR}/tasks",
+   hf_pretrained_model_name_or_path="roberta-base",
+   tasks="mrpc",
+   train_batch_size=16,
+   num_train_epochs=3
+)
+
+# Lancer
+run.run_simple(args)
+```
+
+* **SQuAD** (Stanford Question Answering Dataset) est un set de données pour évaluer la compréhension de la lecture. Il est constitué des questions basées sur un ensemble d'articles de Wikipédia avec 100000 questions avec des réponses, et 50000 questions qui ne peuvent pas être répondues. Les modèles doivent 
+Pour évaluer votre modèle, il suffit de lancer ce script
+```
+python evaluate-v2.0.py <chemin_vers_dev-v2.0> <chemin_vers_predictions>
+```
+Plus d'informations sur Git : [https://github.com/nyu-mll/jiant](https://github.com/nyu-mll/jiant)
+
+[https://github.com/leobeeson/llm_benchmarks](https://github.com/leobeeson/llm_benchmarks).
  
-	b. Datasets
- 
-	c. Librairies/Frameworks (CODE!)
+#### 3.6 Librairies et Frameworks
+
+
  
 	d. Méthodologie (arbre de décision pour le décideur)
