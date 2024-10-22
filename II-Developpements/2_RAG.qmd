@@ -32,6 +32,10 @@ Lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encod
 vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les morceaux
 de texte à envoyer au LLM pour la génération.
 
+Il est également possible d'utiliser une recherche par mots-clés, avec des algorithmes comme la TF-IDF ou le BM25. Ce type de recherche est particulièrement pertinent lorsque les documents comprennent beaucoup de termes précis et peu communs, ou beaucoup d'acronymes.
+
+Pour obtenir des résultats plus précis et profiter des avantages des deux méthodes (recherche sémantique avec des vecteurs denses, et recherche par mots-clés avec des vecteurs sparses), il est possible de combiner ces deux recherches. Concrètement, chaque méthode retourne un ensemble de textes pertinents, qui sont ensuite réordonnés (avec un algorithme de Rank Fusion par exemple) selon leur proximité sémantique et leur proximité par mots-clés.
+
 ## c. Génération
 
 La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt  que
