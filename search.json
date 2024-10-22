@@ -287,7 +287,7 @@
     "href": "Bibliographie.html",
     "title": "Bibliographie",
     "section": "",
-    "text": "Qu’est ce que l’IA ?\nWhat We Learned from a Year of Building with LLMs (Part I)\nWhat We Learned from a Year of Building with LLMs (Part II)\n\n\n\n\n\nARCEP & ADEME de 2023\nAFNOR IA frugale\nGuide de recommandation de sécurité de l’ANSSI\nAI Act\n\n\n\n\n\n\n\n\nHuggingFace\n\n\n\n\nTransformers\n\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\n\nFine-tuning\n\nLoRA\nQLoRA\nDoRA\nDPO\nKTO\n\nBonnes pratiques du prompt engineering\n\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4\nGraph of Thoughts\n\n\n\n\nPipelines et orchestration LLM - LangChain - LlamaIndex - Haystack\nRAG - [Graph RAG]https://microsoft.github.io/graphrag/\nEvaluation - SelfCheckGPT",
+    "text": "Qu’est ce que l’IA ?\nWhat We Learned from a Year of Building with LLMs (Part I)\nWhat We Learned from a Year of Building with LLMs (Part II)\n\n\n\n\n\nARCEP & ADEME de 2023\nAFNOR IA frugale\nGuide de recommandation de sécurité de l’ANSSI\nAI Act",
     "crumbs": [
       "Bibliographie"
     ]
@@ -306,8 +306,8 @@
     "objectID": "Bibliographie.html#ii---développement",
     "href": "Bibliographie.html#ii---développement",
     "title": "Bibliographie",
-    "section": "",
-    "text": "HuggingFace\n\n\n\n\nTransformers\n\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\n\nFine-tuning\n\nLoRA\nQLoRA\nDoRA\nDPO\nKTO\n\nBonnes pratiques du prompt engineering\n\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4\nGraph of Thoughts\n\n\n\n\nPipelines et orchestration LLM - LangChain - LlamaIndex - Haystack\nRAG - [Graph RAG]https://microsoft.github.io/graphrag/\nEvaluation - SelfCheckGPT",
+    "section": "II - Développement",
+    "text": "II - Développement\n\nPlateforme de partage de modèles\n\nHuggingFace\n\n\n\nArticles de recherche centraux\nTransformers\n\nPapier original ‘Attention Is All You Need’\nExplication illustrée et très détaillée\n\nFine-tuning\n\nLoRA\nQLoRA\nDoRA\nDPO\nKTO\n\nBonnes pratiques du prompt engineering\n\nPrincipled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4\nGraph of Thoughts\n\n\n\nLibrairies et ressources\nPipelines et orchestration LLM - LangChain - LlamaIndex - Haystack\nRAG - [Graph RAG]https://microsoft.github.io/graphrag/\nEvaluation - SelfCheckGPT",
     "crumbs": [
       "Bibliographie"
     ]
