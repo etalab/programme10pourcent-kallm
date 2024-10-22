@@ -110,7 +110,7 @@ qualité quand on lui fournit des documents littéraires, mais pas des documents
 Facebook, Google, etc) ou par la communauté universitaire. Ce sont les évaluations de systèmes LLM qui intéresseront la 
 majorité des équipes souhaitant déployer un LLM dans leur administration.** 
 
-#### 3.4 Détails des métriques utilisées
+#### 3.4 Détails des métriques utilisées pour l'évaluation de modèles
 Il n'existe pas de réponse simple à la question de savoir quelles métriques utiliser pour évaluer son système LLM. Cela
 dépendra du type de tâche, de la population cible, de la nature des données, des ressources materielles disponibles, etc
 Traditionnellement, dans le domaine de l'apprentissage machine, on évalue un modèle en se dotant d'un ensemble annoté 
@@ -133,21 +133,114 @@ l'absolu.
 On ne détaillera pas toutes les métriques dans le cadre de ce guide, il existe pléthore de documentation disponible sur 
 le sujet. L'objectif ici est plutôt de fournir une grille d'analyse.
 
+**Métriques traditionnelles du machine learning**
+
 Dans les métriques classiques, on trouve des métriques générales de classification qui sont couramment utilisées en 
 apprentissage machine et ne sont pas propres aux données textuelles (Accuracy, Precision, Recall, F1...). Parmi les 
 classiques, il existe également des métriques spécifiques au texte, qui reposent sur le principe du recouvrement maximal
 entre les phrases prédites et les phrases de référence. Le recouvrement peut être calculé au niveau des mots, ou au 
-niveau des lettres. Ces méthodes ont été critiquées par leur faible corrélation avec le jugement humain, ce qui est n'est
+niveau des lettres. Ces méthodes ont été critiquées pour leur faible corrélation avec le jugement humain, ce qui est n'est
 pas étonnant dans la mesure où elles ne s'intéressent qu'a la forme de surface des mots.
 
+**Introduction de critères sémantiques**
 
-Les métriques basées sur le Deep Learning permettent de palier ce problème. Quand vient l'heure de choisir une métrique, 
-on distingue en premier lieu les métriques qui ont besoin d'une valeur de référence et les autres. Détenir une valeur de 
-référence peut représenter une grosse contrainte, et n'est pas toujours pertinent. Si on demande au LLM d'écrire un 
+Les métriques basées sur le Deep Learning permettent de palier ce problème en introduisant des critères sémantiques. 
+On distingue en premier lieu les métriques qui ont besoin d'une valeur de référence et les autres. 
+
+Détenir une valeur de référence peut représenter une grosse contrainte, et n'est pas toujours pertinent. Si on demande au LLM d'écrire un 
 poème sur la mer par exemple, il serait vain de chercher à le comparer à un autre poème. Toujours est-il que si l'on 
 dispose de valeurs de références, on peut recourir à des métriques basés sur les embeddings ou des métriques basées sur 
-des modèles fine-tunés. Les métriques qui calculent la distance entre embeddings sont parmi les moins fines, mais leur 
-faible complexité peut les rendre intéressantes.
+des modèles fine-tunés. 
+
+Les métriques qui calculent la distance entre embeddings sont parmi les moins fines, mais leur 
+faible complexité peut les rendre intéressantes. Elles exigent toutes des réponse de référence.
+ 
+**BLEURT**  quantifie la distance entre le sens de la phrase traduite et celui de la phrase originale.
+Son entraînement a suivi le processus suivant: 
+* Les chercheurs ont créé un ensemble de données comprenant des millions de paires de phrases. Chaque paire comprend 
+une phrase tirée de Wikipédia et une version modifiée en supprimant aléatoirement certains mots et en remplaçant d'autres par des mots similaires.
+* Ils ont utilisé BLEU et d'autres techniques pour estimer la similarité entre ces paires.
+* Ils ont pré-entraîné BLEURT à prédire ces mesures de similarité.
+* Ils l'ont ensuite affiné sur un ensemble plus restreint de données annotées par des humains afin de prédire les scores de similarité humaine.
+
+**L'évaluateur NLI** utilise des modèles de classification pour déterminer si une sortie de LLM est cohérente (implication),
+contradictoire ou sans rapport (neutre) avec un texte de référence donné. Le score se situe généralement entre 
+l'implication (avec une valeur de 1) et la contradiction (avec une valeur de 0), ce qui fournit une mesure de la 
+cohérence logique.
+
+
+Les métriques basées sur du fine-tuning sont mieux alignées avec le jugement humain, mais il peut être nécessaire de les 
+fine-tuner encore sur vos propres corpus. De plus, certains de ces modèles ne sont capables de répondre qu'à la question
+pour laquelle ils ont été entraînés. Par exemple, le modèle Lynx (Patronus AI ) est entraîné à détecter les 
+hallucinations dans les environnements RAG. À partir d'un document, d'une question et d'une réponse, le modèle tente 
+d'évaluer si la réponse est fidèle au document. En revanche, il ne peut se prononcer sur d'autres aspects. Le modèle 
+Prometheus-Eval (LG AI Research, KAIST AI) est lui capable de répondre à des questions sur différents aspects, tant que 
+l'utilisateur les définit explicitement dans le prompt.
+
+```code python
+
+rubric_data = {
+  "criteria":"Is the model proficient in applying empathy and emotional intelligence to its responses when the user conveys emotions or faces challenging circumstances?",
+  "score1_description":"The model neglects to identify or react to the emotional tone of user inputs, giving responses that are unfitting or emotionally insensitive.",
+  "score2_description":"The model intermittently acknowledges emotional context but often responds without sufficient empathy or emotional understanding.",
+  "score3_description":"The model typically identifies emotional context and attempts to answer with empathy, yet the responses might sometimes miss the point or lack emotional profundity.",
+  "score4_description":"The model consistently identifies and reacts suitably to emotional context, providing empathetic responses. Nonetheless, there may still be sporadic oversights or deficiencies in emotional depth.",
+  "score5_description":"The model excels in identifying emotional context and persistently offers empathetic, emotionally aware responses that demonstrate a profound comprehension of the user's emotions or situation."
+}
+
+```
+
+**QAG** (Question Answer Generation) Score est un évaluateur qui exploite les forte capacités de raisonnement des LLM 
+pour évaluer de manière fiable les résultats des LLM. Ici, on utilise les réponses à des questions fermées (générées ou 
+prédéfinies) pour calculer un score final. Cette approche est relativement fiable parce qu'elle n'utilise pas les LLM 
+pour générer directement les scores. Par exemple, si vous voulez calculer un score de fidélité (qui mesure si une sortie 
+du LLM a été hallucinée ou non), vous devez :
+
+* Utiliser un LLM pour extraire toutes les affirmations faites dans une sortie LLM.
+* Convertir ces affirmations en question. 
+* Pour chaque question, demandez au LLM si la réponse de référence concorde avec l'affirmation faite.
+
+En novembre 2024, on constate néanmoins que les LLM open-source ne sont pas encore assez puissants pour mener à bien la 
+tâche de découpage du texte en affirmations élémentaires. Si les données à évaluer ne sont pas sensibles, nous 
+conseillons, pour l'heure, de privilégier un LLM propriétaire. 
+
+
+
+
+
+
+
+#### 3.5 Détails des métriques utilisées pour l'évaluation de systèmes
+
+| Catégorie | Métriques | Détails |
+| --- | --- | --- |
+| Métriques d'engagement des utilisateurs et généralités |  |
+|  | Visité | Nombre d'utilisateurs qui ont visité l'application |
+|  | Soumis | Nombre d'utilisateurs qui soumettent des messages |
+|  | Répondu | Le LLM génère des réponses sans erreurs |
+|  | Vu  | L'utilisateur consulte les réponses du LLM |
+|  | Clics | L'utilisateur clique sur la documentation référencée dans la réponse du LLM, le cas échéant |
+| Interaction avec l'utilisateur | | |
+|  | Taux d'acceptation | Fréquence d'acceptation des réponses du LLM par l'utilisateur|
+|  | Conversation LLM | Nombre moyen de conversations LLM par utilisateur |
+|  | Jours d'activité | Nombre de jours actifs d'utilisation du LLM (par utilisateur) |
+|  | Timing | Durée moyenne entre les prompts et les réponses, et temps consacré à chacune |
+| Feedback utilisateur et rétention | | |
+|  | Feedback utilisateur | Nombre de réponses avec des commentaires positifs ou négatifs |
+|  | Utilisateurs actifs par période | Nombre d'utilisateurs ayant visité l'application LLM au cours d'une période donnée |
+|  | Taux de retour | Pourcentage d'utilisateurs qui ont utilisé cette fonction la semaine/mois précédente et qui continuent à l'utiliser cette semaine/mois.|
+| Performance | | |
+|  | Requêtes par seconde (Concurrence) |  |
+|  | Tokens par seconde | Compte les tokens générés par seconde lors de la diffusion de la réponse LLM. |
+|  | Délai avant le premier rendu de jeton |  |
+|  | Taux d'erreur | Taux d'erreur pour différents types d'erreurs tels que l'erreur 401, l'erreur 429. |
+|  | Fiabilité | Le pourcentage de demandes satisfaites par rapport au nombre total de demandes, y compris celles qui comportent des erreurs ou des échecs. |
+|  | Latence | Durée moyenne du temps de traitement entre la soumission d'une requête et la réception d'une réponse. |
+|  | utilisation GPU/CPU | Utilisation en termes de nombre total de tokens et nombre de code erreur 429 reçus ('Rate limit reached for requests' dans l'API OpenAI)|
+| Coûts | | |
+|  | Coût des appels LLM | Ce qui est facturé par le fournisseur du LLM si vous passez par un LLM hebergé par un tiers|
+|  | Coût de l'infrastucture | Coût du stockage, énergie, si vous hébergez votre LLM|
+|  | Coût opérationnel | Coût de la maintenance, du monitoring, de la mise en place des mesures de sécurité, du support, etc si vous hébergez votre LLM|
 
 	a. Métriques (biais, hallucinations, ...)
  
