@@ -215,7 +215,7 @@
     "href": "Reste_a_faire.html",
     "title": "Guide d'installation des LLM",
     "section": "",
-    "text": "Format et contenu du guide :\n\nFinaliser fusion I-1 et I-2\nPartie Acculturation (I-3) ?\nAjout d’exemple d’implémentation RAG II-2\nFinaliser la partie évaluation II-3\nUniformiser le message de la partie III\nNormaliser la mise en page\nCompléter la bibliographie\nCompléter les cas d’usages dans l’administration (contacts)\n\nProposition de mise en page :\n---\ntitle: &lt;Titre de la partie&gt;(ex: RAG)\n---\n# &lt;section 1&gt;\n## &lt;sous section 1&gt;\n## &lt;sous section 2&gt;\n# &lt;section 2&gt;"
+    "text": "Format et contenu du guide :\n\nFinaliser fusion I-1 et I-2\nPartie Acculturation (I-3) ?\nAjout d’exemple d’implémentation RAG II-2\nFinaliser la partie évaluation II-3\nUniformiser le message de la partie III\nNormaliser la mise en page\nCompléter la bibliographie\nCompléter les cas d’usages dans l’administration (contacts)\nTitres propres et plus signifiants\n\nProposition de mise en page :\n---\ntitle: &lt;Titre de la partie&gt;(ex: RAG)\n---\n# &lt;section 1&gt;\n## &lt;sous section 1&gt;\n## &lt;sous section 2&gt;\n# &lt;section 2&gt;"
   },
   {
     "objectID": "III-Deploiements/2_Socle_avance.html",
