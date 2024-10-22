@@ -1,10 +1,13 @@
-# Guide du LLM
+---
+title: "PARTIE II. Développements autour des LLMs (pour les data scientists)"
+author: "équipe KALLM"
+date: "2024-06-07"
+format: html
+---
 
-## PARTIE II. Développements autour des LLMs (pour les data scientists)
-
-### 3. Évaluations (Zhanna Daphné)
+## IV. Évaluations d'un modèle
     
-#### 3.1 Objectif 
+### 1. Objectif 
 
 Tous les LLM visent le même objectif : maîtriser le langage naturel et par là même, égaler l'humain dans des tâches 
 telles que le résumé, la traduction, la reconnaissance des entités nommées, etc.
@@ -24,7 +27,7 @@ Si de nombreux bancs d'essai existent aujourd'hui, permettant de distinguer cert
 que de bonnes performances dans un banc d'essai ne sont pas suffisantes, et qu'il est primordial de mettre en place un 
 système d'évaluation quasi temps réél du LLM une fois en production.**
 
-#### 3.2 Quelques concepts à connaître 
+### 2. Quelques concepts à connaître 
 
 **a) Scenario** 
 
@@ -80,7 +83,7 @@ et d'une liste de questions portant sur ces paragraphes.
 
 ![](../images/piaf_example.png)
 
-#### 3.3 LLM Model Evaluation vs. LLM System Evaluation
+### 3 LLM Model Evaluation vs. LLM System Evaluation
     
  L'expression _évaluation de LLM_ peut recouvrir différentes pratiques et différents objectifs.
  On doit ainsi distinguer l'**évaluations de modèles LLM** de l'**évaluations de systèmes LLM**. 
@@ -110,7 +113,7 @@ qualité quand on lui fournit des documents littéraires, mais pas des documents
 Facebook, Google, etc) ou par la communauté universitaire. Ce sont les évaluations de systèmes LLM qui intéresseront la 
 majorité des équipes souhaitant déployer un LLM dans leur administration.** 
 
-#### 3.4 Détails des métriques utilisées
+### 4 Détails des métriques utilisées
 Il n'existe pas de réponse simple à la question de savoir quelles métriques utiliser pour évaluer son système LLM. Cela
 dépendra du type de tâche, de la population cible, de la nature des données, des ressources materielles disponibles, etc
 Traditionnellement, dans le domaine de l'apprentissage machine, on évalue un modèle en se dotant d'un ensemble annoté 
