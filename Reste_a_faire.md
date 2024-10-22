@@ -8,6 +8,7 @@ Format et contenu du guide :
 - [ ] Uniformiser le message de la partie III
 - [ ] Normaliser la mise en page
 - [ ] Compléter la bibliographie
+- [ ] Compléter les cas d'usages dans l'administration (contacts)
 
 Proposition de mise en page :
 
