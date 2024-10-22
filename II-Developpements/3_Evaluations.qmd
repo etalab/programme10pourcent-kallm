@@ -196,8 +196,38 @@ Plus d'informations sur Git : [https://github.com/nyu-mll/jiant](https://github.
 
 [https://github.com/leobeeson/llm_benchmarks](https://github.com/leobeeson/llm_benchmarks).
  
+
 #### 3.6 Librairies et Frameworks
+A ce jour, il existe des nombreux outils et librairies pour effectuer l'évaluation des modèles LLM. Chaque de ces librairies et frameworks est taillée pour une utilisation de modèle concrète avec des exemples pour vous aider à démarrer l'évaluation de votre modèle.
+
+**Hugging Face Transformers** fournissent des API et des outils pour évaluer des modèles pré-entraînés sur différentes tâches en utilisant des métriques telles que la précision, le score F1 ou encore le score BLEU. Ils prennent en charge aussi l'intégration les données de la bibliothèque Hugging Face Datasets.
+[https://huggingface.co/docs/transformers/index](https://huggingface.co/docs/transformers/index)
+
+**Scikit-learn**, c'est un projet Open source avec des librairies principalement axées sur l'apprentissage automatique traditionnel. Elle comprend de nombreux outils de métriques et utilitaires qui peuvent être utilisés pour évaluer les modèles de langage.
+[https://scikit-learn.org/stable/](https://scikit-learn.org/stable/)
+
+**EvalML** est une bibliothèque spécifique pour l'évaluation des modèles d'apprentissage automatique, y compris les LLM. Elle fournit des métriques, des visualisations et des outils de sélection de modèles.
+[https://evalml.alteryx.com/en/stable/](https://evalml.alteryx.com/en/stable/)
+
+**NLTK et SpaCy** - ces deux bibliothèques offrent des fonctionnalités pour le traitement du langage naturel et incluent des métriques pour évaluer des tâches telles que la tokenisation, l'analyse syntaxique et l'analyse des sentiments.
+[https://www.nltk.org/](https://www.nltk.org/)
+[https://spacy.io/](https://spacy.io/)
+
+**AllenNLP** est une bibliothèque conçue pour construire et évaluer des modèles de NLP. Elle fournit des outils pour faciliter la mise en œuvre de mesures d'évaluation et de visualisation personnalisées.
+[https://docs.allennlp.org/models/main/](https://docs.allennlp.org/models/main/)
+
+**Transformers-Interpret**
+Une bibliothèque qui se concentre sur l'interprétabilité des modèles, permettant de mieux comprendre les prédictions et les performances des modèles.
+[https://pypi.org/project/transformers-interpret/0.3.0/](https://pypi.org/project/transformers-interpret/0.3.0/)
+
+**LangChain** est principalement destinée à la construction d'applications avec des LLM. Elle comprend des outils d'évaluation pour évaluer la performance des modèles de langage dans le contexte.
+[https://www.langchain.com/](https://www.langchain.com/)
+
+**OpenAI Evals** est une boîte à outils d'évaluation de l'OpenAI qui fournit les outils et lignes directrices pour évaluer la performance et la sécurité de leurs modèles.
+[https://github.com/openai/evals](https://github.com/openai/evals)
 
 
- 
+Autres sources : 
+---
+
 	d. Méthodologie (arbre de décision pour le décideur)
