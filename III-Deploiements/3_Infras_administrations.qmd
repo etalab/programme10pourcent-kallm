@@ -1,7 +1,8 @@
+---
+title: 4. Infrastructures externalisées pour l'administration
+---
 
-# PARTIE III. Deploiements
-
-## 4. Infras dispos pour l’administration (Thibault Katia)
+## A. Pistes d'infrastructure
 
 Dans beaucoup de cas l'accès à des GPUs est un des principaux freins à l'expérimentaion et la mise en production d'un cas d'usage d'IA générative. L'acquisition d'un cluster GPUs n'est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs alternatives sont envisageables (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.
 
@@ -19,7 +20,7 @@ Tout ou parti de ces éléments peuvent être externalisé en fonction de la mat
 - [Cloud externe](#cloud-externe)
 - [API inférence](#api-inference)
 
-### A. Cloud Public
+### a. Cloud Public
 
 Bien que l'état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée
 
@@ -31,7 +32,7 @@ Bien que l'état dispose de plusieurs offres cloud internes, la mise à disposit
 
 > Pour définition de ce que recouvre les offres de service PAAS et IAAS, se référer à ce [lien](https://www.redhat.com/fr/topics/cloud-computing/iaas-vs-paas-vs-saas)
 
-### B. Cloud externe
+### b. Cloud externe
 
 La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud) a été mis en place par l'ANSSI pour assurer des normes de sécurité aux utilisateurs de produits cloud. A ce jour, peu d'entreprises ont acquis cette qualification. Voici quelques exemples de fournisseurs :
 
@@ -41,7 +42,7 @@ La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fourn
 
 > Plus d'informations sur ce type de services sont disponibles [ici](https://www.numerique.gouv.fr/services/cloud/cloud-commercial/).
 
-### C. API inférence
+### c. API inférence
 
 1. **API Albert** : Offre fourni à quelques partenaires de la DINUM, avec des capacités d'hébergement limitées.
 > (ajouter contact ou moyen d'accès)
@@ -52,30 +53,32 @@ La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fourn
 
 > Dans certains cas, il peut être aussi intéressant de mettre en place une architecture hybride Cloud + API d'inférence. Ce qui permet de bénéficier de l'agilité de développement des solutions Cloud, tout en limitant les coûts relatifs à l'approvisionnement de GPUs.
 
-### 5. Déploiement d'un LLM sur SSP Cloud
+## B. Déploiement d'un LLM sur SSP Cloud
 
 Sur le DataLab SSP Cloud, il est possible de déployer des LLM à des fins d'expérimentation. Plusieurs cas sont possibles :
 
 A. Utiliser des librairies d'API de LLM (vLLM, etc.)
 B. Déployer des containers Docker avec Kube et Helm
 
-#### A. Déploiement par API
+### a. Déploiement par API
 
 * Vous pouvez lancer un service VSCode avec une GPU et installer une API de LLM
 
-#### B. Déploiement par image Docker
+### b. Déploiement par image Docker
 
 * Créer une image Docker et la mettre à disposition (Dockerhub) : exemple applicatif avec Streamlit
 * Déployer avec Kube et Helm en utilisant un service VSCode avec les droits d'admin pour Kube
 
-
-Exemple avec Kube :
+Exemple avec Kubernetes :
 
 ```bash
 kubectl create deployment mon-deploiement --image=mon-image-docker
 ```
 
-
 ```bash
 kubectl proxy
 ```
+
+### c. Exemple de déploiements plus complexes par Chart Helm
+
+> Exemple de Caradoc

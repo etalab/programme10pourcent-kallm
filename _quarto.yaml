@@ -1,6 +1,6 @@
 project:
   type: website
-  
+
 execute:
   freeze: auto
 
@@ -9,7 +9,7 @@ website:
 
   page-footer:
     right: "Ce site a été créé avec [Quarto](https://quarto.org/)"
-    
+
   sidebar:
     pinned: true
     align: center
@@ -36,6 +36,7 @@ website:
           - href: II-Developpements/3_Evaluations.qmd
             text: "Evaluations"
       - section: "III-Deploiements"
+        href: "III-Deploiements/0_Introduction_deploiements.qmd"
         contents:
           - href: III-Deploiements/1_Socle_minimal.qmd
             text: "Socle minimal"
@@ -52,7 +53,6 @@ website:
       - text: "Bibliographie"
         href: Bibliographie.qmd
 
-        
 format:
   html:
     theme:

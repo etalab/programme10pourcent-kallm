@@ -1,55 +1,52 @@
-# PARTIE III. Deploiements
-
-## 1. Socle minimal pour un LLM (Camille Jérôme Conrad)
+---
+title: Socle minimal pour un LLM
+---
 
 Pour déployer un grand modèle de langage (LLM) dans une infrastructure, il est essentiel de comprendre comment requêter le modèle, les quelques couches techniques immédiates qui l'entourent et les solutions disponibles pour un déploiement efficace.
 
-### A. Ce dont vous avez besoin pour mettre à disposition un LLM
+## A. Ce dont vous avez besoin pour mettre à disposition un LLM
 
 Lorsqu'il s'agit de mettre en service des applications basées sur des LLM, il y a 2 composants principaux : le moteur et le serveur. Le moteur gère tout ce qui concerne les modèles et le regroupement des demandes, tandis que le serveur gère l'acheminement des demandes des utilisateurs.
 
-#### Moteurs
+### a. Moteurs
 
 Les moteurs sont les composants exécutant les modèles et tout ce que nous avons couvert jusqu'à présent sur le processus de génération avec différents types d'optimisations. À leur cœur, ce sont des bibliothèques Python. Ils gèrent le regroupement des demandes qui proviennent des utilisateurs vers notre chatbot et génèrent la réponse à ces demandes.
 
-#### Serveurs
+### b. Serveurs
 
 Les serveurs sont responsables de l'orchestration des requêtes HTTP/gRPC entrantes des utilisateurs. Dans les applications du monde réel, nous aurons de nombreux utilisateurs qui posent des questions à notre chatbot à différents moments de la journée. Les serveurs mettent ces demandes en file d'attente et les transfèrent vers le moteur pour la génération de la réponse. Les serveurs apportent également les métriques telles que le débit et la latence, qui sont importantes à suivre pour le service de modèle.
 
-#### Résumé
+### c. Résumé
 
-Moteurs
+* Moteurs
+  * Optimisation de la mémoire
+  * Optimisation spécifique au modèle
+  * Prise en charge du regroupement
+* Serveurs
+  * API HTTP/gRPC
+  * Mise en file d'attente des demandes
+  * Mise en service de plusieurs modèles
+  * Prise en charge de plusieurs moteurs
 
-* Optimisation de la mémoire
-* Optimisation spécifique au modèle
-* Prise en charge du regroupement
-
-Serveurs
-
-* API HTTP/gRPC
-* Mise en file d'attente des demandes
-* Mise en service de plusieurs modèles
-* Prise en charge de plusieurs moteurs
-
-### B. Exemples d'outils de mise à disposition de LLM
+## B. Exemples d'outils de mise à disposition de LLM
 
 Quels outils sont les mieux adaptés à nos besoins ? Comment choisir ? Voici un survol rapide de grands noms du milieu pour références.
 
 > Une recommandation de framework rapide à prendre en main et dont l'utilité a déjà été prouvée dans une de nos administrations se trouve à la fin et est développée dans le prochain paragraphe.
 
-**Moteurs**
+### a. Moteurs
 
 - TensorRT-LLM est une bibliothèque open-source qui optimise les performances d'inférence des grands modèles de langage (LLM) en utilisant les GPU NVIDIA Tensor Core. Elle utilise le parallélisme tensoriel, propose une API Python simple et comprend des versions optimisées de LLM populaires. Elle prend en charge le batching en vol et vise à simplifier la construction et l'expérimentation de nouveaux LLM. Cependant, les utilisateurs doivent spécifier la longueur d'entrée/sortie maximale et la taille de lot avant de construire le moteur, et la gestion de la mémoire du cache KV n'est pas open source.
 
 - vLLM est une bibliothèque à hautes performances pour l'inférence et le service LLM, axée sur le débit de service et l'efficacité mémoire grâce à son mécanisme PagedAttention. Il prend en charge le batching continu, le parallélisme GPU et la sortie en streaming, ainsi que la compatibilité OpenAI. Cependant, la mémoire peut devenir un goulot d'étranglement avec des taux de demande élevés et de grandes tailles de lot.
 
-**Serveurs**
+### b. Serveurs
 
 - RayLLM avec RayServe est construit sur un framework de calcul distribué qui simplifie le développement et le déploiement de modèles d'IA à grande échelle. Il prend en charge les points de terminaison multi-modèles, les fonctionnalités serveur et les optimisations via les intégrations avec vLLM et TGI.
 
 - Triton avec TensorRT-LLM fournit un logiciel d'inférence de serveur pour le déploiement et l'exécution efficaces de LLM avec des techniques telles que le batching en vol et le cache KV paginé.
 
-**Moteurs et serveurs**
+### c. Moteurs et serveurs
 
 - Génération de texte Inférence (TGI) est un serveur Rust, Python et gRPC utilisé chez HuggingFace pour HuggingChat, l'API d'inférence et le point de terminaison d'inférence. Il prend en charge le batching continu, le parallélisme tensoriel, la quantification, les mécanismes d'attention, le recuit simulé des logits et des LLM spécifiques. Cependant, la licence d'utilisation a été modifiée et n'est pas gratuite pour une utilisation commerciale.
 
@@ -57,13 +54,13 @@ Quels outils sont les mieux adaptés à nos besoins ? Comment choisir ? Voici un
 
 > Nous allons développer FastChat dans la partie suivante car c'est un outil qui a été testé et qui semble fournir beaucoup des éléments nécessaires pour une utilisation de première intention.
 
-### C. Le choix d'une solution technique : le cas d'une administration
+## C. Le choix d'une solution technique : le cas d'une administration
 
-#### Premier cas : Les traitements par batch
+### a. Premier cas : Les traitements par batch
 
 Pour certains cas d'usage, l'enjeu est de traiter de nombreuses données avec le même mode opératoire en un coup de manière ponctuelle. C'est ce qu'on appellera le traitement par batch. Cela consiste à charger un modèle, le requêter sur un tableau de prompt et obtenir la sortie pour pouvoir l'exporter. On peut le faire avec vLLM par exemple avec un morceau de code de ce type :
 
-```bash
+```python
 from vllm import LLM, SamplingParams
 import re
 import pandas as pd
@@ -90,7 +87,7 @@ json.dump(resume, open("Sortie.json", "w"))
 
 Mais cette méthodologie a des limites, car cela nécessite de bloquer des gpus, ce qui entraîne des problématiques de gestion et de partage.
 
-#### Deuxième cas : Beaucoup d'utilisateurs et/ou d'applications différents
+### b. Deuxième cas : Beaucoup d'utilisateurs et/ou d'applications différents
 
 Que ce soit une équipe de plusieurs data-scientists, ou un ensemble d'application, si les besoins sont importants, les GPUs ont tout intérêt à être partagés. Il ne sera donc pas possible que chaque script python charge son modèle en mémoire et bloque des GPUs. Il est également plus rassurant de séparer l'infrastructure GPU des utilisateurs pour que chacun travaille dans son environnement, afin d'éviter les casses accidentelles.
 
@@ -98,7 +95,7 @@ La solution qui consiste à mettre à disposition des APIs vient répondre à ce
 
 > Dans ce guide, FastChat est présenté comme exemple pour la simplicité mais d'autres solutions existent, avec chacunes leurs avantages et inconvénients.
 
-### D. FastChat
+## D. FastChat
 
 FastChat propose des API OpenAI-compatibles pour ses modèles pris en charge, de sorte que vous puissiez utiliser FastChat comme une alternative locale aux API OpenAI. Cela permet d'utiliser la bibliothèque openai-python et les commandes cURL, ce qui facilite le travail des datascientists.
 
@@ -106,7 +103,7 @@ La documentation complète est disponible sur le repo du module : https://github
 
 Nous allons tout de même parcourir les grandes étapes pour pouvoir lancer son installation et ensuite l'utiliser.
 
-#### RESTful API Server
+### a. RESTful API Server
 
 Tout repose sur la complémentarité de trois services : le controller, les modèles et l'API. Il faut commencer par lancer le controller.
 
@@ -126,7 +123,7 @@ Et enfin, l'API.
 python3 -m fastchat.serve.openai_api_server --host localhost --port 8000
 ```
 
-#### Utilisation avec l'OpenAI Official SDK
+### b. Utilisation avec l'OpenAI Official SDK
 
 Le but de `openai_api_server.py` est d'implémenter un serveur d'API entièrement compatible avec OpenAI, de sorte que les modèles puissent être utilisés directement avec la bibliothèque openai-python.
 
@@ -161,7 +158,7 @@ completion = openai.chat.completions.create(
 print(completion.choices[0].message.content)
 ```
 
-#### Utilisation avec cURL
+### c. Utilisation avec cURL
 
 cURL est un autre bon outil pour observer la sortie de l'API.
 
@@ -206,7 +203,7 @@ curl http://localhost:8000/v1/embeddings \
   }'
 ```
 
-#### Combiner avec vLLM
+### d. Combiner avec vLLM
 
 Vous pouvez utiliser vLLM comme une mise en œuvre optimisée d'un travailleur dans FastChat. Il offre une mise en batch continue avancée et un débit beaucoup plus élevé (~10x). Consultez la liste des modèles pris en charge ici : https://docs.vllm.ai/en/latest/models/supported_models.html
 
@@ -216,7 +213,7 @@ Il suffit de remplacer le model_worker par le vllm_worker
 python3 -m fastchat.serve.vllm_worker --model-path lmsys/vicuna-7b-v1.5
 ```
 
-#### Combiner avec Docker
+### e. Combiner avec Docker
 
 Pour permettre le lancement et l'arrêt de modèles, et pour éviter qu'une erreur dans un des modèles ne déregle l'ensemble du système, une bonne pratique est souvent de conteneuriser les différentes parties. Cela necessite la préparation de quelques fichiers et quelques tests, mais ensuite, cela assure la reproductibilité de votre infrastructure. Une fois que les images sont préparées, on peut les arrêter, les relancer et les reproduire autant de fois que nécessaire.
 
@@ -264,12 +261,12 @@ services:
       dockerfile: Dockerfile
     image: llm-api-light:1.0.0
     network_mode: "host"
-    environment: 
+    environment:
       no_proxy: localhost,127.0.0.1,0.0.0.0
     ports:
       - "21001:21001"
     volumes:
-      - ./FastChat:/FastChat 
+      - ./FastChat:/FastChat
     entrypoint: ["python3.9", "-m", "fastchat.serve.controller", "--host", "0.0.0.0", "--port", "21001"]
   fastchat-openai:
     build:
@@ -277,12 +274,12 @@ services:
       dockerfile: Dockerfile
     image: llm-api-light:1.0.0
     network_mode: "host"
-    environment: 
+    environment:
       no_proxy: localhost,127.0.0.1,0.0.0.0
     ports:
       - "8000:8000"
     volumes:
-      - ./FastChat:/FastChat 
+      - ./FastChat:/FastChat
     entrypoint: ["python3.9", "-m", "fastchat.serve.openai_api_server", "--host", "0.0.0.0", "--port", "8000", "--api-keys", "key1,key2,key3", "--controller-address", "http://0.0.0.0:21001"]
 ```
 
@@ -298,11 +295,11 @@ services:
       dockerfile: Dockerfile
     volumes:
       - /data/models:/data/models
-      - ./FastChat:/FastChat  
+      - ./FastChat:/FastChat
     environment:
       no_proxy: localhost,127.0.0.1,0.0.0.0
       TRANSFORMERS_OFFLINE: 1
-    image: fastchat:cudadevel-latest 
+    image: fastchat:cudadevel-latest
     deploy:
       resources:
         reservations:
@@ -311,7 +308,7 @@ services:
               device_ids: ["1", "5"]
               capabilities: [gpu]
     entrypoint: ["python3.9", "-m", "fastchat.serve.vllm_worker", "--model-path", "/data/models/vllm/Mixtral-8x7B-Instruct-v0.1",
-    "--worker-address", "http://0.0.0.0:26003", "--host", "0.0.0.0", "--port", "26003", "--controller", "http://0.0.0.0:21001", 
+    "--worker-address", "http://0.0.0.0:26003", "--host", "0.0.0.0", "--port", "26003", "--controller", "http://0.0.0.0:21001",
     "--trust-remote-code", "--model-names", "mixtral-instruct", "--num-gpus", "2"] #  "--quantization", "awq" "--num-gpus", "2"
 ```
 
@@ -355,8 +352,8 @@ prompt = """Bonjour toi. Donne moi un pays qui commence par F.
 """
 
 completion = openai.Completion.create(
-    model="mixtral?", 
-    prompt=prompt, 
+    model="mixtral?",
+    prompt=prompt,
     max_tokens=25,
     temperature=0.5,
     top_p=1

@@ -1,0 +1,29 @@
+
+---
+title: PARTIE III. Deploiements :rocket:
+---
+
+Le déploiement d'un projet LLM peut prendre plusieurs formes, et dépend des objectifs et
+de l'utilisation cible pour le métier. Comme tout projet informatique, la
+complexité du déploiement dépend :
+- du nombre d'utilisateurs total et concurrent
+- du temps de réponse et de la qualité de service attendu
+- de la complexité de la tâche
+- ...
+
+Les déploiements de projet d'IA générative étant particulièrement consommateur en
+ressources physiques, une industrialisation pérenne doit s'inscrire si possible dans une
+dynamique et stratégie du SI de l'administration concernée. Bien que tous
+
+Cette partie contient :
+
+1. [Socle minimal](./1_Socle_minimal.qmd): Description des principaux
+composants d'une architecture d'inférence, ainsi qu'un premier exemple
+d'implémentation de ces outils
+2. [Socle avancé](./2_Socle_avance.qmd): Description et implémentation
+d'outillage avancé
+4. [Infrastructures externalisées pour
+l'administration](./4_Infras_administrations.qmd): Premiers éléments sur la mise
+en place d'une infrastructure externalisée ou semi-externalisée
+3. [Socle production](./3_Socle_Production.qmd): Orchestration et mise en place
+d'une infrastructure sur site à grande échelle

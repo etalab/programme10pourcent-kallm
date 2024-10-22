@@ -6,9 +6,9 @@ Optimisation, Monitoring, UX/UI (CODE!)
 
 ### A. Outils pour surveiller les performances des GPU
 
-Une fois l'infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l'impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéallement, l'on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.
+Une fois l'infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l'impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéalement, l'on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.
 
-Selon les technologies de GPUs utilisées, il existe différents outils qui se conncectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :
+Selon les technologies de GPUs utilisées, il existe différents outils qui se connectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :
 
 * **nvidia-smi**
 * **AMD Vantage**
@@ -40,7 +40,7 @@ Exemple de code pour lancer l'interface Gradio de FastChat dans un Docker :
 ```bash
 version: "3.9"
 services:
-  fastchat-gradio-server: 
+  fastchat-gradio-server:
     network_mode: "host"
     build:
       context: .
@@ -52,7 +52,7 @@ services:
     ports:
       - "8001:8001"
     volumes:
-      - ./FastChat:/FastChat 
+      - ./FastChat:/FastChat
     entrypoint: ["python3.9", "-m", "fastchat.serve.gradio_web_server_dtnum", "--controller-url", "http://0.0.0.0:21001", "--host", "0.0.0.0", "--port", "8001", "--model-list-mode", "reload"]
 ```
 
