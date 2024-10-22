@@ -1,3 +1,7 @@
+---
+title: Classification des thématiques des accords d'entreprise
+---
+
 # Classification des thématiques des accords d'entreprise
 
 ## Les accords d'entreprise
