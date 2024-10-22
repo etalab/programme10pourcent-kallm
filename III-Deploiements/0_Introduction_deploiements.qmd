@@ -3,27 +3,30 @@
 title: PARTIE III. Deploiements :rocket:
 ---
 
-Le déploiement d'un projet LLM peut prendre plusieurs formes, et dépend des objectifs et
-de l'utilisation cible pour le métier. Comme tout projet informatique, la
-complexité du déploiement dépend :
+Le déploiement d'un projet LLM peut prendre plusieurs formes en fonction des objectifs et
+des contraintes du projet. Comme tout projet informatique, la
+complexité du déploiement dépendra :
 - du nombre d'utilisateurs total et concurrent
 - du temps de réponse et de la qualité de service attendu
 - de la complexité de la tâche
 - ...
 
-Les déploiements de projet d'IA générative étant particulièrement consommateur en
-ressources physiques, une industrialisation pérenne doit s'inscrire si possible dans une
-dynamique et stratégie du SI de l'administration concernée. Bien que tous
+Bien que les concepts et outils sont communs à toute mise en production, l'infrastructure et
+l'implémentation peuvent fortement varié en fonction du contexte. Les
+déploiements de projet d'IA générative étant particulièrement consommateur en
+ressources physiques, une industrialisation pérenne doit si possible s'inscrire
+dans une dynamique et stratégie du SI de l'administration concernée.
 
-Cette partie contient :
+Cette partie introduit les principales briques et outils utiles ainsi que
+différents contextes de déploiement. Elle est découpée en 4 parties :
 
-1. [Socle minimal](./1_Socle_minimal.qmd): Description des principaux
+1. [Outillage minimal](./1_Socle_minimal.qmd): Description des principaux
 composants d'une architecture d'inférence, ainsi qu'un premier exemple
 d'implémentation de ces outils
-2. [Socle avancé](./2_Socle_avance.qmd): Description et implémentation
+2. [Outille avancé](./2_Socle_avance.qmd): Description et implémentation
 d'outillage avancé
 4. [Infrastructures externalisées pour
 l'administration](./4_Infras_administrations.qmd): Premiers éléments sur la mise
 en place d'une infrastructure externalisée ou semi-externalisée
-3. [Socle production](./3_Socle_Production.qmd): Orchestration et mise en place
+3. [Déploiement sur site à grande échelle](./3_Socle_Production.qmd): Orchestration et mise en place
 d'une infrastructure sur site à grande échelle

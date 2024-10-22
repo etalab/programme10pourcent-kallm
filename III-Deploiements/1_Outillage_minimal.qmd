@@ -1,5 +1,5 @@
 ---
-title: Socle minimal pour un LLM
+title: Outillage minimal
 ---
 
 Pour déployer un grand modèle de langage (LLM) dans une infrastructure, il est essentiel de comprendre comment requêter le modèle, les quelques couches techniques immédiates qui l'entourent et les solutions disponibles pour un déploiement efficace.
