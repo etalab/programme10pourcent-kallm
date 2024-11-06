@@ -1,12 +1,45 @@
-# PARTIE II. Développements autour des LLMs (pour les data scientists)
+---
+title: "PARTIE II. Développements autour des LLMs (pour les data scientists)"
+author: "équipe KALLM"
+date: "2024-06-07"
+format: html
+---
 
-# 2. RAG (Hugo Malo Jérôme Daphné Katia)
+## III. Focus sur le RAG (Retrieval Augmented Generation)
 
-## a. pipelines
+Le Retrieval Augmented Generation (RAG) est une technique courante utilisée pour améliorer les performances d'un LLM et de pallier ces déficiences.
+En effet les LLMs sont très performants pour de la génération de textes mais ils peuvent commettre des hallucinations, c'est-à-dire des affirmations qui semblent plausibles mais qui n'ont aucun fondement. Leur connaissance est aussi limitée par les données qui ont été utilisées pour l'entrainement, par exemple, un llm n'a pas accès aux informations contenues dans une base de connaissance privée car ces données ne sont pas contenues dans le corpus d'entrainement du llm.
 
-## b. Benchmark des différentes bases vectorielles (Katia)
+Pour remédier à ces limitations le RAG propose de permettre à un LLM de s'appuyer sur une base de connaissance, généralement sous la forme de document contenant du texte pour répondre de manière pertinente à des questions, en utilisant de manière adéquate les informations contenues dans la base de connaissance.
 
-### Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
+Le LLM sera ainsi en mesure de répondre à des questions portant sur des points précis et sur des données sur lequel il n'a jamais été entrainé. En exploitant
+la base de connaissance il aura aussi moins tendance à inventer de fausses informations et donc à halluciner.
+
+### 1. Principe de fonctionnement général
+
+Un système de RAG va combiner la capacité de génération de textes d'un LLM avec de la recherche d'information dans une base de connaissance interne. Le RAG se compose
+principalement de deux parties, une première partie de retrieval dont le rôle est d'analyser une question de l'utilisateur et de
+trouver des éléments  qui sont pertinents pour répondre à la question dans la base, et une seconde partie de génération qui contient le LLM et qui va incorporer le contexte
+récupérés par la partie de retrieval dans un prompt pour permettre au LLM de générer une réponse basée sur des éléments pertinents.
+
+### 2. Recherche d'information
+La partie de retrieval qui s'occupe de la recherche d'informations pertinentes dans la base joue un rôle essentiel pour le bon fonctionnement du RAG. En effet si des
+informations non pertinentes sont retournées au LLM il devient très difficile pour lui de formuler une réponse adéquate.
+
+Il existe de nombreux algorithmes permettant d'effectuer cette recherche d'information, cependant l'une des approches les plus populaires se base sur l'utilisation de vecteurs denses.
+Dans cette méthode on utilise un encodeur pour transformer le texte en vecteurs de grandes dimensions que l'on stocke dans une base de données vectorielle. Cet encodeur a
+été entrainé a projeter des textes sémantiquement proches sur des vecteurs similaires.
+Lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension. On peut alors comparer ce vecteur à l'ensemble des
+vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les morceaux
+de texte à envoyer au LLM pour la génération.
+
+### 3. Génération
+
+La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt  que
+le LLM utilise pour produire des réponses contextuellement appropriées et précises. Plus le LLM est performant et correctement aligné sur les préférences humaines plus il
+est capable de prendre une quantité importante de document en contexte et ainsi de mieux répondre à la question.
+
+### 4. Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
 
 Toutes les solutions testées sont open-source ou disposant d'une licence permissive, qui donne la possibilité d'héberger localement les données.
 
@@ -474,4 +507,4 @@ https://weaviate.io/blog/vector-library-vs-vector-database
 [ANN Benchmark](https://ann-benchmarks.com/index.html) (avril 2023)
 
  
-### c. presentations de modules avec RETEX, CODE!)
+### 5. Présentations de modules avec RETEX, CODE!

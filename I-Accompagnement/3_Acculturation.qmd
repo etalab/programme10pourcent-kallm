@@ -1,8 +1,11 @@
-# Guide du LLM
+---
+title: "PARTIE I. Accompagnement au changement"
+author: "équipe KALLM"
+date: "2024-06-07"
+format: html
+---
 
-## PARTIE I. Accompagnement au changement
-
-### 3. Besoin d’Acculturation (Supports!) (Johnny Hélène CamilleB)
+## 3. Besoin d’Acculturation (Supports!) (Johnny Hélène CamilleB) => Partie à replacer en 1 avec une dimension Introduction à l'IA de manière générale, les LLMs et autres d'IA
 
 	Comment embarquer les métiers/personnels moins techniques
  	Points d'attention à partager sur l'utilisation de tels outils
