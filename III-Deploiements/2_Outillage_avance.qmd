@@ -23,6 +23,7 @@ Il existe également d'autres moyens d'accéder à des GPUs que l'acquisition in
 Plusieurs initiatives permettent de déployer rapidement des interfaces de chat avec des modèles LLMs, voire des applications de RAG avec back et front. On peut remarquer :
 
 - la WebUI du module FastChat
+- [openwebui](https://openwebui.com/)
 - l'application CARADOC, mise en open source par l'équipe DataScience de la DTNUM de la DGFiP, publication prévue pour fin juin 2024.
 
 Aperçu de l'application CARADOC pendant ses développements :

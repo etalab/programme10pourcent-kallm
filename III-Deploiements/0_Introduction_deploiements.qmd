@@ -1,11 +1,12 @@
 
 ---
-title: PARTIE III. Deploiements :rocket:
+title: PARTIE III. Deploiements
 ---
 
 Le déploiement d'un projet LLM peut prendre plusieurs formes en fonction des objectifs et
 des contraintes du projet. Comme tout projet informatique, la
 complexité du déploiement dépendra :
+
 - du nombre d'utilisateurs total et concurrent
 - du temps de réponse et de la qualité de service attendu
 - de la complexité des tâches effectuées
@@ -17,16 +18,15 @@ déploiements de projet d'IA générative étant particulièrement consommateur 
 ressources physiques, une industrialisation pérenne doit si possible s'inscrire
 dans une dynamique et stratégie du SI de l'administration concernée.
 
-Cette partie introduit les principales briques et outils utiles ainsi que
+Ce chapitre introduit les principales briques et outils utiles ainsi que
 différents contextes de déploiement. Elle est découpée en 4 parties :
 
-1. [Outillage minimal](./1_Socle_minimal.qmd): Description des principaux
+1. :nut_and_bolt: [Outillage minimal](./1_Outillage_minimal.qmd): Description des principaux
 composants d'une architecture d'inférence, ainsi qu'un premier exemple
 d'implémentation de ces outils
-2. [Outille avancé](./2_Socle_avance.qmd): Description et implémentation
+1. :wrench: [Outillage avancé](./2_Outillage_avance.qmd): Description et implémentation
 d'outillage avancé
-4. [Infrastructures externalisées pour
-l'administration](./4_Infras_administrations.qmd): Premiers éléments sur la mise
+1. :cloud: [Infrastructures externalisées pour l'administration](./3_Infras_administrations.qmd): Premiers éléments sur la mise
 en place d'une infrastructure externalisée ou semi-externalisée.
-3. [Déploiement sur site à grande échelle](./3_Socle_Production.qmd): Orchestration et mise en place
+1. :factory: [Déploiement sur site à grande échelle](./4_Socle_Production.qmd): Orchestration et mise en place
 d'une infrastructure sur site à grande échelle

@@ -9,6 +9,7 @@ Format et contenu du guide :
 - [ ] Normaliser la mise en page
 - [ ] Compléter la bibliographie
 - [ ] Compléter les cas d'usages dans l'administration (contacts)
+- [ ] Contacts / procédure accès API Albert
 
 Proposition de mise en page :
 
