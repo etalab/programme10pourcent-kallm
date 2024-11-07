@@ -49,6 +49,31 @@ title: Bibliographie
 - [Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4](https://arxiv.org/abs/2312.16171)
 - [Graph of Thoughts](https://arxiv.org/pdf/2308.09687)
 
+**Evaluation (métriques)**
+
+| Basée sur embeddings | Basée sur modèle fine-tuné  | Basé sur LLM |
+|--|--|--|
+| [BERTScore](https://arxiv.org/abs/1904.09675) |[UniEval](https://arxiv.org/abs/2210.07197) | [G-Eval](https://arxiv.org/abs/2303.16634)|
+|[MoverScore](https://arxiv.org/abs/1909.02622)   | [Lynx](https://www.patronus.ai/blog/lynx-state-of-the-art-open-source-hallucination-detection-model)   |   [GPTScore](https://arxiv.org/abs/2302.04166)|
+| |  [Prometheus-eval](https://github.com/prometheus-eval/prometheus-eval)  |  |
+
+**Evaluation (frameworks)**
+- [Ragas](https://github.com/explodinggradients/ragas) (spécialisé pour le RAG)
+- [Ares](https://github.com/stanford-futuredata/ARES) (spécialisé pour le RAG)
+- [Giskard](https://github.com/Giskard-AI/giskard)
+- [DeepEval](https://github.com/confident-ai/deepeval) 
+
+**Evaluation (RAG)**
+- [Evaluation of Retrieval-Augmented Generation: A Survey](https://arxiv.org/abs/2405.07437)
+- [Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation](https://arxiv.org/abs/2405.13622)
+
+
+**Evaluation (divers)**
+- [Prompting strategies for LLM-based metrics](https://arxiv.org/abs/2311.03754)
+- [LLM-based NLG Evaluation: Current Status and Challenges](https://arxiv.org/abs/2402.01383)
+- [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685)
+
+
 ### Librairies et ressources
 
 
