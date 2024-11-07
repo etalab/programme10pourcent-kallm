@@ -5,52 +5,49 @@ date: "2024-06-07"
 format: html
 ---
 
-## III. Focus sur le RAG (Retrieval Augmented Generation)
+## Focus sur le RAG (Retrieval Augmented Generation)
 
-Le Retrieval Augmented Generation (RAG) est une technique courante utilisée pour améliorer les performances d'un LLM et de pallier ces déficiences.
-En effet les LLMs sont très performants pour de la génération de textes mais ils peuvent commettre des hallucinations, c'est-à-dire des affirmations qui semblent plausibles mais qui n'ont aucun fondement. Leur connaissance est aussi limitée par les données qui ont été utilisées pour l'entrainement, par exemple, un llm n'a pas accès aux informations contenues dans une base de connaissance privée car ces données ne sont pas accessibles dans le corpus d'entrainement du LLM.
+Le Retrieval Augmented Generation (RAG) est une technique courante utilisée pour améliorer les performances d'un LLM et pallier ses déficiences. En effet, les LLMs sont très performants pour de la génération de textes mais ils peuvent commettre des hallucinations, c'est-à-dire des affirmations qui semblent plausibles mais qui n'ont aucun fondement. Leur connaissance est aussi limitée par les données qui ont été utilisées pour l'entrainement, par exemple, un LLM n'a pas accès aux informations contenues dans une base de connaissance privée car ces données ne sont pas accessibles dans le corpus d'entrainement du LLM.
 
-Pour remédier à ces limitations le RAG propose de permettre à un LLM de s'appuyer sur une base de connaissance, généralement sous la forme de document contenant du texte pour répondre de manière pertinente à des questions, en utilisant de manière adéquate les informations contenues dans la base de connaissance.
+Pour remédier à ces limitations, le RAG propose de permettre à un LLM de s'appuyer sur une base de connaissance, généralement sous la forme de document contenant du texte, pour répondre de manière pertinente à des questions, en utilisant de manière adéquate les informations contenues dans la base de connaissance.
 
-Le LLM sera ainsi en mesure de répondre à des questions portant sur des points précis et sur des données sur lequel il n'a jamais été entrainé. En exploitant
-la base de connaissance il aura aussi moins tendance à inventer de fausses informations et donc à halluciner.
+Le LLM sera ainsi en mesure de répondre à des questions portant sur des points précis et sur des données sur lequel il n'a jamais été entrainé. En exploitant la base de connaissance, il aura aussi moins tendance à inventer de fausses informations et donc à halluciner.
 
-### 1. Principe de fonctionnement général
+### Principe de fonctionnement général
 
-Un système de RAG va combiner la capacité de génération de textes d'un LLM avec de la recherche d'information dans une base de connaissance interne. L'architecture classique d'un système de RAG se compose donc principalement de deux parties, une première partie de retrieval dont le rôle est d'analyser une question de l'utilisateur et de
-trouver des éléments  qui sont pertinents pour répondre à la question dans la base, et une seconde partie de génération qui contient le LLM et qui va incorporer le contexte
-récupérés par la partie de retrieval dans un prompt pour permettre au LLM de générer une réponse basée sur des éléments pertinents.
+Un système de RAG va combiner la capacité de génération de textes d'un LLM avec de la recherche d'information dans une base de connaissance interne. L'architecture classique d'un système de RAG est donc composée principalement de deux parties, une première partie de retrieval dont le rôle est d'analyser la question de l'utilisateur et de trouver des éléments  qui sont pertinents pour répondre à la question dans la base de connaissance, et une seconde partie de génération qui utilise le LLM, et qui incorpore le contexte récupéré par le retriever dans un prompt pour permettre au LLM de générer une réponse basée sur ces éléments pertinents.
 
-### 2. Recherche d'information
-La partie de retrieval qui s'occupe de la recherche d'informations pertinentes dans la base joue un rôle essentiel pour le bon fonctionnement du RAG. En effet si des
-informations non pertinentes sont retournées au LLM il devient très difficile pour lui de formuler une réponse adéquate.
+### Recherche d'information (retrieval)
 
-Il existe de nombreux algorithmes permettant d'effectuer cette recherche d'information, cependant l'une des approches les plus populaires se base sur l'utilisation de vecteurs denses.
-Dans cette méthode on utilise un réseau de neurones appelé encodeur qui va transformer le texte en vecteurs de grandes dimensions que l'on stocke dans une base de données vectorielle. Cet encodeur a été entrainé a projeter des textes sémantiquement proches sur des vecteurs similaires, ce qui permet en comparant des vecteurs entre eux de trouver des textes de sens proche.
+La partie de retrieval qui s'occupe de la recherche d'informations pertinentes dans la base joue un rôle essentiel pour le bon fonctionnement du RAG. En effet, si des informations non pertinentes sont retournées au LLM, il devient très difficile pour lui de formuler une réponse adéquate.
 
-L'encodeur va donc être utilisé pour transformer en vecteurs les données contenues dans une base de connaissance afin de la rendre exploitable. Pour cela il faut découper les documents de notre base en petits fragments de texte que l'on appelle "chunk". Ces chunks sont les morceaux de texte qui seront fournis à l'encodeur pour être transformés en vecteurs qui seront eux-mêmes stockés dans une base de données vectorielle. Cette base de données permet de stocker et d'effectuer de manière efficace des requêtes sur ces vecteurs. 
+Il existe de nombreux algorithmes permettant d'effectuer cette recherche d'information, cependant l'une des approches les plus populaires se base sur l'utilisation de vecteurs denses. Dans cette méthode, on utilise un réseau de neurones appelé encodeur qui va transformer le texte en vecteurs de grande dimension que l'on stocke dans une base de données vectorielle. Cet encodeur a été entrainé à projeter des textes sémantiquement proches sur des vecteurs similaires, ce qui permet en comparant des vecteurs entre eux de trouver des textes de sens proche.
 
-Ainsi lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension par le réseau de neurones. On peut alors comparer ce vecteur à l'ensemble des
-vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les chunks correspondant et les envoyer au LLM pour la génération.
+L'encodeur va donc être utilisé pour transformer en vecteurs les données contenues dans une base de connaissance afin de la rendre exploitable. Pour cela il faut découper les documents de notre base en petits fragments de texte que l'on appelle "chunk". Ces chunks sont les morceaux de texte qui seront fournis à l'encodeur pour être transformés en vecteurs, qui seront eux-mêmes stockés dans une base de données vectorielle. Cette base de données permet de stocker et d'effectuer de manière efficace des requêtes sur ces vecteurs. 
 
-### 3. Génération
+Ainsi, lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension par le réseau de neurones. On peut alors comparer ce vecteur à l'ensemble des vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les chunks correspondant et les envoyer au LLM pour la génération.
 
-La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt qui sera donné en entrée du LLM utilise pour qu'il produise des réponses contextuellement appropriées et précises. Plus le LLM est performant et correctement aligné sur les préférences humaines plus il est capable de prendre une quantité importante de document en contexte et ainsi de mieux répondre à la question.
+Une autre approche classique est l'utilisation d'algorithmes de mots-clés, comme la TF-IDF ou le BM25. Au lieu de faire une recherche sur les documents vectorisés, il s'agira de faire une recherche directement sur les mots des documents. Cette approche est particulièrement pertinente lorsque les données de la base de connaissance sont très spécifiques (jargon particulier) ou utilisent beaucoup d'acronymes. Il est également possible de combiner les deux approches (dense et mots-clés) via un algorithme de Rank Fusion par exemple.
 
-### 4. Améliorations possibles
-L'architecture d'un système de RAG telle que présentée, est relativement simple et se révèle souvent insuffisante dans la réalité. En effet plusieurs difficultés peuvent apparaitre dans des cas d'usages réels :
+### Génération
 
- -  L'analyse des documents d'une base de connaissance peut s'avérer complexe à mettre en oeuvre du fait d'une grande diversité de formats et notamment pa présence de PDFs avec une structure compliquée. Cette grande hétérogénéité peut rendre complexe la création d'un système d'ingestion de données fiable. 
+La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt qui sera donné en entrée du LLM, pour qu'il produise des réponses contextuellement appropriées et précises. Plus le LLM est performant et correctement aligné sur les préférences humaines, plus il est capable de prendre une quantité importante de documents en contexte et ainsi de mieux répondre à la question.
 
-- La nécessité de mettre à jour régulièrement nécessite de créer un système de mise à jour de la base de donnée vectorielle
+### Améliorations possibles
 
-- La nature des documents peut entrainer le fait que les chunks ne sont pas suffisamment informatifs ou manquent de contexte pour être correctement compris par le LLM. 
+L'architecture d'un système de RAG, telle que présentée, est relativement simple et se révèle souvent insuffisante dans la réalité. En effet, plusieurs difficultés peuvent apparaitre dans des cas d'usages réels :
 
-- La partie de retrieval peut avoir des performances médiocres impactant toutes la suite du processus de RAG. 
+-  L'analyse des documents d'une base de connaissance peut s'avérer complexe à mettre en oeuvre du fait d'une grande diversité de formats (fichiers non structurés, formattage très divers, types de fichiers différents, bruit dans les données, etc.). Cette grande hétérogénéité peut rendre complexe la création d'un système d'ingestion de données fiable. 
 
-Pour pallier ces difficultés, de nombreuses solutions techniques existent permettant de limiter l'étendue des problèmes précédemment soulevés. Premièrement l'amélioration du pipeline de chunking en enrichissant les chunks avec des informations contextuelles. Ces informations peuvent être le titre du document source par exemple, mais aussi un résumé du document, ou toute autre information pertinente pour améliorer la compréhension du chunk. 
+- La nécessité de mettre régulièrement à jour la base de connaissance nécessite de créer un système de mise à jour de la base de donnée vectorielle.
 
-### 5. Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
+- La nature et la diversité des documents peuvent entrainer le fait que les chunks ne sont pas suffisamment informatifs ou manquent de contexte pour être correctement compris par le LLM. 
+
+- La partie de retrieval peut avoir des performances médiocres impactant toute la suite du processus de RAG. 
+
+Pour pallier ces difficultés, des solutions techniques existent, permettant de limiter l'étendue des problèmes précédemment soulevés. Ces solutions sont cependant très dépendantes du cas d'usage final, et toutes ne seront pas systématiquement pertinente. Un exemple d'amélioration  du pipeline de chunking consiste à enrichir les chunks avec des informations contextuelles. Ces informations peuvent être le titre du document, le paragraphe dans lequel se situe le chunk, mais aussi un résumé du document, ou toute autre information pertinente pour améliorer la compréhension du chunk. 
+
+### Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
 
 La recherche des plus proches vecteurs par rapport à un vecteur est une étape cruciale d'un système de RAG. Cependant cette tache est complexe et nécessite beaucoup de calculs. C'est pourquoi il est fortement recommandé d'utiliser des algorithmes de recherche vectorielle approximative pour avoir un temps de calcul raisonnable lorsqu'on effectue des recherches. Ces algorithmes permettent d'accélérer drastiquement les calculs sans pour autant perdre beaucoup de précision dans les calculs. Cependant ces algorithmes ne sont implémentés que dans des bases vectorielles qui sont l'objet d'un comparatif.
 
@@ -521,4 +518,4 @@ https://weaviate.io/blog/vector-library-vs-vector-database
 [ANN Benchmark](https://ann-benchmarks.com/index.html) (avril 2023)
 
  
-### 5. Présentations de modules avec RETEX, CODE!
+### Présentations de modules avec RETEX, CODE!
