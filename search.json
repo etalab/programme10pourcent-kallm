@@ -472,18 +472,29 @@
     "href": "I-Accompagnement/3_Acculturation.html",
     "title": "PARTIE I. Accompagnement au changement",
     "section": "",
-    "text": "Comment embarquer les métiers/personnels moins techniques\nPoints d'attention à partager sur l'utilisation de tels outils",
+    "text": "L’Intelligence Artificielle offre une multitude de solutions à diverses besoins des administrations, recensées dans la partie précédente. Dans un premier temps, il est essentiel de maîtriser a minima les outils, techniques et technologies employés pour répondre à ces besoins. Egalement, démystifier l’IA est tout aussi central dans la réussite des projets IA, pour réajuster les attentes des parties prenantes. Dès lors, se pose la question de comment communiquer de manière efficace autour de l’IA ? Cette question prend davantage sens avec des acteurs moins techniques et décisionnaires stratégiques.\n\n\nPour communiquer sur l’IA de manière efficace avec des non-initiés, il est nécessaire de :\n\nDéfinir les termes (IA, LLM)\nDéfinir les concepts et les mécanismes\nDéfinir ce que les modèles font et ne font pas\nD’avertir sur les hallucinations dans le cas des LLM et d’en évaluer la performance\nD’avertir sur le coût complet d’une solution IA\n\nPour mieux embarquer les non-initiés, quelques administrations ont mis en place des Lunch-and-Learn autour de l’IA générative, que ce soit sous forme de présentation ou sous forme de quiz.\n\n\n\nPour mieux comprendre l’IA ou faire comprendre auprès des parties prenantes, les réseaux autour de l’IA représentent une opportunité. Par exemple, le réseau du programme 10% et le réseau du SSPHub mettent en relation des experts autour de la data et de l’IA, permettent d’échanger sur des sujets techniques mais aussi sont ouverts aux non-initiés. Des événements pour un public plus large que les experts sont organisés chaque année comme les journées 10% ou la journée du SSPHub",
     "crumbs": [
       "I-Accompagnement",
       "Acculturation"
     ]
   },
   {
-    "objectID": "I-Accompagnement/3_Acculturation.html#besoin-dacculturation-supports-johnny-hélène-camilleb-partie-à-replacer-en-1-avec-une-dimension-introduction-à-lia-de-manière-générale-les-llms-et-autres-dia",
-    "href": "I-Accompagnement/3_Acculturation.html#besoin-dacculturation-supports-johnny-hélène-camilleb-partie-à-replacer-en-1-avec-une-dimension-introduction-à-lia-de-manière-générale-les-llms-et-autres-dia",
+    "objectID": "I-Accompagnement/3_Acculturation.html#acculturation-à-lintelligence-artificielle",
+    "href": "I-Accompagnement/3_Acculturation.html#acculturation-à-lintelligence-artificielle",
     "title": "PARTIE I. Accompagnement au changement",
     "section": "",
-    "text": "Comment embarquer les métiers/personnels moins techniques\nPoints d'attention à partager sur l'utilisation de tels outils",
+    "text": "L’Intelligence Artificielle offre une multitude de solutions à diverses besoins des administrations, recensées dans la partie précédente. Dans un premier temps, il est essentiel de maîtriser a minima les outils, techniques et technologies employés pour répondre à ces besoins. Egalement, démystifier l’IA est tout aussi central dans la réussite des projets IA, pour réajuster les attentes des parties prenantes. Dès lors, se pose la question de comment communiquer de manière efficace autour de l’IA ? Cette question prend davantage sens avec des acteurs moins techniques et décisionnaires stratégiques.\n\n\nPour communiquer sur l’IA de manière efficace avec des non-initiés, il est nécessaire de :\n\nDéfinir les termes (IA, LLM)\nDéfinir les concepts et les mécanismes\nDéfinir ce que les modèles font et ne font pas\nD’avertir sur les hallucinations dans le cas des LLM et d’en évaluer la performance\nD’avertir sur le coût complet d’une solution IA\n\nPour mieux embarquer les non-initiés, quelques administrations ont mis en place des Lunch-and-Learn autour de l’IA générative, que ce soit sous forme de présentation ou sous forme de quiz.\n\n\n\nPour mieux comprendre l’IA ou faire comprendre auprès des parties prenantes, les réseaux autour de l’IA représentent une opportunité. Par exemple, le réseau du programme 10% et le réseau du SSPHub mettent en relation des experts autour de la data et de l’IA, permettent d’échanger sur des sujets techniques mais aussi sont ouverts aux non-initiés. Des événements pour un public plus large que les experts sont organisés chaque année comme les journées 10% ou la journée du SSPHub",
+    "crumbs": [
+      "I-Accompagnement",
+      "Acculturation"
+    ]
+  },
+  {
+    "objectID": "I-Accompagnement/3_Acculturation.html#points-dattentions-autour-de-lia-générative",
+    "href": "I-Accompagnement/3_Acculturation.html#points-dattentions-autour-de-lia-générative",
+    "title": "PARTIE I. Accompagnement au changement",
+    "section": "Points d’attentions autour de l’IA générative",
+    "text": "Points d’attentions autour de l’IA générative\nIl y a quelques points supplémentaires à bien faire comprendre auprès des parties prenantes quant à l’usage d’IA générative, il s’agit de :\n\nDémystifier les promesses faites et d’objectiver les performances des solutions d’IA générative\nBien expliquer son fonctionnement, ce qu’il génère et comment il génère. De mettre en exergue notamment sa nature probabiliste pour formuler une réponse.\nBien définir le besoin, le modèle utilisé, les raisons de son choix et pourquoi une solution non IA générative n’est pas viable.",
     "crumbs": [
       "I-Accompagnement",
       "Acculturation"
