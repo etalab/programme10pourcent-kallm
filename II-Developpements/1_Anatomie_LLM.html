@@ -559,7 +559,7 @@ window.Quarto = {
 </ul>
 <section id="ppo" class="level6">
 <h6 class="anchored" data-anchor-id="ppo">PPO</h6>
-<p>PPO = Proximal Policy Optimization</p>
+<p>Le premier algorithme de Reinforcement Learning utilisé dans le cadre des LLM était la PPO (Proximal Policy Optimization). Cet algorithme classique consiste à entraîner un modèle de récompense fondé sur les retours humains, puis à entraîner le LLM à optimiser cette récompense. La politique du modèle est donc mise à jour itérativement pour maximiser cette récompense. Le principal inconvénient de la PPO, que la DPO pallie, est le besoin d’entraîner un modèle de récompense, en plus du LLM lui-même.</p>
 <ul>
 <li><a href="https://huggingface.co/blog/deep-rl-ppo">Explication théorique</a></li>
 <li><a href="https://huggingface.co/docs/trl/main/en/ppo_trainer">Implémentation HuggingFace</a></li>
@@ -568,28 +568,12 @@ window.Quarto = {
 </section>
 <section id="dpo-kto" class="level6">
 <h6 class="anchored" data-anchor-id="dpo-kto">DPO, KTO</h6>
-<p>DPO = Direct Preference Optimization | KTO = Kahneman-Tversky Optimization</p>
+<p>L’algorithme de DPO (Direct Preference Optimization) permet de mettre à jour les poids du LLM en fonctions des retours humains directement, sans passer par un modèle de récompense : la politique que le LLM apprend maximise directement la satisfaction humaine. Une variation de cet algorithme est celui de KTO (Kahneman-Tversky Optimization), dont le fonctionnement général reste similaire.</p>
 <ul>
 <li><a href="https://huggingface.co/blog/pref-tuning">Explication théorique</a></li>
 <li><a href="https://huggingface.co/blog/dpo-trl">Guide pratique / Implémentation HugginFace</a></li>
 </ul>
 <p>Liens des papiers originaux : - <a href="https://arxiv.org/abs/2305.18290">DPO</a> - <a href="https://arxiv.org/abs/2402.01306">KTO</a></p>
-</section>
-</section>
-<section id="divers" class="level5">
-<h5 class="anchored" data-anchor-id="divers">Divers</h5>
-<section id="prompt-tuning" class="level6">
-<h6 class="anchored" data-anchor-id="prompt-tuning">Prompt-tuning</h6>
-<ul>
-<li><a href="https://arxiv.org/abs/2104.08691">Lien du papier</a></li>
-</ul>
-</section>
-<section id="reft-et-loreft" class="level6">
-<h6 class="anchored" data-anchor-id="reft-et-loreft">ReFT et LoReFT</h6>
-<p>ReFT = Representation Fine-Tuning | LoReFT = Low-Rank Linear Subspace ReFT</p>
-<ul>
-<li><a href="https://arxiv.org/abs/2404.03592">Lien du papier</a></li>
-</ul>
 
 
 </section>
