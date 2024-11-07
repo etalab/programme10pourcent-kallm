@@ -5,7 +5,7 @@ date: "2024-06-07"
 format: html
 ---
 
-## I. Anatomie et conception d'un LLM
+## Anatomie et conception d'un LLM
 
 Les LLMs reposent sur un développement en deux voire trois étapes.
 
@@ -22,9 +22,9 @@ Pour donner des ordres de grandeur, la petite version du dernier modèle de Meta
 
 - [Article résumant la dualité pré-entraînement/fine-tuning](https://www.entrypointai.com/blog/pre-training-vs-fine-tuning-vs-in-context-learning-of-large-language-models/)
 
-### 1. Quelques architectures de modèles de langages
+### Quelques architectures de modèles de langages
 
-#### A. L'architecture Transformer
+#### L'architecture Transformer
 
 Introduite en 2017 dans le papier **Attention Is All You Need**, l’architecture Transformer a révolutionné le domaine du TAL. Par rapport aux RNN, les Transformers permettent un traitement efficace des séquences en parallèle, conduisant à un temps de calcul beaucoup plus court (tant lors de l’entraînement qu’en inférence), tandis que les RNN, par construction, ne peuvent traiter une séquence que séquentiellement, c’est-à-dire token par token. En outre, le mécanisme d’auto-attention, présenté ci-dessous, permet de capturer efficacement les dépendances distantes en atténuant le problème de la disparition et de l’explosion des gradients.
 
@@ -49,7 +49,7 @@ Plusieurs blocs (6 dans l’implémentation originale) forment ensuite l’encod
 - [Papier original **'Attention Is All You Need'**](https://arxiv.org/abs/1706.03762)
 - [Explication illustrée et très détaillée](http://jalammar.github.io/illustrated-transformer/)
 
-#### B. Encoder-only, encoder-decoder, decoder-only
+#### Encoder-only, encoder-decoder, decoder-only
 
 Les LLMs basés sur des architectures Transformers appartiennent à l’une des 3 catégories suivantes :
 
@@ -61,7 +61,7 @@ Les LLMs basés sur des architectures Transformers appartiennent à l’une des 
 
 https://medium.com/artificial-corner/discovering-llm-structures-decoder-only-encoder-only-or-decoder-encoder-5036b0e9e88
 
-#### C. Mixture of Experts (MoE)
+#### Mixture of Experts (MoE)
 
 Les architectures Mixture of Experts ne sont pas spécifiques aux LLMs, mais elles ont été adaptées avec succès sur des modèles comme Mixtral 8x7B, Mixtral 8x22B ou GPT-4 (supposition). Le principe est de remplacer chaque réseau à propagation directe (présent dans chaque bloc de l'architecture Transformer) par un ensemble de réseaux « experts ». Au moment de passer dans cette partie du réseau, un routeur envoie vers un de ces experts uniquement. L'intérêt est double : un seul expert étant utilisé à la fois, le temps d'inférence est naturellement nettement plus court. Par ailleurs, chaque réseau expert est entraîné et donc spécialisé différement des autres : pour un même nombre de paramètres, les performances sont donc supposées être meilleures qu'avec une architecture classique. En revanche, si tous les poids du modèles ne sont pas utilisés systématiquement, c'est uniquement à l'inférence et à chaque couche du réseau que l'expert est choisi : il est donc tout de même nécessaire de charger l'intégralité des poids du modèle en mémoire, ce qui peut être très coûteux en VRAM. Pour une explication plus technique, l'article suivant détaille très bien les MoE en prenant l'exemple de Mixtral.
 
@@ -69,7 +69,7 @@ Les architectures Mixture of Experts ne sont pas spécifiques aux LLMs, mais ell
 
 Explication détaillée des MoE (exemple de Mixtral) : https://huggingface.co/blog/moe
 
-#### D. Nouvelles architectures : Mamba, Jamba, etc.
+#### Nouvelles architectures : Mamba, Jamba, etc.
 
 Le principal inconvénient architectural des Transformers est leur complexité quadratique par rapport à la taille de l'entrée (qui vient du calcul quadratique de l'attention). **Mamba** est une architecture récente (Décembre 2023) qui s'affranchit du mécanisme d'attention, au profit de briques SSM (Structured State Space Models). L'intérêt principal de cette architecture est sa complexité linéaire par rapport à la taille de l'entrée.
 
@@ -80,7 +80,7 @@ Liens des papiers originaux :
 - [Mamba](https://arxiv.org/abs/2312.00752)
 - [Jamba](https://arxiv.org/abs/2403.19887)
 
-### 2. Méthodes de fine-tuning
+### Méthodes de fine-tuning
 
 Les LLM sont des réseaux de neurones de taille importante et font l'objet d'entraînement avec des ressources colossales (*e.g*: quelques dizaines de milliers de GPUs dernier modèle pendant 3 mois pour `GPT-4`). L'entraînement permet d'apprendre un jeu de données particulier, en réglant l'ensemble des poids du modèles (*e.g*: `Mixtral 8x22B` est une architecture à 141 milliards de poids; 175 milliards pour `GPT-3`). Les LLM sont entraînés à répondre à plusieurs tâches génériques et ne sont pas forcément pertinent pour des cas d'utilisation particulier.
 
@@ -93,13 +93,13 @@ Pour des petits modèles de langages, il est possible de ré-entraîner en modif
 * garder l'intégralité du modèle et rajouter des poids à entraîner puis utiliser l'approximation de bas rang avec `LORA` (`Low-Rank Adaptation`) pour l'entraînement et l'inférence.
 * utiliser des versions quantisées, i.e. des modèles où les poids ont été tronqués à une précision inférieure (possibilité de combiner avec la technique précédente, sous le nom de qLORA).
 
-##### A. Fine-tuning supervisé
+##### Fine-tuning supervisé
 
-###### a. Fine-tuning complet
+###### Fine-tuning complet
 
 - [Implémentation HuggingFace](https://huggingface.co/docs/transformers/training)
 
-###### b. Fine-tuning efficace (PEFT) : LoRA, QLoRA, DoRA, etc.
+###### Fine-tuning efficace (PEFT) : LoRA, QLoRA, DoRA, etc.
 
 PEFT = Parameter-Efficient Fine-Tuning | LoRA = Low-Rank Adaptation | QLoRA = Quantized Low-Rank Adaptation | DoRA = Weight-Decomposed Low-Rank Adaptation
 
@@ -224,7 +224,7 @@ trainer.model.save_pretrained(new_model)
 
 ```
 
-##### B. RLHF et RLAIF
+##### RLHF et RLAIF
 
 Le fine-tuning supervisé est très efficace dans de nombreux cas, mais il présente notamment l'inconvénient de nécessiter une quantité importante de données. La constitution d'une base de questions-réponses attendues par exemple peut se réveler coûteuse. Un autre moyen d'améliorer un modèle est d'utiliser de l'apprentissage par renforcement. La première version utilisée pour ré-entraîner un LLM est le RLHF (Reinforcement Learning from Human Feedback), qui consiste à récolter des retours d'utilisateurs humains (typiquement, entre deux réponses générées par un LLM, l'utilisateur va dire laquelle il préfère), puis à mettre à jour les poids du modèle, par un algorithme d'apprentissage par renforcement, de telle sorte que la réponse préférée par l'utilisateur ait plus de chances d'être générée. Cette approche s'est révélée particulièrement effiace pour « aligner » le modèle aux préférences humaines, en termes de biais, de toxicité, de style, etc.
 
@@ -234,7 +234,7 @@ RLHF = Reinforcement Learning from Human Feedback | RLAIF = Reinforcement Learni
 
 - [Introduction au RLHF](https://huggingface.co/blog/rlhf)
 
-###### a. PPO
+###### PPO
 
 PPO = Proximal Policy Optimization
 
@@ -243,7 +243,7 @@ PPO = Proximal Policy Optimization
 
 https://medium.com/@oleglatypov/a-comprehensive-guide-to-proximal-policy-optimization-ppo-in-ai-82edab5db200
 
-###### b. DPO, KTO
+###### DPO, KTO
 
 DPO = Direct Preference Optimization | KTO = Kahneman-Tversky Optimization
 
@@ -255,13 +255,13 @@ Liens des papiers originaux :
 - [KTO](https://arxiv.org/abs/2402.01306)
 
 
-##### C. Divers
+##### Divers
 
-###### a. Prompt-tuning
+###### Prompt-tuning
 
 - [Lien du papier](https://arxiv.org/abs/2104.08691)
 
-###### b. ReFT et LoReFT
+###### ReFT et LoReFT
 
 ReFT = Representation Fine-Tuning | LoReFT = Low-Rank Linear Subspace ReFT
 
