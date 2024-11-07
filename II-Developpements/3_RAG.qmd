@@ -8,7 +8,7 @@ format: html
 ## III. Focus sur le RAG (Retrieval Augmented Generation)
 
 Le Retrieval Augmented Generation (RAG) est une technique courante utilisée pour améliorer les performances d'un LLM et de pallier ces déficiences.
-En effet les LLMs sont très performants pour de la génération de textes mais ils peuvent commettre des hallucinations, c'est-à-dire des affirmations qui semblent plausibles mais qui n'ont aucun fondement. Leur connaissance est aussi limitée par les données qui ont été utilisées pour l'entrainement, par exemple, un llm n'a pas accès aux informations contenues dans une base de connaissance privée car ces données ne sont pas contenues dans le corpus d'entrainement du llm.
+En effet les LLMs sont très performants pour de la génération de textes mais ils peuvent commettre des hallucinations, c'est-à-dire des affirmations qui semblent plausibles mais qui n'ont aucun fondement. Leur connaissance est aussi limitée par les données qui ont été utilisées pour l'entrainement, par exemple, un llm n'a pas accès aux informations contenues dans une base de connaissance privée car ces données ne sont pas accessibles dans le corpus d'entrainement du LLM.
 
 Pour remédier à ces limitations le RAG propose de permettre à un LLM de s'appuyer sur une base de connaissance, généralement sous la forme de document contenant du texte pour répondre de manière pertinente à des questions, en utilisant de manière adéquate les informations contenues dans la base de connaissance.
 
@@ -17,8 +17,7 @@ la base de connaissance il aura aussi moins tendance à inventer de fausses info
 
 ### 1. Principe de fonctionnement général
 
-Un système de RAG va combiner la capacité de génération de textes d'un LLM avec de la recherche d'information dans une base de connaissance interne. Le RAG se compose
-principalement de deux parties, une première partie de retrieval dont le rôle est d'analyser une question de l'utilisateur et de
+Un système de RAG va combiner la capacité de génération de textes d'un LLM avec de la recherche d'information dans une base de connaissance interne. L'architecture classique d'un système de RAG se compose donc principalement de deux parties, une première partie de retrieval dont le rôle est d'analyser une question de l'utilisateur et de
 trouver des éléments  qui sont pertinents pour répondre à la question dans la base, et une seconde partie de génération qui contient le LLM et qui va incorporer le contexte
 récupérés par la partie de retrieval dans un prompt pour permettre au LLM de générer une réponse basée sur des éléments pertinents.
 
@@ -27,9 +26,8 @@ La partie de retrieval qui s'occupe de la recherche d'informations pertinentes d
 informations non pertinentes sont retournées au LLM il devient très difficile pour lui de formuler une réponse adéquate.
 
 Il existe de nombreux algorithmes permettant d'effectuer cette recherche d'information, cependant l'une des approches les plus populaires se base sur l'utilisation de vecteurs denses.
-Dans cette méthode on utilise un encodeur pour transformer le texte en vecteurs de grandes dimensions que l'on stocke dans une base de données vectorielle. Cet encodeur a
-été entrainé a projeter des textes sémantiquement proches sur des vecteurs similaires.
-Lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension. On peut alors comparer ce vecteur à l'ensemble des
+Dans cette méthode on utilise un réseau de neurones appelé encodeur qui va transformer le texte en vecteurs de grandes dimensions que l'on stocke dans une base de données vectorielle. Cet encodeur a été entrainé a projeter des textes sémantiquement proches sur des vecteurs similaires, ce qui permet en comparant des vecteurs entre eux de trouver des textes de sens proche.
+Ainsi lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension par le réseau de neurones. On peut alors comparer ce vecteur à l'ensemble des
 vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les morceaux
 de texte à envoyer au LLM pour la génération.
 
