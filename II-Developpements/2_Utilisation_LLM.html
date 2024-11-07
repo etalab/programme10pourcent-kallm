@@ -254,10 +254,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ii---techniques-dutilisation-dun-llm" id="toc-ii---techniques-dutilisation-dun-llm" class="nav-link active" data-scroll-target="#ii---techniques-dutilisation-dun-llm">II - Techniques d’utilisation d’un LLM</a>
+  <li><a href="#techniques-dutilisation-dun-llm" id="toc-techniques-dutilisation-dun-llm" class="nav-link active" data-scroll-target="#techniques-dutilisation-dun-llm">Techniques d’utilisation d’un LLM</a>
   <ul class="collapse">
-  <li><a href="#prompt-engineering" id="toc-prompt-engineering" class="nav-link" data-scroll-target="#prompt-engineering">1. Prompt engineering</a></li>
-  <li><a href="#quelles-questions-se-poser-pour-faire-les-bons-choix-techniques" id="toc-quelles-questions-se-poser-pour-faire-les-bons-choix-techniques" class="nav-link" data-scroll-target="#quelles-questions-se-poser-pour-faire-les-bons-choix-techniques">2. Quelles questions se poser pour faire les bons choix techniques ?</a></li>
+  <li><a href="#prompt-engineering" id="toc-prompt-engineering" class="nav-link" data-scroll-target="#prompt-engineering">Prompt engineering</a></li>
+  <li><a href="#quelles-questions-se-poser-pour-faire-les-bons-choix-techniques" id="toc-quelles-questions-se-poser-pour-faire-les-bons-choix-techniques" class="nav-link" data-scroll-target="#quelles-questions-se-poser-pour-faire-les-bons-choix-techniques">Quelles questions se poser pour faire les bons choix techniques ?</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -296,25 +296,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ii---techniques-dutilisation-dun-llm" class="level2">
-<h2 class="anchored" data-anchor-id="ii---techniques-dutilisation-dun-llm">II - Techniques d’utilisation d’un LLM</h2>
+<section id="techniques-dutilisation-dun-llm" class="level2">
+<h2 class="anchored" data-anchor-id="techniques-dutilisation-dun-llm">Techniques d’utilisation d’un LLM</h2>
 <section id="prompt-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="prompt-engineering">1. Prompt engineering</h3>
-<section id="a.-bonnes-pratiques" class="level4">
-<h4 class="anchored" data-anchor-id="a.-bonnes-pratiques">A. Bonnes pratiques</h4>
+<h3 class="anchored" data-anchor-id="prompt-engineering">Prompt engineering</h3>
+<section id="bonnes-pratiques" class="level4">
+<h4 class="anchored" data-anchor-id="bonnes-pratiques">Bonnes pratiques</h4>
 <p>Il faut avant tout garder à l’esprit que le prompt engineering est une discipline très empirique, qui demande beaucoup d’itérations pour obtenir le meilleur prompt par rapport au résultat souhaité. Bien qu’il n’existe pas de méthode systématique et efficace pour optimiser un prompt, certaines pratiques sont devenues la norme. Par exemple, voici quelques bonnes pratiques : - <strong>Donner un rôle au modèle</strong> : Par exemple, dire au modèle qu’il est un magistrat honnête et impartial pourra l’aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche. - <strong>Structurer le prompt</strong> : Il est important de bien différencier le <em>prompt système</em> du <em>prompt utilisateur</em>. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d’organiser ou de séparer clairement les instructions. - <strong>Etre le plus précis possible</strong> : - <strong>Contraindre le modèle au maximum</strong> : - <strong>Donner des exemples</strong> : Cf. paragraphe suivant.</p>
 <p>Le papier <a href="https://arxiv.org/abs/2312.16171">Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4</a> donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple : - Ne pas etre poli avec le LLM si l’on souhaite une réponse concise. - Décrire l’audience souhaitée dans le prompt (des experts techniques, des enfants, etc.). - Utiliser des directives affirmatives (fais ceci), et éviter les tournures négatives (ne fais pas cela). - Employer des phrases telles que ‘Ta tache est de’ ou ‘Tu DOIS’. - Répéter plusieurs fois certains mots ou phrases essentielles.</p>
 </section>
-<section id="b.-0-shot-1-shot-few-shot-prompting" class="level4">
-<h4 class="anchored" data-anchor-id="b.-0-shot-1-shot-few-shot-prompting">B. 0-shot, 1-shot, few-shot prompting</h4>
+<section id="shot-1-shot-few-shot-prompting" class="level4">
+<h4 class="anchored" data-anchor-id="shot-1-shot-few-shot-prompting">0-shot, 1-shot, few-shot prompting</h4>
 <p>La façon la plus intuitive d’adresser une requête à un LLM est de formuler des instructions les plus précises possibles. Ce faisant, on espère que le modèle comprendra ces instructions et répondra en conséquence. Pour des tâches nouvelles, auxquelles le modèle n’a pas nécessairement été confronté durant son (pré)-entraînement, on appelle cette méthode du 0-shot prompting : le modèle n’a pas de référence ou d’exemple de réponse attendue.</p>
 <p>Pour pallier ce manque de référence, il est possible (et, en fonction de la tâche, souvent recommandé) d’ajouter des exemples de paires entrée/sortie dans le prompt que l’on adresse au modèle : cela donne du 1-shot (un exemple) ou du few-shot (plusieurs exemples) prompting. Plus les exemples sont proches de la requête initiale, plus le modèle saura précisément comment répondre. Cela permet ainsi au modèle de s’adapter, à moindre coût, à une tâche très spécifique ou particulière.</p>
 <ul>
 <li><a href="https://www.prompthub.us/blog/the-few-shot-prompting-guide">Guide pratique (avec exemples)</a></li>
 </ul>
 </section>
-<section id="c.-chain-of-thought-cot-reasoning" class="level4">
-<h4 class="anchored" data-anchor-id="c.-chain-of-thought-cot-reasoning">C. Chain of Thought (CoT) reasoning</h4>
+<section id="chain-of-thought-cot-reasoning" class="level4">
+<h4 class="anchored" data-anchor-id="chain-of-thought-cot-reasoning">Chain of Thought (CoT) reasoning</h4>
 <p>Sur certaines tâches qui demandent un raisonnement (par exemple la résolution d’un problème mathématique simple), les LLM naturellement ne sont pas très bons. Pour augmenter leurs capacités de raisonnement, une stratégie classique consiste à leur demander de raisonner et de réfléchir étape par étape.</p>
 <p>Les modèles les plus récents ayant nettement progressé en raisonnement, il est possible qu’ils raisonnent naturellement étape par étape sur des questions simples. Pour des questions ou des raisonnements plus complexes, il sera cependant probablement plus efficace de proposer une logique de raisonnement au modèle, en explicitant les différentes étapes.</p>
 <p>Il est également possible de combiner le CoT reasoning avec du few-shot prompting, <em>i.e.</em> de donner des exemples de raisonnement étape par étape au modèle.</p>
@@ -322,8 +322,8 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.mercity.ai/blog-post/guide-to-chain-of-thought-prompting">Guide détaillé</a></li>
 </ul>
 </section>
-<section id="d.-reverse-prompt-engineering" class="level4">
-<h4 class="anchored" data-anchor-id="d.-reverse-prompt-engineering">D. Reverse prompt engineering</h4>
+<section id="reverse-prompt-engineering" class="level4">
+<h4 class="anchored" data-anchor-id="reverse-prompt-engineering">Reverse prompt engineering</h4>
 <p>Une façon de travailler ses prompts est de profiter des capacités génératives des LLMs pour leur faire créer des prompts. L’idée est de donner au LLM un exemple de sortie souhaitée, et de lui demander de générer le prompt le plus adapté possible pour produire cette sortie.</p>
 <ul>
 <li><a href="https://bootcamp.uxdesign.cc/why-reverse-prompt-engineering-is-the-magic-key-to-production-ready-prompts-9d4c2c5b2e8b">Guide pratique</a></li>
@@ -331,14 +331,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="quelles-questions-se-poser-pour-faire-les-bons-choix-techniques" class="level3">
-<h3 class="anchored" data-anchor-id="quelles-questions-se-poser-pour-faire-les-bons-choix-techniques">2. Quelles questions se poser pour faire les bons choix techniques ?</h3>
-<section id="a.-utiliser-un-llm" class="level4">
-<h4 class="anchored" data-anchor-id="a.-utiliser-un-llm">A. Utiliser un LLM</h4>
+<h3 class="anchored" data-anchor-id="quelles-questions-se-poser-pour-faire-les-bons-choix-techniques">Quelles questions se poser pour faire les bons choix techniques ?</h3>
+<section id="utiliser-un-llm" class="level4">
+<h4 class="anchored" data-anchor-id="utiliser-un-llm">Utiliser un LLM</h4>
 <p>La première question à se poser est la nécessité ou non d’utiliser un LLM. Certaines tâches peuvent se résoudre avec un LLM, mais ce n’est pas toujours la solution la plus pertinente. Par exemple, un LLM est normalement capable de parser un fichier xml sans problème, mais un script naïf sera largement aussi efficace, à bien moindre coût (environnemental, humain, financier). L’utilisation d’un LLM doit venir d’un besoin de compréhension fine du langage naturel.</p>
 <p><strong>Donner quelques exemples de cas d’usages</strong></p>
 </section>
-<section id="b.-quels-modèles-utiliser" class="level4">
-<h4 class="anchored" data-anchor-id="b.-quels-modèles-utiliser">B. Quel(s) modèle(s) utiliser</h4>
+<section id="quels-modèles-utiliser" class="level4">
+<h4 class="anchored" data-anchor-id="quels-modèles-utiliser">Quel(s) modèle(s) utiliser</h4>
 <p>Beaucoup d’éléments sont à prendre en compte lors du choix du modèle à utiliser. Parmi les plus importants&nbsp;:</p>
 <ul>
 <li><p><strong>Sa taille</strong> : Exprimée généralement en milliards (B) de paramètres (Llama-3 8B possède 8 milliards de paramètres, Mistral 7B en possède 7 milliards, etc.), elle influe fortement sur les performances du modèles et les exigences techniques. Un «&nbsp;petit&nbsp;» LLM de 8 milliards de paramètres pourra tourner sur un GPU modeste avec une VRAM de 32 GB (voire moins si l’on utilise un modèle quantifié, cf.&nbsp;…), tandis qu’un LLM de taille moyenne de 70 milliards de paramètres nécessitera 2 GPU puissants avec 80 GB de VRAM.</p></li>
@@ -349,8 +349,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>En juin 2024, un bon point de départ est de regarder les modèles open-source de Meta (Llama-2 7B/13B/70B, Llama-3 8B/70B) et de Mistral AI (Mistral 7B, Mixtral 8x7B).</p>
 </section>
-<section id="c.-quand-faire-du-prompt-engineering" class="level4">
-<h4 class="anchored" data-anchor-id="c.-quand-faire-du-prompt-engineering">C. Quand faire du prompt engineering</h4>
+<section id="quand-faire-du-prompt-engineering" class="level4">
+<h4 class="anchored" data-anchor-id="quand-faire-du-prompt-engineering">Quand faire du prompt engineering</h4>
 <p>Si vous êtes dans l’un des cas suivants, le prompt engineering peut être une bonne option :</p>
 <ul>
 <li>Pas beaucoup de ressources disponibles</li>
@@ -358,8 +358,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Les réponses requises sont très formattées ou très spécifiques</li>
 </ul>
 </section>
-<section id="d.-quand-faire-de-la-rag" class="level4">
-<h4 class="anchored" data-anchor-id="d.-quand-faire-de-la-rag">D. Quand faire de la RAG</h4>
+<section id="quand-faire-de-la-rag" class="level4">
+<h4 class="anchored" data-anchor-id="quand-faire-de-la-rag">Quand faire de la RAG</h4>
 <p>Si vous êtes dans l’un des cas suivants, la RAG peut être une bonne option :</p>
 <ul>
 <li>Besoin de réponses à jour, régulièrement et facilement actualisées</li>
@@ -368,8 +368,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Besoin d’une application qui ne dépend pas d’un modèle spécifique (généralisabilité), et dont les utilisateurs ne connaissent pas l’IA générative</li>
 </ul>
 </section>
-<section id="e.-quand-faire-du-fine-tuning" class="level4">
-<h4 class="anchored" data-anchor-id="e.-quand-faire-du-fine-tuning">E. Quand faire du fine-tuning</h4>
+<section id="quand-faire-du-fine-tuning" class="level4">
+<h4 class="anchored" data-anchor-id="quand-faire-du-fine-tuning">Quand faire du fine-tuning</h4>
 <p>Si vous êtes dans l’un des cas suivants, le fine-tuning peut être une bonne option :</p>
 <ul>
 <li>Besoin d’une terminologie ou d’un style spécifique</li>
