@@ -12,13 +12,19 @@ format: html
 #### Bonnes pratiques
 
 Il faut avant tout garder à l'esprit que le prompt engineering est une discipline très empirique, qui demande beaucoup d'itérations pour obtenir le meilleur prompt par rapport au résultat souhaité. Bien qu'il n'existe pas de méthode systématique et efficace pour optimiser un prompt, certaines pratiques sont devenues la norme. Par exemple, voici quelques bonnes pratiques :
+
 - **Donner un rôle au modèle** : Par exemple, dire au modèle qu'il est un magistrat honnête et impartial pourra l'aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche.
+
 - **Structurer le prompt** : Il est important de bien différencier le *prompt système* du *prompt utilisateur*. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d'organiser ou de séparer clairement les instructions.
+
 - **Etre le plus précis possible** :
+
 - **Contraindre le modèle au maximum** :
+
 - **Donner des exemples** : Cf. paragraphe suivant.
 
 Le papier [Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4](https://arxiv.org/abs/2312.16171) donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple :
+
 - Ne pas etre poli avec le LLM si l'on souhaite une réponse concise.
 - Décrire l'audience souhaitée dans le prompt (des experts techniques, des enfants, etc.).
 - Utiliser des directives affirmatives (fais ceci), et éviter les tournures négatives (ne fais pas cela).
