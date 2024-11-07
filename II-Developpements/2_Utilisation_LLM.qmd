@@ -17,11 +17,11 @@ Il faut avant tout garder à l'esprit que le prompt engineering est une discipli
 
 - **Structurer le prompt** : Il est important de bien différencier le *prompt système* du *prompt utilisateur*. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d'organiser ou de séparer clairement les instructions.
 
-- **Etre le plus précis possible** :
+- **Etre le plus précis possible** : Rajouter le plus de détails possibles, voire se répéter dans les instructions en changeant de formulation permet de bien insister sur les éléments les plus importants.
 
-- **Contraindre le modèle au maximum** :
+- **Contraindre le modèle au maximum** : Si l'on souhaite un format de sortie précis (JSON par exemple), donner un exemple concret de sortie attendue, et insister sur le besoin de se conformer à ce format. 
 
-- **Donner des exemples** : Cf. paragraphe suivant.
+- **Donner des exemples** : Cf. paragraphe suivant (few-shot prompting).
 
 Le papier [Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4](https://arxiv.org/abs/2312.16171) donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple :
 
@@ -30,7 +30,6 @@ Le papier [Principled Instructions Are All You Need for Questioning LLaMA-1/2, G
 - Utiliser des directives affirmatives (fais ceci), et éviter les tournures négatives (ne fais pas cela).
 - Employer des phrases telles que 'Ta tache est de' ou 'Tu DOIS'.
 - Répéter plusieurs fois certains mots ou phrases essentielles.
-
 
 
 #### 0-shot, 1-shot, few-shot prompting
@@ -62,8 +61,6 @@ Une façon de travailler ses prompts est de profiter des capacités générative
 #### Utiliser un LLM
 
 La première question à se poser est la nécessité ou non d’utiliser un LLM. Certaines tâches peuvent se résoudre avec un LLM, mais ce n’est pas toujours la solution la plus pertinente. Par exemple, un LLM est normalement capable de parser un fichier xml sans problème, mais un script naïf sera largement aussi efficace, à bien moindre coût (environnemental, humain, financier). L’utilisation d’un LLM doit venir d’un besoin de compréhension fine du langage naturel.
-
-**Donner quelques exemples de cas d'usages**
 
 #### Quel(s) modèle(s) utiliser
 
@@ -110,4 +107,4 @@ Si vous êtes dans l'un des cas suivants, le fine-tuning peut être une bonne op
 
 #### F. Combiner plusieurs techniques
 
-RAG + fine-tuning = [RAFT](https://arxiv.org/abs/2403.10131)
+Il est tout à fait possible de fine-tuner un LLM sur une tâche de RAG par exemple. Peu de travaux ont été faits sur cette combinaison, mais le papier [RAFT](https://arxiv.org/abs/2403.10131) (Retrieval Augmented Fine-Tuning) en donne une vision d'ensemble et en propose une méthode.
