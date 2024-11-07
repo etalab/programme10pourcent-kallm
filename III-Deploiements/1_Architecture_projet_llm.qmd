@@ -1,0 +1,106 @@
+---
+title: 3. Infrastructures externalisées pour l'administration
+---
+
+## Architecture de projets LLM
+
+Dans la plupart des cas, un projet d'IA générative ne se limite pas au
+déploiement d'un LLM. La plupart des projet nécessite la présence d'une
+interface utilisateur, et souvent d'une architecture RAG.
+
+Un exemple d'architecture d'application d'IA générative est donné dans le
+[rapport de l'ANSSI sur l'IA
+générative](https://cyber.gouv.fr/sites/default/files/document/Recommandations_de_s%C3%A9curit%C3%A9_pour_un_syst%C3%A8me_d_IA_g%C3%A9n%C3%A9rative.pdf)
+:
+
+![](../images/anssi_architecture_iagen.png)
+
+Les principales briques d'un projet se décomposent en 3 grandes familles :
+- Service LLM
+- Interface utilisateur
+- Gestion d'une base de connaissance (RAG)
+
+Un exemple d'infrastructure pour un projet RAG est donné dans le cadre du projet
+[CARADOC](https://gitlab.adullact.net/dgfip/projets-ia/caradoc) (cf.
+[déploiement CARDOC](./4_Deploiement_applications.qmd#caradoc)):
+
+![](https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/raw/master/doc/AYD_architecture.drawio.png)
+
+### Service LLM
+
+#### API
+
+La principale manière. Elle présente l'intérêt d'être prêt à l'emploi et de ne
+pas nécessiter d'infrastructure dédiée en propre
+
+1. **API Albert** : Offre fourni à quelques partenaires de la DINUM, avec des capacités d'hébergement limitées.
+> (ajouter contact ou moyen d'accès)
+2. **Externe non sécurisée** : Ces solutions sont envisageables où les besoins en performance sont importants et les contraintes de sécurité sont faibles. Voici quelques exemples de solutions :
+    - [Mistral API](https://mistral.ai/fr/)
+    - [API Openai](https://platform.openai.com/docs/overview)
+    - [Hugging face - inference endpoint](https://huggingface.co/inference-endpoints/dedicated)
+    - [API Claude - Anthropic](https://www.anthropic.com/api
+
+#### Ollama
+
+#### Infrastructure d'inférence à base de GPU
+
+Dans le cas où il est possible d'avoir accès à des GPUs, il existe de nombreuses
+librairies et outils pour déployer des LLMs sur sa propre infrastructure.
+
+Dans ce
+
+### Gestion de la base de connaissance
+
+COmme
+
+cf. benchmark RAG
+
+
+### Interface utilisateur
+
+Bien que des packages comme streamlit et Gradio propose des briques de tchat
+
+L'interface utilisateur peut être complex
+
+
+
+## Pistes d'infrastructure
+
+Dans beaucoup de cas l'accès à des GPUs est un des principaux freins à l'expérimentaion et la mise en production d'un cas d'usage d'IA générative. L'acquisition d'un cluster GPUs n'est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs alternatives sont envisageables (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.
+
+Dans ce cadre, la principale variable a prendre en compte sont les contraintes de sécurité de l'application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux.
+
+Tout ou parti de ces éléments peuvent être externalisé en fonction de la maturité de l'administration, du besoin utilisateur et des contraintes de sécurité.
+
+3 principales solutions d'externalisation sont possibles :
+
+- [Cloud Public](#cloud-public)
+- [Cloud externe](#cloud-externe)
+
+> Dans certains cas, il peut être  intéressant de mettre en place une architecture hybride Cloud + API d'inférence. Ce qui permet de bénéficier de l'agilité de développement des solutions Cloud, tout en éliminant les coûts relatifs à l'approvisionnement de GPUs.
+
+### Cloud Public
+
+Bien que l'état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée
+
+1. [**SSP Cloud**](https://datalab.sspcloud.fr/?lang=fr) : A ce jour, le SSP Cloud via sa plateforme ONYXIA (hébergée et dévelopée par l'INSEE), est la principale plateforme publique mettant à disposition des GPUs à ses utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production. cf [Déploiement d'un LLM sur SSP Cloud](#Déploiement d'un LLM sur SSP Cloud)
+
+2. [**Cloud pi**](https://pi.interieur.rie.gouv.fr/description-de-loffre-cloud/) : Cloud PI est le cloud du ministère de l'intérieur, il ne semble pas proposer à date de provisionnement de GPUs. Il fournit cependant une offre IAAS et PAAS pour l'hébergement d'applications.
+
+3. [**Nubo**](https://portailnubo.dgfip.finances.rie.gouv.fr/) : Nubo est le service cloud du ministère de l'économie et des finances, qui propose un service IAAS. Via sa solution Nubonyxia, il est possible d'intéragir avec l'interface Onyxia et le service Kubernetes sous jacents. Nubo ne propose pas à date de provisionnement de GPUs.
+
+> Pour définition de ce que recouvre les offres de service PAAS et IAAS, se référer à ce [lien](https://www.redhat.com/fr/topics/cloud-computing/iaas-vs-paas-vs-saas)
+
+### Cloud externe
+
+La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fournisseurs-de-services-cloud) a été mis en place par l'ANSSI pour assurer des normes de sécurité aux utilisateurs de produits cloud. A ce jour, peu d'entreprises ont acquis cette qualification. Voici quelques exemples de fournisseurs :
+
+1. [Dassault - Outscale](https://fr.outscale.com/) **IAAS** avec accès GPU
+2. [Thales - Sens](https://www.s3ns.io/) (Implémentation de GCP sur une infrastructure sécurisée) **PAAS**
+3. [Cloud Temple](https://www.cloud-temple.com/) **IAAS **
+
+> Plus d'informations sur ce type de services sont disponibles [ici](https://www.numerique.gouv.fr/services/cloud/cloud-commercial/).
+
+
+
