@@ -251,5 +251,6 @@ L'algorithme de DPO (Direct Preference Optimization) permet de mettre à jour le
 - [Guide pratique / Implémentation HugginFace](https://huggingface.co/blog/dpo-trl)
 
 Liens des papiers originaux :
+
 - [DPO](https://arxiv.org/abs/2305.18290)
 - [KTO](https://arxiv.org/abs/2402.01306)
