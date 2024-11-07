@@ -236,7 +236,7 @@ RLHF = Reinforcement Learning from Human Feedback | RLAIF = Reinforcement Learni
 
 ###### PPO
 
-PPO = Proximal Policy Optimization
+Le premier algorithme de Reinforcement Learning utilisé dans le cadre des LLM était la PPO (Proximal Policy Optimization). Cet algorithme classique consiste à entraîner un modèle de récompense fondé sur les retours humains, puis à entraîner le LLM à optimiser cette récompense. La politique du modèle est donc mise à jour itérativement pour maximiser cette récompense. Le principal inconvénient de la PPO, que la DPO pallie, est le besoin d'entraîner un modèle de récompense, en plus du LLM lui-même.
 
 - [Explication théorique](https://huggingface.co/blog/deep-rl-ppo)
 - [Implémentation HuggingFace](https://huggingface.co/docs/trl/main/en/ppo_trainer)
@@ -245,7 +245,7 @@ https://medium.com/@oleglatypov/a-comprehensive-guide-to-proximal-policy-optimiz
 
 ###### DPO, KTO
 
-DPO = Direct Preference Optimization | KTO = Kahneman-Tversky Optimization
+L'algorithme de DPO (Direct Preference Optimization) permet de mettre à jour les poids du LLM en fonctions des retours humains directement, sans passer par un modèle de récompense : la politique que le LLM apprend maximise directement la satisfaction humaine. Une variation de cet algorithme est celui de KTO (Kahneman-Tversky Optimization), dont le fonctionnement général reste similaire.
 
 - [Explication théorique](https://huggingface.co/blog/pref-tuning)
 - [Guide pratique / Implémentation HugginFace](https://huggingface.co/blog/dpo-trl)
@@ -253,16 +253,3 @@ DPO = Direct Preference Optimization | KTO = Kahneman-Tversky Optimization
 Liens des papiers originaux :
 - [DPO](https://arxiv.org/abs/2305.18290)
 - [KTO](https://arxiv.org/abs/2402.01306)
-
-
-##### Divers
-
-###### Prompt-tuning
-
-- [Lien du papier](https://arxiv.org/abs/2104.08691)
-
-###### ReFT et LoReFT
-
-ReFT = Representation Fine-Tuning | LoReFT = Low-Rank Linear Subspace ReFT
-
-- [Lien du papier](https://arxiv.org/abs/2404.03592)
