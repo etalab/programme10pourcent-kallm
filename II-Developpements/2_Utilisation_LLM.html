@@ -306,9 +306,9 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Donner un rôle au modèle</strong> : Par exemple, dire au modèle qu’il est un magistrat honnête et impartial pourra l’aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche.</p></li>
 <li><p><strong>Structurer le prompt</strong> : Il est important de bien différencier le <em>prompt système</em> du <em>prompt utilisateur</em>. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d’organiser ou de séparer clairement les instructions.</p></li>
-<li><p><strong>Etre le plus précis possible</strong> :</p></li>
-<li><p><strong>Contraindre le modèle au maximum</strong> :</p></li>
-<li><p><strong>Donner des exemples</strong> : Cf. paragraphe suivant.</p></li>
+<li><p><strong>Etre le plus précis possible</strong> : Rajouter le plus de détails possibles, voire se répéter dans les instructions en changeant de formulation permet de bien insister sur les éléments les plus importants.</p></li>
+<li><p><strong>Contraindre le modèle au maximum</strong> : Si l’on souhaite un format de sortie précis (JSON par exemple), donner un exemple concret de sortie attendue, et insister sur le besoin de se conformer à ce format.</p></li>
+<li><p><strong>Donner des exemples</strong> : Cf. paragraphe suivant (few-shot prompting).</p></li>
 </ul>
 <p>Le papier <a href="https://arxiv.org/abs/2312.16171">Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4</a> donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple :</p>
 <ul>
@@ -349,7 +349,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="utiliser-un-llm" class="level4">
 <h4 class="anchored" data-anchor-id="utiliser-un-llm">Utiliser un LLM</h4>
 <p>La première question à se poser est la nécessité ou non d’utiliser un LLM. Certaines tâches peuvent se résoudre avec un LLM, mais ce n’est pas toujours la solution la plus pertinente. Par exemple, un LLM est normalement capable de parser un fichier xml sans problème, mais un script naïf sera largement aussi efficace, à bien moindre coût (environnemental, humain, financier). L’utilisation d’un LLM doit venir d’un besoin de compréhension fine du langage naturel.</p>
-<p><strong>Donner quelques exemples de cas d’usages</strong></p>
 </section>
 <section id="quels-modèles-utiliser" class="level4">
 <h4 class="anchored" data-anchor-id="quels-modèles-utiliser">Quel(s) modèle(s) utiliser</h4>
@@ -395,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="f.-combiner-plusieurs-techniques" class="level4">
 <h4 class="anchored" data-anchor-id="f.-combiner-plusieurs-techniques">F. Combiner plusieurs techniques</h4>
-<p>RAG + fine-tuning = <a href="https://arxiv.org/abs/2403.10131">RAFT</a></p>
+<p>Il est tout à fait possible de fine-tuner un LLM sur une tâche de RAG par exemple. Peu de travaux ont été faits sur cette combinaison, mais le papier <a href="https://arxiv.org/abs/2403.10131">RAFT</a> (Retrieval Augmented Fine-Tuning) en donne une vision d’ensemble et en propose une méthode.</p>
 
 
 </section>
