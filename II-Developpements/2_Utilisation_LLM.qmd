@@ -5,11 +5,11 @@ date: "2024-06-07"
 format: html
 ---
 
-## II - Techniques d'utilisation d'un LLM
+## Techniques d'utilisation d'un LLM
 
-### 1. Prompt engineering
+### Prompt engineering
 
-#### A. Bonnes pratiques
+#### Bonnes pratiques
 
 Il faut avant tout garder à l'esprit que le prompt engineering est une discipline très empirique, qui demande beaucoup d'itérations pour obtenir le meilleur prompt par rapport au résultat souhaité. Bien qu'il n'existe pas de méthode systématique et efficace pour optimiser un prompt, certaines pratiques sont devenues la norme. Par exemple, voici quelques bonnes pratiques :
 - **Donner un rôle au modèle** : Par exemple, dire au modèle qu'il est un magistrat honnête et impartial pourra l'aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche.
@@ -27,7 +27,7 @@ Le papier [Principled Instructions Are All You Need for Questioning LLaMA-1/2, G
 
 
 
-#### B. 0-shot, 1-shot, few-shot prompting
+#### 0-shot, 1-shot, few-shot prompting
 
 La façon la plus intuitive d'adresser une requête à un LLM est de formuler des instructions les plus précises possibles. Ce faisant, on espère que le modèle comprendra ces instructions et répondra en conséquence. Pour des tâches nouvelles, auxquelles le modèle n'a pas nécessairement été confronté durant son (pré)-entraînement, on appelle cette méthode du 0-shot prompting : le modèle n'a pas de référence ou d'exemple de réponse attendue.
 
@@ -35,7 +35,7 @@ Pour pallier ce manque de référence, il est possible (et, en fonction de la t�
 
 - [Guide pratique (avec exemples)](https://www.prompthub.us/blog/the-few-shot-prompting-guide)
 
-#### C. Chain of Thought (CoT) reasoning
+#### Chain of Thought (CoT) reasoning
 
 Sur certaines tâches qui demandent un raisonnement (par exemple la résolution d'un problème mathématique simple), les LLM naturellement ne sont pas très bons. Pour augmenter leurs capacités de raisonnement, une stratégie classique consiste à leur demander de raisonner et de réfléchir étape par étape.
 
@@ -45,21 +45,21 @@ Il est également possible de combiner le CoT reasoning avec du few-shot prompti
 
 - [Guide détaillé](https://www.mercity.ai/blog-post/guide-to-chain-of-thought-prompting)
 
-#### D. Reverse prompt engineering
+#### Reverse prompt engineering
 
 Une façon de travailler ses prompts est de profiter des capacités génératives des LLMs pour leur faire créer des prompts. L'idée est de donner au LLM un exemple de sortie souhaitée, et de lui demander de générer le prompt le plus adapté possible pour produire cette sortie.
 
 - [Guide pratique](https://bootcamp.uxdesign.cc/why-reverse-prompt-engineering-is-the-magic-key-to-production-ready-prompts-9d4c2c5b2e8b)
 
-### 2. Quelles questions se poser pour faire les bons choix techniques ?
+### Quelles questions se poser pour faire les bons choix techniques ?
 
-#### A. Utiliser un LLM
+#### Utiliser un LLM
 
 La première question à se poser est la nécessité ou non d’utiliser un LLM. Certaines tâches peuvent se résoudre avec un LLM, mais ce n’est pas toujours la solution la plus pertinente. Par exemple, un LLM est normalement capable de parser un fichier xml sans problème, mais un script naïf sera largement aussi efficace, à bien moindre coût (environnemental, humain, financier). L’utilisation d’un LLM doit venir d’un besoin de compréhension fine du langage naturel.
 
 **Donner quelques exemples de cas d'usages**
 
-#### B. Quel(s) modèle(s) utiliser
+#### Quel(s) modèle(s) utiliser
 
 Beaucoup d’éléments sont à prendre en compte lors du choix du modèle à utiliser. Parmi les plus importants :
 
@@ -75,7 +75,7 @@ Beaucoup d’éléments sont à prendre en compte lors du choix du modèle à ut
 
 En juin 2024, un bon point de départ est de regarder les modèles open-source de Meta (Llama-2 7B/13B/70B, Llama-3 8B/70B) et de Mistral AI (Mistral 7B, Mixtral 8x7B).
 
-#### C. Quand faire du prompt engineering
+#### Quand faire du prompt engineering
 
 Si vous êtes dans l'un des cas suivants, le prompt engineering peut être une bonne option :
 
@@ -83,7 +83,7 @@ Si vous êtes dans l'un des cas suivants, le prompt engineering peut être une b
 - Besoin d'un outil laissé à la disposition des utilisateurs, avec une grande liberté
 - Les réponses requises sont très formattées ou très spécifiques
 
-#### D. Quand faire de la RAG
+#### Quand faire de la RAG
 
 Si vous êtes dans l'un des cas suivants, la RAG peut être une bonne option :
 
@@ -92,7 +92,7 @@ Si vous êtes dans l'un des cas suivants, la RAG peut être une bonne option :
 - Besoin d'enrichir les réponses avec des données spécifiques
 - Besoin d'une application qui ne dépend pas d'un modèle spécifique (généralisabilité), et dont les utilisateurs ne connaissent pas l'IA générative
 
-#### E. Quand faire du fine-tuning
+#### Quand faire du fine-tuning
 
 Si vous êtes dans l'un des cas suivants, le fine-tuning peut être une bonne option :
 
