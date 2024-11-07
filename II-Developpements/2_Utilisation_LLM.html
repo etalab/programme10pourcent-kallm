@@ -302,8 +302,22 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="prompt-engineering">Prompt engineering</h3>
 <section id="bonnes-pratiques" class="level4">
 <h4 class="anchored" data-anchor-id="bonnes-pratiques">Bonnes pratiques</h4>
-<p>Il faut avant tout garder à l’esprit que le prompt engineering est une discipline très empirique, qui demande beaucoup d’itérations pour obtenir le meilleur prompt par rapport au résultat souhaité. Bien qu’il n’existe pas de méthode systématique et efficace pour optimiser un prompt, certaines pratiques sont devenues la norme. Par exemple, voici quelques bonnes pratiques : - <strong>Donner un rôle au modèle</strong> : Par exemple, dire au modèle qu’il est un magistrat honnête et impartial pourra l’aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche. - <strong>Structurer le prompt</strong> : Il est important de bien différencier le <em>prompt système</em> du <em>prompt utilisateur</em>. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d’organiser ou de séparer clairement les instructions. - <strong>Etre le plus précis possible</strong> : - <strong>Contraindre le modèle au maximum</strong> : - <strong>Donner des exemples</strong> : Cf. paragraphe suivant.</p>
-<p>Le papier <a href="https://arxiv.org/abs/2312.16171">Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4</a> donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple : - Ne pas etre poli avec le LLM si l’on souhaite une réponse concise. - Décrire l’audience souhaitée dans le prompt (des experts techniques, des enfants, etc.). - Utiliser des directives affirmatives (fais ceci), et éviter les tournures négatives (ne fais pas cela). - Employer des phrases telles que ‘Ta tache est de’ ou ‘Tu DOIS’. - Répéter plusieurs fois certains mots ou phrases essentielles.</p>
+<p>Il faut avant tout garder à l’esprit que le prompt engineering est une discipline très empirique, qui demande beaucoup d’itérations pour obtenir le meilleur prompt par rapport au résultat souhaité. Bien qu’il n’existe pas de méthode systématique et efficace pour optimiser un prompt, certaines pratiques sont devenues la norme. Par exemple, voici quelques bonnes pratiques :</p>
+<ul>
+<li><p><strong>Donner un rôle au modèle</strong> : Par exemple, dire au modèle qu’il est un magistrat honnête et impartial pourra l’aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche.</p></li>
+<li><p><strong>Structurer le prompt</strong> : Il est important de bien différencier le <em>prompt système</em> du <em>prompt utilisateur</em>. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d’organiser ou de séparer clairement les instructions.</p></li>
+<li><p><strong>Etre le plus précis possible</strong> :</p></li>
+<li><p><strong>Contraindre le modèle au maximum</strong> :</p></li>
+<li><p><strong>Donner des exemples</strong> : Cf. paragraphe suivant.</p></li>
+</ul>
+<p>Le papier <a href="https://arxiv.org/abs/2312.16171">Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4</a> donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple :</p>
+<ul>
+<li>Ne pas etre poli avec le LLM si l’on souhaite une réponse concise.</li>
+<li>Décrire l’audience souhaitée dans le prompt (des experts techniques, des enfants, etc.).</li>
+<li>Utiliser des directives affirmatives (fais ceci), et éviter les tournures négatives (ne fais pas cela).</li>
+<li>Employer des phrases telles que ‘Ta tache est de’ ou ‘Tu DOIS’.</li>
+<li>Répéter plusieurs fois certains mots ou phrases essentielles.</li>
+</ul>
 </section>
 <section id="shot-1-shot-few-shot-prompting" class="level4">
 <h4 class="anchored" data-anchor-id="shot-1-shot-few-shot-prompting">0-shot, 1-shot, few-shot prompting</h4>
