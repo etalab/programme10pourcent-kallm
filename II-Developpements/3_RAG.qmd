@@ -27,17 +27,33 @@ informations non pertinentes sont retournées au LLM il devient très difficile 
 
 Il existe de nombreux algorithmes permettant d'effectuer cette recherche d'information, cependant l'une des approches les plus populaires se base sur l'utilisation de vecteurs denses.
 Dans cette méthode on utilise un réseau de neurones appelé encodeur qui va transformer le texte en vecteurs de grandes dimensions que l'on stocke dans une base de données vectorielle. Cet encodeur a été entrainé a projeter des textes sémantiquement proches sur des vecteurs similaires, ce qui permet en comparant des vecteurs entre eux de trouver des textes de sens proche.
+
+L'encodeur va donc être utilisé pour transformer en vecteurs les données contenues dans une base de connaissance afin de la rendre exploitable. Pour cela il faut découper les documents de notre base en petits fragments de texte que l'on appelle "chunk". Ces chunks sont les morceaux de texte qui seront fournis à l'encodeur pour être transformés en vecteurs qui seront eux-mêmes stockés dans une base de données vectorielle. Cette base de données permet de stocker et d'effectuer de manière efficace des requêtes sur ces vecteurs. 
+
 Ainsi lorsqu'une requête utilisateur est reçue en entrée, elle est elle aussi encodée dans un vecteur de même dimension par le réseau de neurones. On peut alors comparer ce vecteur à l'ensemble des
-vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les morceaux
-de texte à envoyer au LLM pour la génération.
+vecteurs présents en base ce qui permet de récupérer les vecteurs les plus proches qui correspondent à ceux qui sont sémantiquement proches. On peut ainsi trouver les chunks correspondant et les envoyer au LLM pour la génération.
 
 ### 3. Génération
 
-La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt  que
-le LLM utilise pour produire des réponses contextuellement appropriées et précises. Plus le LLM est performant et correctement aligné sur les préférences humaines plus il
-est capable de prendre une quantité importante de document en contexte et ainsi de mieux répondre à la question.
+La phase de génération dans un système de RAG intervient après la récupération des documents pertinents. Une fois les documents récupérés, ils sont insérés dans un prompt qui sera donné en entrée du LLM utilise pour qu'il produise des réponses contextuellement appropriées et précises. Plus le LLM est performant et correctement aligné sur les préférences humaines plus il est capable de prendre une quantité importante de document en contexte et ainsi de mieux répondre à la question.
 
-### 4. Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
+### 4. Améliorations possibles
+L'architecture d'un système de RAG telle que présentée, est relativement simple et se révèle souvent insuffisante dans la réalité. En effet plusieurs difficultés peuvent apparaitre dans des cas d'usages réels :
+
+ -  L'analyse des documents d'une base de connaissance peut s'avérer complexe à mettre en oeuvre du fait d'une grande diversité de formats et notamment pa présence de PDFs avec une structure compliquée. Cette grande hétérogénéité peut rendre complexe la création d'un système d'ingestion de données fiable. 
+
+- La nécessité de mettre à jour régulièrement nécessite de créer un système de mise à jour de la base de donnée vectorielle
+
+- La nature des documents peut entrainer le fait que les chunks ne sont pas suffisamment informatifs ou manquent de contexte pour être correctement compris par le LLM. 
+
+- La partie de retrieval peut avoir des performances médiocres impactant toutes la suite du processus de RAG. 
+
+Pour pallier ces difficultés, de nombreuses solutions techniques existent permettant de limiter l'étendue des problèmes précédemment soulevés. Premièrement l'amélioration du pipeline de chunking en enrichissant les chunks avec des informations contextuelles. Ces informations peuvent être le titre du document source par exemple, mais aussi un résumé du document, ou toute autre information pertinente pour améliorer la compréhension du chunk. 
+
+### 5. Comparatif détaillé des solutions de stockages de données pour la recherche vectorielle approximative
+
+La recherche des plus proches vecteurs par rapport à un vecteur est une étape cruciale d'un système de RAG. Cependant cette tache est complexe et nécessite beaucoup de calculs. C'est pourquoi il est fortement recommandé d'utiliser des algorithmes de recherche vectorielle approximative pour avoir un temps de calcul raisonnable lorsqu'on effectue des recherches. Ces algorithmes permettent d'accélérer drastiquement les calculs sans pour autant perdre beaucoup de précision dans les calculs. Cependant ces algorithmes ne sont implémentés que dans des bases vectorielles qui sont l'objet d'un comparatif.
+
 
 Toutes les solutions testées sont open-source ou disposant d'une licence permissive, qui donne la possibilité d'héberger localement les données.
 
