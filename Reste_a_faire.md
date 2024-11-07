@@ -17,8 +17,9 @@ Proposition de mise en page :
 ---
 title: <Titre de la partie>(ex: RAG)
 ---
-# <section 1>
-## <sous section 1>
+## A. Titre 1
+### a. Sous titre 1
+### b. Sous titre 2
 ## <sous section 2>
 # <section 2>
 ```

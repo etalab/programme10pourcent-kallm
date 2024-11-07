@@ -1,5 +1,8 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!IV-Exemples/"
 
 execute:
   freeze: auto
@@ -38,10 +41,10 @@ website:
       - section: "III-Deploiements"
         href: "III-Deploiements/0_Introduction_deploiements.qmd"
         contents:
-          - href: III-Deploiements/1_Outillage_minimal.qmd
-            text: ":nut_and_bolt: Outillage minimal"
-          - href: III-Deploiements/2_Outillage_avance.qmd
-            text: ":wrench: Outillage avancé"
+          - href: III-Deploiements/1_Architecture_projet_llm.qmd
+            text: ":construction: Architecture d'un projet LLM"
+          - href: III-Deploiements/2_Service_LLM_production.qmd
+            text: ":wrench: Service LLM avancé"
           - href: III-Deploiements/3_Infras_administrations.qmd
             text: ":cloud: Infrastructures externalisées pour l'administration"
           - href: III-Deploiements/4_Socle_Production.qmd
