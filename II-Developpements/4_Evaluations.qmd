@@ -201,7 +201,7 @@ et la question est alors de savoir comment elles évaluent la distance entre la 
 référence.
 D'autres techniques plus récentes ne font pas cette hypothèse, et cherchent à évaluer la qualité de la réponse dans
 l'absolu.
-![](../images/metrics_cartographie.webp)
+![](../images/schema_metriques.png)
 
 On ne détaillera pas toutes les métriques dans le cadre de ce guide, il existe pléthore de documentation disponible sur
 le sujet (cf. Bibliographie en fin de guide). L'objectif ici est plutôt de fournir une grille d'analyse.
