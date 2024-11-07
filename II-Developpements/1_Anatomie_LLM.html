@@ -317,10 +317,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#i.-anatomie-et-conception-dun-llm" id="toc-i.-anatomie-et-conception-dun-llm" class="nav-link active" data-scroll-target="#i.-anatomie-et-conception-dun-llm">I. Anatomie et conception d’un LLM</a>
+  <li><a href="#anatomie-et-conception-dun-llm" id="toc-anatomie-et-conception-dun-llm" class="nav-link active" data-scroll-target="#anatomie-et-conception-dun-llm">Anatomie et conception d’un LLM</a>
   <ul class="collapse">
-  <li><a href="#quelques-architectures-de-modèles-de-langages" id="toc-quelques-architectures-de-modèles-de-langages" class="nav-link" data-scroll-target="#quelques-architectures-de-modèles-de-langages">1. Quelques architectures de modèles de langages</a></li>
-  <li><a href="#méthodes-de-fine-tuning" id="toc-méthodes-de-fine-tuning" class="nav-link" data-scroll-target="#méthodes-de-fine-tuning">2. Méthodes de fine-tuning</a></li>
+  <li><a href="#quelques-architectures-de-modèles-de-langages" id="toc-quelques-architectures-de-modèles-de-langages" class="nav-link" data-scroll-target="#quelques-architectures-de-modèles-de-langages">Quelques architectures de modèles de langages</a></li>
+  <li><a href="#méthodes-de-fine-tuning" id="toc-méthodes-de-fine-tuning" class="nav-link" data-scroll-target="#méthodes-de-fine-tuning">Méthodes de fine-tuning</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -359,8 +359,8 @@ window.Quarto = {
 </header>
 
 
-<section id="i.-anatomie-et-conception-dun-llm" class="level2">
-<h2 class="anchored" data-anchor-id="i.-anatomie-et-conception-dun-llm">I. Anatomie et conception d’un LLM</h2>
+<section id="anatomie-et-conception-dun-llm" class="level2">
+<h2 class="anchored" data-anchor-id="anatomie-et-conception-dun-llm">Anatomie et conception d’un LLM</h2>
 <p>Les LLMs reposent sur un développement en deux voire trois étapes.</p>
 <ul>
 <li><p><strong>Le pré-entraînement</strong> consiste à entraîner le modèle, en partant de zéro, de façon auto-supervisée, et sur un corpus d’entraînement gigantesque. L’objectif de ce pré-entraînement dépend du type de modèle utilisé (cf.&nbsp;paragraphe suivant), mais la plupart apprennent à prédire le token suivant, à partir d’une suite de tokens. C’est ce qui les rend particulièrement efficaces pour de la génération de texte.</p></li>
@@ -373,9 +373,9 @@ window.Quarto = {
 <li><a href="https://www.entrypointai.com/blog/pre-training-vs-fine-tuning-vs-in-context-learning-of-large-language-models/">Article résumant la dualité pré-entraînement/fine-tuning</a></li>
 </ul>
 <section id="quelques-architectures-de-modèles-de-langages" class="level3">
-<h3 class="anchored" data-anchor-id="quelques-architectures-de-modèles-de-langages">1. Quelques architectures de modèles de langages</h3>
-<section id="a.-larchitecture-transformer" class="level4">
-<h4 class="anchored" data-anchor-id="a.-larchitecture-transformer">A. L’architecture Transformer</h4>
+<h3 class="anchored" data-anchor-id="quelques-architectures-de-modèles-de-langages">Quelques architectures de modèles de langages</h3>
+<section id="larchitecture-transformer" class="level4">
+<h4 class="anchored" data-anchor-id="larchitecture-transformer">L’architecture Transformer</h4>
 <p>Introduite en 2017 dans le papier <strong>Attention Is All You Need</strong>, l’architecture Transformer a révolutionné le domaine du TAL. Par rapport aux RNN, les Transformers permettent un traitement efficace des séquences en parallèle, conduisant à un temps de calcul beaucoup plus court (tant lors de l’entraînement qu’en inférence), tandis que les RNN, par construction, ne peuvent traiter une séquence que séquentiellement, c’est-à-dire token par token. En outre, le mécanisme d’auto-attention, présenté ci-dessous, permet de capturer efficacement les dépendances distantes en atténuant le problème de la disparition et de l’explosion des gradients.</p>
 <p><a href="Architecture Transformer"><img src="../images/transformer_architecture.png" width="250"></a></p>
 <p>L’auto-attention est le mécanisme central des Transformers. Elle est utilisée pour pondérer, lors de l’examen d’un token en particulier, l’importance, relative à ce token, de chaque autre token de la séquence. Concrètement, trois vecteurs (qui représentent chacun la séquence d’entrée dans un rôle différent) sont déduits de la séquence d’entrée <span class="math inline">\(X\)</span> : les requêtes (<span class="math inline">\(Q\)</span>), les clés (<span class="math inline">\(K\)</span>) et les valeurs (<span class="math inline">\(V\)</span>), par des transformations linéaires comme exprimées dans l’équation suivantes. Les matrices <span class="math inline">\(W_Q\)</span>, <span class="math inline">\(W_K\)</span> et <span class="math inline">\(W_V\)</span> sont des paramètres entraînables du modèle. <span class="math display">\[Q = X \cdot W_Q \qquad K = X \cdot W_K \qquad V = X \cdot W_V \]</span></p>
@@ -390,8 +390,8 @@ window.Quarto = {
 <li><a href="http://jalammar.github.io/illustrated-transformer/">Explication illustrée et très détaillée</a></li>
 </ul>
 </section>
-<section id="b.-encoder-only-encoder-decoder-decoder-only" class="level4">
-<h4 class="anchored" data-anchor-id="b.-encoder-only-encoder-decoder-decoder-only">B. Encoder-only, encoder-decoder, decoder-only</h4>
+<section id="encoder-only-encoder-decoder-decoder-only" class="level4">
+<h4 class="anchored" data-anchor-id="encoder-only-encoder-decoder-decoder-only">Encoder-only, encoder-decoder, decoder-only</h4>
 <p>Les LLMs basés sur des architectures Transformers appartiennent à l’une des 3 catégories suivantes&nbsp;:</p>
 <ul>
 <li><p><strong>Modèle «&nbsp;encoder-only&nbsp;»</strong>&nbsp;: Ils sont basés uniquement sur la partie encodeur des Transformers. Leur pré-entraînement est souvent basé sur la reconstruction de phrases&nbsp;: à chaque étape, le modèle a accès à une phrase entière, sauf certains mots qui ont été masqués, et apprend à retrouver ces mots masqués. Ces modèles sont adaptés pour des tâches de classification, de reconnaissance d’entités nommées (NER), de réponses aux questions, etc. Ils ont aujourd’hui perdu en popularité, mais leurs représentants les plus connus (BERT, RoBERTa, DistilBERT, CamemBERT, etc.) sont encore très utilisés, et restent un choix intéressant selon la tâche, grâce à leur compréhension fine du langage et à leur petite taille.</p></li>
@@ -400,14 +400,14 @@ window.Quarto = {
 </ul>
 <p>https://medium.com/artificial-corner/discovering-llm-structures-decoder-only-encoder-only-or-decoder-encoder-5036b0e9e88</p>
 </section>
-<section id="c.-mixture-of-experts-moe" class="level4">
-<h4 class="anchored" data-anchor-id="c.-mixture-of-experts-moe">C. Mixture of Experts (MoE)</h4>
+<section id="mixture-of-experts-moe" class="level4">
+<h4 class="anchored" data-anchor-id="mixture-of-experts-moe">Mixture of Experts (MoE)</h4>
 <p>Les architectures Mixture of Experts ne sont pas spécifiques aux LLMs, mais elles ont été adaptées avec succès sur des modèles comme Mixtral 8x7B, Mixtral 8x22B ou GPT-4 (supposition). Le principe est de remplacer chaque réseau à propagation directe (présent dans chaque bloc de l’architecture Transformer) par un ensemble de réseaux «&nbsp;experts&nbsp;». Au moment de passer dans cette partie du réseau, un routeur envoie vers un de ces experts uniquement. L’intérêt est double : un seul expert étant utilisé à la fois, le temps d’inférence est naturellement nettement plus court. Par ailleurs, chaque réseau expert est entraîné et donc spécialisé différement des autres : pour un même nombre de paramètres, les performances sont donc supposées être meilleures qu’avec une architecture classique. En revanche, si tous les poids du modèles ne sont pas utilisés systématiquement, c’est uniquement à l’inférence et à chaque couche du réseau que l’expert est choisi : il est donc tout de même nécessaire de charger l’intégralité des poids du modèle en mémoire, ce qui peut être très coûteux en VRAM. Pour une explication plus technique, l’article suivant détaille très bien les MoE en prenant l’exemple de Mixtral.</p>
 <p><a href="Une couche d'un réseau MoE"><img src="../images/moe_layer.png" width="500"></a></p>
 <p>Explication détaillée des MoE (exemple de Mixtral) : https://huggingface.co/blog/moe</p>
 </section>
-<section id="d.-nouvelles-architectures-mamba-jamba-etc." class="level4">
-<h4 class="anchored" data-anchor-id="d.-nouvelles-architectures-mamba-jamba-etc.">D. Nouvelles architectures : Mamba, Jamba, etc.</h4>
+<section id="nouvelles-architectures-mamba-jamba-etc." class="level4">
+<h4 class="anchored" data-anchor-id="nouvelles-architectures-mamba-jamba-etc.">Nouvelles architectures : Mamba, Jamba, etc.</h4>
 <p>Le principal inconvénient architectural des Transformers est leur complexité quadratique par rapport à la taille de l’entrée (qui vient du calcul quadratique de l’attention). <strong>Mamba</strong> est une architecture récente (Décembre 2023) qui s’affranchit du mécanisme d’attention, au profit de briques SSM (Structured State Space Models). L’intérêt principal de cette architecture est sa complexité linéaire par rapport à la taille de l’entrée.</p>
 <p><strong>Jamba</strong> est une nouvelle architecture hybride, à mi-chemin entre le Transformer et Mamba. Cela semble permettre un niveau de performance élevé, une gestion des contextes très longs, un temps d’inférence nettement plus court, et des exigences mémoires bien moindres.</p>
 <p>Liens des papiers originaux :</p>
@@ -418,7 +418,7 @@ window.Quarto = {
 </section>
 </section>
 <section id="méthodes-de-fine-tuning" class="level3">
-<h3 class="anchored" data-anchor-id="méthodes-de-fine-tuning">2. Méthodes de fine-tuning</h3>
+<h3 class="anchored" data-anchor-id="méthodes-de-fine-tuning">Méthodes de fine-tuning</h3>
 <p>Les LLM sont des réseaux de neurones de taille importante et font l’objet d’entraînement avec des ressources colossales (<em>e.g</em>: quelques dizaines de milliers de GPUs dernier modèle pendant 3 mois pour <code>GPT-4</code>). L’entraînement permet d’apprendre un jeu de données particulier, en réglant l’ensemble des poids du modèles (<em>e.g</em>: <code>Mixtral 8x22B</code> est une architecture à 141 milliards de poids; 175 milliards pour <code>GPT-3</code>). Les LLM sont entraînés à répondre à plusieurs tâches génériques et ne sont pas forcément pertinent pour des cas d’utilisation particulier.</p>
 <p>Pour répondre à ce besoin, plusieurs méthodes relevant du principe de fine-tuning sont possibles. Le fine-tuning consiste à reprendre un modèle déjà entraîné et à l’adapter sur un jeu de données particulier sur une ou plusieurs tâches spécifiques. En général, il s’agit de modifier une partie ou l’ensemble des poids pour que le modèle soit plus précis pour les tâches voulues. Le fine-tuning garde en grande partie les bénéfices de l’entraînement initial, <em>i.e</em> les connaissances antérieures déjà apprises. Repartir d’un modèle déjà entraîné pourra réduire le temps d’entraînement requis pour le fine-tuning, en fonction de la similarité entre la nouvelle tâche souhaitée et son jeu de données et les entraînements précédents.</p>
 <p>Pour des petits modèles de langages, il est possible de ré-entraîner en modifiant l’ensemble des poids. Pour des modèles plus grands, modifier l’ensemble des poids peut s’avérer couteux en temps et en GPUs. Plusieurs approches permettent de ré-entraîner à moindre coût :</p>
@@ -428,16 +428,16 @@ window.Quarto = {
 <li>garder l’intégralité du modèle et rajouter des poids à entraîner puis utiliser l’approximation de bas rang avec <code>LORA</code> (<code>Low-Rank Adaptation</code>) pour l’entraînement et l’inférence.</li>
 <li>utiliser des versions quantisées, i.e.&nbsp;des modèles où les poids ont été tronqués à une précision inférieure (possibilité de combiner avec la technique précédente, sous le nom de qLORA).</li>
 </ul>
-<section id="a.-fine-tuning-supervisé" class="level5">
-<h5 class="anchored" data-anchor-id="a.-fine-tuning-supervisé">A. Fine-tuning supervisé</h5>
-<section id="a.-fine-tuning-complet" class="level6">
-<h6 class="anchored" data-anchor-id="a.-fine-tuning-complet">a. Fine-tuning complet</h6>
+<section id="fine-tuning-supervisé" class="level5">
+<h5 class="anchored" data-anchor-id="fine-tuning-supervisé">Fine-tuning supervisé</h5>
+<section id="fine-tuning-complet" class="level6">
+<h6 class="anchored" data-anchor-id="fine-tuning-complet">Fine-tuning complet</h6>
 <ul>
 <li><a href="https://huggingface.co/docs/transformers/training">Implémentation HuggingFace</a></li>
 </ul>
 </section>
-<section id="b.-fine-tuning-efficace-peft-lora-qlora-dora-etc." class="level6">
-<h6 class="anchored" data-anchor-id="b.-fine-tuning-efficace-peft-lora-qlora-dora-etc.">b. Fine-tuning efficace (PEFT) : LoRA, QLoRA, DoRA, etc.</h6>
+<section id="fine-tuning-efficace-peft-lora-qlora-dora-etc." class="level6">
+<h6 class="anchored" data-anchor-id="fine-tuning-efficace-peft-lora-qlora-dora-etc.">Fine-tuning efficace (PEFT) : LoRA, QLoRA, DoRA, etc.</h6>
 <p>PEFT = Parameter-Efficient Fine-Tuning | LoRA = Low-Rank Adaptation | QLoRA = Quantized Low-Rank Adaptation | DoRA = Weight-Decomposed Low-Rank Adaptation</p>
 <p>Ré-entraîner entièrement un LLM est très coûteux en termes d’infrastructure et de données, et n’est donc pas à la portée de n’importe quelle organisation. Des méthodes « efficaces » ont été créées pour rendre le fine-tuning facilement accessible, dont la plus connue et la plus populaire est LoRA (Low-Rank Adaptation). Son fonctionnement repose sur deux éléments :</p>
 <ul>
@@ -549,16 +549,16 @@ window.Quarto = {
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>trainer.model.save_pretrained(new_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="b.-rlhf-et-rlaif" class="level5">
-<h5 class="anchored" data-anchor-id="b.-rlhf-et-rlaif">B. RLHF et RLAIF</h5>
+<section id="rlhf-et-rlaif" class="level5">
+<h5 class="anchored" data-anchor-id="rlhf-et-rlaif">RLHF et RLAIF</h5>
 <p>Le fine-tuning supervisé est très efficace dans de nombreux cas, mais il présente notamment l’inconvénient de nécessiter une quantité importante de données. La constitution d’une base de questions-réponses attendues par exemple peut se réveler coûteuse. Un autre moyen d’améliorer un modèle est d’utiliser de l’apprentissage par renforcement. La première version utilisée pour ré-entraîner un LLM est le RLHF (Reinforcement Learning from Human Feedback), qui consiste à récolter des retours d’utilisateurs humains (typiquement, entre deux réponses générées par un LLM, l’utilisateur va dire laquelle il préfère), puis à mettre à jour les poids du modèle, par un algorithme d’apprentissage par renforcement, de telle sorte que la réponse préférée par l’utilisateur ait plus de chances d’être générée. Cette approche s’est révélée particulièrement effiace pour «&nbsp;aligner&nbsp;» le modèle aux préférences humaines, en termes de biais, de toxicité, de style, etc.</p>
 <p>Bien que la constitution d’une base de retours humains soit moins coûteuse que celle d’une base de questions/réponses, elle reste coûteuse. Une solution aujourd’hui très populaire est de remplacer ces retours humains par des retours générés artificiellement, ce qui donne une approche appelée RLAIF (Reinforcement Learning from Artificial Intelligence Feedback). Typiquement, un LLM plus performant (par exemple GPT-4) va être utilisé pour déterminer la meilleure réponse entre deux ou plusieurs choix, selon des critères donnés. Ce sont ensuite ces retours qui vont être utilisés pour améliorer le modèle grâce à l’algorithme d’apprentissage par renforcement.</p>
 <p>RLHF = Reinforcement Learning from Human Feedback | RLAIF = Reinforcement Learning from Artificial Intelligence Feedback</p>
 <ul>
 <li><a href="https://huggingface.co/blog/rlhf">Introduction au RLHF</a></li>
 </ul>
-<section id="a.-ppo" class="level6">
-<h6 class="anchored" data-anchor-id="a.-ppo">a. PPO</h6>
+<section id="ppo" class="level6">
+<h6 class="anchored" data-anchor-id="ppo">PPO</h6>
 <p>PPO = Proximal Policy Optimization</p>
 <ul>
 <li><a href="https://huggingface.co/blog/deep-rl-ppo">Explication théorique</a></li>
@@ -566,8 +566,8 @@ window.Quarto = {
 </ul>
 <p>https://medium.com/<span class="citation" data-cites="oleglatypov/a-comprehensive-guide-to-proximal-policy-optimization-ppo-in-ai-82edab5db200">@oleglatypov/a-comprehensive-guide-to-proximal-policy-optimization-ppo-in-ai-82edab5db200</span></p>
 </section>
-<section id="b.-dpo-kto" class="level6">
-<h6 class="anchored" data-anchor-id="b.-dpo-kto">b. DPO, KTO</h6>
+<section id="dpo-kto" class="level6">
+<h6 class="anchored" data-anchor-id="dpo-kto">DPO, KTO</h6>
 <p>DPO = Direct Preference Optimization | KTO = Kahneman-Tversky Optimization</p>
 <ul>
 <li><a href="https://huggingface.co/blog/pref-tuning">Explication théorique</a></li>
@@ -576,16 +576,16 @@ window.Quarto = {
 <p>Liens des papiers originaux : - <a href="https://arxiv.org/abs/2305.18290">DPO</a> - <a href="https://arxiv.org/abs/2402.01306">KTO</a></p>
 </section>
 </section>
-<section id="c.-divers" class="level5">
-<h5 class="anchored" data-anchor-id="c.-divers">C. Divers</h5>
-<section id="a.-prompt-tuning" class="level6">
-<h6 class="anchored" data-anchor-id="a.-prompt-tuning">a. Prompt-tuning</h6>
+<section id="divers" class="level5">
+<h5 class="anchored" data-anchor-id="divers">Divers</h5>
+<section id="prompt-tuning" class="level6">
+<h6 class="anchored" data-anchor-id="prompt-tuning">Prompt-tuning</h6>
 <ul>
 <li><a href="https://arxiv.org/abs/2104.08691">Lien du papier</a></li>
 </ul>
 </section>
-<section id="b.-reft-et-loreft" class="level6">
-<h6 class="anchored" data-anchor-id="b.-reft-et-loreft">b. ReFT et LoReFT</h6>
+<section id="reft-et-loreft" class="level6">
+<h6 class="anchored" data-anchor-id="reft-et-loreft">ReFT et LoReFT</h6>
 <p>ReFT = Representation Fine-Tuning | LoReFT = Low-Rank Linear Subspace ReFT</p>
 <ul>
 <li><a href="https://arxiv.org/abs/2404.03592">Lien du papier</a></li>
