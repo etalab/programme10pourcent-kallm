@@ -31,6 +31,7 @@ Par exemple, des LLMs peuvent être utilisés pour identifier les thématiques d
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
 |Banque de France | Enquête sur les Tendances régionales | Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
+|LabIA DNUM | [LLamandement](https://gitlab.adullact.net/dgfip/projets-ia/llamandement) : LLM finetuné permettant d'accélerer le traitement d'amendements et projets de loi (notamment via la synthétisation des textes).| Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
 		
 
 -	**Faire une analyse de sentiment d’un corpus traitant d’une thématique**.
@@ -63,6 +64,31 @@ Par exemple, à partir de documents réglementaires extraire 15 informations-cl�
 | -------- | ------- |------- |------- |
 |Banque de France | Veridic | Guillaume.LOMBARDO@banque-france.fr | Passage en production prévu fin 2025 |
 
+-   **Classifier des accords d'entreprise**
+Les accords d'entreprise sont publiés sur [LégiFrance](https://www.legifrance.gouv.fr/liste/acco).
+Ces accords peuvent concerner plusieurs thématiques (télétravail, compte épargne temps, droit à la deconnexion).Ces thématiques sont déclarés par les entreprises et sont éventuellement corrigées par la Direction Générale du Travail.Le besoin est alors de détecter automatiquement les thématiques à la lecture de l'accord. Un jeu de données est disponible à l'adresse suivante : [accords_publics_xx_to_2022_themes_et_texte.parquet](https://minio.lab.sspcloud.fr/cthiounn2/Accords/accords_publics_xx_to_2022_themes_et_texte.parquet)
+
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+| |  |  |  |
+
+-   **IA générative**
+
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+| |  |  |  |
+
+Projet mené par le LabIA de la DINUM
+    - [Albert github](https://github.com/etalab-ia/albert) : Outils de déploiements des modèles Albert
+    - [Modèles Albert](Ajouter adresse Hugging Face)
+    - [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) : Projet à destination de
+    [France Service](https://www.france-services.gouv.fr/) et visant à appuyer ses conseillers dans la réalisation de leurs missions. Ce projet se base principalement
+    [Albert github](https://github.com/etalab-ia/albert)
+    [Albert hugging face]()
+
+
+> Pour plus de projets IA (au sens large) dans l'administration se référer au lien : https://grist.numerique.gouv.fr/o/beta-gouv-ia/9wTgwEbwqmwW/Ressources/p/1
+
 ## (Intégrer les cas d'usage ci-dessous au sein des catégories pré-citées ou en ajouter en faisant ressortir leur spécificité)
 
 ## Description cas d'usage
@@ -90,17 +116,3 @@ import requests
 api_url = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{model_id}"
 headers = {"Authorization": f"Bearer {hf_token}"}
 ```
-
-## (à intéger dans les exemples de cas d'usage du fichier cas_usage.qmd et dans la partie IV-Exemples)
-
- 2. Classifier des accords d'entreprise
-
-
-### Classifier des accords d'entreprise
-
- Les accords d'entreprise sont publiés sur [LégiFrance](https://www.legifrance.gouv.fr/liste/acco).
- Ces accords peuvent concerner plusieurs thématiques (télétravail, compte épargne temps, droit à la deconnexion).
- Ces thématiques sont déclarés par les entreprises et sont éventuellement corrigées par la Direction Générale du Travail.
- Le besoin est alors de détecter automatiquement les thématiques
- à la lecture de l'accord.
- Un jeu de données est disponible à l'adresse suivante : [accords_publics_xx_to_2022_themes_et_texte.parquet](https://minio.lab.sspcloud.fr/cthiounn2/Accords/accords_publics_xx_to_2022_themes_et_texte.parquet)
