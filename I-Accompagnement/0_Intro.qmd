@@ -1,0 +1,14 @@
+## Introduction aux Large Language Models (LLM) 
+
+Les Large Language Models sont des algorithmes d’intelligence artificielle destinés à exploiter des documents non-structurés (corpus de textes), afin d’en extraire des informations utiles ou de créer une nouvelle forme d’information à partir de cette base documentaires (ex : réponses à des questions, résumé, etc…). 
+
+Les documents forment les observations statistiques considérées (à rapprocher des « individus ») et leur ensemble forme un corpus (à rapprocher d’une « population »).
+Les mots ou les chaînes de caractère forment les variables.
+
+L’idée est de transformer un document en un vecteur et le corpus en une matrice, avec les documents en ligne et les mots ou chaînes de caractère en colonnes.
+
+Les matrices en résultant sont potentiellement d’une très grande dimension (nombre de mots utilisés dans le corpus en colonnes), et en même temps creuses (les mots/chaînes de caractères employés dans le corpus peuvent être utilisés uniquement dans quelques documents du corpus).
+
+Aussi, après l’importation d’un corpus de textes, la première étape consiste en une phase de pré-traitement visant à réduire la dimension de cette matrice : enlever le bruit(ponctuation, mots usuels n’apportant pas d’information, etc…), lemmatiser ou raciniser (ex : garder  exclusivement « jard » pour « jardin », « jardiner », « jardinage », …), faire une analyse en composantes principales…
+
+L’utilisation d’outils de machine learning sur la matrice de dimension plus réduite ainsi obtenue permet notamment de comparer les documents, d’analyser la similarité ou la distance entre eux, d’identifier des thèmes abordés et de catégoriser les documents en fonction de thématiques, afin de filtrer ou de produire des statistiques.
