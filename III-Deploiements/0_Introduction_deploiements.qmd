@@ -23,8 +23,6 @@ concepts utilisés sont communes. Ce chapitre introduit les principales outils
 nécessaires, et présente différents contextes de déploiement. Il est découpé en
 4 parties :
 
-parler d'ollama
-
 1. :construction: [Architecture d'un projet
 LLM](./1_Architecture_projet_llm.qmd): Définition générale des composants d'un
 projet LLM, ainsi que des pistes de réflexion pour 'infrastructure sous-jacente
@@ -35,4 +33,4 @@ exemple d'implémentation de ces outils
 1. :cloud: [Infrastructures externalisées pour
 l'administration](./3_Infras_administrations.qmd): Premiers éléments sur la mise
 en place d'une infrastructure externalisée ou semi-externalisée.
-1. :computer: [Déploiement d'applications](./4_Deploiement_applications.qmd): Dépl
+1. :computer: [Déploiement d'applications](./4_Deploiement_applications.qmd): Exemples de déploiements d'interfaces pour des fonctionnalités de tchat et de RAG.

@@ -81,4 +81,4 @@ kubectl proxy
 
 Le projet Caradoc mentionné précédemment peut également être déployé sur le SSP Cloud via un Chart Helm. Le procédure d'installation est disponible [ici](https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/blob/master/k8s/charts/README.md).
 
-> Pour plus d'informations sur le déploiement de chart Helm sur le SSP Cloud, il existe un [tutoriel](https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md) qui détaille l'installation d'une application Shiny. Un exemple de déploiement d'un chart Helm pour l'instantiation d'une infrastrucuture LLM est aussi disponible au sein du [guide](./4_Socle_Production.qmd#C. Exemple de déploiement)
+> Pour plus d'informations sur le déploiement de chart Helm sur le SSP Cloud, il existe un [tutoriel](https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md) qui détaille l'installation d'une application Shiny. Un exemple de déploiement d'un chart Helm pour l'instantiation d'une infrastrucuture LLM est aussi disponible au sein du [guide](./4_Socle_Production.qmd).
