@@ -43,12 +43,12 @@ website:
         contents:
           - href: III-Deploiements/1_Architecture_projet_llm.qmd
             text: ":construction: Architecture d'un projet LLM"
-          - href: III-Deploiements/2_Service_LLM_production.qmd
+          - href: III-Deploiements/2_Service_LLM_avance.qmd
             text: ":wrench: Service LLM avancé"
-          - href: III-Deploiements/3_Infras_administrations.qmd
-            text: ":cloud: Infrastructures externalisées pour l'administration"
-          - href: III-Deploiements/4_Socle_Production.qmd
-            text: ":factory: Déploiement sur site à grande échelle"
+          - href: III-Deploiements/3_Service_LLM_production.qmd
+            text: ":factory: Service LLM à grande échelle"
+          - href: III-Deploiements/4_Deploiement_applications.qmd
+            text: ":computer: Déploiement d'interfaces"
       - section: "IV-Exemples"
         contents:
           - href: IV-Exemples/2_Classification_accords_entreprise.qmd

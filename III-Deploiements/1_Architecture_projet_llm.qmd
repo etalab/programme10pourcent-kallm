@@ -5,36 +5,37 @@ title: 3. Infrastructures externalisées pour l'administration
 ## Architecture de projets LLM
 
 Dans la plupart des cas, un projet d'IA générative ne se limite pas au
-déploiement d'un LLM. La plupart des projet nécessite la présence d'une
-interface utilisateur, et souvent d'une architecture RAG.
+déploiement d'un LLM. Souvent, le projet nécessitera la présence d'une
+interface utilisateur, et parfois même d'une architecture RAG.
 
-Un exemple d'architecture d'application d'IA générative est donné dans le
+Les différents élements du développement d'une application d'IA générative sont donnés dans le
 [rapport de l'ANSSI sur l'IA
 générative](https://cyber.gouv.fr/sites/default/files/document/Recommandations_de_s%C3%A9curit%C3%A9_pour_un_syst%C3%A8me_d_IA_g%C3%A9n%C3%A9rative.pdf)
 :
 
 ![](../images/anssi_architecture_iagen.png)
 
-Les principales briques d'un projet se décomposent en 3 grandes familles :
-- Service LLM
-- Interface utilisateur
-- Gestion d'une base de connaissance (RAG)
+Pour le déploiement, les principales briques puevent se décomposent en 3 grandes familles :
 
-Un exemple d'infrastructure pour un projet RAG est donné dans le cadre du projet
-[CARADOC](https://gitlab.adullact.net/dgfip/projets-ia/caradoc) (cf.
-[déploiement CARDOC](./4_Deploiement_applications.qmd#caradoc)):
-
-![](https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/raw/master/doc/AYD_architecture.drawio.png)
+- [Service LLM](#service-llm)
+- [Interface utilisateur](#interface-utilisateur)
+- [Gestion d'une base de connaissance (RAG)](#gestion-dune-base-de-connaissance)
 
 ### Service LLM
 
+#### Infrastructure d'inférence à base de GPU
+
+Dans le cas où il est possible d'avoir accès à des GPUs, il existe de nombreux outils pour déployer des LLMs sur sa propre infrastructure. Ces outils permettent de déployer à de multiples échelles des modèles LLM libres.
+
+Cette option est détaillée dans les parties [Service LLM avancé](./2_Service_LLM_avance.qmd) et [Service LLM à grande échelle](./3_Service_LLM_production.qmd).
+
 #### API
 
-La principale manière. Elle présente l'intérêt d'être prêt à l'emploi et de ne
+Cette option présente l'intérêt d'être prêt à l'emploi et de ne
 pas nécessiter d'infrastructure dédiée en propre
 
 1. **API Albert** : Offre fourni à quelques partenaires de la DINUM, avec des capacités d'hébergement limitées.
-> (ajouter contact ou moyen d'accès)
+<!-- TODO Ajouter contact ou moyen d'accès -->
 2. **Externe non sécurisée** : Ces solutions sont envisageables où les besoins en performance sont importants et les contraintes de sécurité sont faibles. Voici quelques exemples de solutions :
     - [Mistral API](https://mistral.ai/fr/)
     - [API Openai](https://platform.openai.com/docs/overview)
@@ -43,37 +44,42 @@ pas nécessiter d'infrastructure dédiée en propre
 
 #### Ollama
 
-#### Infrastructure d'inférence à base de GPU
+[ollama](https://ollama.com/) permet le déploiement en local de nombreux modèles d'IA générative (LLM, multimodal LLM, embedings, Code completion, ...), à l'aide d'une unique ligne de commande : 
 
-Dans le cas où il est possible d'avoir accès à des GPUs, il existe de nombreuses
-librairies et outils pour déployer des LLMs sur sa propre infrastructure.
+```bash
+ollama run llama3.2
+```
 
-Dans ce
+Pour permettre l'exécution dans le plus de contexte possible, ollama donne le choix de la taille du modèle et du niveau de quantization.
 
-### Gestion de la base de connaissance
+```bash
+ollama run gemma2:27b-instruct-q2_K
+```
 
-COmme
+> ollama n'est pas adapté dans les cas où le projet a des contraintes de performance et/ou doit gérer les requêtes simultanées de plusieurs utilisateurs.
 
-cf. benchmark RAG
+### Gestion d'une base de connaissance
 
+Les architectures RAG se concentrent principalement autour d'une base de données vectorielles (cf [Benchmark des différentes bases vectorielles](../II-Developpements/2_RAG.qmd#d.-benchmark-des-différentes-bases-vectorielles-(katia)).
+
+Un exemple d'infrastructure pour un projet RAG est donné dans le cadre du projet CARADOC (cf.
+[déploiement CARDOC](./4_Deploiement_applications.qmd#caradoc)):
+
+![](https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/raw/master/doc/AYD_architecture.drawio.png)
 
 ### Interface utilisateur
 
-Bien que des packages comme streamlit et Gradio propose des briques de tchat
+Pour des applications simples, streamlit et Gradio propose des interfaces de chat. Un exemple d'outil développé et déployé avec Gradio est [Compar:IA](https://comparia.beta.gouv.fr/).
 
-L'interface utilisateur peut être complex
-
-
+Dans les cas où les intéractions sont plus complexes, il peut être nécessaire de passer sur une application plus lourde. Des exemples d'applications sont abordées dans la partie [Déploiement d'applications](./4_Deploiement_applications.qmd).
 
 ## Pistes d'infrastructure
 
-Dans beaucoup de cas l'accès à des GPUs est un des principaux freins à l'expérimentaion et la mise en production d'un cas d'usage d'IA générative. L'acquisition d'un cluster GPUs n'est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs alternatives sont envisageables (ou en cours de construction) à destination des administrations pour externaliser cette infrastructure.
+Dans beaucoup de cas l'accès à des GPUs est un des principaux freins à l'expérimentaion et la mise en production d'un cas d'usage d'IA générative. L'acquisition d'un cluster GPUs n'est pas toujours une possibilité pour des questions budgétaires ou techniques. Cependant, plusieurs alternatives sont envisageables (ou en cours de construction) par les administrations pour externaliser cette infrastructure.
 
-Dans ce cadre, la principale variable a prendre en compte sont les contraintes de sécurité de l'application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux.
+Dans ce cadre, les principales variables à prendre en compte sont les contraintes de sécurité de l'application. Cette question va à la fois déterminer les solutions accessibles et imposer des choix architecturaux.
 
-Tout ou parti de ces éléments peuvent être externalisé en fonction de la maturité de l'administration, du besoin utilisateur et des contraintes de sécurité.
-
-3 principales solutions d'externalisation sont possibles :
+2 principales solutions d'externalisation sont possibles :
 
 - [Cloud Public](#cloud-public)
 - [Cloud externe](#cloud-externe)
@@ -81,8 +87,6 @@ Tout ou parti de ces éléments peuvent être externalisé en fonction de la mat
 > Dans certains cas, il peut être  intéressant de mettre en place une architecture hybride Cloud + API d'inférence. Ce qui permet de bénéficier de l'agilité de développement des solutions Cloud, tout en éliminant les coûts relatifs à l'approvisionnement de GPUs.
 
 ### Cloud Public
-
-Bien que l'état dispose de plusieurs offres cloud internes, la mise à disposition de GPU est encore très peu mature et peu développée
 
 1. [**SSP Cloud**](https://datalab.sspcloud.fr/?lang=fr) : A ce jour, le SSP Cloud via sa plateforme ONYXIA (hébergée et dévelopée par l'INSEE), est la principale plateforme publique mettant à disposition des GPUs à ses utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production. cf [Déploiement d'un LLM sur SSP Cloud](#Déploiement d'un LLM sur SSP Cloud)
 
@@ -101,6 +105,3 @@ La qualificiation [SecNumCloud](https://cyber.gouv.fr/secnumcloud-pour-les-fourn
 3. [Cloud Temple](https://www.cloud-temple.com/) **IAAS **
 
 > Plus d'informations sur ce type de services sont disponibles [ici](https://www.numerique.gouv.fr/services/cloud/cloud-commercial/).
-
-
-

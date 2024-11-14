@@ -1,5 +1,5 @@
 ---
-title: Outillage avancé
+title: Déploiement d'applications
 ---
 
 ## Des interfaces déjà disponibles pour vos modèles LLMs
@@ -9,11 +9,10 @@ Plusieurs initiatives permettent de déployer rapidement des interfaces de chat 
 - [CARADOOC](#caradoc)
 - [WebUI du module FastChat](#fastchat)
 - [openwebui](#openwebui)
-- [Verba]
 
 ### CARADOC
 
-Mise en open source par l'équipe DataScience de la DTNUM de la DGFiP, publication prévue pour fin juin 2024.
+Mise en open source par l'équipe DataScience de la DTNUM de la DGFiP : [git](https://gitlab.adullact.net/dgfip/projets-ia/caradoc)
 
 Aperçu de l'application CARADOC pendant ses développements :
 
@@ -50,8 +49,11 @@ Avec toujours l'image Docker qui contient FastChat.
 
 ### Open WebUI
 
-https://docs.openwebui.com/
+[Open webui](https://docs.openwebui.com/) est une librairie opensource permettant le déploiement d'une interface similaire à ChatGPT pour intéragir avec des API ou son propre service LLM. 
 
+![](../images/openwebui.png)
+
+Au delà du tchat, l'application donne accès à plusieurs fonctionnalités avancées (RAG, exécution de fonction, ...). Elle est déployable via Docker ou installation python.
 
 ## Déploiement sur le SSP Cloud
 

@@ -27,13 +27,12 @@ parler d'ollama
 
 1. :construction: [Architecture d'un projet
 LLM](./1_Architecture_projet_llm.qmd): Définition générale des composants d'un
-projet LLM, ainsi que des pistes de réflexion l'infrastructure sous-jacente
+projet LLM, ainsi que des pistes de réflexion pour 'infrastructure sous-jacente
 1. :nut_and_bolt: [Service LLM avancé](./2_Service_LLM_avance.qmd): Description
 des principaux composants d'une architecture d'inférence, ainsi qu'un premier
 exemple d'implémentation de ces outils
-1. :factory: [Service LLM production](./2_Service_LLM_production.qmd): Orchestration et mise en place d'une infrastructure d'inférence
+1. :factory: [Service LLM production](./3_Service_LLM_production.qmd): Orchestration et mise en place d'une infrastructure d'inférence
 1. :cloud: [Infrastructures externalisées pour
 l'administration](./3_Infras_administrations.qmd): Premiers éléments sur la mise
 en place d'une infrastructure externalisée ou semi-externalisée.
-1. :factory: [Déploiement sur site à grande échelle](./4_Socle_Production.qmd):
- sur site à grande échelle
+1. :computer: [Déploiement d'applications](./4_Deploiement_applications.qmd): Dépl
