@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="équipe KALLM">
-<meta name="dcterms.date" content="2024-06-07">
 
-<title>PARTIE I. Accompagnement au changement – Guide d’installation des LLM</title>
+<title>intro – Guide d'installation des LLM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +80,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../I-Accompagnement/1_cas_usage.html">I-Accompagnement</a></li><li class="breadcrumb-item"><a href="../I-Accompagnement/2_Deja_Fait_Admin.html">Exemples dans l’administration</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Guide d'installation des LLM
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,19 +133,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../I-Accompagnement/2_Deja_Fait_Admin.html" class="sidebar-item-text sidebar-link active">
+  <a href="../I-Accompagnement/2_Deja_Fait_Admin.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exemples dans l’administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../I-Accompagnement/3_Acculturation.html" class="sidebar-item-text sidebar-link">
+  <a href="../I-Accompagnement/3_Acculturation.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acculturation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../I-Accompagnement/4_Impacts.html" class="sidebar-item-text sidebar-link">
+  <a href="../I-Accompagnement/4_Impacts.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Impacts</span></a>
   </div>
 </li>
@@ -254,11 +254,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#à-intéger-dans-la-partie-iv-exemples" id="toc-à-intéger-dans-la-partie-iv-exemples" class="nav-link active" data-scroll-target="#à-intéger-dans-la-partie-iv-exemples">(à intéger dans la partie IV-Exemples)</a>
+  <li><a href="#introduction-aux-large-language-models-llm" id="toc-introduction-aux-large-language-models-llm" class="nav-link active" data-scroll-target="#introduction-aux-large-language-models-llm">Introduction aux Large Language Models (LLM)</a>
   <ul class="collapse">
-  <li><a href="#b.-modèles" id="toc-b.-modèles" class="nav-link" data-scroll-target="#b.-modèles">B. Modèles</a></li>
-  <li><a href="#c.-datasets" id="toc-c.-datasets" class="nav-link" data-scroll-target="#c.-datasets">C. Datasets</a></li>
-  <li><a href="#d.-infrastructure" id="toc-d.-infrastructure" class="nav-link" data-scroll-target="#d.-infrastructure">D. Infrastructure</a></li>
+  <li><a href="#représentation-du-corpus-de-documents-sous-forme-de-matrice" id="toc-représentation-du-corpus-de-documents-sous-forme-de-matrice" class="nav-link" data-scroll-target="#représentation-du-corpus-de-documents-sous-forme-de-matrice">Représentation du corpus de documents sous forme de matrice</a></li>
+  <li><a href="#caractéristiques-des-matrices" id="toc-caractéristiques-des-matrices" class="nav-link" data-scroll-target="#caractéristiques-des-matrices">Caractéristiques des matrices</a></li>
+  <li><a href="#étapes-de-prétraitement" id="toc-étapes-de-prétraitement" class="nav-link" data-scroll-target="#étapes-de-prétraitement">Étapes de prétraitement</a></li>
+  <li><a href="#analyse-et-applications" id="toc-analyse-et-applications" class="nav-link" data-scroll-target="#analyse-et-applications">Analyse et applications</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -266,61 +267,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../I-Accompagnement/1_cas_usage.html">I-Accompagnement</a></li><li class="breadcrumb-item"><a href="../I-Accompagnement/2_Deja_Fait_Admin.html">Exemples dans l’administration</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">PARTIE I. Accompagnement au changement</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>équipe KALLM </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 7, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="à-intéger-dans-la-partie-iv-exemples" class="level2">
-<h2 class="anchored" data-anchor-id="à-intéger-dans-la-partie-iv-exemples">(à intéger dans la partie IV-Exemples)</h2>
-<ol type="1">
-<li><p>[Albert - Dinum] : Projet mené par le LabIA de la DINUM</p>
-<ul>
-<li><a href="https://github.com/etalab-ia/albert">Albert github</a> : Outils de déploiements des modèles Albert</li>
-<li><a href="Ajouter adresse Hugging Face">Modèles Albert</a></li>
-<li><a href="https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.">Albert France Services</a> : Projet à destination de <a href="https://www.france-services.gouv.fr/">France Service</a> et visant à appuyer ses conseillers dans la réalisation de leurs missions. Ce projet se base principalement</li>
-</ul></li>
-<li><p><a href="https://gitlab.adullact.net/dgfip/projets-ia/llamandement">LLamandement</a> - LLM finetuné permettant d’accélerer le traitement d’amendements et projets de loi (notamment via la synthétisation des textes).</p></li>
-</ol>
-<blockquote class="blockquote">
-<p>Pour plus de projets IA (au sens large) dans l’administration se référer au lien : https://grist.numerique.gouv.fr/o/beta-gouv-ia/9wTgwEbwqmwW/Ressources/p/1</p>
-</blockquote>
-<section id="b.-modèles" class="level3">
-<h3 class="anchored" data-anchor-id="b.-modèles">B. Modèles</h3>
-<p><a href="https://github.com/etalab-ia/albert">Albert github</a> <a href="">Albert hugging face</a></p>
+<section id="introduction-aux-large-language-models-llm" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-aux-large-language-models-llm">Introduction aux Large Language Models (LLM)</h2>
+<p>Les <strong>Large Language Models</strong> sont des algorithmes d’intelligence artificielle conçus pour exploiter des documents non structurés (corpus de textes). Ils permettent d’en extraire des informations utiles ou de générer de nouvelles informations à partir de cette base documentaires (par exemple : répondre à des questions, résumer un texte, traduire, etc.).</p>
+<section id="représentation-du-corpus-de-documents-sous-forme-de-matrice" class="level3">
+<h3 class="anchored" data-anchor-id="représentation-du-corpus-de-documents-sous-forme-de-matrice">Représentation du corpus de documents sous forme de matrice</h3>
+<p>Dans ce contexte, les <strong>documents</strong> forment les observations statistiques considérées (équivalent aux « individus » en statistique) et leur ensemble forme un <em>corpus</em> (équivalent à une « population »). Dans certains cas, les documents sont découpés en paragraphes qui forment les observations statistiques. Les <strong>mots</strong> ou les <strong>chaînes de caractères</strong> extraîts des documents jouent le rôle des variables.</p>
+<p>Pour analyser un corpus, chaque document est représenté sous forme d’un <strong>vecteur</strong> et le corpus entier sous forme d’une <strong>matrice</strong>, où les <strong>lignes</strong> correspondent aux et les <strong>colonnes</strong> représentent les mots ou les chaînes de caractères.</p>
 </section>
-<section id="c.-datasets" class="level3">
-<h3 class="anchored" data-anchor-id="c.-datasets">C. Datasets</h3>
+<section id="caractéristiques-des-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="caractéristiques-des-matrices">Caractéristiques des matrices</h3>
+<p>Les matrices en résultantes sont potentiellement d’une très <strong>grande dimension</strong> (nombre de mots/chaînes de caractères utilisés dans le corpus en colonnes), et en même temps <strong>creuses</strong> (les mots/chaînes de caractères employés dans le corpus peuvent être utilisés uniquement dans quelques documents du corpus).</p>
 </section>
-<section id="d.-infrastructure" class="level3">
-<h3 class="anchored" data-anchor-id="d.-infrastructure">D. Infrastructure</h3>
-<p>des modeles des datasets/open data&nbsp;?</p>
+<section id="étapes-de-prétraitement" class="level3">
+<h3 class="anchored" data-anchor-id="étapes-de-prétraitement">Étapes de prétraitement</h3>
+<p>Après l’importation d’un corpus de textes, la première étape consiste en une phase de prétraitement visant à réduire la dimension de cette matrice et à en améliorer la pertinence. Cela inclut : - <strong>nettoyer les données</strong> : supprimer la ponctuation, mots usuels n’apportant pas d’information, etc.) - <strong>lemmatiser</strong> ou <strong>raciniser</strong> : simplifier des mots en gardant que leur racine commune (par example : garder exclusivement « finan » pour les mots « financer », « financier », « financement », …), - utiliser des techniques comme l’<strong>analyse en composantes principales</strong> <a href="https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales">(ACP)</a> ou <strong>Term Frequency-Inverse Document Frequency</strong> <a href="https://fr.wikipedia.org/wiki/TF-IDF">(TF-IDF)</a></p>
+</section>
+<section id="analyse-et-applications" class="level3">
+<h3 class="anchored" data-anchor-id="analyse-et-applications">Analyse et applications</h3>
+<p>L’utilisation d’outils de machine learning sur la matrice de dimension plus réduite ainsi obtenue permet - de <strong>comparer les documents</strong> pour analyser la similarité ou la distance entre eux - d’<strong>identifier des thèmes</strong> abordés dans le corpus - de <strong>classer</strong> et <strong>catégoriser les documents</strong> en fonction de thématiques - de <strong>filtrer les contenus</strong> ou de <strong>produire des statistiques</strong> pour comprendre la répartition des sujets dans l’ensemble des textes.</p>
+<p>Ainsi, les Large Language Models nous permettent de traiter, d’interpréter et de valoriser les données textuelles de manière automatisée et à grande échelle.</p>
 
 
 </section>
