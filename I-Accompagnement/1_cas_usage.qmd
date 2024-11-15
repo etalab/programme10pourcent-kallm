@@ -22,7 +22,7 @@ Des LLMS peuvent être utilisés pour labelliser des articles de presse traitant
 |Ministère en charge de la santé| SIRANo | dgos-sirano@sante.gouv.fr | Expérimentation  |
 |Banque de France |Étude de l’impact des surprises monétaires sur les taux de change|jean-charles.bricongne@banque-france.fr| Recherche|
 |Banque de France  |Anticipation d’inflation |jean-charles.bricongne@banque-france.fr <br>olivier.debandt@banque-france.fr <br> Thomas.RENAULT.external@banque-france.fr |Recherche  |
-|Ministère du travail et de l'emploi  | Acccords d'entreprise |Conrad |  |
+|Dares - Ministère du Travail | Acccords d'entreprise |THIOUNN, Conrad (DARES) <conrad.thiounn@travail.gouv.fr> |  |
 
 
 -	**Identifier les thématiques traitées dans un corpus**.
