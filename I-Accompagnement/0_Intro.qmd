@@ -3,10 +3,9 @@
 Les **Large Language Models** sont des algorithmes d’intelligence artificielle conçus pour exploiter des documents non structurés (corpus de textes). Ils permettent d'en extraire des informations utiles ou de générer de nouvelles informations à partir de cette base documentaires (par exemple : répondre à des questions, résumer un texte, traduire, etc.).
 
 
-### Représentation des documents
+### Représentation du corpus de documents sous forme de matrice
 
-Dans ce contexte, les **documents** forment les observations statistiques considérées (équivalent aux « individus » en statistique) et leur ensemble forme un *corpus* (équivalent à une « population »).
-Les **mots** ou les **chaînes de caractères** extraîts des documents jouent le rôle des variables.
+Dans ce contexte, les **documents** forment les observations statistiques considérées (équivalent aux « individus » en statistique) et leur ensemble forme un *corpus* (équivalent à une « population »). Dans certains cas, les documents sont découpés en paragraphes qui forment les observations statistiques. Les **mots** ou les **chaînes de caractères** extraîts des documents jouent le rôle des variables.
 
 Pour analyser un corpus, chaque document est représenté sous forme d'un **vecteur** et le corpus entier sous forme d'une **matrice**, où les **lignes** correspondent aux et les **colonnes** représentent les mots ou les chaînes de caractères.
 
@@ -15,12 +14,13 @@ Pour analyser un corpus, chaque document est représenté sous forme d'un **vect
 
 Les matrices en résultantes sont potentiellement d’une très **grande dimension** (nombre de mots/chaînes de caractères utilisés dans le corpus en colonnes), et en même temps **creuses** (les mots/chaînes de caractères employés dans le corpus peuvent être utilisés uniquement dans quelques documents du corpus).
 
+
 ### Étapes de prétraitement
 
 Après l’importation d’un corpus de textes, la première étape consiste en une phase de prétraitement visant à réduire la dimension de cette matrice et à en améliorer la pertinence. Cela inclut :
 - **nettoyer les données** : supprimer la ponctuation, mots usuels n’apportant pas d’information, etc.) 
 - **lemmatiser** ou **raciniser** : simplifier des mots en gardant que leur racine commune (par example : garder exclusivement « finan » pour les mots « financer », « financier », « financement », …), 
-- **réduire la dimensionnalité** en utilisant des techniques comme l'**analyse en composantes principales** [(ACP)](https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales) ou **Term Frequency-Inverse Document Frequency** 
+- utiliser des techniques comme l'**analyse en composantes principales** [(ACP)](https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales) ou **Term Frequency-Inverse Document Frequency** 
 [(TF-IDF)](https://fr.wikipedia.org/wiki/TF-IDF)
 
 
