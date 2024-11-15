@@ -88,31 +88,3 @@ Projet mené par le LabIA de la DINUM
 
 
 > Pour plus de projets IA (au sens large) dans l'administration se référer au lien : https://grist.numerique.gouv.fr/o/beta-gouv-ia/9wTgwEbwqmwW/Ressources/p/1
-
-## (Intégrer les cas d'usage ci-dessous au sein des catégories pré-citées ou en ajouter en faisant ressortir leur spécificité)
-
-## Description cas d'usage
-
- 1. Utilisation des SLM pour la recherche thématique simple en français (en cours, Zhanna)<br>
-Malgré la disponibilité et l’attractivité des « grands » modèles langages comme GPT et Mixtral, l’utilisation des petits modèles classiques est parfois plus avantageuse, surtout quand les ressources techniques ou l’accès aux données sont restreints.\
-C’est vrai dans le cas d’utilisation d’un SLM basé sur un modèle devenu classique, BERT qui donne la naissance à milliers de modèles spécialisés comme [CamemBERT](https://arxiv.org/abs/1911.03894) un modèle en français ou encore [sBERT ou sentenceTransformers](https://sbert.net/) permettant un entraînement spécialisé pour une recherche sémantique.
-<br>
-**ici plus d'information sur les avantages des SLM (données, environement, spécialisation, travail en local, technique)
-<br>
-Nous considérons un exemple d’utilisation de CamemBERT-base et un exemple de sBERT :
-
-1. [camembert-bio-base](https://huggingface.co/almanach/camembert-bio-base) avec ses 111M de paramètres, pour une recherche thématique dans des textes scientifiques biomédicaux.
-Nous utiliserons les transformers de [HuggingFace](https://github.com/huggingface/transformers)
-```python
-from transformers import AutoTokenizer, AutoModelForMaskedLM
-biotokenizer = AutoTokenizer.from_pretrained("almanach/camembert-bio-base")
-biomodel = AutoModelForMaskedLM.from_pretrained("almanach/camembert-bio-base")
-```
-
-2. [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
-```python
-import requests
-
-api_url = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{model_id}"
-headers = {"Authorization": f"Bearer {hf_token}"}
-```
