@@ -32,7 +32,7 @@ Les serveurs sont responsables de l'orchestration des requêtes HTTP/gRPC entran
 
 Quels outils sont les mieux adaptés à nos besoins ? Comment choisir ? Voici un survol rapide de grands noms du milieu pour références.
 
-> Une recommandation de framework rapide à prendre en main et dont l'utilité a déjà été prouvée dans une de nos administrations se trouve à la fin et est développée dans le prochain paragraphe.
+> Une recommandation de framework rapide à prendre en main et dont l'utilité a déjà été prouvée dans une de nos administrations se trouve à la [fin](#fastchat) et est développée dans le prochain paragraphe.
 
 ### Moteurs
 

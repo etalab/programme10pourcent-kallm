@@ -48,7 +48,7 @@ website:
           - href: III-Deploiements/3_Service_LLM_production.qmd
             text: ":factory: Service LLM à grande échelle"
           - href: III-Deploiements/4_Deploiement_applications.qmd
-            text: ":computer: Déploiement d'interfaces"
+            text: ":computer: Déploiement d'applications"
       - section: "IV-Exemples"
         contents:
           - href: IV-Exemples/2_Classification_accords_entreprise.qmd

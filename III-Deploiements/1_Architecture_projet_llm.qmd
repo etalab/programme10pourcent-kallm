@@ -15,13 +15,16 @@ générative](https://cyber.gouv.fr/sites/default/files/document/Recommandations
 
 ![](../images/anssi_architecture_iagen.png)
 
-Pour le déploiement, les principales briques puevent se décomposent en 3 grandes familles :
+Pour le déploiement, les principales briques peuvent se décomposent en 3 grandes familles :
 
 - [Service LLM](#service-llm)
 - [Interface utilisateur](#interface-utilisateur)
 - [Gestion d'une base de connaissance (RAG)](#gestion-dune-base-de-connaissance)
 
 ### Service LLM
+
+Le service LLM est la brique qui permet de faire tourner un modèle de language. Il
+peut être déployé sur une infrastructure en propre, ou externalisé.
 
 #### Infrastructure d'inférence à base de GPU
 
@@ -31,16 +34,16 @@ Cette option est détaillée dans les parties [Service LLM avancé](./2_Service_
 
 #### API
 
-Cette option présente l'intérêt d'être prêt à l'emploi et de ne
-pas nécessiter d'infrastructure dédiée en propre
+Cette option présente l'intérêt d'être prête à l'emploi et de ne
+pas nécessiter de posséder infrastructure dédiée.
 
-1. **API Albert** : Offre fourni à quelques partenaires de la DINUM, avec des capacités d'hébergement limitées.
+1. **API Albert** : Offre fournie par la DINUM pour les administrations.
 <!-- TODO Ajouter contact ou moyen d'accès -->
 2. **Externe non sécurisée** : Ces solutions sont envisageables où les besoins en performance sont importants et les contraintes de sécurité sont faibles. Voici quelques exemples de solutions :
     - [Mistral API](https://mistral.ai/fr/)
     - [API Openai](https://platform.openai.com/docs/overview)
     - [Hugging face - inference endpoint](https://huggingface.co/inference-endpoints/dedicated)
-    - [API Claude - Anthropic](https://www.anthropic.com/api
+    - [API Claude - Anthropic](https://www.anthropic.com/api)
 
 #### Ollama
 
@@ -60,14 +63,18 @@ ollama run gemma2:27b-instruct-q2_K
 
 ### Gestion d'une base de connaissance
 
+Dans le cas où le projet nécessite l'utilisation de Retrieval Augmented Generation (RAG), il est nécessaire de mettre en place une infrastructure permettant de stocker et de récupérer les données nécessaires au modèle.
+
 Les architectures RAG se concentrent principalement autour d'une base de données vectorielles (cf [Benchmark des différentes bases vectorielles](../II-Developpements/2_RAG.qmd#d.-benchmark-des-différentes-bases-vectorielles-(katia)).
 
 Un exemple d'infrastructure pour un projet RAG est donné dans le cadre du projet CARADOC (cf.
-[déploiement CARDOC](./4_Deploiement_applications.qmd#caradoc)):
+[déploiement CARADOC](./4_Deploiement_applications.qmd#caradoc)):
 
 ![](https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/raw/master/doc/AYD_architecture.drawio.png)
 
 ### Interface utilisateur
+
+L'interface utilisateur est la brique qui permet à l'utilisateur d'interagir avec le modèle et/ou les résultats du modèle. Elle peut être développée spécifiquement pour le projet, ou utiliser un outil existant.
 
 Pour des applications simples, streamlit et Gradio propose des interfaces de chat. Un exemple d'outil développé et déployé avec Gradio est [Compar:IA](https://comparia.beta.gouv.fr/).
 
@@ -84,13 +91,13 @@ Dans ce cadre, les principales variables à prendre en compte sont les contraint
 - [Cloud Public](#cloud-public)
 - [Cloud externe](#cloud-externe)
 
-> Dans certains cas, il peut être  intéressant de mettre en place une architecture hybride Cloud + API d'inférence. Ce qui permet de bénéficier de l'agilité de développement des solutions Cloud, tout en éliminant les coûts relatifs à l'approvisionnement de GPUs.
+> Dans certains cas, il peut être intéressant de mettre en place une architecture hybride Cloud + API d'inférence. Ce qui permet de bénéficier de l'agilité de développement des solutions Cloud, tout en réduisant les coûts relatifs à l'approvisionnement de GPUs.
 
 ### Cloud Public
 
-1. [**SSP Cloud**](https://datalab.sspcloud.fr/?lang=fr) : A ce jour, le SSP Cloud via sa plateforme ONYXIA (hébergée et dévelopée par l'INSEE), est la principale plateforme publique mettant à disposition des GPUs à ses utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production. cf [Déploiement d'un LLM sur SSP Cloud](#Déploiement d'un LLM sur SSP Cloud)
+1. [**SSP Cloud**](https://datalab.sspcloud.fr/?lang=fr) : A ce jour, le SSP Cloud via sa plateforme ONYXIA (hébergée et dévelopée par l'INSEE), est la principale plateforme publique mettant à disposition des GPUs à ses utilisateurs. Les ressources sont cependant très limitées et la plateforme est plus orientée autour du développement de projet que de la mise en production. cf [Déploiement d'un LLM sur SSP Cloud](./4_Deploiement_applications.qmd#déploiement-sur-le-ssp-cloud)
 
-2. [**Cloud pi**](https://pi.interieur.rie.gouv.fr/description-de-loffre-cloud/) : Cloud PI est le cloud du ministère de l'intérieur, il ne semble pas proposer à date de provisionnement de GPUs. Il fournit cependant une offre IAAS et PAAS pour l'hébergement d'applications.
+2. [**Cloud pi**](https://pi.interieur.rie.gouv.fr/description-de-loffre-cloud/) : Cloud PI est le cloud du ministère de l'intérieur, il ne semble pas proposer à date de provisionnement de GPUs. Il fournit cependant une offre IAAS (Infrastructure As A Service) et PAAS (Platform As A Service) pour l'hébergement d'applications.
 
 3. [**Nubo**](https://portailnubo.dgfip.finances.rie.gouv.fr/) : Nubo est le service cloud du ministère de l'économie et des finances, qui propose un service IAAS. Via sa solution Nubonyxia, il est possible d'intéragir avec l'interface Onyxia et le service Kubernetes sous jacents. Nubo ne propose pas à date de provisionnement de GPUs.
 

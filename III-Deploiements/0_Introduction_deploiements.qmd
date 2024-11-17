@@ -3,34 +3,28 @@
 title: PARTIE III. Deploiements
 ---
 
-Le déploiement d'un projet LLM peut prendre plusieurs formes en fonction des
-objectifs et des contraintes du projet. Comme tout projet informatique, la
+Le déploiement d'une application LLM peut prendre plusieurs formes en fonction de ses 
+objectifs et contraintes. Comme tout projet informatique, la
 complexité du déploiement dépendra :
 
-- du nombre d'utilisateurs total et concurrent
-- du temps de réponse et de la qualité de service attendu
 - de la complexité des tâches effectuées et des intéractions prévues
+- du nombre d'utilisateurs total et concurrent
+- du temps de réponse et de la qualité de service attendue
 - ...
 
-L'infrastructure et l'implémentation de ces projets peuvent fortement varié en
-fonction du contexte et de l'objectif métier. Les déploiements de projets d'IA
-générative étant particulièrement consommateur en ressources physiques, une
-industrialisation pérenne doit si possible s'inscrire dans une dynamique et
-stratégie du SI de l'administration concernée.
+L'infrastructure et l'implémentation de ces projets peuvent fortement variées en
+fonction du contexte technique et de l'objectif métier. Cette problématique est d'autant plus forte que les prérequis en terme de ressources sont importants pour les projets d'IA générative.
 
-Bien que les contextes d'implémentation sient diverses, les briques et les
-concepts utilisés sont communes. Ce chapitre introduit les principales outils
+Bien que les contextes d'implémentation soient diverses, les briques et les
+concepts utilisés sont communs. Ce chapitre introduit les principaux outils
 nécessaires, et présente différents contextes de déploiement. Il est découpé en
 4 parties :
 
 1. :construction: [Architecture d'un projet
 LLM](./1_Architecture_projet_llm.qmd): Définition générale des composants d'un
-projet LLM, ainsi que des pistes de réflexion pour 'infrastructure sous-jacente
+projet LLM, ainsi que des pistes de réflexion pour l'infrastructure sous-jacente
 1. :nut_and_bolt: [Service LLM avancé](./2_Service_LLM_avance.qmd): Description
 des principaux composants d'une architecture d'inférence, ainsi qu'un premier
 exemple d'implémentation de ces outils
-1. :factory: [Service LLM production](./3_Service_LLM_production.qmd): Orchestration et mise en place d'une infrastructure d'inférence
-1. :cloud: [Infrastructures externalisées pour
-l'administration](./3_Infras_administrations.qmd): Premiers éléments sur la mise
-en place d'une infrastructure externalisée ou semi-externalisée.
-1. :computer: [Déploiement d'applications](./4_Deploiement_applications.qmd): Exemples de déploiements d'interfaces pour des fonctionnalités de tchat et de RAG.
+1. :factory: [Service LLM à grande échelle](./3_Service_LLM_production.qmd): Orchestration et mise en place d'une infrastructure d'inférence à grande échelle
+2. :computer: [Déploiement d'applications](./4_Deploiement_applications.qmd): Exemples de déploiements d'interfaces pour des fonctionnalités de tchat et de RAG.
