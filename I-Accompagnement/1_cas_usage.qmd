@@ -48,6 +48,7 @@ Les documents sont découpés en paragraphes (chunks). Les réponses aux questio
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
 |Banque de France | Chatbdf | Nicolas.THOMAZO@banque-france.fr <br> Guillaume.LOMBARDO@banque-france.fr <br> Alix.DECREMOUX@banque-france.fr  | Passage en production prévu en décembre 2025  |
+|ANFSI | IAccueil | <br> daphne.pertsekos@gendarmerie.interieur.gouv.fr <br> jerome.laporte@gendarmerie.interieur.gouv.fr <br> jean-baptiste.delfau@gendarmerie.interieur.gouv.fr <br> malo.adler@gendarmerie.interieur.gouv.fr  | Expérimentation depuis Octobre 2024 |
 		
 -	**Requêter sur des bases de données codées en SQL : à une interrogation exprimée en langage naturel sur une base en SQL, un code en SQL servant à la requête est renvoyé**.
 Par exemple, à l’interrogation « trouve-moi la date de naissance de l’individu I », un code SQL est renvoyé permettant d’effectuer la requête
