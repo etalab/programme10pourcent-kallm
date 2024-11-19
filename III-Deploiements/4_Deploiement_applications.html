@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>reste_a_faire – Guide d'installation des LLM</title>
+<title>Déploiement d’applications – Guide d'installation des LLM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,9 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Guide d'installation des LLM
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../III-Deploiements/0_Introduction_deploiements.html">III-Deploiements</a></li><li class="breadcrumb-item"><a href="../III-Deploiements/4_Deploiement_applications.html"><span class="emoji" data-emoji="computer">💻</span> Déploiement d’applications</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -97,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Guide d’installation des LLM</a> 
+      <a href="../">Guide d’installation des LLM</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -112,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accueil</span></a>
   </div>
 </li>
@@ -127,25 +159,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/0_Intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../I-Accompagnement/0_Intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/1_cas_usage.html" class="sidebar-item-text sidebar-link">
+  <a href="../I-Accompagnement/1_cas_usage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cas d’usage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/2_Acculturation.html" class="sidebar-item-text sidebar-link">
+  <a href="../I-Accompagnement/2_Acculturation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acculturation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./I-Accompagnement/3_Impacts.html" class="sidebar-item-text sidebar-link">
+  <a href="../I-Accompagnement/3_Impacts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Impacts</span></a>
   </div>
 </li>
@@ -153,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./II-Developpements/0_Introduction.html" class="sidebar-item-text sidebar-link">
+            <a href="../II-Developpements/0_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">II-Développements</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -162,25 +194,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/1_Anatomie_LLM.html" class="sidebar-item-text sidebar-link">
+  <a href="../II-Developpements/1_Anatomie_LLM.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Anatomie et conception d’un modèle de langage</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/2_Utilisation_LLM.html" class="sidebar-item-text sidebar-link">
+  <a href="../II-Developpements/2_Utilisation_LLM.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Techniques d’utilisation d’un LLM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/3_RAG.html" class="sidebar-item-text sidebar-link">
+  <a href="../II-Developpements/3_RAG.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Focus sur le RAG (Retrieval Augmented Generation)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./II-Developpements/4_Evaluations.html" class="sidebar-item-text sidebar-link">
+  <a href="../II-Developpements/4_Evaluations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluations</span></a>
   </div>
 </li>
@@ -188,8 +220,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">III-Déploiements</span></a>
+            <a href="../III-Deploiements/0_Introduction_deploiements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">III-Deploiements</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -197,26 +229,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/1_Socle_minimal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Socle minimal</span></a>
+  <a href="../III-Deploiements/1_Architecture_projet_llm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="emoji" data-emoji="construction">🚧</span> Architecture d’un projet LLM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Socle avancé</span></a>
+  <a href="../III-Deploiements/2_Service_LLM_avance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="emoji" data-emoji="wrench">🔧</span> Service LLM avancé</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/3_Socle_Production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Socle Production</span></a>
+  <a href="../III-Deploiements/3_Service_LLM_production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="emoji" data-emoji="factory">🏭</span> Service LLM à grande échelle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./III-Deploiements/4_Infras_administrations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Infrastructures dans l’administration</span></a>
+  <a href="../III-Deploiements/4_Deploiement_applications.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="emoji" data-emoji="computer">💻</span> Déploiement d’applications</span></a>
   </div>
 </li>
       </ul>
@@ -232,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./IV-Exemples/2_Classification_accords_entreprise.html" class="sidebar-item-text sidebar-link">
+  <a href="../IV-Exemples/2_Classification_accords_entreprise.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exemple des textes des accords d’entreprise</span></a>
   </div>
 </li>
@@ -240,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Bibliographie.html" class="sidebar-item-text sidebar-link">
+  <a href="../Bibliographie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliographie</span></a>
   </div>
 </li>
@@ -249,37 +281,128 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#des-interfaces-déjà-disponibles-pour-vos-modèles-llms" id="toc-des-interfaces-déjà-disponibles-pour-vos-modèles-llms" class="nav-link active" data-scroll-target="#des-interfaces-déjà-disponibles-pour-vos-modèles-llms">Des interfaces déjà disponibles pour vos modèles LLMs</a>
+  <ul class="collapse">
+  <li><a href="#caradoc" id="toc-caradoc" class="nav-link" data-scroll-target="#caradoc">CARADOC</a></li>
+  <li><a href="#fastchat" id="toc-fastchat" class="nav-link" data-scroll-target="#fastchat">FastChat</a></li>
+  <li><a href="#open-webui" id="toc-open-webui" class="nav-link" data-scroll-target="#open-webui">Open WebUI</a></li>
+  </ul></li>
+  <li><a href="#déploiement-sur-le-ssp-cloud" id="toc-déploiement-sur-le-ssp-cloud" class="nav-link" data-scroll-target="#déploiement-sur-le-ssp-cloud">Déploiement sur le SSP Cloud</a>
+  <ul class="collapse">
+  <li><a href="#déploiement-par-image-docker" id="toc-déploiement-par-image-docker" class="nav-link" data-scroll-target="#déploiement-par-image-docker">Déploiement par image Docker</a></li>
+  <li><a href="#déploiement-par-chart-helm" id="toc-déploiement-par-chart-helm" class="nav-link" data-scroll-target="#déploiement-par-chart-helm">Déploiement par Chart Helm</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../III-Deploiements/0_Introduction_deploiements.html">III-Deploiements</a></li><li class="breadcrumb-item"><a href="../III-Deploiements/4_Deploiement_applications.html"><span class="emoji" data-emoji="computer">💻</span> Déploiement d’applications</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Déploiement d’applications</h1>
+</div>
 
 
 
-<p>Format et contenu du guide :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Finaliser fusion I-1 et I-2</label></li>
-<li><label><input type="checkbox">Partie Acculturation (I-3) ?</label></li>
-<li><label><input type="checkbox">Ajout d’exemple d’implémentation RAG II-2</label></li>
-<li><label><input type="checkbox">Finaliser la partie évaluation II-3</label></li>
-<li><label><input type="checkbox">Uniformiser le message de la partie III</label></li>
-<li><label><input type="checkbox">Normaliser la mise en page</label></li>
-<li><label><input type="checkbox">Compléter la bibliographie</label></li>
-<li><label><input type="checkbox">Compléter les cas d’usages dans l’administration (contacts)</label></li>
-<li><label><input type="checkbox">Titres propres et plus signifiants</label></li>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="des-interfaces-déjà-disponibles-pour-vos-modèles-llms" class="level2">
+<h2 class="anchored" data-anchor-id="des-interfaces-déjà-disponibles-pour-vos-modèles-llms">Des interfaces déjà disponibles pour vos modèles LLMs</h2>
+<p>Plusieurs initiatives permettent de déployer rapidement des interfaces de chat avec des modèles LLMs, voire des applications de RAG avec back et front. On peut remarquer :</p>
+<ul>
+<li><a href="#caradoc">CARADOC</a></li>
+<li><a href="#fastchat">WebUI du module FastChat</a></li>
+<li><a href="#openwebui">openwebui</a></li>
 </ul>
-<p>Proposition de mise en page :</p>
-<pre><code>---
-title: &lt;Titre de la partie&gt;(ex: RAG)
----
-# &lt;section 1&gt;
-## &lt;sous section 1&gt;
-## &lt;sous section 2&gt;
-# &lt;section 2&gt;</code></pre>
+<section id="caradoc" class="level3">
+<h3 class="anchored" data-anchor-id="caradoc">CARADOC</h3>
+<p>Mise en open source par l’équipe DataScience de la DTNUM de la DGFiP : <a href="https://gitlab.adullact.net/dgfip/projets-ia/caradoc">git</a></p>
+<p>Aperçu de l’application CARADOC pendant ses développements :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/chat.png" title="Interface de l'application RAG Caradoc" class="img-fluid figure-img"></p>
+<figcaption>Interface de l’application RAG Caradoc</figcaption>
+</figure>
+</div>
+</section>
+<section id="fastchat" class="level3">
+<h3 class="anchored" data-anchor-id="fastchat">FastChat</h3>
+<p>Aperçu d’une interface possible avec FastChat (basée sur Gradio):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/chat2.png" title="Interface de l'application Chat avec FastChat" class="img-fluid figure-img"></p>
+<figcaption>Interface de l’application Chat avec FastChat</figcaption>
+</figure>
+</div>
+<p>Exemple de code pour lancer l’interface Gradio de FastChat dans un Docker :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.9"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">fastchat-gradio-server</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">network_mode</span><span class="kw">:</span><span class="at"> </span><span class="st">"host"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">context</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dockerfile</span><span class="kw">:</span><span class="at"> Dockerfile</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">FASTCHAT_CONTROLLER_URL</span><span class="kw">:</span><span class="at"> http://0.0.0.0:21001</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">no_proxy</span><span class="kw">:</span><span class="at"> localhost,127.0.0.1,0.0.0.0</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> fastchat:latest</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"8001:8001"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ./FastChat:/FastChat</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"python3.9"</span><span class="kw">,</span><span class="at"> </span><span class="st">"-m"</span><span class="kw">,</span><span class="at"> </span><span class="st">"fastchat.serve.gradio_web_server_dtnum"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--controller-url"</span><span class="kw">,</span><span class="at"> </span><span class="st">"http://0.0.0.0:21001"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--host"</span><span class="kw">,</span><span class="at"> </span><span class="st">"0.0.0.0"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--port"</span><span class="kw">,</span><span class="at"> </span><span class="st">"8001"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--model-list-mode"</span><span class="kw">,</span><span class="at"> </span><span class="st">"reload"</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Avec toujours l’image Docker qui contient FastChat.</p>
+</section>
+<section id="open-webui" class="level3">
+<h3 class="anchored" data-anchor-id="open-webui">Open WebUI</h3>
+<p><a href="https://docs.openwebui.com/">Open webui</a> est une librairie opensource permettant le déploiement d’une interface similaire à ChatGPT pour intéragir avec des API ou son propre service LLM.</p>
+<p><img src="../images/openwebui.png" class="img-fluid"></p>
+<p>Au delà du tchat, l’application donne accès à plusieurs fonctionnalités avancées (RAG, exécution de fonction, …). Elle est déployable via Docker ou installation python.</p>
+</section>
+</section>
+<section id="déploiement-sur-le-ssp-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="déploiement-sur-le-ssp-cloud">Déploiement sur le SSP Cloud</h2>
+<p>Sur le <a href="https://datalab.sspcloud.fr/">DataLab SSP Cloud</a>, il est possible de déployer des LLM à des fins d’expérimentation. Plusieurs cas sont possibles :</p>
+<ol type="1">
+<li>Utiliser des librairies d’API de LLM (vLLM, etc.)</li>
+<li>Déployer des containers Docker avec Kube et Helm</li>
+</ol>
+<section id="déploiement-par-image-docker" class="level3">
+<h3 class="anchored" data-anchor-id="déploiement-par-image-docker">Déploiement par image Docker</h3>
+<ul>
+<li>Créer une image Docker et la mettre à disposition (Dockerhub) : exemple applicatif avec Streamlit</li>
+<li>Déployer avec Kube et Helm en utilisant un service VSCode avec les droits d’admin pour Kube</li>
+</ul>
+<p>Exemple avec Kubernetes :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kubectl</span> create deployment mon-deploiement <span class="at">--image</span><span class="op">=</span>mon-image-docker</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">kubectl</span> proxy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="déploiement-par-chart-helm" class="level3">
+<h3 class="anchored" data-anchor-id="déploiement-par-chart-helm">Déploiement par Chart Helm</h3>
+<p>Le projet Caradoc mentionné précédemment peut également être déployé sur le SSP Cloud via un Chart Helm. Le procédure d’installation est disponible <a href="https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/blob/master/k8s/charts/README.md">ici</a>.</p>
+<blockquote class="blockquote">
+<p>Pour plus d’informations sur le déploiement de chart Helm sur le SSP Cloud, il existe un <a href="https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md">tutoriel</a> qui détaille l’installation d’une application Shiny. Un exemple de déploiement d’un chart Helm pour l’instantiation d’une infrastrucuture LLM est aussi disponible au sein du <a href="../III-Deploiements/3_Service_LLM_production.html">guide</a>.</p>
+</blockquote>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

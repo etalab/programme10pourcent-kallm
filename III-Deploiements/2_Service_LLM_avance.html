@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>socle_minimal – Guide d'installation des LLM</title>
+<title>Service LLM avancé – Guide d’installation des LLM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../III-Deploiements/1_Socle_minimal.html">III-Déploiements</a></li><li class="breadcrumb-item"><a href="../III-Deploiements/1_Socle_minimal.html">Socle minimal</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../III-Deploiements/0_Introduction_deploiements.html">III-Deploiements</a></li><li class="breadcrumb-item"><a href="../III-Deploiements/2_Service_LLM_avance.html"><span class="emoji" data-emoji="wrench">🔧</span> Service LLM avancé</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -220,8 +220,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">III-Déploiements</span></a>
+            <a href="../III-Deploiements/0_Introduction_deploiements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">III-Deploiements</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -229,26 +229,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../III-Deploiements/1_Socle_minimal.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Socle minimal</span></a>
+  <a href="../III-Deploiements/1_Architecture_projet_llm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="emoji" data-emoji="construction">🚧</span> Architecture d’un projet LLM</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../III-Deploiements/2_Socle_avance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Socle avancé</span></a>
+  <a href="../III-Deploiements/2_Service_LLM_avance.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="emoji" data-emoji="wrench">🔧</span> Service LLM avancé</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../III-Deploiements/3_Socle_Production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Socle Production</span></a>
+  <a href="../III-Deploiements/3_Service_LLM_production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="emoji" data-emoji="factory">🏭</span> Service LLM à grande échelle</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../III-Deploiements/4_Infras_administrations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Infrastructures dans l’administration</span></a>
+  <a href="../III-Deploiements/4_Deploiement_applications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="emoji" data-emoji="computer">💻</span> Déploiement d’applications</span></a>
   </div>
 </li>
       </ul>
@@ -264,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../IV-Exemples/2_Classification_accords_entreprise.html" class="sidebar-item-text sidebar-link">
+  <a href="../IV-Exemples/2_Classification_accords_entreprise.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exemple des textes des accords d’entreprise</span></a>
   </div>
 </li>
@@ -286,15 +286,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#partie-iii.-deploiements" id="toc-partie-iii.-deploiements" class="nav-link active" data-scroll-target="#partie-iii.-deploiements">PARTIE III. Deploiements</a>
+  <li><a href="#ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm" id="toc-ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm" class="nav-link active" data-scroll-target="#ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm">Ce dont vous avez besoin pour mettre à disposition un LLM</a>
   <ul class="collapse">
-  <li><a href="#socle-minimal-pour-un-llm-camille-jérôme-conrad" id="toc-socle-minimal-pour-un-llm-camille-jérôme-conrad" class="nav-link" data-scroll-target="#socle-minimal-pour-un-llm-camille-jérôme-conrad">1. Socle minimal pour un LLM (Camille Jérôme Conrad)</a>
-  <ul class="collapse">
-  <li><a href="#a.-ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm" id="toc-a.-ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm" class="nav-link" data-scroll-target="#a.-ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm">A. Ce dont vous avez besoin pour mettre à disposition un LLM</a></li>
-  <li><a href="#b.-exemples-doutils-de-mise-à-disposition-de-llm" id="toc-b.-exemples-doutils-de-mise-à-disposition-de-llm" class="nav-link" data-scroll-target="#b.-exemples-doutils-de-mise-à-disposition-de-llm">B. Exemples d’outils de mise à disposition de LLM</a></li>
-  <li><a href="#c.-le-choix-dune-solution-technique-le-cas-dune-administration" id="toc-c.-le-choix-dune-solution-technique-le-cas-dune-administration" class="nav-link" data-scroll-target="#c.-le-choix-dune-solution-technique-le-cas-dune-administration">C. Le choix d’une solution technique : le cas d’une administration</a></li>
-  <li><a href="#d.-fastchat" id="toc-d.-fastchat" class="nav-link" data-scroll-target="#d.-fastchat">D. FastChat</a></li>
+  <li><a href="#moteurs" id="toc-moteurs" class="nav-link" data-scroll-target="#moteurs">Moteurs</a></li>
+  <li><a href="#serveurs" id="toc-serveurs" class="nav-link" data-scroll-target="#serveurs">Serveurs</a></li>
+  <li><a href="#résumé" id="toc-résumé" class="nav-link" data-scroll-target="#résumé">Résumé</a></li>
   </ul></li>
+  <li><a href="#exemples-doutils-de-mise-à-disposition-de-llm" id="toc-exemples-doutils-de-mise-à-disposition-de-llm" class="nav-link" data-scroll-target="#exemples-doutils-de-mise-à-disposition-de-llm">Exemples d’outils de mise à disposition de LLM</a>
+  <ul class="collapse">
+  <li><a href="#moteurs-1" id="toc-moteurs-1" class="nav-link" data-scroll-target="#moteurs-1">Moteurs</a></li>
+  <li><a href="#serveurs-1" id="toc-serveurs-1" class="nav-link" data-scroll-target="#serveurs-1">Serveurs</a></li>
+  <li><a href="#moteurs-et-serveurs" id="toc-moteurs-et-serveurs" class="nav-link" data-scroll-target="#moteurs-et-serveurs">Moteurs et serveurs</a></li>
+  </ul></li>
+  <li><a href="#le-choix-dune-solution-technique-le-cas-dune-administration" id="toc-le-choix-dune-solution-technique-le-cas-dune-administration" class="nav-link" data-scroll-target="#le-choix-dune-solution-technique-le-cas-dune-administration">Le choix d’une solution technique : le cas d’une administration</a>
+  <ul class="collapse">
+  <li><a href="#premier-cas-les-traitements-par-batch" id="toc-premier-cas-les-traitements-par-batch" class="nav-link" data-scroll-target="#premier-cas-les-traitements-par-batch">Premier cas : Les traitements par batch</a></li>
+  <li><a href="#deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents" id="toc-deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents" class="nav-link" data-scroll-target="#deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents">Deuxième cas : Beaucoup d’utilisateurs et/ou d’applications différents</a></li>
+  </ul></li>
+  <li><a href="#fastchat" id="toc-fastchat" class="nav-link" data-scroll-target="#fastchat">FastChat</a>
+  <ul class="collapse">
+  <li><a href="#restful-api-server" id="toc-restful-api-server" class="nav-link" data-scroll-target="#restful-api-server">RESTful API Server</a></li>
+  <li><a href="#utilisation-avec-lopenai-official-sdk" id="toc-utilisation-avec-lopenai-official-sdk" class="nav-link" data-scroll-target="#utilisation-avec-lopenai-official-sdk">Utilisation avec l’OpenAI Official SDK</a></li>
+  <li><a href="#utilisation-avec-curl" id="toc-utilisation-avec-curl" class="nav-link" data-scroll-target="#utilisation-avec-curl">Utilisation avec curl</a></li>
+  <li><a href="#combiner-avec-vllm" id="toc-combiner-avec-vllm" class="nav-link" data-scroll-target="#combiner-avec-vllm">Combiner avec vLLM</a></li>
+  <li><a href="#combiner-avec-docker" id="toc-combiner-avec-docker" class="nav-link" data-scroll-target="#combiner-avec-docker">Combiner avec Docker</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -302,59 +317,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../III-Deploiements/0_Introduction_deploiements.html">III-Deploiements</a></li><li class="breadcrumb-item"><a href="../III-Deploiements/2_Service_LLM_avance.html"><span class="emoji" data-emoji="wrench">🔧</span> Service LLM avancé</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Service LLM avancé</h1>
+</div>
 
 
 
-<section id="partie-iii.-deploiements" class="level1">
-<h1>PARTIE III. Deploiements</h1>
-<section id="socle-minimal-pour-un-llm-camille-jérôme-conrad" class="level2">
-<h2 class="anchored" data-anchor-id="socle-minimal-pour-un-llm-camille-jérôme-conrad">1. Socle minimal pour un LLM (Camille Jérôme Conrad)</h2>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>Pour déployer un grand modèle de langage (LLM) dans une infrastructure, il est essentiel de comprendre comment requêter le modèle, les quelques couches techniques immédiates qui l’entourent et les solutions disponibles pour un déploiement efficace.</p>
-<section id="a.-ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm" class="level3">
-<h3 class="anchored" data-anchor-id="a.-ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm">A. Ce dont vous avez besoin pour mettre à disposition un LLM</h3>
+<section id="ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm" class="level2">
+<h2 class="anchored" data-anchor-id="ce-dont-vous-avez-besoin-pour-mettre-à-disposition-un-llm">Ce dont vous avez besoin pour mettre à disposition un LLM</h2>
 <p>Lorsqu’il s’agit de mettre en service des applications basées sur des LLM, il y a 2 composants principaux : le moteur et le serveur. Le moteur gère tout ce qui concerne les modèles et le regroupement des demandes, tandis que le serveur gère l’acheminement des demandes des utilisateurs.</p>
-<section id="moteurs" class="level4">
-<h4 class="anchored" data-anchor-id="moteurs">Moteurs</h4>
+<section id="moteurs" class="level3">
+<h3 class="anchored" data-anchor-id="moteurs">Moteurs</h3>
 <p>Les moteurs sont les composants exécutant les modèles et tout ce que nous avons couvert jusqu’à présent sur le processus de génération avec différents types d’optimisations. À leur cœur, ce sont des bibliothèques Python. Ils gèrent le regroupement des demandes qui proviennent des utilisateurs vers notre chatbot et génèrent la réponse à ces demandes.</p>
 </section>
-<section id="serveurs" class="level4">
-<h4 class="anchored" data-anchor-id="serveurs">Serveurs</h4>
+<section id="serveurs" class="level3">
+<h3 class="anchored" data-anchor-id="serveurs">Serveurs</h3>
 <p>Les serveurs sont responsables de l’orchestration des requêtes HTTP/gRPC entrantes des utilisateurs. Dans les applications du monde réel, nous aurons de nombreux utilisateurs qui posent des questions à notre chatbot à différents moments de la journée. Les serveurs mettent ces demandes en file d’attente et les transfèrent vers le moteur pour la génération de la réponse. Les serveurs apportent également les métriques telles que le débit et la latence, qui sont importantes à suivre pour le service de modèle.</p>
 </section>
-<section id="résumé" class="level4">
-<h4 class="anchored" data-anchor-id="résumé">Résumé</h4>
-<p>Moteurs</p>
+<section id="résumé" class="level3">
+<h3 class="anchored" data-anchor-id="résumé">Résumé</h3>
+<ul>
+<li>Moteurs
 <ul>
 <li>Optimisation de la mémoire</li>
 <li>Optimisation spécifique au modèle</li>
 <li>Prise en charge du regroupement</li>
-</ul>
-<p>Serveurs</p>
+</ul></li>
+<li>Serveurs
 <ul>
 <li>API HTTP/gRPC</li>
 <li>Mise en file d’attente des demandes</li>
 <li>Mise en service de plusieurs modèles</li>
 <li>Prise en charge de plusieurs moteurs</li>
+</ul></li>
 </ul>
 </section>
 </section>
-<section id="b.-exemples-doutils-de-mise-à-disposition-de-llm" class="level3">
-<h3 class="anchored" data-anchor-id="b.-exemples-doutils-de-mise-à-disposition-de-llm">B. Exemples d’outils de mise à disposition de LLM</h3>
+<section id="exemples-doutils-de-mise-à-disposition-de-llm" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-doutils-de-mise-à-disposition-de-llm">Exemples d’outils de mise à disposition de LLM</h2>
 <p>Quels outils sont les mieux adaptés à nos besoins ? Comment choisir ? Voici un survol rapide de grands noms du milieu pour références.</p>
 <blockquote class="blockquote">
-<p>Une recommandation de framework rapide à prendre en main et dont l’utilité a déjà été prouvée dans une de nos administrations se trouve à la fin et est développée dans le prochain paragraphe.</p>
+<p>Une recommandation de framework rapide à prendre en main et dont l’utilité a déjà été prouvée dans une de nos administrations se trouve à la <a href="#fastchat">fin</a> et est développée dans le prochain paragraphe.</p>
 </blockquote>
-<p><strong>Moteurs</strong></p>
+<section id="moteurs-1" class="level3">
+<h3 class="anchored" data-anchor-id="moteurs-1">Moteurs</h3>
 <ul>
 <li><p>TensorRT-LLM est une bibliothèque open-source qui optimise les performances d’inférence des grands modèles de langage (LLM) en utilisant les GPU NVIDIA Tensor Core. Elle utilise le parallélisme tensoriel, propose une API Python simple et comprend des versions optimisées de LLM populaires. Elle prend en charge le batching en vol et vise à simplifier la construction et l’expérimentation de nouveaux LLM. Cependant, les utilisateurs doivent spécifier la longueur d’entrée/sortie maximale et la taille de lot avant de construire le moteur, et la gestion de la mémoire du cache KV n’est pas open source.</p></li>
 <li><p>vLLM est une bibliothèque à hautes performances pour l’inférence et le service LLM, axée sur le débit de service et l’efficacité mémoire grâce à son mécanisme PagedAttention. Il prend en charge le batching continu, le parallélisme GPU et la sortie en streaming, ainsi que la compatibilité OpenAI. Cependant, la mémoire peut devenir un goulot d’étranglement avec des taux de demande élevés et de grandes tailles de lot.</p></li>
 </ul>
-<p><strong>Serveurs</strong></p>
+</section>
+<section id="serveurs-1" class="level3">
+<h3 class="anchored" data-anchor-id="serveurs-1">Serveurs</h3>
 <ul>
 <li><p>RayLLM avec RayServe est construit sur un framework de calcul distribué qui simplifie le développement et le déploiement de modèles d’IA à grande échelle. Il prend en charge les points de terminaison multi-modèles, les fonctionnalités serveur et les optimisations via les intégrations avec vLLM et TGI.</p></li>
 <li><p>Triton avec TensorRT-LLM fournit un logiciel d’inférence de serveur pour le déploiement et l’exécution efficaces de LLM avec des techniques telles que le batching en vol et le cache KV paginé.</p></li>
 </ul>
-<p><strong>Moteurs et serveurs</strong></p>
+</section>
+<section id="moteurs-et-serveurs" class="level3">
+<h3 class="anchored" data-anchor-id="moteurs-et-serveurs">Moteurs et serveurs</h3>
 <ul>
 <li><p>Génération de texte Inférence (TGI) est un serveur Rust, Python et gRPC utilisé chez HuggingFace pour HuggingChat, l’API d’inférence et le point de terminaison d’inférence. Il prend en charge le batching continu, le parallélisme tensoriel, la quantification, les mécanismes d’attention, le recuit simulé des logits et des LLM spécifiques. Cependant, la licence d’utilisation a été modifiée et n’est pas gratuite pour une utilisation commerciale.</p></li>
 <li><p>Enfin, Fastchat est une solution auto-hébergée pour héberger des modèles d’IA génératifs et qui propose la gestion des modèles, des API OpenAI-compatibles et une web interface simple.</p></li>
@@ -363,37 +397,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Nous allons développer FastChat dans la partie suivante car c’est un outil qui a été testé et qui semble fournir beaucoup des éléments nécessaires pour une utilisation de première intention.</p>
 </blockquote>
 </section>
-<section id="c.-le-choix-dune-solution-technique-le-cas-dune-administration" class="level3">
-<h3 class="anchored" data-anchor-id="c.-le-choix-dune-solution-technique-le-cas-dune-administration">C. Le choix d’une solution technique : le cas d’une administration</h3>
-<section id="premier-cas-les-traitements-par-batch" class="level4">
-<h4 class="anchored" data-anchor-id="premier-cas-les-traitements-par-batch">Premier cas : Les traitements par batch</h4>
+</section>
+<section id="le-choix-dune-solution-technique-le-cas-dune-administration" class="level2">
+<h2 class="anchored" data-anchor-id="le-choix-dune-solution-technique-le-cas-dune-administration">Le choix d’une solution technique : le cas d’une administration</h2>
+<section id="premier-cas-les-traitements-par-batch" class="level3">
+<h3 class="anchored" data-anchor-id="premier-cas-les-traitements-par-batch">Premier cas : Les traitements par batch</h3>
 <p>Pour certains cas d’usage, l’enjeu est de traiter de nombreuses données avec le même mode opératoire en un coup de manière ponctuelle. C’est ce qu’on appellera le traitement par batch. Cela consiste à charger un modèle, le requêter sur un tableau de prompt et obtenir la sortie pour pouvoir l’exporter. On peut le faire avec vLLM par exemple avec un morceau de code de ce type :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">from</span> vllm import LLM, SamplingParams</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> re</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> pandas as pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> re</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> json</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">from</span> tqdm import tqdm</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">from</span> transformers import AutoTokenizer</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vllm <span class="im">import</span> LLM, SamplingParams</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">list_data</span> = json.load<span class="er">(</span><span class="ex">open</span><span class="er">(</span><span class="st">"Data.json"</span><span class="kw">))</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>list_data <span class="op">=</span> json.load(<span class="bu">open</span>(<span class="st">"Data.json"</span>))</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">list_prompts</span> = [ v for x,v in list_data.items<span class="er">(</span><span class="kw">)</span><span class="ex">]</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">list_ids</span> = [ x for x,v in list_data.items<span class="er">(</span><span class="kw">)</span> <span class="ex">]</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>list_prompts <span class="op">=</span> [ v <span class="cf">for</span> x,v <span class="kw">in</span> list_data.items()]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>list_ids <span class="op">=</span> [ x <span class="cf">for</span> x,v <span class="kw">in</span> list_data.items() ]</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">sampling_params</span> = SamplingParams<span class="er">(</span><span class="va">temperature</span><span class="op">=</span>0.1, <span class="va">top_p</span><span class="op">=</span>0.1, <span class="va">max_tokens</span><span class="op">=</span>4096<span class="kw">)</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">llm</span> = LLM<span class="er">(</span><span class="va">model</span><span class="op">=</span><span class="st">"/data/models/hub/models--upstage--Llama-2-70b-instruct-v2/snapshots/36b2a974642846b40fbbafaabad936cd6f8a7632"</span>, <span class="va">tensor_parallel_size</span><span class="op">=</span>2<span class="kw">)</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="st">"STARTING INFERENCE"</span><span class="kw">)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">outputs</span> = llm.generate<span class="er">(</span><span class="ex">list_prompts,</span> sampling_params<span class="kw">)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sampling_params <span class="op">=</span> SamplingParams(temperature<span class="op">=</span><span class="fl">0.1</span>, top_p<span class="op">=</span><span class="fl">0.1</span>, max_tokens<span class="op">=</span><span class="dv">4096</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> LLM(model<span class="op">=</span><span class="st">"/data/models/hub/models--upstage--Llama-2-70b-instruct-v2/snapshots/36b2a974642846b40fbbafaabad936cd6f8a7632"</span>, tensor_parallel_size<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"STARTING INFERENCE"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> llm.generate(list_prompts, sampling_params)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ex">resume</span> = { idx:output.outputs<span class="pp">[</span><span class="ss">0</span><span class="pp">]</span>.text for idx, output in zip<span class="er">(</span><span class="ex">list_ids,</span> outputs<span class="kw">)</span> <span class="er">}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>resume <span class="op">=</span> { idx:output.outputs[<span class="dv">0</span>].text <span class="cf">for</span> idx, output <span class="kw">in</span> <span class="bu">zip</span>(list_ids, outputs) }</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ex">json.dump</span><span class="er">(</span><span class="ex">resume,</span> open<span class="er">(</span><span class="st">"Sortie.json"</span><span class="ex">,</span> <span class="st">"w"</span><span class="kw">))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>json.dump(resume, <span class="bu">open</span>(<span class="st">"Sortie.json"</span>, <span class="st">"w"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Mais cette méthodologie a des limites, car cela nécessite de bloquer des gpus, ce qui entraîne des problématiques de gestion et de partage.</p>
 </section>
-<section id="deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents" class="level4">
-<h4 class="anchored" data-anchor-id="deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents">Deuxième cas : Beaucoup d’utilisateurs et/ou d’applications différents</h4>
+<section id="deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents" class="level3">
+<h3 class="anchored" data-anchor-id="deuxième-cas-beaucoup-dutilisateurs-etou-dapplications-différents">Deuxième cas : Beaucoup d’utilisateurs et/ou d’applications différents</h3>
 <p>Que ce soit une équipe de plusieurs data-scientists, ou un ensemble d’application, si les besoins sont importants, les GPUs ont tout intérêt à être partagés. Il ne sera donc pas possible que chaque script python charge son modèle en mémoire et bloque des GPUs. Il est également plus rassurant de séparer l’infrastructure GPU des utilisateurs pour que chacun travaille dans son environnement, afin d’éviter les casses accidentelles.</p>
 <p>La solution qui consiste à mettre à disposition des APIs vient répondre à ces problématiques. Les modèles sont cachés derrière les API, les datascientist et les applications peuvent venir les requêter et n’ont pas besoin de s’occuper de l’infrastructure. Ainsi, plutôt que chaque datascientist déploie un même modèle avec réservation de GPU, l’architecture en API permet la mise en commun du déploiement au même besoin.</p>
 <blockquote class="blockquote">
@@ -401,13 +436,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 </section>
 </section>
-<section id="d.-fastchat" class="level3">
-<h3 class="anchored" data-anchor-id="d.-fastchat">D. FastChat</h3>
+<section id="fastchat" class="level2">
+<h2 class="anchored" data-anchor-id="fastchat">FastChat</h2>
 <p>FastChat propose des API OpenAI-compatibles pour ses modèles pris en charge, de sorte que vous puissiez utiliser FastChat comme une alternative locale aux API OpenAI. Cela permet d’utiliser la bibliothèque openai-python et les commandes cURL, ce qui facilite le travail des datascientists.</p>
-<p>La documentation complète est disponible sur le repo du module : https://github.com/lm-sys/FastChat/tree/main</p>
+<blockquote class="blockquote">
+<p>La documentation complète est disponible sur le <a href="https://github.com/lm-sys/FastChat/tree/main">repo</a> du module</p>
+</blockquote>
 <p>Nous allons tout de même parcourir les grandes étapes pour pouvoir lancer son installation et ensuite l’utiliser.</p>
-<section id="restful-api-server" class="level4">
-<h4 class="anchored" data-anchor-id="restful-api-server">RESTful API Server</h4>
+<section id="restful-api-server" class="level3">
+<h3 class="anchored" data-anchor-id="restful-api-server">RESTful API Server</h3>
 <p>Tout repose sur la complémentarité de trois services : le controller, les modèles et l’API. Il faut commencer par lancer le controller.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> fastchat.serve.controller</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ensuite, les model_workers. (Un modèle vicuna est pris pour l’exemple.)</p>
@@ -415,8 +452,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Et enfin, l’API.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> fastchat.serve.openai_api_server <span class="at">--host</span> localhost <span class="at">--port</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="utilisation-avec-lopenai-official-sdk" class="level4">
-<h4 class="anchored" data-anchor-id="utilisation-avec-lopenai-official-sdk">Utilisation avec l’OpenAI Official SDK</h4>
+<section id="utilisation-avec-lopenai-official-sdk" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-avec-lopenai-official-sdk">Utilisation avec l’OpenAI Official SDK</h3>
 <p>Le but de <code>openai_api_server.py</code> est d’implémenter un serveur d’API entièrement compatible avec OpenAI, de sorte que les modèles puissent être utilisés directement avec la bibliothèque openai-python.</p>
 <p>Tout d’abord, installez le package Python OpenAI &gt;= 1.0 :</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> openai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -442,9 +479,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># imprimer la complétion</span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(completion.choices[<span class="dv">0</span>].message.content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="utilisation-avec-curl" class="level4">
-<h4 class="anchored" data-anchor-id="utilisation-avec-curl">Utilisation avec cURL</h4>
-<p>cURL est un autre bon outil pour observer la sortie de l’API.</p>
+<section id="utilisation-avec-curl" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-avec-curl">Utilisation avec curl</h3>
+<p>curl est un autre bon outil pour observer la sortie de l’API.</p>
 <p>List Models:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> http://localhost:8000/v1/models</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Chat Completions:</p>
@@ -471,14 +508,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">    "input": "Hello world!"</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">  }'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="combiner-avec-vllm" class="level4">
-<h4 class="anchored" data-anchor-id="combiner-avec-vllm">Combiner avec vLLM</h4>
+<section id="combiner-avec-vllm" class="level3">
+<h3 class="anchored" data-anchor-id="combiner-avec-vllm">Combiner avec vLLM</h3>
 <p>Vous pouvez utiliser vLLM comme une mise en œuvre optimisée d’un travailleur dans FastChat. Il offre une mise en batch continue avancée et un débit beaucoup plus élevé (~10x). Consultez la liste des modèles pris en charge ici : https://docs.vllm.ai/en/latest/models/supported_models.html</p>
 <p>Il suffit de remplacer le model_worker par le vllm_worker</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> fastchat.serve.vllm_worker <span class="at">--model-path</span> lmsys/vicuna-7b-v1.5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="combiner-avec-docker" class="level4">
-<h4 class="anchored" data-anchor-id="combiner-avec-docker">Combiner avec Docker</h4>
+<section id="combiner-avec-docker" class="level3">
+<h3 class="anchored" data-anchor-id="combiner-avec-docker">Combiner avec Docker</h3>
 <p>Pour permettre le lancement et l’arrêt de modèles, et pour éviter qu’une erreur dans un des modèles ne déregle l’ensemble du système, une bonne pratique est souvent de conteneuriser les différentes parties. Cela necessite la préparation de quelques fichiers et quelques tests, mais ensuite, cela assure la reproductibilité de votre infrastructure. Une fois que les images sont préparées, on peut les arrêter, les relancer et les reproduire autant de fois que nécessaire.</p>
 <p>Une façon d’implémenter vos services avec FastChat est de faire :</p>
 <ul>
@@ -488,79 +525,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Les conteneurs pourront tous avoir la même image de base où l’on a installé les packages necessaires, comme vllm et notamment FastChat, que l’on a téléchargé et copié dans notre arbre local :</p>
 <p>Dockerfile :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> nvidia/cuda:12.2.0-devel-ubuntu20.04</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> python3.9 python3.9-distutils curl</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> curl https://bootstrap.pypa.io/get-pip.py <span class="at">-o</span> get-pip.py</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> python3.9 get-pip.py</span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode dockerfile code-with-copy"><code class="sourceCode dockerfile"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nvidia/cuda:12.2.0-devel-ubuntu20.04</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ENV</span> DEBIAN_FRONTEND noninteractive</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">apt-get</span> update <span class="at">-y</span> <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> python3.9 python3.9-distutils curl</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">curl</span> https://bootstrap.pypa.io/get-pip.py <span class="at">-o</span> get-pip.py</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">python3.9</span> get-pip.py</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Copiez le répertoire FastChat dans le conteneur Docker</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> ./FastChat_k /FastChat</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> ./FastChat_k /FastChat</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># COPY ./models/Mixtral-8x7B-Instruct-v0.1 /data/models/vllm/Mixtral-8x7B-Instruct-v0.1</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Allez dans le répertoire FastChat et installez à partir de ce répertoire</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /FastChat</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install <span class="at">-e</span> <span class="st">".[model_worker]"</span> pydantic==1.10.13</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install plotly==5.18.0</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install accelerate==0.25.0</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install vllm==0.4.1</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install minio==7.2.2</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> pip3 install pynvml==11.5.0</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">WORKDIR</span> /FastChat</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip3</span> install <span class="at">-e</span> <span class="st">".[model_worker]"</span> pydantic==1.10.13</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip3</span> install plotly==5.18.0</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip3</span> install accelerate==0.25.0</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip3</span> install vllm==0.4.1</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip3</span> install minio==7.2.2</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="ex">pip3</span> install pynvml==11.5.0</span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># nvidia/cuda:12.2.0-runtime-ubuntu20.04 docker pull nvidia/cuda:12.2.0-devel-ubuntu20.04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ensuite, il faut lancer les conteneurs docker avec la bonne commande pour que chaque docker remplisse bien sa fonction. Cela se gère avec des docker_compose.yml</p>
 <p>Le fichier de déploiement des deux conteneurs obligatoires ressemblera à cela :</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">version:</span> <span class="st">"3.9"</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">services:</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">fastchat-controller:</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">build:</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="ex">context:</span> .</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="ex">dockerfile:</span> Dockerfile</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">image:</span> llm-api-light:1.0.0</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">network_mode:</span> <span class="st">"host"</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">environment:</span> </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">no_proxy:</span> localhost,127.0.0.1,0.0.0.0</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ports:</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> <span class="st">"21001:21001"</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">volumes:</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> ./FastChat:/FastChat </span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">entrypoint:</span> [<span class="st">"python3.9"</span>, <span class="st">"-m"</span>, <span class="st">"fastchat.serve.controller"</span>, <span class="st">"--host"</span>, <span class="st">"0.0.0.0"</span>, <span class="st">"--port"</span>, <span class="st">"21001"</span>]</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">fastchat-openai:</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">build:</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>      <span class="ex">context:</span> .</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      <span class="ex">dockerfile:</span> Dockerfile</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">image:</span> llm-api-light:1.0.0</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">network_mode:</span> <span class="st">"host"</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="ex">environment:</span> </span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>      <span class="ex">no_proxy:</span> localhost,127.0.0.1,0.0.0.0</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ports:</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> <span class="st">"8000:8000"</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">volumes:</span></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> ./FastChat:/FastChat </span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">entrypoint:</span> [<span class="st">"python3.9"</span>, <span class="st">"-m"</span>, <span class="st">"fastchat.serve.openai_api_server"</span>, <span class="st">"--host"</span>, <span class="st">"0.0.0.0"</span>, <span class="st">"--port"</span>, <span class="st">"8000"</span>, <span class="st">"--api-keys"</span>, <span class="st">"key1,key2,key3"</span>, <span class="st">"--controller-address"</span>, <span class="st">"http://0.0.0.0:21001"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.9"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">fastchat-controller</span><span class="kw">:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">context</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dockerfile</span><span class="kw">:</span><span class="at"> Dockerfile</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> llm-api-light:1.0.0</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">network_mode</span><span class="kw">:</span><span class="at"> </span><span class="st">"host"</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">no_proxy</span><span class="kw">:</span><span class="at"> localhost,127.0.0.1,0.0.0.0</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"21001:21001"</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ./FastChat:/FastChat</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"python3.9"</span><span class="kw">,</span><span class="at"> </span><span class="st">"-m"</span><span class="kw">,</span><span class="at"> </span><span class="st">"fastchat.serve.controller"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--host"</span><span class="kw">,</span><span class="at"> </span><span class="st">"0.0.0.0"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--port"</span><span class="kw">,</span><span class="at"> </span><span class="st">"21001"</span><span class="kw">]</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">fastchat-openai</span><span class="kw">:</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">context</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dockerfile</span><span class="kw">:</span><span class="at"> Dockerfile</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> llm-api-light:1.0.0</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">network_mode</span><span class="kw">:</span><span class="at"> </span><span class="st">"host"</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">no_proxy</span><span class="kw">:</span><span class="at"> localhost,127.0.0.1,0.0.0.0</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"8000:8000"</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ./FastChat:/FastChat</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"python3.9"</span><span class="kw">,</span><span class="at"> </span><span class="st">"-m"</span><span class="kw">,</span><span class="at"> </span><span class="st">"fastchat.serve.openai_api_server"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--host"</span><span class="kw">,</span><span class="at"> </span><span class="st">"0.0.0.0"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--port"</span><span class="kw">,</span><span class="at"> </span><span class="st">"8000"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--api-keys"</span><span class="kw">,</span><span class="at"> </span><span class="st">"key1,key2,key3"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--controller-address"</span><span class="kw">,</span><span class="at"> </span><span class="st">"http://0.0.0.0:21001"</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Et le fichier de déploiement d’un modèle pourrait ressembler à ceci :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">version:</span> <span class="st">"3.9"</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">services:</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">fastchat-model-mixtral-latest:</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">network_mode:</span> <span class="st">"host"</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">build:</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>      <span class="ex">context:</span> .</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>      <span class="ex">dockerfile:</span> Dockerfile</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">volumes:</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> /data/models:/data/models</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-</span> ./FastChat:/FastChat  </span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">environment:</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>      <span class="ex">no_proxy:</span> localhost,127.0.0.1,0.0.0.0</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      <span class="ex">TRANSFORMERS_OFFLINE:</span> 1</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">image:</span> fastchat:cudadevel-latest </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">deploy:</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      <span class="ex">resources:</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        <span class="ex">reservations:</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>          <span class="ex">devices:</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>            <span class="ex">-</span> driver: nvidia</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>              <span class="ex">device_ids:</span> [<span class="st">"1"</span>, <span class="st">"5"</span>]</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>              <span class="ex">capabilities:</span> <span class="pp">[</span><span class="ss">gpu</span><span class="pp">]</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="ex">entrypoint:</span> [<span class="st">"python3.9"</span>, <span class="st">"-m"</span>, <span class="st">"fastchat.serve.vllm_worker"</span>, <span class="st">"--model-path"</span>, <span class="st">"/data/models/vllm/Mixtral-8x7B-Instruct-v0.1"</span>,</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"--worker-address"</span><span class="ex">,</span> <span class="st">"http://0.0.0.0:26003"</span>, <span class="st">"--host"</span>, <span class="st">"0.0.0.0"</span>, <span class="st">"--port"</span>, <span class="st">"26003"</span>, <span class="st">"--controller"</span>, <span class="st">"http://0.0.0.0:21001"</span>, </span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"--trust-remote-code"</span><span class="ex">,</span> <span class="st">"--model-names"</span>, <span class="st">"mixtral-instruct"</span>, <span class="st">"--num-gpus"</span>, <span class="st">"2"</span>] <span class="co">#  "--quantization", "awq" "--num-gpus", "2"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.9"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">fastchat-model-mixtral-latest</span><span class="kw">:</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">network_mode</span><span class="kw">:</span><span class="at"> </span><span class="st">"host"</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">context</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dockerfile</span><span class="kw">:</span><span class="at"> Dockerfile</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> /data/models:/data/models</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ./FastChat:/FastChat</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">no_proxy</span><span class="kw">:</span><span class="at"> localhost,127.0.0.1,0.0.0.0</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">TRANSFORMERS_OFFLINE</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> fastchat:cudadevel-latest</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">deploy</span><span class="kw">:</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">resources</span><span class="kw">:</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">reservations</span><span class="kw">:</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">devices</span><span class="kw">:</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">driver</span><span class="kw">:</span><span class="at"> nvidia</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">device_ids</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"1"</span><span class="kw">,</span><span class="at"> </span><span class="st">"5"</span><span class="kw">]</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">capabilities</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">gpu</span><span class="kw">]</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"python3.9"</span><span class="kw">,</span><span class="at"> </span><span class="st">"-m"</span><span class="kw">,</span><span class="at"> </span><span class="st">"fastchat.serve.vllm_worker"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--model-path"</span><span class="kw">,</span><span class="at"> </span><span class="st">"/data/models/vllm/Mixtral-8x7B-Instruct-v0.1"</span><span class="kw">,</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="st">"--worker-address"</span><span class="kw">,</span><span class="at"> </span><span class="st">"http://0.0.0.0:26003"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--host"</span><span class="kw">,</span><span class="at"> </span><span class="st">"0.0.0.0"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--port"</span><span class="kw">,</span><span class="at"> </span><span class="st">"26003"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--controller"</span><span class="kw">,</span><span class="at"> </span><span class="st">"http://0.0.0.0:21001"</span><span class="kw">,</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="st">"--trust-remote-code"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--model-names"</span><span class="kw">,</span><span class="at"> </span><span class="st">"mixtral-instruct"</span><span class="kw">,</span><span class="at"> </span><span class="st">"--num-gpus"</span><span class="kw">,</span><span class="at"> </span><span class="st">"2"</span><span class="kw">]</span><span class="co"> #  "--quantization", "awq" "--num-gpus", "2"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Pour finir, il suffit de lancer les commandes associées à chaque docker_compose pour lancer tous les services. Par exemple,</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define your Docker Compose files</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="va">compose_openai_service</span><span class="op">=</span><span class="st">"docker-compose_openai.yml"</span></span>
@@ -589,8 +626,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>completion <span class="op">=</span> openai.Completion.create(</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"mixtral?"</span>, </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>prompt, </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"mixtral?"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>prompt,</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    max_tokens<span class="op">=</span><span class="dv">25</span>,</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="fl">0.5</span>,</span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    top_p<span class="op">=</span><span class="dv">1</span></span>
@@ -599,8 +636,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(completion.choices[<span class="dv">0</span>].text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
-</section>
 </section>
 </section>
 
