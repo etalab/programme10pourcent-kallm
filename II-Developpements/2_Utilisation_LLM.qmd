@@ -1,0 +1,110 @@
+---
+title: "PARTIE II. Développements autour des LLMs (pour les data scientists)"
+author: "équipe KALLM"
+date: "2024-06-07"
+format: html
+---
+
+## Techniques d'utilisation d'un LLM
+
+### Prompt engineering
+
+#### Bonnes pratiques
+
+Il faut avant tout garder à l'esprit que le prompt engineering est une discipline très empirique, qui demande beaucoup d'itérations pour obtenir le meilleur prompt par rapport au résultat souhaité. Bien qu'il n'existe pas de méthode systématique et efficace pour optimiser un prompt, certaines pratiques sont devenues la norme. Par exemple, voici quelques bonnes pratiques :
+
+- **Donner un rôle au modèle** : Par exemple, dire au modèle qu'il est un magistrat honnête et impartial pourra l'aider à générer du texte formel, neutre et juridique. Le rôle est bien sûr à adapter en fonction des exigences de chaque tâche.
+
+- **Structurer le prompt** : Il est important de bien différencier le *prompt système* du *prompt utilisateur*. Le premier donnera des instructions générales quant au style, à la tâche, au contexte, etc., alors que le second pourra donner des instructions spécifiques ou un texte à analyser. Il est également pertinent d'organiser ou de séparer clairement les instructions.
+
+- **Etre le plus précis possible** : Rajouter le plus de détails possibles, voire se répéter dans les instructions en changeant de formulation permet de bien insister sur les éléments les plus importants.
+
+- **Contraindre le modèle au maximum** : Si l'on souhaite un format de sortie précis (JSON par exemple), donner un exemple concret de sortie attendue, et insister sur le besoin de se conformer à ce format. 
+
+- **Donner des exemples** : Cf. paragraphe suivant (few-shot prompting).
+
+Le papier [Principled Instructions Are All You Need for Questioning LLaMA-1/2, GPT-3.5/4](https://arxiv.org/abs/2312.16171) donne un certains nombre de principes pour améliorer les prompts. Parmi ces principes (très nombreux), on trouve par exemple :
+
+- Ne pas etre poli avec le LLM si l'on souhaite une réponse concise.
+- Décrire l'audience souhaitée dans le prompt (des experts techniques, des enfants, etc.).
+- Utiliser des directives affirmatives (fais ceci), et éviter les tournures négatives (ne fais pas cela).
+- Employer des phrases telles que 'Ta tache est de' ou 'Tu DOIS'.
+- Répéter plusieurs fois certains mots ou phrases essentielles.
+
+
+#### 0-shot, 1-shot, few-shot prompting
+
+La façon la plus intuitive d'adresser une requête à un LLM est de formuler des instructions les plus précises possibles. Ce faisant, on espère que le modèle comprendra ces instructions et répondra en conséquence. Pour des tâches nouvelles, auxquelles le modèle n'a pas nécessairement été confronté durant son (pré)-entraînement, on appelle cette méthode du 0-shot prompting : le modèle n'a pas de référence ou d'exemple de réponse attendue.
+
+Pour pallier ce manque de référence, il est possible (et, en fonction de la tâche, souvent recommandé) d'ajouter des exemples de paires entrée/sortie dans le prompt que l'on adresse au modèle : cela donne du 1-shot (un exemple) ou du few-shot (plusieurs exemples) prompting. Plus les exemples sont proches de la requête initiale, plus le modèle saura précisément comment répondre. Cela permet ainsi au modèle de s'adapter, à moindre coût, à une tâche très spécifique ou particulière.
+
+- [Guide pratique (avec exemples)](https://www.prompthub.us/blog/the-few-shot-prompting-guide)
+
+#### Chain of Thought (CoT) reasoning
+
+Sur certaines tâches qui demandent un raisonnement (par exemple la résolution d'un problème mathématique simple), les LLM naturellement ne sont pas très bons. Pour augmenter leurs capacités de raisonnement, une stratégie classique consiste à leur demander de raisonner et de réfléchir étape par étape.
+
+Les modèles les plus récents ayant nettement progressé en raisonnement, il est possible qu'ils raisonnent naturellement étape par étape sur des questions simples. Pour des questions ou des raisonnements plus complexes, il sera cependant probablement plus efficace de proposer une logique de raisonnement au modèle, en explicitant les différentes étapes.
+
+Il est également possible de combiner le CoT reasoning avec du few-shot prompting, *i.e.* de donner des exemples de raisonnement étape par étape au modèle.
+
+- [Guide détaillé](https://www.mercity.ai/blog-post/guide-to-chain-of-thought-prompting)
+
+#### Reverse prompt engineering
+
+Une façon de travailler ses prompts est de profiter des capacités génératives des LLMs pour leur faire créer des prompts. L'idée est de donner au LLM un exemple de sortie souhaitée, et de lui demander de générer le prompt le plus adapté possible pour produire cette sortie.
+
+- [Guide pratique](https://bootcamp.uxdesign.cc/why-reverse-prompt-engineering-is-the-magic-key-to-production-ready-prompts-9d4c2c5b2e8b)
+
+### Quelles questions se poser pour faire les bons choix techniques ?
+
+#### Utiliser un LLM
+
+La première question à se poser est la nécessité ou non d’utiliser un LLM. Certaines tâches peuvent se résoudre avec un LLM, mais ce n’est pas toujours la solution la plus pertinente. Par exemple, un LLM est normalement capable de parser un fichier xml sans problème, mais un script naïf sera largement aussi efficace, à bien moindre coût (environnemental, humain, financier). L’utilisation d’un LLM doit venir d’un besoin de compréhension fine du langage naturel.
+
+#### Quel(s) modèle(s) utiliser
+
+Beaucoup d’éléments sont à prendre en compte lors du choix du modèle à utiliser. Parmi les plus importants :
+
+- **Sa taille** : Exprimée généralement en milliards (B) de paramètres (Llama-3 8B possède 8 milliards de paramètres, Mistral 7B en possède 7 milliards, etc.), elle influe fortement sur les performances du modèles et les exigences techniques. Un « petit » LLM de 8 milliards de paramètres pourra tourner sur un GPU modeste avec une VRAM de 32 GB (voire moins si l’on utilise un modèle quantifié, cf. …), tandis qu’un LLM de taille moyenne de 70 milliards de paramètres nécessitera 2 GPU puissants avec 80 GB de VRAM.
+
+- **Son multilinguisme** : La plupart des modèles sont entraînés sur une immense majorité de données anglaises (plus de 90 % pour Llama-2, contre moins de 0,1 % de données françaises). Les modèles incluant plus de français (Mistral ?) dans leurs données d’entraînement sont naturellement plus efficaces sur du français.
+
+- **Son temps d’inférence** : Généralement directement lié à la taille du modèle, certaines architectures (MoE) permettent cependant d’avoir un temps d’inférence plus court.
+
+- **Ses performances générales** : Beaucoup de benchmarks publics évaluent les LLMs sur des tâches généralistes et variées. Un bon point de départ est de regarder [le Leaderboard](https://chat.lmsys.org/?leaderboard) qui recense la plupart des modèles connus.
+
+- **Ses performances spécifiques** : Les benchmarks généralistes ne sont pas forcément pertinents pour certains cas d’usages, car ils ne sont pas spécifiques à la tâche, aux données, etc. Il peut être intéressant de développer un pipeline d’évaluation spécifique (cf…).
+
+En juin 2024, un bon point de départ est de regarder les modèles open-source de Meta (Llama-2 7B/13B/70B, Llama-3 8B/70B) et de Mistral AI (Mistral 7B, Mixtral 8x7B).
+
+#### Quand faire du prompt engineering
+
+Si vous êtes dans l'un des cas suivants, le prompt engineering peut être une bonne option :
+
+- Pas beaucoup de ressources disponibles
+- Besoin d'un outil laissé à la disposition des utilisateurs, avec une grande liberté
+- Les réponses requises sont très formattées ou très spécifiques
+
+#### Quand faire de la RAG
+
+Si vous êtes dans l'un des cas suivants, la RAG peut être une bonne option :
+
+- Besoin de réponses à jour, régulièrement et facilement actualisées
+- Besoin de sourcer les réponses ou de diminuer les hallucinations
+- Besoin d'enrichir les réponses avec des données spécifiques
+- Besoin d'une application qui ne dépend pas d'un modèle spécifique (généralisabilité), et dont les utilisateurs ne connaissent pas l'IA générative
+
+#### Quand faire du fine-tuning
+
+Si vous êtes dans l'un des cas suivants, le fine-tuning peut être une bonne option :
+
+- Besoin d'une terminologie ou d'un style spécifique
+- Besoin d'enrichir les réponses avec des données spécifiques
+- Ressources (GPU, data scientists) disponibles
+- Données disponibles en quantité et qualité suffisantes
+- Besoin d'une application qui ne dépend pas d'un modèle spécifique (généralisabilité), et dont les utilisateurs ne connaissent pas l'IA générative
+
+#### F. Combiner plusieurs techniques
+
+Il est tout à fait possible de fine-tuner un LLM sur une tâche de RAG par exemple. Peu de travaux ont été faits sur cette combinaison, mais le papier [RAFT](https://arxiv.org/abs/2403.10131) (Retrieval Augmented Fine-Tuning) en donne une vision d'ensemble et en propose une méthode.

@@ -22,21 +22,24 @@ website:
         href: index.qmd
       - section: "I-Accompagnement"
         contents:
-          - href: I-Accompagnement/1_Besoins.qmd
-            text: "Besoins"
-          - href: I-Accompagnement/2_Deja_Fait_Admin.qmd
-            text: "Exemples dans l'administration"
-          - href: I-Accompagnement/3_Acculturation.qmd
+          - href: I-Accompagnement/0_Intro.qmd
+            text: "Introduction"
+          - href: I-Accompagnement/1_cas_usage.qmd
+            text: "Cas d'usage"
+          - href: I-Accompagnement/2_Acculturation.qmd
             text: "Acculturation"
-          - href: I-Accompagnement/4_Impacts.qmd
+          - href: I-Accompagnement/3_Impacts.qmd
             text: "Impacts"
-      - section: "II-Developpements"
+      - section: "II-Développements"
+        href: II-Developpements/0_Introduction.qmd
         contents:
-          - href: II-Developpements/1_Revue_Technique_LLM.qmd
-            text: "Revue technique des LLM"
-          - href: II-Developpements/2_RAG.qmd
-            text: "Retrieval Augmented Generation"
-          - href: II-Developpements/3_Evaluations.qmd
+          - href: II-Developpements/1_Anatomie_LLM.qmd
+            text: "Anatomie et conception d'un modèle de langage"
+          - href: II-Developpements/2_Utilisation_LLM.qmd
+            text: "Techniques d'utilisation d'un LLM"
+          - href: II-Developpements/3_RAG.qmd
+            text: "Focus sur le RAG (Retrieval Augmented Generation)"
+          - href: II-Developpements/4_Evaluations.qmd
             text: "Evaluations"
       - section: "III-Deploiements"
         href: "III-Deploiements/0_Introduction_deploiements.qmd"
