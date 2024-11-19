@@ -254,14 +254,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#iv.-évaluations-dun-modèle" id="toc-iv.-évaluations-dun-modèle" class="nav-link active" data-scroll-target="#iv.-évaluations-dun-modèle">IV. Évaluations d’un modèle</a>
+  <li><a href="#évaluations-dun-modèle" id="toc-évaluations-dun-modèle" class="nav-link active" data-scroll-target="#évaluations-dun-modèle">Évaluations d’un modèle</a>
   <ul class="collapse">
-  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif">1. Objectif</a></li>
-  <li><a href="#quelques-concepts-à-connaître" id="toc-quelques-concepts-à-connaître" class="nav-link" data-scroll-target="#quelques-concepts-à-connaître">2. Quelques concepts à connaître</a></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">3 Datasets</a></li>
-  <li><a href="#evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm" id="toc-evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm" class="nav-link" data-scroll-target="#evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm">4 Evaluation de modèles LLM vs.&nbsp;Evaluation de systèmes LLM</a></li>
-  <li><a href="#librairies-et-frameworks" id="toc-librairies-et-frameworks" class="nav-link" data-scroll-target="#librairies-et-frameworks">5 Librairies et Frameworks</a></li>
-  <li><a href="#méthodologie" id="toc-méthodologie" class="nav-link" data-scroll-target="#méthodologie">6 Méthodologie</a></li>
+  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif">Objectif</a></li>
+  <li><a href="#quelques-concepts-à-connaître" id="toc-quelques-concepts-à-connaître" class="nav-link" data-scroll-target="#quelques-concepts-à-connaître">Quelques concepts à connaître</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm" id="toc-evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm" class="nav-link" data-scroll-target="#evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm">Evaluation de modèles LLM vs.&nbsp;Evaluation de systèmes LLM</a></li>
+  <li><a href="#librairies-et-frameworks" id="toc-librairies-et-frameworks" class="nav-link" data-scroll-target="#librairies-et-frameworks">Librairies et Frameworks</a></li>
+  <li><a href="#méthodologie" id="toc-méthodologie" class="nav-link" data-scroll-target="#méthodologie">Méthodologie</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -300,10 +300,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="iv.-évaluations-dun-modèle" class="level2">
-<h2 class="anchored" data-anchor-id="iv.-évaluations-dun-modèle">IV. Évaluations d’un modèle</h2>
+<section id="évaluations-dun-modèle" class="level2">
+<h2 class="anchored" data-anchor-id="évaluations-dun-modèle">Évaluations d’un modèle</h2>
 <section id="objectif" class="level3">
-<h3 class="anchored" data-anchor-id="objectif">1. Objectif</h3>
+<h3 class="anchored" data-anchor-id="objectif">Objectif</h3>
 <p>Tous les LLM visent le même objectif : maîtriser le langage naturel et par là même, égaler l’humain dans des tâches telles que le résumé, la traduction, la reconnaissance des entités nommées, etc.</p>
 <p>Cependant, tous les LLM souffrent des mêmes défauts, de façon plus ou moins prononcée:</p>
 <pre><code>* Très grande sensibilité du modèle au prompt utilisé 
@@ -314,7 +314,7 @@ d'entraînement biaisées, au recours à des agents trop permissifs, etc.</code>
 <p>Si de nombreux bancs d’essai existent aujourd’hui, permettant de distinguer certains LLM, <strong>il ne faut pas oublier que de bonnes performances dans un banc d’essai ne sont pas suffisantes, et qu’il est primordial de mettre en place un système d’évaluation quasi temps réél du LLM une fois en production.</strong></p>
 </section>
 <section id="quelques-concepts-à-connaître" class="level3">
-<h3 class="anchored" data-anchor-id="quelques-concepts-à-connaître">2. Quelques concepts à connaître</h3>
+<h3 class="anchored" data-anchor-id="quelques-concepts-à-connaître">Quelques concepts à connaître</h3>
 <p><strong>a) Scenario</strong></p>
 <p>Un scénario est un ensemble de conditions dans lesquelles la performance du LLM est évaluée. Il s’agit par exemple de</p>
 <ul>
@@ -354,7 +354,7 @@ d'entraînement biaisées, au recours à des agents trop permissifs, etc.</code>
 <p><img src="../images/piaf_example.png" class="img-fluid"></p>
 </section>
 <section id="datasets" class="level3">
-<h3 class="anchored" data-anchor-id="datasets">3 Datasets</h3>
+<h3 class="anchored" data-anchor-id="datasets">Datasets</h3>
 <p>Les performances des modèles peuvent être évaluées qu’en comparaison avec les connaissances existantes. Pour ce faire, il est nécessaire de disposer d’ensembles de données de référence dont les résultats sont connus et vérifiés. Au cours des dernières années, de tels ensembles de données ont été collectés pour un certain nombre d’applications. Pour évaluer les LLM, il existe des “benchmark datasets” qui peuvent être utilisés pour entraîner et pour tester des modèles.</p>
 <ul>
 <li><strong>CoQA</strong> (Conversational Question Answering) est un set de données avec plus de 127 000 questions-réponses dans 7 domaines sont 5 sont publiques. <a href="https://stanfordnlp.github.io/coqa/">https://stanfordnlp.github.io/coqa/</a> Pour évaluer votre modèle, il suffit de lancer ce script</li>
@@ -394,7 +394,7 @@ run.run_simple(args)</code></pre>
 <p><a href="https://github.com/leobeeson/llm_benchmarks">https://github.com/leobeeson/llm_benchmarks</a>.</p>
 </section>
 <section id="evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm" class="level3">
-<h3 class="anchored" data-anchor-id="evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm">4 Evaluation de modèles LLM vs.&nbsp;Evaluation de systèmes LLM</h3>
+<h3 class="anchored" data-anchor-id="evaluation-de-modèles-llm-vs.-evaluation-de-systèmes-llm">Evaluation de modèles LLM vs.&nbsp;Evaluation de systèmes LLM</h3>
 <p>L’expression <em>évaluation de LLM</em> peut recouvrir différentes pratiques et différents objectifs. On doit ainsi distinguer l’<strong>évaluations de modèles LLM</strong> de l’<strong>évaluations de systèmes LLM</strong>. Les évaluations de modèles LLM s’intéressent aux performances globales. Les entreprises/centres de recherche qui lance leurs LLM ont besoin de quantifier leur efficacité sur un ensemble de tâches différentes.</p>
 <p>Il existe de nombreux benchmarks qui permettent d’illustrer les performances des modèles sur des aspects précis, comme HellaSwag (qui évalue la capacité d’un LLM à compléter une phrase et faire preuve de bon sens), TruthfulQA (qui mesure la véracité des réponses du modèle) et MMLU (qui mesure la capacité de compréhension et de résolution de problèmes ).</p>
 <p><img src="../images/llm_model_eval.webp" class="img-fluid"></p>
@@ -404,7 +404,7 @@ run.run_simple(args)</code></pre>
 <p><em>(Source https://towardsdatascience.com/llm-evals-setup-and-the-metrics-that-matter-2cc27e8e35f3)</em></p>
 <p><strong>En pratique, la comparaison des modèles sur des benchmarks est réalisée par les grands fournisseurs de LLM (OpenAI, Facebook, Google, etc) ou par la communauté universitaire. L’évaluation de modèle reste cependant intéressante pour mesurer le gain de performance apporté par un fine-tuning sur un corpus interne par exemple. Cependant, ce sont les évaluations de systèmes LLM qui intéresseront la majorité des équipes souhaitant déployer un LLM dans leur administration.</strong></p>
 <section id="détails-des-métriques-utilisées-pour-lévaluation-de-modèles" class="level4">
-<h4 class="anchored" data-anchor-id="détails-des-métriques-utilisées-pour-lévaluation-de-modèles">4.1 Détails des métriques utilisées pour l’évaluation de modèles</h4>
+<h4 class="anchored" data-anchor-id="détails-des-métriques-utilisées-pour-lévaluation-de-modèles">Détails des métriques utilisées pour l’évaluation de modèles</h4>
 <p>Il n’existe pas de réponse simple à la question de savoir quelles métriques utiliser pour évaluer son système LLM. Cela dépendra du type de tâche, de la population cible, de la nature des données, des ressources materielles disponibles, etc Traditionnellement, dans le domaine de l’apprentissage machine, on évalue un modèle en se dotant d’un ensemble annoté d’entrées/sorties attendues, et on compare ensuite la distance entre la sortie obtenue et la sortie attendue. Dans le cas de la classification, on peut par exemple mesurer le taux de bonnes réponses.</p>
 <p>La difficulté de l’évaluation en IA générative réside dans le fait que nous ne disposons généralement pas de valeur de référence à laquelle comparer la sortie du modèle. Même dans les cas où l’on disposerait d’un exemple de bonne réponse, les données de sortie étant non structurées (texte en language naturel), il est difficile de comparer la distance entre deux objets.</p>
 <p>On reprend ici l’idée de classer les métriques en fonction de leur approche du problème, c’est à dire selon la façon dont elles évaluent la pertinence de la réponse obtenue. Certaines techniques supposent que l’on dispose d’une réponse de référence, et la question est alors de savoir comment elles évaluent la distance entre la réponse obtenue et une réponse de référence. D’autres techniques plus récentes ne font pas cette hypothèse, et cherchent à évaluer la qualité de la réponse dans l’absolu. <img src="../images/schema_metriques.png" class="img-fluid"></p>
@@ -433,7 +433,7 @@ run.run_simple(args)</code></pre>
 <p><del>En novembre 2024, on constate néanmoins que les LLM open-source ne sont pas encore assez puissants pour mener à bien la tâche de découpage du texte en affirmations élémentaires. Si les données à évaluer ne sont pas sensibles, nous conseillons, pour l’heure, de privilégier un LLM propriétaire.</del></p>
 </section>
 <section id="détails-des-métriques-utilisées-pour-lévaluation-de-systèmes" class="level4">
-<h4 class="anchored" data-anchor-id="détails-des-métriques-utilisées-pour-lévaluation-de-systèmes">4.2 Détails des métriques utilisées pour l’évaluation de systèmes</h4>
+<h4 class="anchored" data-anchor-id="détails-des-métriques-utilisées-pour-lévaluation-de-systèmes">Détails des métriques utilisées pour l’évaluation de systèmes</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -588,7 +588,7 @@ run.run_simple(args)</code></pre>
 </section>
 </section>
 <section id="librairies-et-frameworks" class="level3">
-<h3 class="anchored" data-anchor-id="librairies-et-frameworks">5 Librairies et Frameworks</h3>
+<h3 class="anchored" data-anchor-id="librairies-et-frameworks">Librairies et Frameworks</h3>
 <p>A ce jour, il existe des nombreux outils et librairies pour effectuer l’évaluation des modèles LLM. Chaque de ces librairies et frameworks est taillée pour une utilisation de modèle concrète avec des exemples pour vous aider à démarrer l’évaluation de votre modèle.</p>
 <p><strong>Hugging Face Transformers</strong> fournissent des API et des outils pour évaluer des modèles pré-entraînés sur différentes tâches en utilisant des métriques telles que la précision, le score F1 ou encore le score BLEU. Ils prennent en charge aussi l’intégration les données de la bibliothèque Hugging Face Datasets. <a href="https://huggingface.co/docs/transformers/index">https://huggingface.co/docs/transformers/index</a></p>
 <p><strong>Scikit-learn</strong>, c’est un projet Open source avec des librairies principalement axées sur l’apprentissage automatique traditionnel. Elle comprend de nombreux outils de métriques et utilitaires qui peuvent être utilisés pour évaluer les modèles de langage. <a href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a></p>
@@ -602,7 +602,7 @@ run.run_simple(args)</code></pre>
 <hr>
 </section>
 <section id="méthodologie" class="level3">
-<h3 class="anchored" data-anchor-id="méthodologie">6 Méthodologie</h3>
+<h3 class="anchored" data-anchor-id="méthodologie">Méthodologie</h3>
 <p>Un arbre de décision pour l’évaluation des LLM peut vous aider à guider votre processus d’évaluation en fonction de critères et d’objectifs spécifiques de votre modèle et son évaluation. Voici un exemple de tel arbre de décision qui pourrait vous aider en cas de doute. v1 <img src="../images/dev_eval_arbre_decision-v1.png" class="img-fluid"></p>
 
 

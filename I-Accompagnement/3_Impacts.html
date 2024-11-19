@@ -256,9 +256,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#impacts" id="toc-impacts" class="nav-link active" data-scroll-target="#impacts">Impacts</a>
   <ul class="collapse">
-  <li><a href="#a.-environnementaux" id="toc-a.-environnementaux" class="nav-link" data-scroll-target="#a.-environnementaux">a. Environnementaux</a></li>
-  <li><a href="#b.-légaux" id="toc-b.-légaux" class="nav-link" data-scroll-target="#b.-légaux">b. Légaux</a></li>
-  <li><a href="#c.-sécurité" id="toc-c.-sécurité" class="nav-link" data-scroll-target="#c.-sécurité">c.&nbsp;Sécurité</a></li>
+  <li><a href="#impacts-environnementaux" id="toc-impacts-environnementaux" class="nav-link" data-scroll-target="#impacts-environnementaux">Impacts environnementaux</a></li>
+  <li><a href="#impacts-légaux" id="toc-impacts-légaux" class="nav-link" data-scroll-target="#impacts-légaux">Impacts légaux</a></li>
+  <li><a href="#sécurité" id="toc-sécurité" class="nav-link" data-scroll-target="#sécurité">Sécurité</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -299,8 +299,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="impacts" class="level2">
 <h2 class="anchored" data-anchor-id="impacts">Impacts</h2>
-<section id="a.-environnementaux" class="level3">
-<h3 class="anchored" data-anchor-id="a.-environnementaux">a. Environnementaux</h3>
+<section id="impacts-environnementaux" class="level3">
+<h3 class="anchored" data-anchor-id="impacts-environnementaux">Impacts environnementaux</h3>
 <p>Le numérique est responsable de 2,5% de l’empreinte carbone de la France (17,2 Mt de CO2e &amp; 20 millions de tonnes de déchets) selon l’étude <a href="https://www.arcep.fr/uploads/tx_gspublication/note-synthese-au-gouvernement-prospective-2030-2050_mars2023.pdf">ARCEP &amp; ADEME de 2023</a>. Par contre, il n’existe aucun référentiel à ce jour pour mesurer l’impact environnemental des projets d’intelligence artificielle. À titre d’exemple, les émissions liées à l’entraînement de GPT-3 sont estimées à 552 tonnes de CO2eq [1] et son utilisation en janvier 2023 représenterait 10 113 tonnes de CO2eq [2]. Les ressources en eau, métaux et d’autres matériaux pour la fabrication et opération des infrastructures sont également conséquents.</p>
 <p>Afin de permettre aux acteurs du numérique d’évaluer l’impact environnemental de leurs projets d’intelligence artificielle, et de communiquer sur le caractère frugal de ces derniers, l’Ecolab du MTECT prépare avec l’AFNOR un <a href="https://normalisation.afnor.org/nos-solutions/afnor-spec/intelligence-artificielle-frugale/">document de référence</a>, qui devra être disponible en juillet.</p>
 <p>À l’heure actuelle, pour estimer la consommation énergétique et les émissions de CO2 liées à l’exécution du code, les data-scientists peuvent utiliser la librairie <a href="https://github.com/mlco2/codecarbon">CodeCarbon</a>, à mettre en place avant l’usage, et/ou <a href="https://www.green-algorithms.org/">Green Algorithms</a>, qui peut être utilisé pour estimer un usage futur ou passé.</p>
@@ -308,15 +308,15 @@ ul.task-list li input[type="checkbox"] {
 <p>[1] https://arxiv.org/pdf/2104.10350.pdf</p>
 <p>[2] <a href="https://issuu.com/dataforgood/docs/dataforgood_livreblanc_iagenerative_v1.0?fr=sZGE0MjYyNjE5MTU">Data For Good - Livre Blanc de l’IA Générative</a></p>
 </section>
-<section id="b.-légaux" class="level3">
-<h3 class="anchored" data-anchor-id="b.-légaux">b. Légaux</h3>
+<section id="impacts-légaux" class="level3">
+<h3 class="anchored" data-anchor-id="impacts-légaux">Impacts légaux</h3>
 <p>La sécurité des données personnelles et des modèles est un enjeu considérable, que ce soit du point de vue personnel ou à l’échelle de l’administration. Par exemple, quand les modèles ne sont pas auto-hébergés, les entreprises qui les fournissent ont accès aux conversations tenus avec les chatbots. De plus ces données sont réutilisées pour l’entraînement et peuvent ressortir lors de conversations avec d’autres utilisateurs.</p>
 <p>La CNIL propose une série de recommandations concenrant le développement de système d’IA impliquant un traitement des données personnelles, notamment en insistant sur la définition des finalités du traitement et sur prise en compte de la <a href="https://www.cnil.fr/fr/les-bases-legales/liceite-essentiel-sur-les-bases-legales">base légale du RGPD</a> qui autorise à traiter des données personnelles. Dans le cas d’une administration publique, cette base légale pourra être par exemple selon les cas l’obligation légale, la mission d’intérêt public ou l’intérêt légitime.</p>
 <p>Au niveau européen, le <a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=OJ:L_202401689">règlement (UE) 2024/1689 du Parlement européen et du Conseil du 13 juin 2024 établissant des règles harmonisées concernant l’intelligence artificielle</a> ou “AI Act” est le premier acte législatif européen sur l’IA. Il établit notamment des règles harmonisées concernant la mise sur le marché, mise en service et utilisation de systèmes d’IA dans l’UE, avec l’interdiction de certaines pratiques, comme la notation sociale, l’évaluation des risques de commettre des infractions ou la création de bases de données de reconnaissance faciale non ciblées. Une gradation est déterminée selon le niveau de risque, avec des systèmes d’IA à faible ou moyen risque, des systèmes à haut risque, associés à des exigences spécifiques, par exemple lorsqu’ils traitent des données personnelles, et des pratiques interdites.</p>
 <p>Pour aller plus loin : - <a href="https://www.cnil.fr/fr/ia-la-cnil-publie-ses-premieres-recommandations-sur-le-developpement-des-systemes-dintelligence">Guide de la CNIL</a> - <a href="https://artificialintelligenceact.eu/fr/high-level-summary/">Résumé haut niveau de l’AI Act</a></p>
 </section>
-<section id="c.-sécurité" class="level3">
-<h3 class="anchored" data-anchor-id="c.-sécurité">c.&nbsp;Sécurité</h3>
+<section id="sécurité" class="level3">
+<h3 class="anchored" data-anchor-id="sécurité">Sécurité</h3>
 <p>En plus de la sécurisation commune aux applications produites par l’administration, certains sujets sont spécifiques aux modèles d’IA. L’ANSSI a écrit à ce sujet un guide de recommandations de sécurité pour sensibiliser aux risques et promouvoir les bonnes pratiques lors de la création et de la mise en production d’applications comportant des modèles d’IA générative.</p>
 <p>Trois catégories d’attaque spécifiques au système d’IA générative sont identifiées :</p>
 <ul>
