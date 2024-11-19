@@ -5,9 +5,9 @@ date: "2024-06-07"
 format: html
 ---
 
-## IV. Évaluations d'un modèle
+## Évaluations d'un modèle
 
-### 1. Objectif
+### Objectif
 
 Tous les LLM visent le même objectif : maîtriser le langage naturel et par là même, égaler l'humain dans des tâches
 telles que le résumé, la traduction, la reconnaissance des entités nommées, etc.
@@ -27,7 +27,7 @@ Si de nombreux bancs d'essai existent aujourd'hui, permettant de distinguer cert
 que de bonnes performances dans un banc d'essai ne sont pas suffisantes, et qu'il est primordial de mettre en place un
 système d'évaluation quasi temps réél du LLM une fois en production.**
 
-### 2. Quelques concepts à connaître
+### Quelques concepts à connaître
 
 **a) Scenario**
 
@@ -84,7 +84,7 @@ et d'une liste de questions portant sur ces paragraphes.
 
 ![](../images/piaf_example.png)
 
-### 3 Datasets
+### Datasets
 
 Les performances des modèles peuvent être évaluées qu'en comparaison avec les connaissances existantes. Pour ce faire,
 il est nécessaire de disposer d'ensembles de données de référence dont les résultats sont connus et vérifiés. Au cours
@@ -148,7 +148,7 @@ Plus d'informations sur Git : [https://github.com/nyu-mll/jiant](https://github.
 
 [https://github.com/leobeeson/llm_benchmarks](https://github.com/leobeeson/llm_benchmarks).
 
-### 4 Evaluation de modèles LLM  vs. Evaluation de systèmes LLM
+### Evaluation de modèles LLM  vs. Evaluation de systèmes LLM
 
 L'expression _évaluation de LLM_ peut recouvrir différentes pratiques et différents objectifs.
 On doit ainsi distinguer l'**évaluations de modèles LLM** de l'**évaluations de systèmes LLM**.
@@ -181,7 +181,7 @@ mesurer le gain de performance apporté par un fine-tuning sur un corpus interne
 évaluations de systèmes LLM qui intéresseront la
 majorité des équipes souhaitant déployer un LLM dans leur administration.**
 
-#### 4.1 Détails des métriques utilisées pour l'évaluation de modèles
+#### Détails des métriques utilisées pour l'évaluation de modèles
 
 Il n'existe pas de réponse simple à la question de savoir quelles métriques utiliser pour évaluer son système LLM. Cela
 dépendra du type de tâche, de la population cible, de la nature des données, des ressources materielles disponibles, etc
@@ -222,9 +222,7 @@ Les métriques basées sur le Deep Learning permettent de palier ce problème en
 On distingue en premier lieu les métriques qui ont besoin d'une valeur de référence et les autres.
 
 Détenir une valeur de référence peut représenter une grosse contrainte. Tout d'abord, ce n'est pas toujours pertinent;
-si
-on demande
-au LLM d'écrire un poème sur la mer par exemple, il serait vain de chercher à le comparer à un autre poème.
+si on demande au LLM d'écrire un poème sur la mer par exemple, il serait vain de chercher à le comparer à un autre poème.
 Deuxièmement, les textes de références
 ne sont pas toujours de meilleure qualité que les textes générés par des LLM. Dans le cas du résumé automatique par
 exemple, [[Fabbri, 2020](https://arxiv.org/abs/2007.12626)] illustre les problèmes du dataset
@@ -294,7 +292,7 @@ la
 tâche de découpage du texte en affirmations élémentaires. Si les données à évaluer ne sont pas sensibles, nous
 conseillons, pour l'heure, de privilégier un LLM propriétaire.~~
 
-#### 4.2 Détails des métriques utilisées pour l'évaluation de systèmes
+#### Détails des métriques utilisées pour l'évaluation de systèmes
 
 | Catégorie                                              | Métriques                             | Détails                                                                                                                                    |
 |--------------------------------------------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -328,7 +326,7 @@ conseillons, pour l'heure, de privilégier un LLM propriétaire.~~
 
 
 
-### 5 Librairies et Frameworks
+### Librairies et Frameworks
 
 A ce jour, il existe des nombreux outils et librairies pour effectuer l'évaluation des modèles LLM. Chaque de ces
 librairies et frameworks est taillée pour une utilisation de modèle concrète avec des exemples pour vous aider à
@@ -375,7 +373,7 @@ Autres sources : ...
 
 ---
 
-### 6 Méthodologie
+### Méthodologie
 
 Un arbre de décision pour l'évaluation des LLM peut vous aider à guider votre processus d'évaluation en fonction de
 critères et d'objectifs spécifiques de votre modèle et son évaluation. Voici un exemple de tel arbre de décision qui

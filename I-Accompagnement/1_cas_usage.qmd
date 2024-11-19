@@ -10,7 +10,7 @@ L'objectif de ce chapitre est d'accompagner la réflexion autour de l'identifica
 
 Au sein des administrations, les cas d'usage de LLM ci-dessous sont en cours d'expérimentation, soit en production.
 
-## A. Cas d’usage
+## Cas d’usage
 Des LLM peuvent être utilisés pour :
 
 -	**Labelliser / classifier les textes d’un corpus traitant d’un sujet, selon certaines catégories**. 
