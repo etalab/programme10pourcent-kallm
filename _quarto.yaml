@@ -19,7 +19,7 @@ website:
         href: index.qmd
       - section: "I-Accompagnement"
         contents:
-          - href: I-Accompagnement/0_intro.qmd
+          - href: I-Accompagnement/0_Intro.qmd
             text: "Introduction"
           - href: I-Accompagnement/1_cas_usage.qmd
             text: "Cas d'usage"
