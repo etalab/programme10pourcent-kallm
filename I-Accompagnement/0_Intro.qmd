@@ -5,7 +5,7 @@ Les **Large Language Models** sont des algorithmes d’intelligence artificielle
 
 ### Représentation du corpus de documents sous forme de matrice
 
-Dans ce contexte, les **documents** forment les observations statistiques considérées (équivalent aux « individus » en statistique) et leur ensemble forme un *corpus* (équivalent à une « population »). Dans certains cas, les documents sont découpés en paragraphes qui forment les observations statistiques. Les **mots** ou les **chaînes de caractères** extraîts des documents jouent le rôle des variables.
+Dans ce contexte, les **documents** forment les observations statistiques considérées (équivalent aux « individus » en analyse de données) et leur ensemble forme un *corpus* (équivalent à une « population »). Dans certains cas, les documents sont découpés en paragraphes qui forment les observations statistiques. Les **mots** ou les **chaînes de caractères** extraîts des documents jouent le rôle des variables.
 
 Pour analyser un corpus, chaque document est représenté sous forme d'un **vecteur** et le corpus entier sous forme d'une **matrice**, où les **lignes** correspondent aux et les **colonnes** représentent les mots ou les chaînes de caractères.
 
