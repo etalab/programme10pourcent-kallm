@@ -1,0 +1,84 @@
+---
+title: Déploiement d'applications
+---
+
+## Des interfaces déjà disponibles pour vos modèles LLMs
+
+Plusieurs initiatives permettent de déployer rapidement des interfaces de chat avec des modèles LLMs, voire des applications de RAG avec back et front. On peut remarquer :
+
+- [CARADOC](#caradoc)
+- [WebUI du module FastChat](#fastchat)
+- [openwebui](#openwebui)
+
+### CARADOC
+
+Mise en open source par l'équipe DataScience de la DTNUM de la DGFiP : [git](https://gitlab.adullact.net/dgfip/projets-ia/caradoc)
+
+Aperçu de l'application CARADOC pendant ses développements :
+
+![Interface de l'application RAG Caradoc](../images/chat.png "Interface de l'application RAG Caradoc")
+
+### FastChat
+
+Aperçu d'une interface possible avec FastChat (basée sur Gradio):
+
+![Interface de l'application Chat avec FastChat](../images/chat2.png "Interface de l'application Chat avec FastChat")
+
+Exemple de code pour lancer l'interface Gradio de FastChat dans un Docker :
+
+```yaml
+version: "3.9"
+services:
+  fastchat-gradio-server:
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      FASTCHAT_CONTROLLER_URL: http://0.0.0.0:21001
+      no_proxy: localhost,127.0.0.1,0.0.0.0
+    image: fastchat:latest
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./FastChat:/FastChat
+    entrypoint: ["python3.9", "-m", "fastchat.serve.gradio_web_server_dtnum", "--controller-url", "http://0.0.0.0:21001", "--host", "0.0.0.0", "--port", "8001", "--model-list-mode", "reload"]
+```
+
+Avec toujours l'image Docker qui contient FastChat.
+
+### Open WebUI
+
+[Open webui](https://docs.openwebui.com/) est une librairie opensource permettant le déploiement d'une interface similaire à ChatGPT pour intéragir avec des API ou son propre service LLM. 
+
+![](../images/openwebui.png)
+
+Au delà du tchat, l'application donne accès à plusieurs fonctionnalités avancées (RAG, exécution de fonction, ...). Elle est déployable via Docker ou installation python.
+
+## Déploiement sur le SSP Cloud
+
+Sur le [DataLab SSP Cloud](https://datalab.sspcloud.fr/), il est possible de déployer des LLM à des fins d'expérimentation. Plusieurs cas sont possibles :
+
+1. Utiliser des librairies d'API de LLM (vLLM, etc.)
+2. Déployer des containers Docker avec Kube et Helm
+
+### Déploiement par image Docker
+
+* Créer une image Docker et la mettre à disposition (Dockerhub) : exemple applicatif avec Streamlit
+* Déployer avec Kube et Helm en utilisant un service VSCode avec les droits d'admin pour Kube
+
+Exemple avec Kubernetes :
+
+```bash
+kubectl create deployment mon-deploiement --image=mon-image-docker
+```
+
+```bash
+kubectl proxy
+```
+
+### Déploiement par Chart Helm
+
+Le projet Caradoc mentionné précédemment peut également être déployé sur le SSP Cloud via un Chart Helm. Le procédure d'installation est disponible [ici](https://gitlab.adullact.net/dgfip/projets-ia/caradoc/-/blob/master/k8s/charts/README.md).
+
+> Pour plus d'informations sur le déploiement de chart Helm sur le SSP Cloud, il existe un [tutoriel](https://github.com/InseeFrLab/sspcloud-tutorials/blob/main/deployment/shiny-app.md) qui détaille l'installation d'une application Shiny. Un exemple de déploiement d'un chart Helm pour l'instantiation d'une infrastrucuture LLM est aussi disponible au sein du [guide](./3_Service_LLM_production.qmd).

@@ -1,12 +1,12 @@
-# PARTIE III. Deploiements
-
-## 3. Socle pour production (Camille Jérôme Conrad)
+---
+title: 4. Service LLM à grande échelle
+---
 
 Les LLM sont des modèles de langage puissants qui nécessitent des ressources informatiques importantes pour fonctionner efficacement. Pour mettre en production une application utilisant des LLM, il est essentiel de choisir le bon matériel et les bons outils pour garantir la disponibilité des applications et des performances optimales.
 
 Pour certains modèles de langage, les processeurs habituels appelés CPU (Central Processing Unit) peuvent suffire. Mais pour la plupart des modèles plus importants, pour que les calculs se fassent dans des temps raisonnables, il est nécessaire de se doter d'unités de traitement graphique (GPU). Nous allons donc nous intéresser ici aux différents critères à étudier pour choisir correctement des GPUs, aux outils qui permettent de suivre leurs performances et enfin le lien avec les essentiels de déploiements en termes de management de ressources (avec l'exemple du lien à Kubernetes).
 
-### A. GPU pour les LLM
+## GPU pour les LLM
 
 La sélection des GPU (Graphics Processing Units) pour une installation dans une structure dépend de multiples facteurs. En voici quelques uns :
 
@@ -20,7 +20,7 @@ Pour le dernier point, il est commun d'acheter les GPUs par lots, déjà groupé
 
 Des GPUs reconnus peuvent être les T5, A100, V100 et leur prix d'achat est de l'ordre de milliers d'euros, mais il faut bien prendre en compte également les coûts cachés. En effet, l'intégration dans un SI pré-existant peut nécessiter des travaux. Durant leur cycle de vie, ils ont besoin de maintenance. Et enfin, tout au long de leur utilisation, ils ont besoin d'être administrés, ce qui peut représenter des Equivalents Temps Plein (ETP), dont le coût n'est pas à négliger.
 
-### B. Orchestration avec des GPUs
+## Orchestration avec des GPUs
 
 Il est judicieux d'utiliser un orchestrateur pour déployer des Language Models (LLMs) dans une organisation pour plusieurs raisons :
 
@@ -37,7 +37,25 @@ En résumé, un orchestrateur offre une gestion centralisée, une évolutivité,
 * **Docker Swarm**
 * **Apache Mesos**
 
-### C. Exemple de déploiement
+## Outils pour surveiller les performances des GPU
+
+Une fois l'infrastructure sécurisée, il est toujours utile de monitorer les performances des GPU, pour suivre l'impact de cette technologie, pour monitorer la charge et prévenir de la surcharge. Idéalement, l'on peut aussi imaginer suivre la consommation projet par projet pour reporter les lignes de budget et faire des bilans carbonne.
+
+Selon les technologies de GPUs utilisées, il existe différents outils qui se connectent aux infrastructure pour fournir des statistiques (notamment la mémoire utilisée, la bande passante et la température) :
+
+* **nvidia-smi**
+* **AMD Vantage**
+* **GPU-Z**
+
+Voici un exemple de résultat de statistiques extraites d'une infrastructure GPUs :
+
+![Resultat de la commande nvidia-smi](../images/nvidia-smi.png "Resultat de la commande nvidia-smi")
+
+Il existe également d'autres moyens d'accéder à des GPUs que l'acquisition
+individuelle pour les administrations (voir Partie III.4).
+
+
+## Exemple de déploiement
 
 Nous allons développer dans cette partie un exemple de déploiement d'une structure LLM avec Kubernetes. On utilise la même structure de microservices que dans la partie précedente avec FastChat mais cela peut être adapté à tout choix d'organisation et d'architecture.
 
@@ -75,7 +93,7 @@ Ces commandes sont celles de FastChat mais peuvent être remplacées par votre p
 
 Pour le controlleur :
 
-```bash
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -121,7 +139,7 @@ spec:
 
 Et pour l'api :
 
-```bash
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -186,7 +204,7 @@ Et la commande qui lance le modèle (ici Fastchat mais pourrait être n'importe 
 command: ["python3", "-m", "fastchat.serve.vllm_worker", "--model-path", "/data/models/vllm/Mixtral-8x7B-Instruct-v0.1", "--worker-address", "http://svc-llm-mixtral", "--host", "0.0.0.0", "--port", "2100", "--controller", "http://svc-controller", "--trust-remote-code", "--model-names", "mixtral-instruct", "--num-gpus", "2"]
 ```
 
-```bash
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
