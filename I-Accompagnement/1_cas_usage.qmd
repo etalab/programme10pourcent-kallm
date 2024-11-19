@@ -65,6 +65,20 @@ Par exemple, à partir de documents réglementaires extraire 15 informations-cl�
 | -------- | ------- |------- |------- |
 |Banque de France | Veridic | Guillaume.LOMBARDO@banque-france.fr | Passage en production prévu fin 2025 |
 
+
+-   **Effectuer des synthèses de documents textuels**
+
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|ANFSI | Synthèse de procédures judiciaires | malo.adler@gendarmerie.interieur.gouv.fr | Recherche |
+
+-   **Aider à vérifier la conformité légale de procédures administratives**
+
+| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
+| -------- | ------- |------- |------- |
+|ANFSI | Conformité des procédures | malo.adler@gendarmerie.interieur.gouv.fr | Recherche |
+
+
 -   **Agent conversationnel**
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
