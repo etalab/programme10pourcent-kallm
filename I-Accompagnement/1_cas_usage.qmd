@@ -6,14 +6,14 @@ format: html
 ---
 
 Les cas d'usages des LLMs sont variés et avant de se lancer et innover grâce aux LLMs, il est nécessaire de bien identifier le besoin qui amène l'utilisation d'un LLM. Pour quoi faire ? Pour quels usages ? Est-ce pour de la génération de texte ? Pour de la classification ? ou pour des interactions conversationnelles ?
-L'objectif de ce chapitre est d'accompagner la réflexion autour de l'identification du besoin et de la collecte des données, avec les différents types de cas d'usages impliquant des LLMs. 
+L'objectif de ce chapitre est d'accompagner la réflexion autour de l'identification du besoin et de la collecte des données, avec les différents types de cas d'usages impliquant des LLMs.
 
 Au sein des administrations, les cas d'usage de LLM ci-dessous sont en cours d'expérimentation, soit en production.
 
 ## Cas d’usage
 Des LLM peuvent être utilisés pour :
 
--	**Labelliser / classifier les textes d’un corpus traitant d’un sujet, selon certaines catégories**. 
+-	**Labelliser / classifier les textes d’un corpus traitant d’un sujet, selon certaines catégories**.
 Des LLMS peuvent être utilisés pour labelliser des articles de presse traitant de décisions de politique monétaire, selon les catégories « décision attendue », « décision surprenante », « ne sait pas ». Ils peuvent également classer des documents de recherche clinique selon différentes thématiques et disciplines, tout en permettant une recherche sémantique avancée. Ils peuvent aussi permettre de classer des accords d'entreprise, publiés sur [LégiFrance](https://www.legifrance.gouv.fr/liste/acco). Ces accords peuvent concerner plusieurs thématiques (télétravail, compte épargne temps, droit à la deconnexion).Ces thématiques sont déclarés par les entreprises et sont éventuellement corrigées par la Direction Générale du Travail.Le besoin est alors de détecter automatiquement les thématiques à la lecture de l'accord. Un jeu de données est disponible à l'adresse suivante : [accords_publics_xx_to_2022_themes_et_texte.parquet](https://minio.lab.sspcloud.fr/cthiounn2/Accords/accords_publics_xx_to_2022_themes_et_texte.parquet)
 
 
@@ -32,7 +32,7 @@ Par exemple, des LLMs peuvent être utilisés pour identifier les thématiques d
 | -------- | ------- |------- |------- |
 |Banque de France | Enquête sur les Tendances régionales | Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
 |LabIA DNUM | [LLamandement](https://gitlab.adullact.net/dgfip/projets-ia/llamandement) : LLM finetuné permettant d'accélerer le traitement d'amendements et projets de loi (notamment via la synthétisation des textes).| Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
-		
+
 
 -	**Faire une analyse de sentiment d’un corpus traitant d’une thématique**.
 Par exemple, des LLMs peuvent être utilisés pour faire une analyse de sentiment (ex : positif, négatif ou neutre) d’une thématique émergeant d’un champ « Commentaire » d’une enquête et traitant d’une perception du climat des affaires.
@@ -40,9 +40,9 @@ Par exemple, des LLMs peuvent être utilisés pour faire une analyse de sentimen
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
 |Banque de France | Enquête sur les Tendances régionales | Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
-		
 
--	**Agent conversationnel : interroger une base de documents textuels (pdf, code, etc…) (retrieval augmented generation)**. 
+
+-	**Agent conversationnel : interroger une base de documents textuels (pdf, code, etc…) (retrieval augmented generation)**.
 Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines existant dans la base. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés.
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
@@ -55,7 +55,7 @@ Projet mené par le LabIA de la DINUM. Pour aller plus loin, consulter :
     - [S'inscrire à l'Albert](https://albert.etalab.gouv.fr/signup)
     - [Albert github](https://github.com/etalab-ia/albert) : Outils de déploiements des modèles Albert
     - [Albert hugging face](https://huggingface.co/AgentPublic)
-    - [Albert API](https://github.com/etalab-ia/albert-api) - API 
+    - [Albert API](https://github.com/etalab-ia/albert-api) - API
     - [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) : Projet à destination de
     [France Service](https://www.france-services.gouv.fr/) et visant à appuyer ses conseillers dans la réalisation de leurs missions. Ce projet se base principalement
 
@@ -91,3 +91,4 @@ Par exemple, à l’interrogation « trouve-moi la date de naissance de l’indi
 
 
 > Pour plus de projets IA (au sens large) dans l'administration se référer au lien : https://grist.numerique.gouv.fr/o/beta-gouv-ia/9wTgwEbwqmwW/Ressources/p/1
+
