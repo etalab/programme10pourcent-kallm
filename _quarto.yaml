@@ -1,6 +1,9 @@
 project:
   type: website
-  
+  render:
+    - "*.qmd"
+    - "!IV-Exemples/"
+
 execute:
   freeze: auto
 
@@ -9,7 +12,7 @@ website:
 
   page-footer:
     right: "Ce site a été créé avec [Quarto](https://quarto.org/)"
-    
+
   sidebar:
     pinned: true
     align: center
@@ -38,16 +41,17 @@ website:
             text: "Focus sur le RAG (Retrieval Augmented Generation)"
           - href: II-Developpements/4_Evaluations.qmd
             text: "Evaluations"
-      - section: "III-Déploiements"
+      - section: "III-Deploiements"
+        href: "III-Deploiements/0_Introduction_deploiements.qmd"
         contents:
-          - href: III-Deploiements/1_Socle_minimal.qmd
-            text: "Socle minimal"
-          - href: III-Deploiements/2_Socle_avance.qmd
-            text: "Socle avancé"
-          - href: III-Deploiements/3_Socle_Production.qmd
-            text: "Socle Production"
-          - href: III-Deploiements/4_Infras_administrations.qmd
-            text: "Infrastructures dans l'administration"
+          - href: III-Deploiements/1_Architecture_projet_llm.qmd
+            text: ":construction: Architecture d'un projet LLM"
+          - href: III-Deploiements/2_Service_LLM_avance.qmd
+            text: ":wrench: Service LLM avancé"
+          - href: III-Deploiements/3_Service_LLM_production.qmd
+            text: ":factory: Service LLM à grande échelle"
+          - href: III-Deploiements/4_Deploiement_applications.qmd
+            text: ":computer: Déploiement d'applications"
       - section: "IV-Exemples"
         contents:
           - href: IV-Exemples/2_Classification_accords_entreprise.qmd
@@ -55,7 +59,6 @@ website:
       - text: "Bibliographie"
         href: Bibliographie.qmd
 
-        
 format:
   html:
     theme:
