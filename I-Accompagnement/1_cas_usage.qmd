@@ -42,23 +42,25 @@ Par exemple, des LLMs peuvent être utilisés pour faire une analyse de sentimen
 |Banque de France | Enquête sur les Tendances régionales | Farid.OUKACI@banque-france.fr <br> Olivier.LANTRAN@banque-france.fr | Expérimentation  |
 		
 
--	**Interroger une base de documents textuels (pdf, code, etc…) (retrieval augmented generation)**. 
+-	**Agent conversationnel : interroger une base de documents textuels (pdf, code, etc…) (retrieval augmented generation)**. 
 Les documents sont découpés en paragraphes (chunks). Les réponses aux questions posées sont générées sur la base de paragraphes idoines existant dans la base. Les paragraphes qui ont servi à l’élaboration de la réponse sont indiqués en regard de celle-ci, et peuvent être consultés.
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
 |Banque de France | Chatbdf | Nicolas.THOMAZO@banque-france.fr <br> Guillaume.LOMBARDO@banque-france.fr <br> Alix.DECREMOUX@banque-france.fr  | Passage en production prévu en décembre 2025  |
 |ANFSI | IAccueil | <br> daphne.pertsekos@gendarmerie.interieur.gouv.fr <br> jerome.laporte@gendarmerie.interieur.gouv.fr <br> jean-baptiste.delfau@gendarmerie.interieur.gouv.fr <br> malo.adler@gendarmerie.interieur.gouv.fr  | Expérimentation depuis Octobre 2024 |
-		
--	**Requêter sur des bases de données codées en SQL : à une interrogation exprimée en langage naturel sur une base en SQL, un code en SQL servant à la requête est renvoyé**.
-Par exemple, à l’interrogation « trouve-moi la date de naissance de l’individu I », un code SQL est renvoyé permettant d’effectuer la requête
+| Etalab | Albert | LabIA | Production |
 
-| Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
-| -------- | ------- |------- |------- |
-|Banque de France | Text2SQL | Guillaume.LOMBARDO@banque-france.fr | Passage en production par la BCE en décembre 2024 |
+Projet mené par le LabIA de la DINUM. Pour aller plus loin, consulter :
+    - [S'inscrire à l'Albert](https://albert.etalab.gouv.fr/signup)
+    - [Albert github](https://github.com/etalab-ia/albert) : Outils de déploiements des modèles Albert
+    - [Albert hugging face](https://huggingface.co/AgentPublic)
+    - [Albert API](https://github.com/etalab-ia/albert-api) - API 
+    - [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) : Projet à destination de
+    [France Service](https://www.france-services.gouv.fr/) et visant à appuyer ses conseillers dans la réalisation de leurs missions. Ce projet se base principalement
 
 
--   **Extraire des données à partir de documents textuels**
+-	**Extraire des données à partir de documents textuels pour construire une nouvelle base de données**
 Par exemple, à partir de documents réglementaires extraire 15 informations-clés et stocker celles-ci dans une base de données
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
@@ -66,32 +68,26 @@ Par exemple, à partir de documents réglementaires extraire 15 informations-cl�
 |Banque de France | Veridic | Guillaume.LOMBARDO@banque-france.fr | Passage en production prévu fin 2025 |
 
 
--   **Effectuer des synthèses de documents textuels**
+-	**Effectuer des synthèses de documents textuels**
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
 |ANFSI | Synthèse de procédures judiciaires | malo.adler@gendarmerie.interieur.gouv.fr | Recherche |
 
--   **Aider à vérifier la conformité légale de procédures administratives**
+
+-	**Aider à vérifier la conformité légale de procédures administratives**
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
 |ANFSI | Conformité des procédures | malo.adler@gendarmerie.interieur.gouv.fr | Recherche |
 
 
--   **Agent conversationnel**
+-	**Requêter sur des bases de données codées en SQL : à une interrogation exprimée en langage naturel sur une base en SQL, un code en SQL servant à la requête est renvoyé**.
+Par exemple, à l’interrogation « trouve-moi la date de naissance de l’individu I », un code SQL est renvoyé permettant d’effectuer la requête
 
 | Institution	|	Nom du Projet	|	Contact | Expérimentation/Production/Recherche|
 | -------- | ------- |------- |------- |
-| |  |  |  |
-
-Projet mené par le LabIA de la DINUM
-    - [Albert github](https://github.com/etalab-ia/albert) : Outils de déploiements des modèles Albert
-    - [Modèles Albert](Ajouter adresse Hugging Face)
-    - [Albert France Services](https://www.france-services.gouv.fr/taxonomy/term/174#:~:text=%C2%AB%20Albert%20France%20services%20%C2%BB%20facilite%20les,des%20cas%20d%27usage%20donn%C3%A9s.) : Projet à destination de
-    [France Service](https://www.france-services.gouv.fr/) et visant à appuyer ses conseillers dans la réalisation de leurs missions. Ce projet se base principalement
-    [Albert github](https://github.com/etalab-ia/albert)
-    [Albert hugging face]()
+|Banque de France | Text2SQL | Guillaume.LOMBARDO@banque-france.fr | Passage en production par la BCE en décembre 2024 |
 
 
 > Pour plus de projets IA (au sens large) dans l'administration se référer au lien : https://grist.numerique.gouv.fr/o/beta-gouv-ia/9wTgwEbwqmwW/Ressources/p/1
