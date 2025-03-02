@@ -34,3 +34,4 @@ Il y a quelques points supplémentaires à bien faire comprendre auprès des par
 * Bien expliquer son fonctionnement, ce qu'il génère et comment il génère. De mettre en exergue notamment sa nature probabiliste pour formuler une réponse.
 * Bien définir le besoin, le modèle utilisé, les raisons de son choix et pourquoi une solution non IA générative n'est pas viable.
 
+
