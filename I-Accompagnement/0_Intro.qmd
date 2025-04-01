@@ -12,7 +12,7 @@ Pour analyser un corpus, chaque document est représenté sous forme d'un **vect
 
 ### Caractéristiques des matrices
 
-Les matrices en résultantes sont potentiellement d’une très **grande dimension** (nombre de mots/chaînes de caractères utilisés dans le corpus en colonnes), et en même temps **creuses** (les mots/chaînes de caractères employés dans le corpus peuvent être utilisés uniquement dans quelques documents du corpus).
+Les matrices en résultant sont potentiellement d’une très **grande dimension** (nombre de mots/chaînes de caractères utilisés dans le corpus en colonnes), et en même temps **creuses** (les mots/chaînes de caractères employés dans le corpus peuvent être utilisés uniquement dans quelques documents du corpus).
 
 
 ### Étapes de prétraitement
